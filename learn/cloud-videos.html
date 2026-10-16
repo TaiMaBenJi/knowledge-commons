@@ -24,29 +24,31 @@
   <div class="badges"><span>核验日 2026-10-16</span><span>B站 API 逐条实测</span><span>按路线分好</span><span>附失效黑名单</span></div>
 </header>
 <nav class="tabs">
+  <a href="cloud/contest/index.html">竞赛中心</a>
+  <a href="cloud/lab.html">实训场</a>
   <a href="index.html">首页</a>
   <a href="arena.html">作战台</a>
   <a href="beginner.html">学堂</a>
-  <a href="calendar.html">日历</a>
+  <a href=exam/calendar.html">日历</a>
   <a href="archive.html">总目</a>
   <a href="courses.html">课程</a>
   <a href="contest.html">竞赛</a>
-  <a href="exams.html">升学</a>
-  <a href="gongkao.html">公考</a>
+  <a href=exam/index.html">升学</a>
+  <a href=exam/gongkao.html">公考</a>
   <a href="skills.html">世赛</a>
-  <a href="red.html">红色</a>
-  <a href="socialism.html">实践</a>
+  <a href=red/index.html">红色</a>
+  <a href=red/socialism.html">实践</a>
   <a href="ecommerce.html">创业</a>
-  <a href="cloud.html">云赛</a>
+  <a href=cloud/index.html">云赛</a>
   <a href="cloud-race.html">赛情</a>
   <a href="cloud-basics.html">基础</a>
   <a href="cloud-cert.html">认证</a>
   <a href="cloud-taskbooks.html">真卷</a>
-  <a href="cloudlab.html">实训</a>
+  <a href=cloud/lab.html">实训</a>
   <a href="comp-series.html">课程</a>
   <a href="sleep.html">睡前</a>
   <a class="on" href="cloud-videos.html">视频</a>
-  <a href="wsvideos.html">视频</a>
+  <a href=media/wsvideos.html">视频</a>
   <a href="paths.html">路线</a>
   <a href="../library.html">资源</a>
   <a href="../download.html">下载</a>
@@ -59,7 +61,7 @@
 
   <div class="card">
     <p><b>📌 一句实话先说清楚</b></p>
-    <p>世赛云计算赛项的<b>官方教学内容从未以公开视频形式系统发布</b>。官方路径是「AWS 提供的竞赛实训平台 + 集训队内部课程 + 专家组统一制定的竞赛通用要求」。所以你在 B 站能找的只有三类：<b>① 零散的真题/评分标准精读（最贴近赛项）② 商业机构的付费课程 ③ 国赛私有云路线</b>。指望找到一个「世赛官方免费全套网课」是不现实的——本库 <a href="cloud-sprint.html">30 天冲刺手册</a> + <a href="cloud.html">真题地图</a> 才是真正能替代它的东西。</p>
+    <p>世赛云计算赛项的<b>官方教学内容从未以公开视频形式系统发布</b>。官方路径是「AWS 提供的竞赛实训平台 + 集训队内部课程 + 专家组统一制定的竞赛通用要求」。所以你在 B 站能找的只有三类：<b>① 零散的真题/评分标准精读（最贴近赛项）② 商业机构的付费课程 ③ 国赛私有云路线</b>。指望找到一个「世赛官方免费全套网课」是不现实的——本库 <a href=cloud/sprint.html">30 天冲刺手册</a> + <a href=cloud/index.html">真题地图</a> 才是真正能替代它的东西。</p>
   </div>
 
   <section>
@@ -180,14 +182,14 @@
         <li><span class="t">✅ <b>可以离线保存</b>：B 站 / YouTube 公开视频（用平台官方客户端的缓存功能，或合规的下载工具）</span><span class="n">可存</span></li>
         <li><span class="t">❌ <b>不要尝试离线</b>：AWS re:Invent / Best of re:Invent 回放（AWS 自有 CDN 带登录态与校验）；Skill Builder / KodeKloud / IBM SkillsBuild（需登录 + 平台内播放器）</span><span class="n">别存</span></li>
         <li><span class="t">⚠️ <b>法律风险</b>：「已付费，允许白嫖」类的盗版搬运视频<b>不要收录进公开平台</b>，下架与法律风险都高</span><span class="n">别碰</span></li>
-        <li><span class="t">🔁 <b>本库自产视频才是真离线</b>：<a href="wsvideos.html">比赛视频馆</a>、<a href="sleep.html">睡前故事考场</a>、世赛 50 赛项总纲课、零基础学堂 16 讲——全部随包分发，断网可用</span><span class="n">自带</span></li>
+        <li><span class="t">🔁 <b>本库自产视频才是真离线</b>：<a href=media/wsvideos.html">比赛视频馆</a>、<a href="sleep.html">睡前故事考场</a>、世赛 50 赛项总纲课、零基础学堂 16 讲——全部随包分发，断网可用</span><span class="n">自带</span></li>
       </ul>
       <p class="small" style="margin-top:10px">各条的版权归属原作者与平台，本页只做<b>索引与标注</b>，不搬运、不二次分发。链接以 2026-10-16 的实测结果为准，平台内容变动频繁，<b>报名/开赛前建议再点一次确认</b>。</p>
     </div>
   </section>
 
   <p class="note">本页视频条目核验日 <b>2026-10-16</b>。B 站条目经 <code>api.bilibili.com/x/web-interface/view</code> 逐条实测（存活状态、播放量、发布时间、时长）；YouTube 与官方渠道条目为公开可得性核实，<b>可能需要国际网络或登录态</b>。播放量会持续变化，标注值为核验时快照。标「⚠️残缺」的系列存在分P删除，请按单集观看。</p>
-  <p><a href="cloud.html">← 回云计算备战中心</a> · <a href="cloud-race.html">赛情总台</a> · <a href="cloud-cert.html">云认证总库</a> · <a href="archive.html">资料总目</a></p>
+  <p><a href=cloud/index.html">← 回云计算备战中心</a> · <a href="cloud-race.html">赛情总台</a> · <a href="cloud-cert.html">云认证总库</a> · <a href="archive.html">资料总目</a></p>
 </div>
 </body>
 </html>

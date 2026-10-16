@@ -24,29 +24,31 @@
   <div class="badges"><span>2026-10-16 逐条核实</span><span>只收录真实赛事</span><span>报名入口直连官方</span><span>全站离线可读</span></div>
 </header>
 <nav class="tabs">
+  <a href="cloud/contest/index.html">竞赛中心</a>
+  <a href="cloud/lab.html">实训场</a>
   <a href="index.html">首页</a>
   <a href="arena.html">作战台</a>
   <a href="beginner.html">学堂</a>
-  <a href="calendar.html">日历</a>
+  <a href=exam/calendar.html">日历</a>
   <a href="archive.html">总目</a>
   <a href="courses.html">课程</a>
   <a href="contest.html">竞赛</a>
-  <a href="exams.html">升学</a>
-  <a href="gongkao.html">公考</a>
+  <a href=exam/index.html">升学</a>
+  <a href=exam/gongkao.html">公考</a>
   <a href="skills.html">世赛</a>
-  <a href="red.html">红色</a>
-  <a href="socialism.html">实践</a>
+  <a href=red/index.html">红色</a>
+  <a href=red/socialism.html">实践</a>
   <a href="ecommerce.html">创业</a>
-  <a href="cloud.html">云赛</a>
+  <a href=cloud/index.html">云赛</a>
   <a class="on" href="cloud-race.html">赛情</a>
   <a href="cloud-basics.html">基础</a>
   <a href="cloud-cert.html">认证</a>
   <a href="cloud-taskbooks.html">真卷</a>
-  <a href="cloudlab.html">实训</a>
+  <a href=cloud/lab.html">实训</a>
   <a href="comp-series.html">课程</a>
   <a href="sleep.html">睡前</a>
   <a href="cloud-videos.html">视频</a>
-  <a href="wsvideos.html">视频</a>
+  <a href=media/wsvideos.html">视频</a>
   <a href="paths.html">路线</a>
   <a href="../library.html">资源</a>
   <a href="../download.html">下载</a>
@@ -54,6 +56,13 @@
 </nav>
 
 <div class="wrap">
+
+  <div class="goal"><b>两条路线，分工不同：</b>
+  <a href="cloud/contest/index.html"><b>竞赛中心</b></a>是<b>真机路线</b>——7 套全真卷（国赛 / 广东 / 韩国 / 金砖 / 世赛 / 世职赛）配
+  <a href="cloud/contest/env/README.md">OpenStack allinone 与 K8s 集群环境脚本</a>，要你手上有真集群，适合赛前集训；
+  <a href="arena.html"><b>作战台</b></a>是<b>零依赖路线</b>——浏览器内虚拟服务器，<b>不用装任何东西、断网可跑</b>，
+  判分由函数自动判定（含世赛里昂 2024 的 52 个官方 task 编号），适合随时随地刷分与复盘。
+  <b>两条不冲突，建议先作战台、再竞赛中心。</b></div>
 
   <div class="card" id="kc-countdown">
     <p><b>⏱ 先设你的比赛日期</b>　倒计时按你填的日期算，存在本机，不上传。</p>
@@ -189,10 +198,10 @@
     <div class="card">
       <p>赛情看明白之后，按「离赛场多近」选训练方式，别贪多：</p>
       <ul class="list">
-        <li><span class="t"><b>一个月内就要上场</b> → <a href="cloud-sprint.html">30 天夺金冲刺手册</a>（赛项分值解剖 · 四周日历 · 必背模板 Top 20 · 考场检查单）</span><span class="n">冲刺</span></li>
-        <li><span class="t"><b>零基础刚起步</b> → <a href="cloud-week1.html">七天开蒙卡</a>；<a href="cloud-4weeks.html">四周入门计划</a>（每天 1.5–2 小时，每日验收）</span><span class="n">入门</span></li>
-        <li><span class="t"><b>要动手、要评分、要改对即得分</b> → <a href="cloudlab.html">实战训练场</a>（L1 Linux → L2 网络服务 → L3 Docker → L4 Kubernetes，自动评分脚本 + 故障注入）</span><span class="n">实操</span></li>
-        <li><span class="t"><b>要按评分表交付</b> → <a href="cloud.html">世赛备战中心</a>（224 篇真题地图：里昂评分点全录 / 韩国题面+评分标准 / 中国国赛真题附答案）</span><span class="n">真题</span></li>
+        <li><span class="t"><b>一个月内就要上场</b> → <a href=cloud/sprint.html">30 天夺金冲刺手册</a>（赛项分值解剖 · 四周日历 · 必背模板 Top 20 · 考场检查单）</span><span class="n">冲刺</span></li>
+        <li><span class="t"><b>零基础刚起步</b> → <a href=cloud/week1.html">七天开蒙卡</a>；<a href=cloud/4weeks.html">四周入门计划</a>（每天 1.5–2 小时，每日验收）</span><span class="n">入门</span></li>
+        <li><span class="t"><b>要动手、要评分、要改对即得分</b> → <a href=cloud/lab.html">实战训练场</a>（L1 Linux → L2 网络服务 → L3 Docker → L4 Kubernetes，自动评分脚本 + 故障注入）</span><span class="n">实操</span></li>
+        <li><span class="t"><b>要按评分表交付</b> → <a href=cloud/index.html">世赛备战中心</a>（224 篇真题地图：里昂评分点全录 / 韩国题面+评分标准 / 中国国赛真题附答案）</span><span class="n">真题</span></li>
         <li><span class="t"><b>要考厂商认证加分 / 就业</b> → <a href="cloud-cert.html">云认证总库</a>（AWS / 阿里云 / 华为云全清单 + 避坑表；华为 ICT 团队成员取得认证可加分）</span><span class="n">认证</span></li>
         <li><span class="t"><b>没时间、白天黑夜都能听</b> → <a href="sleep.html">睡前故事考场</a>（十四夜云上之城故事 + 次日清晨随机考场）</span><span class="n">碎片</span></li>
       </ul>
@@ -200,7 +209,7 @@
   </section>
 
   <p class="note">本页赛事信息于 <b>2026-10-16</b> 逐条检索核实：存在性以主办方官网/官方通知为准，档期以官方公布为准，退役与停办信息以官方停售/停办公告为准。凡标注「待观察」「未找到」的条目，表示本次检索未获官方确认，<b>不作为报名依据</b>。任何平台、命题方发布的赛程细节，均以当届官方文件为准。</p>
-  <p><a href="cloud.html">← 回云计算备战中心</a> · <a href="calendar.html">全年考试日历</a> · <a href="contest.html">竞赛总览</a> · <a href="archive.html">资料总目</a></p>
+  <p><a href=cloud/index.html">← 回云计算备战中心</a> · <a href=exam/calendar.html">全年考试日历</a> · <a href="contest.html">竞赛总览</a> · <a href="archive.html">资料总目</a></p>
 </div>
 
 <script>

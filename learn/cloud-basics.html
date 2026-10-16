@@ -24,29 +24,31 @@
   <div class="badges"><span>0 元可跑通全程</span><span>AWS 官方一手核实</span><span>六阶段带验收</span><span>无账号也有替代</span></div>
 </header>
 <nav class="tabs">
+  <a href="cloud/contest/index.html">竞赛中心</a>
+  <a href="cloud/lab.html">实训场</a>
   <a href="index.html">首页</a>
   <a href="arena.html">作战台</a>
   <a href="beginner.html">学堂</a>
-  <a href="calendar.html">日历</a>
+  <a href=exam/calendar.html">日历</a>
   <a href="archive.html">总目</a>
   <a href="courses.html">课程</a>
   <a href="contest.html">竞赛</a>
-  <a href="exams.html">升学</a>
-  <a href="gongkao.html">公考</a>
+  <a href=exam/index.html">升学</a>
+  <a href=exam/gongkao.html">公考</a>
   <a href="skills.html">世赛</a>
-  <a href="red.html">红色</a>
-  <a href="socialism.html">实践</a>
+  <a href=red/index.html">红色</a>
+  <a href=red/socialism.html">实践</a>
   <a href="ecommerce.html">创业</a>
-  <a href="cloud.html">云赛</a>
+  <a href=cloud/index.html">云赛</a>
   <a href="cloud-race.html">赛情</a>
   <a class="on" href="cloud-basics.html">基础</a>
   <a href="cloud-cert.html">认证</a>
   <a href="cloud-taskbooks.html">真卷</a>
-  <a href="cloudlab.html">实训</a>
+  <a href=cloud/lab.html">实训</a>
   <a href="comp-series.html">课程</a>
   <a href="sleep.html">睡前</a>
   <a href="cloud-videos.html">视频</a>
-  <a href="wsvideos.html">视频</a>
+  <a href=media/wsvideos.html">视频</a>
   <a href="paths.html">路线</a>
   <a href="../library.html">资源</a>
   <a href="../download.html">下载</a>
@@ -89,7 +91,7 @@
       <h3>阶段 0 · 地基（第 1–2 周）｜Linux + 网络，不是云，是云下面的东西</h3>
       <p><b>学什么</b>：Linux 常用命令、文件权限、systemd 服务管理、SSH；TCP/IP、IP 与子网、端口、DNS、HTTP/HTTPS 流程。</p>
       <p><b>在哪学</b>（全中文、全离线）：<a href="../study.html#d=tutorial_01-Linux零基础-保姆级_md">第 1 章 · Linux 零基础</a> · <a href="../study.html#d=tutorial_02-网络零基础-保姆级_md">第 2 章 · 网络零基础</a> · <a href="../study.html#d=knowledge_01-基础-Linux与操作系统_md">知识地图 01</a> · <a href="../study.html#d=knowledge_02-网络工程_md">知识地图 02</a>。视频：<a href="cloud-videos.html">视频库</a>里的 Docker/K8s 之外的通用课。</p>
-      <p><b>怎么练</b>：VMware Workstation Pro（个人免费）或 VirtualBox 起一台 Rocky 9 / Ubuntu 24.04；<a href="cloudlab.html">实战训练场 L1</a> 有任务书和自动评分脚本。</p>
+      <p><b>怎么练</b>：VMware Workstation Pro（个人免费）或 VirtualBox 起一台 Rocky 9 / Ubuntu 24.04；<a href=cloud/lab.html">实战训练场 L1</a> 有任务书和自动评分脚本。</p>
       <p><b>过关标准</b>：<b>不看任何资料，15 分钟内完成一台新机的初始化 + SSH 密钥登录 + 装 Nginx 并用 IP 访问成功</b>。做不到就别往下走。</p>
     </div>
 
@@ -104,7 +106,7 @@
       <h3>阶段 2 · AWS 账号与第一个服务（第 4 周）</h3>
       <p><b>学什么</b>：注册账号（<b>务必选对区域，选离你最近的</b>，如东京/新加坡/宁夏）；<b>根用户与 IAM 的区别</b>（这是最该第一天就懂的事）；建第一个 IAM 用户与角色；开一台 EC2 并安全组放行。</p>
       <p><b>官方入口</b>：<a href="https://skillbuilder.aws/" rel="noopener">Skill Builder</a>（免费层 <b>1,000+ 学习资源、900+ 门自定进度数字课</b>）· <a href="https://www.awseducate.com/" rel="noopener">AWS Educate</a>（免费、无需信用卡、13 岁+，<b>但已不再发放抵扣金</b>，只剩课程与实验）。</p>
-      <p><b>先读这个</b>：本站已把 <a href="aws-educate.html"><b>AWS 管理控制台入门官方课件全文</b></a>（5 节 53 张幻灯片逐条对齐）离线化了 —— <b>不懂英文就先啃这个</b>，免费且离线。</p>
+      <p><b>先读这个</b>：本站已把 <a href=courses/aws-educate.html"><b>AWS 管理控制台入门官方课件全文</b></a>（5 节 53 张幻灯片逐条对齐）离线化了 —— <b>不懂英文就先啃这个</b>，免费且离线。</p>
       <p><b>过关标准</b>：能用 IAM 策略限制一个用户只能读不能写；能说出「为什么不直接用根用户干活」。</p>
     </div>
 
@@ -119,7 +121,7 @@
     <div class="lesson" id="p4">
       <h3>阶段 4 · 容器与编排（第 8–9 周）</h3>
       <p><b>学什么</b>：Docker 镜像/容器/网络/卷 → Kubernetes 的 Pod/Deployment/Service/Ingress → 从 minikube 到 HPA。</p>
-      <p><b>在哪学</b>：<a href="../study.html#d=tutorial_10-Docker容器入门-保姆级_md">第 10 章 · Docker 容器入门</a> · <a href="../study.html#d=tutorial_11-Kubernetes入门-保姆级_md">第 11 章 · K8s 入门</a> · <a href="../study.html#d=knowledge_06-容器与编排_md">知识地图 06</a> · <a href="cloudlab.html"><b>实训场 L3 Docker / L4 Kubernetes</b></a>（带自动评分）。<br><b>视频</b>：<a href="https://www.bilibili.com/video/BV1r7411r7h7" rel="noopener">阿里云 × CNCF 云原生公开课</a>（30P/13h28m，<b>官方声明全程免费且无需注册</b>）。</p>
+      <p><b>在哪学</b>：<a href="../study.html#d=tutorial_10-Docker容器入门-保姆级_md">第 10 章 · Docker 容器入门</a> · <a href="../study.html#d=tutorial_11-Kubernetes入门-保姆级_md">第 11 章 · K8s 入门</a> · <a href="../study.html#d=knowledge_06-容器与编排_md">知识地图 06</a> · <a href=cloud/lab.html"><b>实训场 L3 Docker / L4 Kubernetes</b></a>（带自动评分）。<br><b>视频</b>：<a href="https://www.bilibili.com/video/BV1r7411r7h7" rel="noopener">阿里云 × CNCF 云原生公开课</a>（30P/13h28m，<b>官方声明全程免费且无需注册</b>）。</p>
       <p><b>过关标准</b>：能把一个应用打镜像 → 推仓库 → 用 Deployment 起多副本 → 用 Service 暴露 → 故意删掉一个 Pod 看自动恢复。</p>
     </div>
 
@@ -133,7 +135,7 @@
     <div class="lesson" id="p6">
       <h3>阶段 6 · 架构视野与自检（第 12 周）</h3>
       <p><b>学什么</b>：<b>Well-Architected 六支柱</b>（本页 ③ 逐条展开）· 高可用与故障转移 · 成本优化 · 安全基线。</p>
-      <p><b>自检</b>：Skill Builder 免费层的 <b>Official Practice Question Set</b>（每套 20 题、含详细讲解，是<b>官方唯一免费的模拟题来源</b>）· 本站 <a href="sleep.html">睡前考场</a>随机出题 · <a href="quiz.html">学堂自测</a>。</p>
+      <p><b>自检</b>：Skill Builder 免费层的 <b>Official Practice Question Set</b>（每套 20 题、含详细讲解，是<b>官方唯一免费的模拟题来源</b>）· 本站 <a href="sleep.html">睡前考场</a>随机出题 · <a href=exam/quiz.html">学堂自测</a>。</p>
       <p><b>过关标准</b>：用 Well-Architected Tool（<b>控制台里免费可用</b>）给自己的环境跑一次评估，能指出至少 5 条高风险项并说清改法。</p>
     </div>
   </section>
@@ -249,7 +251,7 @@
     <div class="card"><ul class="list">
       <li><span class="t"><a href="https://www.awseducate.com/" rel="noopener">AWS Educate</a> —— <b>仍在运营</b>，免费、<b>无需信用卡</b>、13 岁以上凭邮箱注册，提供免费自学课程与实操实验室</span><span class="n">免费</span></li>
       <li><span class="t">⚠️ <b>Educate 抵扣金已全部取消</b>：历史上 $35–$100 的学生抵扣金没有了，现在只剩课程与实验。<b>任何说「注册 AWS Educate 送 $100」的页面都已过时</b></span><span class="n">别信</span></li>
-      <li><span class="t"><b>本站已离线化其中一门课</b>：<a href="aws-educate.html">AWS 管理控制台入门（繁中）</a> 官方课件全文，5 节 53 张幻灯片、屏幕文字与旁白逐条对齐 + 实操速查 + 28 条中英术语对照；另有 <a href="aws-educate-catalog.html">71 门课程库总目录</a></span><span class="n">已离线</span></li>
+      <li><span class="t"><b>本站已离线化其中一门课</b>：<a href=courses/aws-educate.html">AWS 管理控制台入门（繁中）</a> 官方课件全文，5 节 53 张幻灯片、屏幕文字与旁白逐条对齐 + 实操速查 + 28 条中英术语对照；另有 <a href=courses/aws-educate-catalog.html">71 门课程库总目录</a></span><span class="n">已离线</span></li>
       <li><span class="t"><b>AWS Academy</b> —— 面向教师与机构的免费课程体系，<b>Foundational 6 门</b>：<b>Cloud Foundations</b>（云概念总览：核心服务/安全/架构/定价/支持）、<b>Generative AI Foundations</b>、<b>Machine Learning Foundations</b>（约 20 小时）、Data Center Technician、Engineering Operations Technicians、<b>Cloud Security Foundations</b>；<b>Associate 5 门</b>：Cloud Architecting、Cloud Developing 等；另有 <b>Learner Lab ad hoc 沙箱</b>（需教师资格审批）</span><span class="n">需申请</span></li>
       <li><span class="t">⚠️ <b>Academy 需通过学校/机构申请</b>，个人一般申请不到；AWS 另有面向中国学生的专门入口，但申请条件需向所在机构确认</span><span class="n">门槛</span></li>
       <li><span class="t">🇨🇳 <b>中文官方入口</b>：<a href="https://aws.amazon.com/cn/" rel="noopener">AWS 中国官网（简体）</a> · <a href="https://aws.amazon.com/cn/training/faqs/" rel="noopener">中文培训 FAQ</a>（明确列出简中/繁中为免费课程语言）· <a href="https://docs.amazonaws.cn/" rel="noopener">Amazon 文档（中国区，无需登录）</a> · Well-Architected 繁中文档</span><span class="n">中文</span></li>
@@ -296,7 +298,7 @@
         <li><span class="t"><b>⑤ RDS（托管数据库）</b> —— 建最小规格实例，连上去建库建表插数据。<br><b>验证</b>：<b>务必做完就删实例</b>。<b>学到</b>：与自建 MySQL 的差异、备份快照、为什么它比 EC2 贵</span><span class="n">小心计费</span></li>
         <li><span class="t"><b>⑥ ELB 负载均衡 + ASG 自动伸缩</b> —— 两台 EC2 挂到 ALB 后面；再挂 ASG，设目标追踪。<br><b>验证</b>：访问 ALB 地址来回几次，看后端轮换；手动扩一台看是否被自动缩掉。<b>学到</b>：健康检查/会话/弹性/可用区分布——<b>世赛可靠性 15% 权重考的就是这套</b></span><span class="n">高分项</span></li>
       </ul>
-      <p class="small" style="margin-top:8px">配套中文图文：<a href="../study.html#d=tutorial_12-AWS云平台实战-保姆级_md">第 12 章 · AWS 云平台实战（保姆级）</a>。离线动手（无云账户也行）：<a href="cloudlab.html">实战训练场 L1–L4</a>，带自动评分脚本与故障注入。</p>
+      <p class="small" style="margin-top:8px">配套中文图文：<a href="../study.html#d=tutorial_12-AWS云平台实战-保姆级_md">第 12 章 · AWS 云平台实战（保姆级）</a>。离线动手（无云账户也行）：<a href=cloud/lab.html">实战训练场 L1–L4</a>，带自动评分脚本与故障注入。</p>
     </div>
   </section>
 
@@ -305,7 +307,7 @@
     <div class="card">
       <p>学云不一定要有云账户。这几条替代路线<b>完全离线</b>，概念一点不打折：</p>
       <ul class="list">
-        <li><span class="t"><b>本地虚拟机</b> —— VirtualBox / VMware Workstation Pro（<b>个人免费</b>）装 Rocky 9 或 Ubuntu 24.04，把「服务器」跑在自己电脑上。站点 <a href="cloudlab.html">实训场</a>的三套环境方案就是这么设计的</span><span class="n">首选</span></li>
+        <li><span class="t"><b>本地虚拟机</b> —— VirtualBox / VMware Workstation Pro（<b>个人免费</b>）装 Rocky 9 或 Ubuntu 24.04，把「服务器」跑在自己电脑上。站点 <a href=cloud/lab.html">实训场</a>的三套环境方案就是这么设计的</span><span class="n">首选</span></li>
         <li><span class="t"><b>LocalStack</b> —— 在 Docker 里跑一套 AWS API 兼容的本地云，S3/SQS/Lambda/DynamoDB 都能调，<b>断网可用</b>，最适合练「API 调用」而不是「控制台点点」</span><span class="n">API</span></li>
         <li><span class="t"><b>MinIO</b> —— S3 兼容的对象存储，一条命令本地跑起来，练习桶/权限/生命周期几乎等价</span><span class="n">替代S3</span></li>
         <li><span class="t"><b>DynamoDB Local</b> —— 官方提供的本地版，Java 一跑就有，NoSQL 建模不用花钱</span><span class="n">替代DDB</span></li>
@@ -320,8 +322,8 @@
   <section>
     <h2 class="sec">⑦ 站内配套内容地图（这一页是导航，不是替代）</h2>
     <div class="card"><ul class="list">
-      <li><span class="t"><a href="aws-educate.html"><b>AWS 管理控制台入门 · 官方课件全文</b></a>　5 节 53 张幻灯片，屏幕文字与旁白逐条对齐 + 实操速查 + 28 条中英术语对照，<b>简体中文 · 全离线</b></span><span class="n">英文补丁</span></li>
-      <li><span class="t"><a href="cloudlab.html"><b>实战训练场 L1–L4</b></a>　任务书 + 自动评分脚本（做对得分、改对即得分）+ L1 故障注入，兼容 Rocky 9 / Ubuntu 24.04</span><span class="n">动手</span></li>
+      <li><span class="t"><a href=courses/aws-educate.html"><b>AWS 管理控制台入门 · 官方课件全文</b></a>　5 节 53 张幻灯片，屏幕文字与旁白逐条对齐 + 实操速查 + 28 条中英术语对照，<b>简体中文 · 全离线</b></span><span class="n">英文补丁</span></li>
+      <li><span class="t"><a href=cloud/lab.html"><b>实战训练场 L1–L4</b></a>　任务书 + 自动评分脚本（做对得分、改对即得分）+ L1 故障注入，兼容 Rocky 9 / Ubuntu 24.04</span><span class="n">动手</span></li>
       <li><span class="t"><a href="../study.html#d=tutorial_01-Linux零基础-保姆级_md">20 章保姆级教程</a>　00 开始之前 → 20 锐捷云平台真题，<b>全中文全离线</b>，零基础主线</span><span class="n">主线</span></li>
       <li><span class="t"><a href="../study.html#d=knowledge_01-基础-Linux与操作系统_md"><b>知识地图 12 章</b></a>　Linux → 网络 → 企业服务 → 私有云 → <b>公有云 AWS</b> → 容器 → IaC → 可观测 → 安全 → 前沿 → 竞赛 → 认证</span><span class="n">体系</span></li>
       <li><span class="t"><a href="../study.html#d=mastery_00-总纲-像说话一样掌握云计算_md"><b>精通体系 8 篇</b></a>　疆域全景图 / 精通阶梯自测 / 架构模式手册 / 全平台地图 / 365 天训练系统</span><span class="n">进阶</span></li>
@@ -333,7 +335,7 @@
   </section>
 
   <p class="note">本页 AWS 官方信息核实日期 <b>2026-10-16</b>：Free Tier 额度、Skill Builder 免费/订阅边界、Well-Architected 六支柱与 Lenses/Guidance 构成均取自官方页面原文。⚠️ <b>免费额度与定价可能调整</b>，不同区域规则也可能不同，<b>开通任何计费资源前请以官方定价页当日口径为准</b>。本页只做学习路径整理与资源索引，不售卖、不代理任何 AWS 服务或课程；各资源版权归 AWS 及其合作方所有。</p>
-  <p><a href="cloud.html">← 回云计算备战中心</a> · <a href="cloudlab.html">实战训练场</a> · <a href="aws-educate.html">AWS 官方课件全文</a> · <a href="archive.html">资料总目</a></p>
+  <p><a href=cloud/index.html">← 回云计算备战中心</a> · <a href=cloud/lab.html">实战训练场</a> · <a href=courses/aws-educate.html">AWS 官方课件全文</a> · <a href="archive.html">资料总目</a></p>
 </div>
 </body>
 </html>

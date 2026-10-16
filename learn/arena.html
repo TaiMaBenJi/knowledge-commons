@@ -217,39 +217,34 @@ padding:3px 10px;font-size:11.5px;cursor:pointer;font-family:inherit;white-space
 <nav class="tabs">
   <a href="index.html">首页</a>
   <a class="on" href="arena.html">作战台</a>
-  <a href="beginner.html">学堂</a>
-  <a href="calendar.html">日历</a>
-  <a href="archive.html">总目</a>
-  <a href="courses.html">课程</a>
-  <a href="contest.html">竞赛</a>
-  <a href="exams.html">升学</a>
-  <a href="gongkao.html">公考</a>
-  <a href="skills.html">世赛</a>
-  <a href="red.html">红色</a>
-  <a href="socialism.html">实践</a>
-  <a href="ecommerce.html">创业</a>
-  <a href="cloud.html">云赛</a>
+  <a href="cloud/index.html">云赛</a>
   <a href="cloud-race.html">赛情</a>
   <a href="cloud-basics.html">基础</a>
   <a href="cloud-cert.html">认证</a>
-  <a href="cloud-taskbooks.html">真卷</a>
-  <a href="cloudlab.html">实训</a>
-  <a href="comp-series.html">课程</a>
+  <a href="cloud/lab.html">实训</a>
+  <a href="cloud/contest/index.html">竞赛中心</a>
   <a href="sleep.html">睡前</a>
   <a href="cloud-videos.html">视频</a>
-  <a href="wsvideos.html">视频</a>
-  <a href="paths.html">路线</a>
+  <a href="media/wsvideos.html">赛场</a>
+  <a href="skills.html">世赛</a>
+  <a href="archive.html">总目</a>
   <a href="../library.html">资源</a>
   <a href="../download.html">下载</a>
-  <a href="about.html">简章</a>
 </nav>
 
 <div class="wrap">
 <div id="err"></div>
 
+  <div class="goal"><b>两条路线，分工不同：</b>
+  <a href="cloud/contest/index.html"><b>竞赛中心</b></a>是<b>真机路线</b>——7 套全真卷（国赛 / 广东 / 韩国 / 金砖 / 世赛 / 世职赛）配
+  <a href="cloud/contest/env/README.md">OpenStack allinone 与 K8s 集群环境脚本</a>，要你手上有真集群，适合赛前集训；
+  <b>作战台（本页）</b>是<b>零依赖路线</b>——浏览器内虚拟服务器，<b>不用装任何东西、断网可跑</b>，
+  判分由函数自动判定（含世赛里昂 2024 的 52 个官方 task 编号），适合随时随地刷分与复盘。
+  <b>两条不冲突，建议先作战台、再竞赛中心。</b></div>
+
+
   <button class="cta" id="goExam">🎮 直接开始模拟比赛（限时 · 自动判分 · 出报告）</button>
   <button class="cta gold" id="goComp">🏟 比赛仿真场 —— 5 场真实赛事，官方评分点判分</button>
-  <button class="cta ghost gold" id="goSeries" style="background:transparent">🎬 先看四讲课程（带配音字幕）</button>
   <button class="cta ghost" id="goLab">🧪 不限时练 —— 打开实训环境（22 个场景）</button>
 
   <div class="goal">这一页是<b>入口也是环境</b>。上面两个按钮点下去，<b>就在这个页面里</b>打开一个真的 Linux 终端：能敲命令、能装 Nginx、能建 MySQL、能配 DNS、能写 Ansible 剧本，写错了会给你打分，<b>不需要装任何软件、不需要联网</b>。</div>
@@ -279,7 +274,7 @@ padding:3px 10px;font-size:11.5px;cursor:pointer;font-family:inherit;white-space
       <div class="lesson">
         <h3>阶段 0 · 地基（第 1–2 周）</h3>
         <p><b>学</b>：Linux 命令、文件权限、服务管理、SSH；IP/子网/端口/DNS。<br>
-        <b>读</b>：<a href="../study.html#d=tutorial_01-Linux零基础-保姆级_md">第 1 章 Linux 零基础</a> · <a href="../study.html#d=tutorial_02-网络零基础-保姆级_md">第 2 章 网络零基础</a> · <a href="aws-educate.html">AWS 控制台导览（官方课件全文）</a><br>
+        <b>读</b>：<a href="../study.html#d=tutorial_01-Linux零基础-保姆级_md">第 1 章 Linux 零基础</a> · <a href="../study.html#d=tutorial_02-网络零基础-保姆级_md">第 2 章 网络零基础</a> · <a href="courses/aws-educate.html">AWS 控制台导览（官方课件全文）</a><br>
         <b>练</b>：本页面「实训环境」里的 <b>room1 / room2 / room3</b>（机房基线、账号与目录、巡检脚本）<br>
         <b>过关</b>：不看资料，15 分钟完成一台新机的初始化 + 密钥登录 + 装 Nginx 并访问成功</p>
       </div>
@@ -316,7 +311,7 @@ padding:3px 10px;font-size:11.5px;cursor:pointer;font-family:inherit;white-space
       <div class="lesson">
         <h3>阶段 6 · 架构视野与自检（第 12 周）</h3>
         <p><b>读</b>：<a href="cloud-basics.html">基础总纲 ③ B · Well-Architected 六大支柱</a> · <a href="cloud-cert.html">云认证总库</a>（认证考纲就是官方架构观）<br>
-        <b>练</b>：<a href="sleep.html">睡前考场</a>随机出题 · <a href="quiz.html">学堂自测</a> · 再刷一遍本页全真模拟赛<br>
+        <b>练</b>：<a href="sleep.html">睡前考场</a>随机出题 · <a href="exam/quiz.html">学堂自测</a> · 再刷一遍本页全真模拟赛<br>
         <b>过关</b>：能指出自己环境里至少 5 条高风险项并说清改法</p>
       </div>
     </div>
@@ -356,10 +351,10 @@ padding:3px 10px;font-size:11.5px;cursor:pointer;font-family:inherit;white-space
     <div class="card">
       <ul class="list">
         <li><span class="t"><b>零基础六阶段学习地图 + AWS 官方免费体系 + 防超费</b> → <a href="cloud-basics.html">云基础学习总纲</a>（含 Ramp-Up Guides 38 份官方 PDF 直链）</span><span class="n">先看这个</span></li>
-        <li><span class="t"><b>AWS 管理控制台导览 · 官方课件全文</b>（5 节 53 张幻灯片，简体中文，已离线）→ <a href="aws-educate.html">aws-educate.html</a>；<a href="aws-educate-catalog.html">71 门课程库总目录</a></span><span class="n">中文</span></li>
-        <li><span class="t"><b>视频课</b>（30 条 B 站链接逐条实测存活 + 失效黑名单）→ <a href="cloud-videos.html">云计算视频库</a>；世赛现场影像 → <a href="wsvideos.html">比赛视频馆</a></span><span class="n">视频</span></li>
-        <li><span class="t"><b>碎片时间</b>：十四夜云上之城故事 + 次日清晨随机考场 → <a href="sleep.html">睡前故事考场</a>；128 道选择 → <a href="quiz.html">学堂自测</a></span><span class="n">碎片</span></li>
-        <li><span class="t"><b>比赛冲刺</b>：赛项分值解剖 + 四周日历 + 考场检查单 → <a href="cloud-sprint.html">30 天夺金冲刺手册</a>；224 篇真题地图 → <a href="cloud.html">云计算备战中心</a></span><span class="n">冲刺</span></li>
+        <li><span class="t"><b>AWS 管理控制台导览 · 官方课件全文</b>（5 节 53 张幻灯片，简体中文，已离线）→ <a href="courses/aws-educate.html">aws-educate.html</a>；<a href="courses/aws-educate-catalog.html">71 门课程库总目录</a></span><span class="n">中文</span></li>
+        <li><span class="t"><b>视频课</b>（30 条 B 站链接逐条实测存活 + 失效黑名单）→ <a href="cloud-videos.html">云计算视频库</a>；世赛现场影像 → <a href="media/wsvideos.html">比赛视频馆</a></span><span class="n">视频</span></li>
+        <li><span class="t"><b>碎片时间</b>：十四夜云上之城故事 + 次日清晨随机考场 → <a href="sleep.html">睡前故事考场</a>；128 道选择 → <a href="exam/quiz.html">学堂自测</a></span><span class="n">碎片</span></li>
+        <li><span class="t"><b>比赛冲刺</b>：赛项分值解剖 + 四周日历 + 考场检查单 → <a href="cloud/sprint.html">30 天夺金冲刺手册</a>；224 篇真题地图 → <a href="cloud/index.html">云计算备战中心</a></span><span class="n">冲刺</span></li>
         <li><span class="t"><b>全站总目录与检索</b> → <a href="archive.html">资料总目</a> · <a href="search.html">全站检索</a> · <a href="../library.html">资源总库</a></span><span class="n">导航</span></li>
       </ul>
     </div>
@@ -6058,11 +6053,6 @@ sl.addEventListener('click',function(e){
   var b=e.target.closest('[data-scn]'); if(!b) return;
   try{ window.LabUI.openScenario(b.getAttribute('data-scn')); }
   catch(err){ showErr(err); }
-});
-
-/* 备赛课程 */
-document.getElementById("goSeries").addEventListener("click", function () {
-  location.href = "comp-series.html";
 });
 
 /* 比赛仿真场 */
