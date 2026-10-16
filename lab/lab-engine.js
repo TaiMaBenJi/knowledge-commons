@@ -308,6 +308,11 @@ root.LabEngine = root.LabEngine || {};
    一、软件包仓库 / 服务定义 / 安装效果
    ===================================================================== */
 var CATALOG = {
+  'postfix':        {v:'3.8.4-1',         svc:'postfix'},
+  'squid':          {v:'5.7-2ubuntu1',     svc:'squid'},
+  'wireguard-tools':{v:'1.0.20210914-1'},
+  'wireguard':      {v:'1.0.20210914-1'},
+  'iproute2':       {v:'6.1.0-1ubuntu1'},
   'nginx':          {v:'1.24.0-1ubuntu3', svc:'nginx'},
   'dnsmasq':        {v:'2.90-2',          svc:'dnsmasq'},
   'mariadb-server': {v:'1:10.11.7-2',     svc:'mariadb'},
@@ -583,7 +588,20 @@ function parseDnsmasq(vm, text){
 
 var HAPROXY_KEYS=['global','defaults','frontend','backend','listen','bind','default_backend','mode','balance',
  'server','option','timeout','stats','acl','use_backend','http-request','http-response','redirect','monitor-uri',
- 'retries','maxconn','description','default-server','log','daemon','chroot','user','group','pidfile','nbproc','ulimit-n','tune.ssl.default-dh-param','errorfile','errorloc','capture','compression'];
+ 'retries','maxconn','description','default-server','log','daemon','chroot','user','group','pidfile','nbproc','ulimit-n','tune.ssl.default-dh-param','errorfile','errorloc','capture','compression',
+ /* 真实机房/比赛里常见的指令，缺一个就会让合法配置被判解析失败 */
+ 'tcp-request','tcp-response','http-check','ssl','crt','ca-file','ca-base-dir','verify','ciphers','ca-verify-file',
+ 'tcp-check','check-ssl','sni','alpn','req.ssl_sni','ssl-required','ssl-services','tcp-check send',
+ 'req_ssl_sni','ssl_fc','haproxy','option','source','cookie','stick','stick-table','load-server-state',
+ 'send-spoe-group','tcp-response','http-request','deny','allow','req.ssl_hello_type','set-cookie','add-header',
+ 'del-header','replace-header','set-header','req.hdr','hash-type','hash-balance-factor','hash-www-server-name',
+ 'default-server','init-addr','disabled','root','userauth','users','group','program','master-worker',
+ 'http-request','deny_status','deny_info','on-error','status','option','tcpka','option','dontlognull',
+ 'check-agent','observe','fastinter','downinter','fastdown','rise','fall','inter','on-marked-down','on-marked-up',
+ 'weight','disabled','backup','check-send-proxy','proto','send-proxy','vpc-init','peer','ca-file','verify-client',
+ 'verify-extra','crl-file','crl-check','crl','ciphersuites','ssl-server-verify','ssl-client-verify','tune.ssl',
+ 'spread-checks','option','tcp-check connect','log-send-hostname','http-after-response','unique-id-format',
+ 'set-log-level','rate-limit','deny','block-updates','spoe-agent','tcp-spiffe','set-tls','verify-required'];
 function parseHaproxy(vm, text){
   var res={ok:true, err:null, frontends:[], backends:{}, global:[], defaults:[]};
   var lines=text.split('\n'), section=null, cur=null;
@@ -3102,6 +3120,7 @@ root.LabEngine.execLine=execLine; root.LabEngine.execSingle=execSingle;
 root.LabEngine.grade=grade; root.LabEngine.vmToJSON=vmToJSON; root.LabEngine.vmFromJSON=vmFromJSON;
 root.LabEngine.newVM=function(id){ return new VM(id); };
 root.LabEngine.CMDS=CMDS;
+root.LabEngine.CATALOG=CATALOG;
 root.LabEngine._test={ tokenize:tokenize, splitChain:splitChain, splitPipe:splitPipe, parseNginx:parseNginx, parseDnsmasq:parseDnsmasq, parseHaproxy:parseHaproxy, ansibleParse:ansibleParse, sqlRun:sqlRun };
 if(typeof module!=='undefined'&&module.exports) module.exports=root.LabEngine;
 })(typeof window!=='undefined'?window:(typeof globalThis!=='undefined'?globalThis:this));

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>云计算视频库 · 世赛/国赛/AWS/阿里云/华为云 - 知识公社</title>
+<link rel="stylesheet" href="style.css">
+<!-- kc-pwa -->
+<meta name="theme-color" content="#9e2b25">
+<meta name="color-scheme" content="light">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
+<script defer src="../sw-reg.js"></script>
+<script defer src="../install-tip.js"></script>
+<!-- /kc-pwa -->
+</head>
+<body>
+<div class="topbar"><span class="dot"></span><span>云计算视频库 | 逐条存活核验 · 分路线 · 失效的别再找了</span></div>
+<header class="hero">
+  <div class="kicker">CLOUD VIDEO LIBRARY · VERIFIED LINKS</div>
+  <h1>云计算视频库</h1>
+  <p>视频资源最大的坑是<b>死链</b>——UP 主一删、你白找一下午。这页每条都标了<b>核验日期、播放量、是否分P删除</b>，并附一份<b>失效黑名单</b>，省你时间。</p>
+  <div class="badges"><span>核验日 2026-10-16</span><span>B站 API 逐条实测</span><span>按路线分好</span><span>附失效黑名单</span></div>
+</header>
+<nav class="tabs">
+  <a href="index.html">首页</a>
+  <a href="arena.html">作战台</a>
+  <a href="beginner.html">学堂</a>
+  <a href="calendar.html">日历</a>
+  <a href="archive.html">总目</a>
+  <a href="courses.html">课程</a>
+  <a href="contest.html">竞赛</a>
+  <a href="exams.html">升学</a>
+  <a href="gongkao.html">公考</a>
+  <a href="skills.html">世赛</a>
+  <a href="red.html">红色</a>
+  <a href="socialism.html">实践</a>
+  <a href="ecommerce.html">创业</a>
+  <a href="cloud.html">云赛</a>
+  <a href="cloud-race.html">赛情</a>
+  <a href="cloud-basics.html">基础</a>
+  <a href="cloud-cert.html">认证</a>
+  <a href="cloud-taskbooks.html">真卷</a>
+  <a href="cloudlab.html">实训</a>
+  <a href="comp-series.html">课程</a>
+  <a href="sleep.html">睡前</a>
+  <a class="on" href="cloud-videos.html">视频</a>
+  <a href="wsvideos.html">视频</a>
+  <a href="paths.html">路线</a>
+  <a href="../library.html">资源</a>
+  <a href="../download.html">下载</a>
+  <a href="about.html">简章</a>
+</nav>
+
+<div class="wrap">
+
+  <div class="goal">先分清<b>两条路线</b>，再选课：<b>世赛云计算 = 公有云（AWS）+ 排障</b>；<b>国赛/职业院校云计算应用 = 私有云（OpenStack）+ 容器</b>。两者的技术栈和考法<b>是两回事，不要混着学</b>——你参加哪个比赛，就只刷哪条线。</div>
+
+  <div class="card">
+    <p><b>📌 一句实话先说清楚</b></p>
+    <p>世赛云计算赛项的<b>官方教学内容从未以公开视频形式系统发布</b>。官方路径是「AWS 提供的竞赛实训平台 + 集训队内部课程 + 专家组统一制定的竞赛通用要求」。所以你在 B 站能找的只有三类：<b>① 零散的真题/评分标准精读（最贴近赛项）② 商业机构的付费课程 ③ 国赛私有云路线</b>。指望找到一个「世赛官方免费全套网课」是不现实的——本库 <a href="cloud-sprint.html">30 天冲刺手册</a> + <a href="cloud.html">真题地图</a> 才是真正能替代它的东西。</p>
+  </div>
+
+  <section>
+    <h2 class="sec">① 世赛云计算专属（最贴近赛项，优先看）</h2>
+    <div class="card">
+      <p class="small">UP 主「<b>陈涛谈云计算</b>」是本次检索中<b>唯一系统讲解世赛评分标准</b>的中文 UP。以下均经 bilibili view API 实测存活。</p>
+      <ul class="list">
+        <li><span class="t"><a href="https://www.bilibili.com/video/BV1UwQ2YUEZa" rel="noopener">精读世界技能大赛的历史真题（1）</a>　26分58秒<br><span class="small">播放 337 · 2025-03-15</span></span><span class="n">真题</span></li>
+        <li><span class="t"><a href="https://www.bilibili.com/video/BV1Ha9yYME1j" rel="noopener">世赛评分标准（01）Cost Ratio</a>　13分13秒<br><span class="small">播放 278 · 2025-03-07 ——<b>直接讲评分怎么算</b>，性价比最高的一条</span></span><span class="n">评分</span></li>
+        <li><span class="t"><a href="https://www.bilibili.com/video/BV1ryXYYiE3a" rel="noopener">世赛漫谈：这是作弊吗？</a>　7分21秒<br><span class="small">播放 421 · 2025-03-23</span></span><span class="n">规则</span></li>
+        <li><span class="t"><a href="https://www.bilibili.com/video/BV1cNrUBzEES" rel="noopener">云计算（世赛选拔）项目解读</a>　20分53秒<br><span class="small">播放 906 · <b>2026-01-17，全库最新的一条世赛解读</b></span></span><span class="n">最新</span></li>
+        <li><span class="t"><a href="https://www.bilibili.com/video/BV1gN411k7ki" rel="noopener">世界技能大赛冠军-陈新源-云计算</a>　4分12秒<br><span class="small">播放 7,104 · 2023-06-10 —— 人物短片，不是教学，看赛程氛围</span></span><span class="n">纪实</span></li>
+        <li><span class="t"><a href="https://www.bilibili.com/video/BV1Sf4y127kn" rel="noopener">AWS云计算实战（1）云计算概述</a>　8分15秒<br><span class="small">播放 1,586 · 2020-06-06 ——<b>⚠️ 该系列部分分P已被删除，只能当片段看，不要指望整包</b></span></span><span class="n">⚠️残缺</span></li>
+      </ul>
+    </div>
+    <div class="check">
+      <p><b>集训队与官方资源（查得到，但基本不是公开课）</b></p>
+      <ul>
+        <li>河南省集训队学习模块：<b>13 门课程、视频时长 173 小时</b>，实验模块提供 <b>AWS 云临时账户</b> —— 平台制课程，需机构账号（<a href="http://www.yhit.org/xwdt/yhxw/2335.html" rel="noopener">来源</a>）</li>
+        <li>南京云创大数据《云计算职业技能竞赛初级课程》：视频 50+ / 实验 100+ / 竞赛场景 10+ —— <b>商业付费课程</b>，URL 未获官方确认，自行判断</li>
+        <li>台州技师学院（第 48 届第三轮集训）、常州技师学院（主基地）—— 仅有新闻通稿，<b>无公开教学视频</b></li>
+        <li>❌ <b>抖音上未检索到任何可确认的世赛云计算系统性教学账号</b>，不排除存在但无法证实。别指望抖音能兜底</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">② 国赛 / 职业院校技能大赛「云计算应用」赛项（私有云路线）</h2>
+    <div class="card">
+      <p class="small">UP 主「<b>zcloudedu</b>」是竞赛专属频道（887 粉丝 / 45 视频），内容就是国赛赛项实操。<b>如果你打的是国赛/省赛，主攻这一栏。</b></p>
+      <ul class="list">
+        <li><span class="t"><a href="https://www.bilibili.com/video/BV1UDffBbEac" rel="noopener">2026年职业院校技能大赛「云计算赛项」欧拉搭建 OpenStack</a>　1集 / 13分13秒<br><span class="small">播放 1,822 · 2026-02-04 —— <b>当前最新国赛路线</b>，desc 原文「基于 openEuler 22.09 搭建 Yoga 版本 OpenStack」</span></span><span class="n">最新</span></li>
+        <li><span class="t"><a href="https://www.bilibili.com/video/BV1M1nmzSEgS" rel="noopener">职业院校技能大赛「云计算应用」赛项-新版竞赛系统介绍</a>　1集 / 4分00秒<br><span class="small">播放 1,530 · 2025-09-30 ——<b>赛制已改版</b>，由三套系统整合为「综合竞赛平台」</span></span><span class="n">赛制</span></li>
+        <li><span class="t"><a href="https://www.bilibili.com/video/BV1YL4y157Ew" rel="noopener">全国职业院校技能大赛云计算赛项「私有云」OpenStack 平台搭建</a>　8分P / 44分27秒<br><span class="small">播放 <b>20,102</b> · 收藏 516 · 2022-04-10 —— 播放量最高的一套，<b>但是 OpenStack 老版本路线</b></span></span><span class="n">高播放</span></li>
+        <li><span class="t"><a href="https://www.bilibili.com/video/BV1g24y197cd" rel="noopener">2022年全国职业院校技能大赛「云计算」赛项私有云平台搭建与运维</a>　5分P / 1h55m31s<br><span class="small">播放 16,906 · 2022-10-05</span></span><span class="n">长课</span></li>
+        <li><span class="t"><a href="https://www.bilibili.com/video/BV1eT4y1Y74A" rel="noopener">全国职业院校技能大赛 云计算赛项 OpenStack API 调用</a>　2分P / 7分29秒<br><span class="small">播放 4,325 · 2022-04-11</span></span><span class="n">API</span></li>
+        <li><span class="t"><a href="https://space.bilibili.com/297536767" rel="noopener">zcloudedu UP 主主页</a> —— 竞赛频道入口，<b>新视频会持续更新</b></span><span class="n">频道</span></li>
+      </ul>
+      <p class="small" style="margin-top:10px">另有「陈涛谈云计算」的国赛私有云微课可作补充：<a href="https://www.bilibili.com/video/BV1wL411G7aW" rel="noopener">0220 Neutron 计算节点安装</a>（5分26秒，播放 156）、<a href="https://www.bilibili.com/video/BV1YU4y1w7zX" rel="noopener">0218 Neutron 控制节点手工安装</a>（11分55秒，播放 238）——<b>手工装 OpenStack，国赛路线的基本功</b>。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">③ 阿里云 · 官方免费课（免费且无需注册）</h2>
+    <div class="card"><ul class="list">
+      <li><span class="t"><a href="https://www.bilibili.com/video/BV1r7411r7h7" rel="noopener">Kubernetes · 阿里云与 CNCF 联合云原生技术公开课</a>　30P / 13h28m<br><span class="small">desc 原文「<b>课程全程免费且无需注册</b>」，阿里云 + CNCF 官方联合开发，<b>零门槛首选</b></span></span><span class="n">免费</span></li>
+      <li><span class="t"><a href="https://www.bilibili.com/video/BV1GhdZYPErG" rel="noopener">【2025年】阿里云云计算高级工程师 ACP 认证完整培训视频教程</a>　49P / 11h<br><span class="small">官方账号 · 官方口径 · 最新考纲 · <b>免费无需登录</b></span></span><span class="n">免费</span></li>
+      <li><span class="t"><a href="https://www.bilibili.com/video/BV1SG5NzSEyj" rel="noopener">【2025年】阿里云 ACE 认证云计算架构师完整培训视频教程（上）</a>　10P / 5h14m<br><span class="small">ACE 官方免费课，<b>只有上集</b></span></span><span class="n">半</span></li>
+      <li><span class="t">📚 <b>配套图文</b>：每个认证页「更多学习资料及下载」都有<b>免费考试大纲 PDF</b>，无需购买可下载 —— 去 <a href="https://edu.aliyun.com/certification/acp01" rel="noopener">edu.aliyun.com/certification/acp01</a> 找</span><span class="n">离线</span></li>
+    </ul></div>
+  </section>
+
+  <section>
+    <h2 class="sec">④ 华为云 · HCIA / HCIP 备考（课程最全的一家）</h2>
+    <div class="card"><ul class="list">
+      <li><span class="t"><a href="https://www.bilibili.com/video/BV18CDjBREDp" rel="noopener">华为云计算 HCIA-Cloud 培训课程 139 讲</a>　139P / 56h<br><span class="small">2026-04 发布，超长完整版</span></span><span class="n">超长</span></li>
+      <li><span class="t"><a href="https://www.bilibili.com/video/BV1uQ4y1Q7Cb" rel="noopener">华为云工程师培训课程 - HCIA-Cloud Service</a>　49P / 9h56m<br><span class="small"><b>华为云开发者学堂官方课程的完整 B 站镜像</b></span></span><span class="n">官方课</span></li>
+      <li><span class="t"><a href="https://www.bilibili.com/video/BV1JU4y1w7e9" rel="noopener">华为云高级工程师 HCIP-Cloud SA</a>　75P / 18h56m<br><span class="small">同上，HCIP 架构师线完整版</span></span><span class="n">架构</span></li>
+      <li><span class="t"><a href="https://www.bilibili.com/video/BV1sud5YbECp" rel="noopener">全套丨誉天邹圣林老师亲授云计算 HCIA 基础视频课</a>　28P / 43h<br><span class="small">武汉誉天，desc 明示贴合官方考纲</span></span><span class="n">机构</span></li>
+      <li><span class="t"><a href="https://www.bilibili.com/video/BV1Rh1PB2ELn" rel="noopener">华为云微认证：华为云计算服务实践</a>　2h12m　＋　<a href="https://www.bilibili.com/video/BV1EPydBPEmv" rel="noopener">HCCDA-Tech Essentials</a>　6h28m<br><span class="small">华为云开发者认证线，2025 年新版；<b>微认证本身完全免费</b></span></span><span class="n">免费考</span></li>
+    </ul></div>
+  </section>
+
+  <section>
+    <h2 class="sec">⑤ AWS 备考（中文 + 英文）</h2>
+    <div class="card"><ul class="list">
+      <li><span class="t"><a href="https://www.bilibili.com/video/BV1TF4m1N782" rel="noopener">AWS 云从业者认证速通（CLF-C02）</a>　80P / 10h22m<br><span class="small"><b>中文 AWS CCP 免费课</b>，AWS 官方联合举办</span></span><span class="n">中文</span></li>
+      <li><span class="t">📺 <b>AWS 官方 YouTube</b>（<code>@AmazonWebServices</code>）与 <b>AWS Events YouTube</b>（re:Invent 全部演讲录像，免费公开）</span><span class="n">需国际网</span></li>
+      <li><span class="t">🟢 <b>更推荐的不是视频而是 PDF</b>：CLF-C02 / SAA-C03 的<b>官方考试指南 + 官方样题 PDF</b> 完全可离线，见 <a href="cloud-cert.html">云认证总库 ③</a></span><span class="n">离线</span></li>
+    </ul></div>
+  </section>
+
+  <section>
+    <h2 class="sec">⑥ Docker / Kubernetes（通用底座）</h2>
+    <div class="card"><ul class="list">
+      <li><span class="t"><a href="https://www.bilibili.com/video/BV1jrdoYqEAc" rel="noopener">【2026版】5小时快速入门 Kubernetes（k8s）</a>　34P / 7h<br><span class="small">B 站当前最值得主推的 K8s 长课</span></span><span class="n">K8s</span></li>
+      <li><span class="t"><a href="https://www.bilibili.com/video/BV1FCb864Ewu" rel="noopener">Docker 2小时上手 - 2026 最新教程</a>　7P / 2h13m<br><span class="small">2026-08 发布，<b>全清单里最新的 Docker 课</b></span></span><span class="n">最新</span></li>
+      <li><span class="t"><a href="https://www.bilibili.com/video/BV1Zn4y1X7AZ" rel="noopener">Docker 教程，3小时速通，docker 部署到实战</a>　25P / 2h44m<br><span class="small">尚硅谷，密度最高的 Docker 课</span></span><span class="n">速通</span></li>
+      <li><span class="t"><a href="https://www.bilibili.com/video/BV1THKyzBER6" rel="noopener">40分钟的 Docker 实战攻略</a>　39分<br><span class="small">技术爬爬虾 · 2025 · 71 万播放 · 8 大板块</span></span><span class="n">高播放</span></li>
+      <li><span class="t"><a href="https://www.bilibili.com/video/BV1ap5C67EKa" rel="noopener">【Docker+K8S】零基础入门到实战教程（2026版）</a>　15P / 2h<br><span class="small">Linux老余 · Docker+K8s 一体课</span></span><span class="n">一体</span></li>
+      <li><span class="t"><a href="https://www.bilibili.com/video/BV1Se411r7vY" rel="noopener">Kubernetes 一小时轻松入门</a>　1P / 1h<br><span class="small">GeekHour · 376k 播放 · 61 分钟建立完整心智模型</span></span><span class="n">速通</span></li>
+      <li><span class="t"><a href="https://www.bilibili.com/video/BV1qoqLY6EGp" rel="noopener">openstack 私有云</a>　38P / 11h<br><span class="small">躺平鸭哥 · 2024-12 · <b>私有云路线最新的一套</b></span></span><span class="n">私有云</span></li>
+      <li><span class="t"><a href="https://www.bilibili.com/video/BV1jk4y1D7mU" rel="noopener">全B站最好懂的云计算入门课（Azure）</a>　1P / 1h<br><span class="small">喜得Sid · 150k 播放 · 零基础第一课</span></span><span class="n">入门</span></li>
+    </ul></div>
+  </section>
+
+  <section>
+    <h2 class="sec">⑦ 国际英文（需国际网络）</h2>
+    <div class="card"><ul class="list">
+      <li><span class="t">AWS Certified Cloud Practitioner Certification Course 2026（CLF-C02）—— YouTube / freeCodeCamp　约 14h　<span class="small">英文最权威的免费 AWS 入门课，标题自带 2026</span></span><span class="n">英文</span></li>
+      <li><span class="t">Kubernetes Tutorial for Beginners [FULL COURSE in 4 Hours] —— YouTube / TechWorld with Nana　4h　<span class="small">公认最好的免费 K8s 课</span></span><span class="n">英文</span></li>
+      <li><span class="t">AWS re:Invent 主题演讲与分论坛录像 —— AWS Events YouTube　<span class="small">免费公开；<b>注意 2026 年起现场已不提供认证考试</b></span></span><span class="n">免费</span></li>
+    </ul></div>
+  </section>
+
+  <section>
+    <h2 class="sec">⑧ ⚫ 失效黑名单 · 看到这些直接跳过</h2>
+    <div class="card">
+      <p class="small">以下全部经 bilibili <code>view</code> API 实测确认失效。<b>网上仍有大量教程在推荐它们</b>。</p>
+      <ul class="list">
+        <li><span class="t"><code>BV1ne411R7XF</code>「AWS-基础教程（简体中文）」（石分神奇）—— <code>62002 稿件不可见</code>，UP 主删除/审核下架（原播放 73,102）</span><span class="n">已删</span></li>
+        <li><span class="t"><code>BV1ep9xYyEtV</code>「世界技能大赛与 AWS 竞赛平台」—— <code>-404 啥都木有</code>（原播放 427）。<b>这条正是世赛 AWS 平台讲解，损失较大</b></span><span class="n">已删</span></li>
+        <li><span class="t"><code>BV1jz4y197gY</code>「什么是VPC?(2)-AWS云计算实战（14）」—— <code>62002</code>，已删除。<b>证明「陈涛谈云计算」的 AWS 实战系列存在分P删除，不可整包收录</b></span><span class="n">已删</span></li>
+        <li><span class="t"><code>space.bilibili.com/1072049909</code>「华为云开发者学堂」B 站号 —— <b>空壳账号</b>（粉丝 2、视频 0），无任何内容</span><span class="n">空壳</span></li>
+        <li><span class="t"><code>BV1RY4y1g76t</code>（Istio 系列）—— <b>账号已注销</b>；同类 <code>BV1ea4y1c7MT</code> 同样失效</span><span class="n">注销</span></li>
+      </ul>
+      <div class="check">
+        <p><b>失效规律（比死链本身更有用）</b></p>
+        <p>B 站<b>个人 UP 主的「系列打包课」失效风险显著高于机构号</b>（尚硅谷、阿里云学堂、华为云、达内教育、GeekHour 等机构号相对稳定）。所以：<b>个人 UP 的合集课程必须逐集核验后再投入时间</b>，机构号可以放心整包看。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">⑨ 怎么存下来 · 离线怎么做</h2>
+    <div class="card">
+      <ul class="list">
+        <li><span class="t">✅ <b>可以离线保存</b>：B 站 / YouTube 公开视频（用平台官方客户端的缓存功能，或合规的下载工具）</span><span class="n">可存</span></li>
+        <li><span class="t">❌ <b>不要尝试离线</b>：AWS re:Invent / Best of re:Invent 回放（AWS 自有 CDN 带登录态与校验）；Skill Builder / KodeKloud / IBM SkillsBuild（需登录 + 平台内播放器）</span><span class="n">别存</span></li>
+        <li><span class="t">⚠️ <b>法律风险</b>：「已付费，允许白嫖」类的盗版搬运视频<b>不要收录进公开平台</b>，下架与法律风险都高</span><span class="n">别碰</span></li>
+        <li><span class="t">🔁 <b>本库自产视频才是真离线</b>：<a href="wsvideos.html">比赛视频馆</a>、<a href="sleep.html">睡前故事考场</a>、世赛 50 赛项总纲课、零基础学堂 16 讲——全部随包分发，断网可用</span><span class="n">自带</span></li>
+      </ul>
+      <p class="small" style="margin-top:10px">各条的版权归属原作者与平台，本页只做<b>索引与标注</b>，不搬运、不二次分发。链接以 2026-10-16 的实测结果为准，平台内容变动频繁，<b>报名/开赛前建议再点一次确认</b>。</p>
+    </div>
+  </section>
+
+  <p class="note">本页视频条目核验日 <b>2026-10-16</b>。B 站条目经 <code>api.bilibili.com/x/web-interface/view</code> 逐条实测（存活状态、播放量、发布时间、时长）；YouTube 与官方渠道条目为公开可得性核实，<b>可能需要国际网络或登录态</b>。播放量会持续变化，标注值为核验时快照。标「⚠️残缺」的系列存在分P删除，请按单集观看。</p>
+  <p><a href="cloud.html">← 回云计算备战中心</a> · <a href="cloud-race.html">赛情总台</a> · <a href="cloud-cert.html">云认证总库</a> · <a href="archive.html">资料总目</a></p>
+</div>
+</body>
+</html>

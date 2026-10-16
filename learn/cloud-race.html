@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>云计算赛情总台 - 知识公社</title>
+<link rel="stylesheet" href="style.css">
+<!-- kc-pwa -->
+<meta name="theme-color" content="#9e2b25">
+<meta name="color-scheme" content="light">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
+<script defer src="../sw-reg.js"></script>
+<script defer src="../install-tip.js"></script>
+<!-- /kc-pwa -->
+</head>
+<body>
+<div class="topbar"><span class="dot"></span><span>云计算赛情总台 | 哪些比赛真实存在 · 什么时候报名 · 考什么 · 官方入口直连</span></div>
+<header class="hero">
+  <div class="kicker">COMPETITION RADAR · CLOUD</div>
+  <h1>云计算赛情总台</h1>
+  <p>云计算的比赛远不止世赛一个。这页把<b>真实存在</b>的赛事、<b>准确档期</b>、<b>考纲形态</b>与<b>官方报名入口</b>摆到一页上——带倒计时，带避坑。</p>
+  <div class="badges"><span>2026-10-16 逐条核实</span><span>只收录真实赛事</span><span>报名入口直连官方</span><span>全站离线可读</span></div>
+</header>
+<nav class="tabs">
+  <a href="index.html">首页</a>
+  <a href="arena.html">作战台</a>
+  <a href="beginner.html">学堂</a>
+  <a href="calendar.html">日历</a>
+  <a href="archive.html">总目</a>
+  <a href="courses.html">课程</a>
+  <a href="contest.html">竞赛</a>
+  <a href="exams.html">升学</a>
+  <a href="gongkao.html">公考</a>
+  <a href="skills.html">世赛</a>
+  <a href="red.html">红色</a>
+  <a href="socialism.html">实践</a>
+  <a href="ecommerce.html">创业</a>
+  <a href="cloud.html">云赛</a>
+  <a class="on" href="cloud-race.html">赛情</a>
+  <a href="cloud-basics.html">基础</a>
+  <a href="cloud-cert.html">认证</a>
+  <a href="cloud-taskbooks.html">真卷</a>
+  <a href="cloudlab.html">实训</a>
+  <a href="comp-series.html">课程</a>
+  <a href="sleep.html">睡前</a>
+  <a href="cloud-videos.html">视频</a>
+  <a href="wsvideos.html">视频</a>
+  <a href="paths.html">路线</a>
+  <a href="../library.html">资源</a>
+  <a href="../download.html">下载</a>
+  <a href="about.html">简章</a>
+</nav>
+
+<div class="wrap">
+
+  <div class="card" id="kc-countdown">
+    <p><b>⏱ 先设你的比赛日期</b>　倒计时按你填的日期算，存在本机，不上传。</p>
+    <div class="grid">
+      <div>
+        <label class="small" for="race-date">比赛日期</label><br>
+        <input id="race-date" type="date" style="font-size:15px;padding:6px 8px;border:1px solid var(--line);border-radius:4px;width:100%;max-width:220px">
+        <div class="small" style="margin-top:8px" id="race-hint">留空则默认按「本月 30 日」估算。</div>
+      </div>
+      <div>
+        <div id="race-out" style="font-size:30px;font-weight:700;color:var(--red-dk);font-family:var(--serif);letter-spacing:1px">—</div>
+        <div class="small" id="race-sub">距离比赛</div>
+      </div>
+    </div>
+    <div class="actionbar">
+      <button class="actbtn" id="race-preset" type="button">用「本月 30 日」</button>
+      <button class="actbtn ghost" id="race-clear" type="button">清除</button>
+    </div>
+    <div class="small" id="race-tip"></div>
+  </div>
+
+  <div class="goal">这一页只回答三件事：<b>① 我能报什么（哪些比赛真实存在、什么时候报）② 考什么（考纲形态一句话看懂）③ 去哪报（官方入口，不给二手链接）</b>。凡是查不到官方出处的说法，一律不收。</div>
+
+  <section>
+    <h2 class="sec">① 正在报名 / 即将开赛 · 眼下最要紧</h2>
+    <div class="grid">
+      <div class="mod red">
+        <div class="ico">ICT</div>
+        <b>华为 ICT 大赛 · 第十一届</b>
+        <p class="desc">实践赛「<b>云</b>」赛道。<b>报名 2026-08-31 ~ 10-31</b>（本月 31 号截止），省赛 2026-11~12，中国总决赛 2027-03。<b>云赛项 = 理论测试 + 实验测试</b>，且「实验成绩」是晋级省赛、省赛获奖、晋级总决赛的<b>必要条件</b>——只刷理论会卡死。</p>
+        <p class="meta">报名：e.huawei.com/cn/talent/ict-academy ｜ 组队 3 生 + 1 指导教师（须同校）</p>
+      </div>
+      <div class="mod gold">
+        <div class="ico">云杯</div>
+        <b>「天翼云杯」上海市大学生云计算应用大赛</b>
+        <p class="desc">第三届（2026）。定位「知云、懂云、用云」，2026 升级为<b>五赛道</b>：人工智能应用 / 设计开发 / 创意方案 / <b>云实践</b> / 云网安全。提供天翼云全栈算力免费使用 + 一对一技术支持。</p>
+        <p class="meta">主办：上海大学计算机学院 + 中国电信上海分公司 + 天翼云科技</p>
+      </div>
+      <div class="mod blue">
+        <div class="ico">新华三</div>
+        <b>「新华三杯」全国大学生数字技术大赛</b>
+        <p class="desc">已办 <b>15 届</b>，工信部指导 + 新华三集团主办，800+ 院校、近 3 万选手。赛制：<b>队长实操 + 队员笔试</b> → 前 8 名晋级 → 团队项目 + 面试答辩。</p>
+        <p class="meta">云网络 / 计算方向每年开赛，关注学校通知与官网</p>
+      </div>
+      <div class="mod green">
+        <div class="ico">传智</div>
+        <b>传智杯 · AI 云计算大数据开发挑战赛</b>
+        <p class="desc">行业内认可度较高的学生赛，<b>与云原生相关度高、真题可离线化程度高</b>，适合当「机考形态」的训练样板。赛制以个人机考为主。</p>
+        <p class="meta">按年度举办，关注传智杯官网与各校通知</p>
+      </div>
+    </div>
+    <p class="small" style="margin-top:10px">⚠️ 上面四场的具体<b>今年赛程与截止日以官方通知为准</b>，本页只标注已核实到的档期；报名前请点进官方入口复核一次。</p>
+  </section>
+
+  <section>
+    <h2 class="sec">② 世赛云计算 · 四届真相</h2>
+    <div class="card">
+      <p>网上流传的世赛云计算届次<b>大面积错误</b>（「2021 佛山」「2023 东京」「2025 里昂」都不存在）。真实时间线只有四站：</p>
+      <ul class="list">
+        <li><span class="t"><b>第 45 届 · 2019-08 · 俄罗斯喀山</b> —— 云计算赛项<b>首次设立</b>，中国队首次参赛，未获奖</span><span class="n">首届</span></li>
+        <li><span class="t"><b>第 46 届特别版 · 2022-10-17 · 韩国高阳</b> —— 陈新源（深圳技师学院）夺金，<b>中国 IT 类首金</b></span><span class="n">首金</span></li>
+        <li><span class="t"><b>第 47 届 · 2024-09-11~15 · 法国里昂</b> —— 黄佳杰（深圳技师学院）夺金，<b>连冠</b></span><span class="n">连冠</span></li>
+        <li><span class="t"><b>第 48 届 · 2026-09-23~27 · 中国上海</b>（中国首次主办）—— 尹智伟（江苏常州技师学院）夺金，<b>三连冠</b>；赛程 3.5 天 / 22 小时</span><span class="n">三连冠</span></li>
+      </ul>
+      <div class="quote">云计算是<b>世赛唯一全程联网的 IT 赛项</b>——选手可以查互联网资料，实时计分榜刷新。所以「背命令」没用，<b>排错速度与架构判断</b>才是分差所在。<span class="src">— 香港世赛专家访谈 / WorldSkills 技能页 545</span></div>
+      <p class="small" style="margin-top:8px">下一届世赛在更远的将来，<b>不是眼前要赶的场</b>。真正在眼前的是上面 ① 的四场国内赛 + 各省人社厅的世赛选拔赛。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">③ 赛历总表 · 按月查</h2>
+    <div class="card"><ul class="list">
+      <li><span class="t"><b>10 月</b> —— 华为 ICT 第十一届实践赛报名<b>截止 10-31</b>；算子赛报名 10-26 截止；移动云杯智算应用创新大赛报名 10-08 截止</span><span class="n">报名月</span></li>
+      <li><span class="t"><b>11 月</b> —— 华为 ICT <b>省赛开赛（11~12 月）</b>；移动云杯智算应用创新大赛<b>总决赛</b>；各地人社厅<b>世赛选拔赛</b>集中期（近年多在 11–12 月）</span><span class="n">开赛月</span></li>
+      <li><span class="t"><b>12 月</b> —— 华为 ICT 创新赛 / 编程赛 / 精英赛初赛；各省世赛选拔赛收尾</span><span class="n">初赛月</span></li>
+      <li><span class="t"><b>1–2 月</b> —— 华为 ICT 教学赛复赛；挑战赛初赛</span><span class="n">—</span></li>
+      <li><span class="t"><b>3 月</b> —— 华为 ICT <b>中国总决赛</b>（2027-03）</span><span class="n">决赛月</span></li>
+      <li><span class="t"><b>4–5 月</b> —— 华为 ICT 精英赛 / 教学赛 / 挑战赛中国总决赛；算子赛全球总决赛（2027-05）</span><span class="n">决赛月</span></li>
+      <li><span class="t"><b>6 月底 – 9 月中旬</b> —— 腾讯犀牛鸟 <b>OpenCloudOS</b> 学生实战赛（<b>赛题即 GitHub/Gitee Issue，公开可读</b>，固定档期）</span><span class="n">固定</span></li>
+      <li><span class="t"><b>9 月中下旬</b> —— <b>全国职业技能大赛</b>（世赛选拔 + 国赛精选，第三届于 2025-09-19~23 郑州，106 个赛项）</span><span class="n">国赛</span></li>
+    </ul></div>
+    <p class="small" style="margin-top:8px">年度节奏参考：第十一届全国职业技能大赛 2025-09 郑州；第 48 届中国集训队名单 2025-11-25 公布（681 人，<b>云计算取国赛单人前 10 名</b>）。</p>
+  </section>
+
+  <section>
+    <h2 class="sec">④ 考纲形态速查 · 一句话看懂考什么</h2>
+    <div class="card"><ul class="list">
+      <li><span class="t"><b>华为 ICT 实践赛「云」</b>：<b>理论 + 实验双测</b>。云/基础软件赛项实验成绩是晋级硬门槛。内容含云计算基础、华为云产品与服务、云解决方案、上云迁移、<b>容器与 K8S</b>，以及机器学习、深度学习、NLP、大语言模型、AI Agent</span><span class="n">双测</span></li>
+      <li><span class="t"><b>世赛云计算</b>：四天赛程，前两日系统判分实操，第三日<b>故障排除</b>（从 6 小时 12 题压缩为 3 小时 12 题、难度提升），第四日组队任务 + 英文演讲。公有云平台为 <b>AWS</b>，赛项号 Skill 53</span><span class="n">实操</span></li>
+      <li><span class="t"><b>金砖国家职业技能大赛 · 云计算</b>：2 人/队实操。三模块 —— <b>OpenStack 平台部署与运维 / 容器云 / 企业级应用的自动化部署与运维</b>，覆盖高可用可伸缩架构、性能监测、Shell 脚本管资源、负载均衡</span><span class="n">实操</span></li>
+      <li><span class="t"><b>新华三杯</b>：队长实操 + 队员笔试 → 前 8 名 → 团队项目 + 面试答辩</span><span class="n">混合</span></li>
+      <li><span class="t"><b>天翼云杯（上海）</b>：作品/方案赛，云实践赛道偏实操部署与方案设计</span><span class="n">作品</span></li>
+      <li><span class="t"><b>传智杯云计算大数据</b>：个人机考为主，云原生相关度高</span><span class="n">机考</span></li>
+      <li><span class="t"><b>OpenCloudOS / 开放原子开源大赛</b>：赛题公开（Issue 形式），可当<b>长期练手</b>而非冲刺目标</span><span class="n">开源</span></li>
+    </ul></div>
+  </section>
+
+  <section>
+    <h2 class="sec">⑤ 别踩的坑 · 这些说法是错的</h2>
+    <div class="card">
+      <ul class="list">
+        <li><span class="t">❌「全国大学生云计算技能大赛」——<b>不存在</b>。检索不到任何以此冠名的国家级赛事。命中的都是名称相近的不同赛事（天翼云杯上海赛 / 传智杯 / 金砖 / 新华三杯 / 已停办的「全国高校云计算应用创新大赛」）</span><span class="n">不存在</span></li>
+        <li><span class="t">❌「全国高校云计算应用创新大赛」——<b>已停办，末届 2018</b>。还在推它的资料都是旧的</span><span class="n">已停办</span></li>
+        <li><span class="t">❌ KubeCon + CloudNativeCon China —— <b>是技术会议，不是竞赛</b>。OSCAR 开源云技术年会同理（会议 + 奖项评选）</span><span class="n">非竞赛</span></li>
+        <li><span class="t">❌ 腾讯 TCon —— 检索到的均为<b>会议</b>，未证实为竞赛</span><span class="n">非竞赛</span></li>
+        <li><span class="t">❌ 「Docker 中国区竞赛」「DevOps 挑战赛（中国区）」—— 未检索到官方在办记录</span><span class="n">未找到</span></li>
+        <li><span class="t">⚠️ 金砖云计算赛项 <b>2025 年中国赛区 25 个赛项中没有「云计算」</b>；2026 年第一批赛项明细未取得，是否回归<b>待观察</b></span><span class="n">待观察</span></li>
+        <li><span class="t">⚠️ 世赛云计算是<b>放宽年龄组</b>：须 <b>2001-01-01 以后出生</b>（多数项目是 2004-01-01 以后）。人社部函〔2025〕16 号</span><span class="n">年龄</span></li>
+        <li><span class="t">⚠️ 世赛官方赛题<b>赛前保密</b>，赛前 2 周公布样题，且明确「样题模块不作为最终竞赛的方式和内容」——别把样题当真题背</span><span class="n">保密</span></li>
+      </ul>
+      <p class="small" style="margin-top:10px">另外两条容易被自媒体写错的：<b>AWS 中国是课程/认证体系，不是竞赛</b>；<b>KCTF 看雪是 CTF 夺旗，不是容器安全赛</b>。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">⑥ 官方入口 · 不给二手链接</h2>
+    <div class="card"><ul class="list">
+      <li><span class="t">华为 ICT 大赛报名（第十一届）</span><span class="n"><a href="https://e.huawei.com/cn/talent/ict-academy/#/ict-contest?compId=85132018" rel="noopener">官方</a></span></li>
+      <li><span class="t">世界技能大赛 · 云计算技能页（Skill 545）</span><span class="n"><a href="https://worldskills.org/skills/id/545/" rel="noopener">官方</a></span></li>
+      <li><span class="t">WSOS 2026 上海版职业标准（权重表全文）</span><span class="n"><a href="https://worldskills.org/what/projects/wsos/2026/events/611/skills/2455" rel="noopener">官方</a></span></li>
+      <li><span class="t">世界技能大赛中国（人社部）· 选拔赛与集训基地</span><span class="n"><a href="http://worldskillschina.cn/" rel="noopener">官方</a></span></li>
+      <li><span class="t">第 48 届世赛官网（上海）</span><span class="n"><a href="https://www.worldskills2026.com.cn" rel="noopener">官方</a></span></li>
+      <li><span class="t">全国职业技能大赛（国赛）规程与赛卷</span><span class="n"><a href="http://www.chinaskills-jsw.org" rel="noopener">官方</a></span></li>
+      <li><span class="t">金砖国家职业技能大赛（BRICS 技能赛）</span><span class="n"><a href="http://www.brskills.com/" rel="noopener">官方</a></span></li>
+      <li><span class="t">中国电信 · 天翼云杯（上海）赛事公告</span><span class="n"><a href="https://www.chinatelecom.com.cn/ct/news/gdxw/167357.html" rel="noopener">官方</a></span></li>
+      <li><span class="t">阿里云天池 · 算法与 AI 赛事</span><span class="n"><a href="https://tianchi.aliyun.com/" rel="noopener">官方</a></span></li>
+      <li><span class="t">OpenCloudOS 社区（犀牛鸟赛题 Issue 公开可读）</span><span class="n"><a href="https://www.opencloudos.org/" rel="noopener">官方</a></span></li>
+    </ul></div>
+  </section>
+
+  <section>
+    <h2 class="sec">⑦ 报了名，接下来去哪练</h2>
+    <div class="card">
+      <p>赛情看明白之后，按「离赛场多近」选训练方式，别贪多：</p>
+      <ul class="list">
+        <li><span class="t"><b>一个月内就要上场</b> → <a href="cloud-sprint.html">30 天夺金冲刺手册</a>（赛项分值解剖 · 四周日历 · 必背模板 Top 20 · 考场检查单）</span><span class="n">冲刺</span></li>
+        <li><span class="t"><b>零基础刚起步</b> → <a href="cloud-week1.html">七天开蒙卡</a>；<a href="cloud-4weeks.html">四周入门计划</a>（每天 1.5–2 小时，每日验收）</span><span class="n">入门</span></li>
+        <li><span class="t"><b>要动手、要评分、要改对即得分</b> → <a href="cloudlab.html">实战训练场</a>（L1 Linux → L2 网络服务 → L3 Docker → L4 Kubernetes，自动评分脚本 + 故障注入）</span><span class="n">实操</span></li>
+        <li><span class="t"><b>要按评分表交付</b> → <a href="cloud.html">世赛备战中心</a>（224 篇真题地图：里昂评分点全录 / 韩国题面+评分标准 / 中国国赛真题附答案）</span><span class="n">真题</span></li>
+        <li><span class="t"><b>要考厂商认证加分 / 就业</b> → <a href="cloud-cert.html">云认证总库</a>（AWS / 阿里云 / 华为云全清单 + 避坑表；华为 ICT 团队成员取得认证可加分）</span><span class="n">认证</span></li>
+        <li><span class="t"><b>没时间、白天黑夜都能听</b> → <a href="sleep.html">睡前故事考场</a>（十四夜云上之城故事 + 次日清晨随机考场）</span><span class="n">碎片</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <p class="note">本页赛事信息于 <b>2026-10-16</b> 逐条检索核实：存在性以主办方官网/官方通知为准，档期以官方公布为准，退役与停办信息以官方停售/停办公告为准。凡标注「待观察」「未找到」的条目，表示本次检索未获官方确认，<b>不作为报名依据</b>。任何平台、命题方发布的赛程细节，均以当届官方文件为准。</p>
+  <p><a href="cloud.html">← 回云计算备战中心</a> · <a href="calendar.html">全年考试日历</a> · <a href="contest.html">竞赛总览</a> · <a href="archive.html">资料总目</a></p>
+</div>
+
+<script>
+(function(){
+  var KEY='kc_race_date';
+  var el=document.getElementById('race-date'),
+      out=document.getElementById('race-out'),
+      sub=document.getElementById('race-sub'),
+      tip=document.getElementById('race-tip');
+  function pad(n){return n<10?'0'+n:''+n}
+  function fmt(d){return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())}
+  function target(){
+    var v=null; try{v=localStorage.getItem(KEY)}catch(e){}
+    if(v) return v;
+    var n=new Date(); return fmt(new Date(n.getFullYear(),n.getMonth()+1,0));
+  }
+  function render(){
+    var v=el.value||target();
+    el.value=v;
+    var t=new Date(v+'T00:00:00'), n=new Date();
+    n.setHours(0,0,0,0);
+    var d=Math.round((t-n)/864e5);
+    if(isNaN(d)){out.textContent='—';sub.textContent='请选择有效日期';tip.textContent='';return;}
+    if(d>0){
+      out.textContent=d+' 天'; sub.textContent='距离 '+v+' 还有';
+      tip.textContent = d<=7 ? '🔥 一周内上场：只做熟题、不学新东西，按考场检查单过一遍。'
+             : d<=21 ? '⚡ 三周内上场：以真题+排障为主，放弃新知识点。'
+             : d<=45 ? '📌 一个多月：先补 L1–L3 地基，再进真题。'
+             : '📅 时间还够：按 30 天冲刺手册的四周日历走。';
+    }else if(d===0){out.textContent='今天';sub.textContent='就是 '+v;tip.textContent='🔥 今天上场：检查单过一遍，早睡，稳住。';}
+    else{out.textContent=Math.abs(d)+' 天前';sub.textContent=v+' 已过（可改成下一场）';tip.textContent='已过期？把日期改成你下一场比赛即可。';}
+  }
+  el.addEventListener('change',function(){try{localStorage.setItem(KEY,el.value)}catch(e){}render()});
+  document.getElementById('race-preset').addEventListener('click',function(){
+    var n=new Date(); el.value=fmt(new Date(n.getFullYear(),n.getMonth()+1,0));
+    try{localStorage.setItem(KEY,el.value)}catch(e){} render();
+  });
+  document.getElementById('race-clear').addEventListener('click',function(){
+    try{localStorage.removeItem(KEY)}catch(e){} el.value=''; render();
+  });
+  render();
+})();
+</script>
+</body>
+</html>

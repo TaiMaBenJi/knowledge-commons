@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>云基础学习总纲 · AWS 为主 - 知识公社</title>
+<link rel="stylesheet" href="style.css">
+<!-- kc-pwa -->
+<meta name="theme-color" content="#9e2b25">
+<meta name="color-scheme" content="light">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
+<script defer src="../sw-reg.js"></script>
+<script defer src="../install-tip.js"></script>
+<!-- /kc-pwa -->
+</head>
+<body>
+<div class="topbar"><span class="dot"></span><span>云基础学习总纲 | 零基础到能上手 · AWS 官方免费体系全盘点 · 0 元 + 防超费</span></div>
+<header class="hero">
+  <div class="kicker">CLOUD BASICS · ZERO TO HANDS-ON</div>
+  <h1>云基础学习总纲</h1>
+  <p>这一页只解决一个问题：<b>从零开始，怎么用 0 块钱把云基础学扎实。</b>AWS 官方免费体系逐个拆开、每阶段带过关标准、动手实验带防超费红线——照着走，不用再问「从哪开始」。</p>
+  <div class="badges"><span>0 元可跑通全程</span><span>AWS 官方一手核实</span><span>六阶段带验收</span><span>无账号也有替代</span></div>
+</header>
+<nav class="tabs">
+  <a href="index.html">首页</a>
+  <a href="arena.html">作战台</a>
+  <a href="beginner.html">学堂</a>
+  <a href="calendar.html">日历</a>
+  <a href="archive.html">总目</a>
+  <a href="courses.html">课程</a>
+  <a href="contest.html">竞赛</a>
+  <a href="exams.html">升学</a>
+  <a href="gongkao.html">公考</a>
+  <a href="skills.html">世赛</a>
+  <a href="red.html">红色</a>
+  <a href="socialism.html">实践</a>
+  <a href="ecommerce.html">创业</a>
+  <a href="cloud.html">云赛</a>
+  <a href="cloud-race.html">赛情</a>
+  <a class="on" href="cloud-basics.html">基础</a>
+  <a href="cloud-cert.html">认证</a>
+  <a href="cloud-taskbooks.html">真卷</a>
+  <a href="cloudlab.html">实训</a>
+  <a href="comp-series.html">课程</a>
+  <a href="sleep.html">睡前</a>
+  <a href="cloud-videos.html">视频</a>
+  <a href="wsvideos.html">视频</a>
+  <a href="paths.html">路线</a>
+  <a href="../library.html">资源</a>
+  <a href="../download.html">下载</a>
+  <a href="about.html">简章</a>
+</nav>
+
+<div class="wrap">
+
+  <div class="goal">为什么基础要以 <b>AWS</b> 为主：<b>世赛云计算赛项的竞赛平台就是 AWS</b>（2019 起至今），AWS 又是全球免费学习资源最厚的一家——官方免费课程、官方模拟题、官方文档、官方白皮书全部可白嫖。学会 AWS，私有云（OpenStack/华为云/阿里云）只是换皮，概念是同一套。</div>
+
+  <section>
+    <h2 class="sec">① 先分流 · 30 秒找到你的起点</h2>
+    <div class="grid">
+      <div class="mod red">
+        <div class="ico">0</div>
+        <b>完全零基础</b>
+        <p class="desc">没碰过 Linux、没听过 VPC。<b>直接跳到阶段 0</b>，先花两周把 Linux 和网络的地基补上——跳过这步后面全是背概念，记不住。</p>
+        <p class="meta">阶段 0 → 6，全程约 8–12 周</p>
+      </div>
+      <div class="mod gold">
+        <div class="ico">L</div>
+        <b>会 Linux / 网络</b>
+        <p class="desc">装过服务、配过 Nginx/DHCP 之类。<b>从阶段 2 直接起步</b>，重点补「云的三种形态 + AWS 核心服务 + VPC 画图」。</p>
+        <p class="meta">阶段 2 → 6，约 4–6 周</p>
+      </div>
+      <div class="mod green">
+        <div class="ico">≡</div>
+        <b>用过别的云</b>
+        <p class="desc">阿里云/华为云/Tencent 都行。<b>从阶段 4 起步</b>，只补 AWS 的服务命名与账号/权限/区域模型，概念直接迁移。</p>
+        <p class="meta">阶段 4 → 6，约 2–3 周</p>
+      </div>
+    </div>
+    <p class="small" style="margin-top:10px">⚠️ 不确定就<b>从阶段 0 开始但允许快过</b>。地基阶段不亏——AWS 的一切都建在 Linux 和 TCP/IP 上。</p>
+  </section>
+
+  <section>
+    <h2 class="sec">② 学习地图 · 六阶段，每阶段带过关标准</h2>
+
+    <div class="lesson" id="p0">
+      <h3>阶段 0 · 地基（第 1–2 周）｜Linux + 网络，不是云，是云下面的东西</h3>
+      <p><b>学什么</b>：Linux 常用命令、文件权限、systemd 服务管理、SSH；TCP/IP、IP 与子网、端口、DNS、HTTP/HTTPS 流程。</p>
+      <p><b>在哪学</b>（全中文、全离线）：<a href="../study.html#d=tutorial_01-Linux零基础-保姆级_md">第 1 章 · Linux 零基础</a> · <a href="../study.html#d=tutorial_02-网络零基础-保姆级_md">第 2 章 · 网络零基础</a> · <a href="../study.html#d=knowledge_01-基础-Linux与操作系统_md">知识地图 01</a> · <a href="../study.html#d=knowledge_02-网络工程_md">知识地图 02</a>。视频：<a href="cloud-videos.html">视频库</a>里的 Docker/K8s 之外的通用课。</p>
+      <p><b>怎么练</b>：VMware Workstation Pro（个人免费）或 VirtualBox 起一台 Rocky 9 / Ubuntu 24.04；<a href="cloudlab.html">实战训练场 L1</a> 有任务书和自动评分脚本。</p>
+      <p><b>过关标准</b>：<b>不看任何资料，15 分钟内完成一台新机的初始化 + SSH 密钥登录 + 装 Nginx 并用 IP 访问成功</b>。做不到就别往下走。</p>
+    </div>
+
+    <div class="lesson" id="p1">
+      <h3>阶段 1 · 概念（第 3 周）｜先建立「云到底改变了什么」</h3>
+      <p><b>学什么</b>：IaaS / PaaS / SaaS 的边界；公有云 / 私有云 / 混合云；<b>Region 与 Availability Zone</b>；<b>云的三种责任划分</b>（IaaS/PaaS/SaaS 各自客户负责到哪一层）；计费模型（按需/预留/Spot/节省计划）。</p>
+      <p><b>在哪学</b>：<a href="../study.html#d=knowledge_04-虚拟化与私有云_md">知识地图 04 · 虚拟化与私有云</a> · <a href="../study.html#d=mastery_00-总纲-像说话一样掌握云计算_md">精通体系总纲</a> · <a href="../study.html#d=mastery_01-疆域全景图_md">疆域全景图</a>（一张图看懂整个云的疆界，强烈建议先看这个）。<br><b>英文官方</b>：Skill Builder 搜 <code>Cloud Practitioner Essentials</code>（免费课里最经典的一门）。</p>
+      <p><b>过关标准</b>：能用自己的话讲清「为什么需要 AZ」「共享责任模型的分界线在哪」「为什么云不等于便宜」。</p>
+    </div>
+
+    <div class="lesson" id="p2">
+      <h3>阶段 2 · AWS 账号与第一个服务（第 4 周）</h3>
+      <p><b>学什么</b>：注册账号（<b>务必选对区域，选离你最近的</b>，如东京/新加坡/宁夏）；<b>根用户与 IAM 的区别</b>（这是最该第一天就懂的事）；建第一个 IAM 用户与角色；开一台 EC2 并安全组放行。</p>
+      <p><b>官方入口</b>：<a href="https://skillbuilder.aws/" rel="noopener">Skill Builder</a>（免费层 <b>1,000+ 学习资源、900+ 门自定进度数字课</b>）· <a href="https://www.awseducate.com/" rel="noopener">AWS Educate</a>（免费、无需信用卡、13 岁+，<b>但已不再发放抵扣金</b>，只剩课程与实验）。</p>
+      <p><b>先读这个</b>：本站已把 <a href="aws-educate.html"><b>AWS 管理控制台入门官方课件全文</b></a>（5 节 53 张幻灯片逐条对齐）离线化了 —— <b>不懂英文就先啃这个</b>，免费且离线。</p>
+      <p><b>过关标准</b>：能用 IAM 策略限制一个用户只能读不能写；能说出「为什么不直接用根用户干活」。</p>
+    </div>
+
+    <div class="lesson" id="p3">
+      <h3>阶段 3 · 核心服务实操（第 5–7 周）｜本页 ⑤ 有逐个动手清单</h3>
+      <p><b>学什么</b>：EC2（计算）、S3（对象存储）、VPC + 子网 + 安全组（<b>网络地基</b>）、ELB（负载均衡）、RDS（托管数据库）、Lambda（无服务器）、CloudWatch（监控）。</p>
+      <p><b>在哪学</b>：<a href="../study.html#d=tutorial_12-AWS云平台实战-保姆级_md"><b>第 12 章 · AWS 云平台实战</b></a>（全中文保姆级）· <a href="../study.html#d=knowledge_05-公有云核心-AWS_md">知识地图 05 · 公有云核心（AWS）</a>（<b>最硬核的一篇</b>，含 WSOS 考纲对应考点）。</p>
+      <p><b>怎么练</b>：<a href="https://builder.aws.com/build/workshops" rel="noopener">AWS Workshops（已迁至 Builder Center，203 个，零基础只挑 100 级）</a> + 本页 ⑤ 的五分钟最小实验。</p>
+      <p><b>过关标准</b>：<b>能徒手画出一张 VPC 拓扑图</b>（公私子网、路由、IGW/NAT、安全组方向），并说清公网请求打进来会依次经过什么。</p>
+    </div>
+
+    <div class="lesson" id="p4">
+      <h3>阶段 4 · 容器与编排（第 8–9 周）</h3>
+      <p><b>学什么</b>：Docker 镜像/容器/网络/卷 → Kubernetes 的 Pod/Deployment/Service/Ingress → 从 minikube 到 HPA。</p>
+      <p><b>在哪学</b>：<a href="../study.html#d=tutorial_10-Docker容器入门-保姆级_md">第 10 章 · Docker 容器入门</a> · <a href="../study.html#d=tutorial_11-Kubernetes入门-保姆级_md">第 11 章 · K8s 入门</a> · <a href="../study.html#d=knowledge_06-容器与编排_md">知识地图 06</a> · <a href="cloudlab.html"><b>实训场 L3 Docker / L4 Kubernetes</b></a>（带自动评分）。<br><b>视频</b>：<a href="https://www.bilibili.com/video/BV1r7411r7h7" rel="noopener">阿里云 × CNCF 云原生公开课</a>（30P/13h28m，<b>官方声明全程免费且无需注册</b>）。</p>
+      <p><b>过关标准</b>：能把一个应用打镜像 → 推仓库 → 用 Deployment 起多副本 → 用 Service 暴露 → 故意删掉一个 Pod 看自动恢复。</p>
+    </div>
+
+    <div class="lesson" id="p5">
+      <h3>阶段 5 · 自动化与可观测（第 10–11 周）｜从「会摆」到「会交付」</h3>
+      <p><b>学什么</b>：Shell 脚本三件套 → Ansible（批量配置）→ Terraform（<b>代码即基础设施</b>）→ CloudFormation → CloudWatch 告警与日志 → CI/CD 一条龙。</p>
+      <p><b>在哪学</b>：<a href="../study.html#d=tutorial_09-Shell脚本进阶-保姆级_md">第 9 章 · Shell 进阶</a> · <a href="../study.html#d=tutorial_13-自动化运维-保姆级_md">第 13 章 · 自动化运维</a> · <a href="../study.html#d=knowledge_07-自动化与IaC_md">知识地图 07 · 自动化与 IaC</a> · <a href="../study.html#d=knowledge_08-可观测性与性能工程_md">知识地图 08 · 可观测性</a> · <a href="../study.html#d=mastery_04-架构模式手册_md">精通体系 · 架构模式手册</a>。</p>
+      <p><b>过关标准</b>：<b>一份 Terraform 能从零把整套环境建出来，销毁再建结果一致（幂等）</b>；删掉一台机器能收到告警。</p>
+    </div>
+
+    <div class="lesson" id="p6">
+      <h3>阶段 6 · 架构视野与自检（第 12 周）</h3>
+      <p><b>学什么</b>：<b>Well-Architected 六支柱</b>（本页 ③ 逐条展开）· 高可用与故障转移 · 成本优化 · 安全基线。</p>
+      <p><b>自检</b>：Skill Builder 免费层的 <b>Official Practice Question Set</b>（每套 20 题、含详细讲解，是<b>官方唯一免费的模拟题来源</b>）· 本站 <a href="sleep.html">睡前考场</a>随机出题 · <a href="quiz.html">学堂自测</a>。</p>
+      <p><b>过关标准</b>：用 Well-Architected Tool（<b>控制台里免费可用</b>）给自己的环境跑一次评估，能指出至少 5 条高风险项并说清改法。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">③ AWS 官方免费自学体系 · 逐个拆开</h2>
+    <div class="goal">这一节回答「官方到底免费给什么」。<b>免费边界经常被讲错</b>——下面每条都标了免费 / 订阅才有 / 需付费，别被「AWS 全免费」的说法带偏。</div>
+
+    <h3 style="font-size:17px;margin:18px 0 8px;color:var(--red-dk);font-family:var(--serif)">A. Skill Builder（首选起点）</h3>
+    <div class="card"><ul class="list">
+      <li><span class="t"><b>免费层</b> —— AWS 官网 2026 版口径：<b>1,000+ 免费学习资源，其中 900+ 门自定进度（self-paced）数字课</b>，覆盖每一项 AWS 服务与技能等级。<b>无需订阅即可浏览与学习</b></span><span class="n">免费</span></li>
+      <li><span class="t">⚠️ <b>但 AWS 自己的数字口径前后不一致</b>：同一批官方页面上同时出现 <b>500+ / 600+ / 900+ / 1,000+</b> 四个数（中文 FAQ 写「17 种语言 500+ 种按需课程」，Amazon 官方写「600+ 门、至多 14 种语言」，英文页写「900+ 自定进度课」「1,000+ 资源」）。<b>结论：别拿课程数量做时间预算，以站内实时筛选为准</b></span><span class="n">⚠️不一致</span></li>
+      <li><span class="t">🎯 <b>最实用入口</b>：<a href="https://skillbuilder.aws/search?page=1&amp;accessTier=free" rel="noopener">skillbuilder.aws/search?accessTier=free</a> —— <b>只看免费内容</b>，省掉一页页翻订阅墙。其他可用筛选：<code>typeId=digital_course</code>（只数字课）、<code>category/getstarted</code>（入门）、<code>category/type/microcredentials</code>（<b>微凭证，无需订阅</b>）</span><span class="n">技巧</span></li>
+      <li><span class="t">🌐 <b>有中文课</b> —— AWS 中文培训 FAQ 明确把<b>简体中文、繁体中文</b>列在免费课程语言里（与英、日、韩、法、德、西等共十余种）。查课程时按语言筛中文即可</span><span class="n">有中文</span></li>
+      <li><span class="t">⚠️ <b>免费层不含</b>（官方订阅对比表明确）：<b>引导式 Labs（Builder Labs）、Official Practice Exam 全真模拟考、AWS Jam 团队挑战</b></span><span class="n">订阅</span></li>
+      <li><span class="t">💲 <b>Individual 月付 $29/月</b>：解锁自定进度培训 + 备考 + 沉浸式学习（Builder Labs、游戏化学习、AWS Jam、<b>免费沙箱</b>）+ 带引导实验的备考课 + <b>Official Practice Exams</b></span><span class="n">$29/月</span></li>
+      <li><span class="t">💲 <b>Individual 年付 $449/年</b>：月付全部内容 + <b>AWS Digital Classroom</b>（源自课堂课程的数字化自学版）</span><span class="n">$449/年</span></li>
+      <li><span class="t">💲 <b>Team $449/年/席位</b>（5 席起）：任务分配、进度跟踪、报表、SSO（ADFS/Azure AD/Ping/Okta）；<b>席位仅限购买方雇员与外包</b></span><span class="n">$449/年</span></li>
+      <li><span class="t">❌ <b>订阅也不含</b>：<b>认证考试本身</b>（另付）、<b>线下课堂培训</b>。手机可浏览/搜索/选课，但 <b>Labs 与游戏化学习最好用电脑</b></span><span class="n">不含</span></li>
+      <li><span class="t">📖 检索技巧：按 <b>Learning Paths</b> 分类 = 按角色走系统路线（最省心）；按 <b>Exam Preparation</b> = 直接看备考课</span><span class="n">技巧</span></li>
+    </ul>
+    <p class="small" style="margin-top:8px">入口：<a href="https://skillbuilder.aws/" rel="noopener">skillbuilder.aws</a>。免费资源里最经典的一门是 <b>Cloud Practitioner Essentials</b>，零基础建议从它开始。⚠️ 该站是 JS 渲染的单页应用，目录需登录后站内检索，<b>外部无法抓取完整清单</b>——这正是它需要你一条条筛的原因。</p>
+    </div>
+
+    <h3 style="font-size:17px;margin:18px 0 8px;color:var(--red-dk);font-family:var(--serif)">A2. Ramp-Up Guides —— 38 份官方 PDF，离线学习的最优解</h3>
+    <div class="card">
+      <p>官方原话：「Downloadable AWS Ramp-Up Guides offer a variety of resources to help you build your skills and knowledge of the AWS Cloud. Each guide features carefully selected digital training, classroom courses, videos, whitepapers, certifications, and more.」——<b>每份指南本身是一本可下载 PDF</b>，等于一份「按角色/方案/行业编排的学习路线书」。</p>
+      <ul class="list">
+        <li><span class="t"><b>By role（按角色，4 份）</b> —— Decision Maker（业务决策者）· <b>Developer（开发者）</b> · <b>DevOps</b> · <b>Solutions Architect（云架构师）</b></span><span class="n">4 份</span></li>
+        <li><span class="t"><b>By solution（按方案，24 份）</b> —— <b>Cloud Essentials</b> · Compute · <b>Containers</b> · Cloud Financial Management · Amazon Connect · AWS for Games · AWS Modernization Pathways 等</span><span class="n">24 份</span></li>
+        <li><span class="t"><b>By industry（按行业，10 份）</b> —— Academic Research · Financial Services · Healthcare · Life Sciences · Manufacturing · Non-profit Organizations 等</span><span class="n">10 份</span></li>
+      </ul>
+      <p><b>零基础最该先下这两份</b>（实测可下载，<code>d1.awsstatic.com</code> 域）：</p>
+      <div class="check">
+        <p class="small" style="margin-family:monospace;word-break:break-all;line-height:1.9">
+        <a href="https://d1.awsstatic.com/onedam/marketing-channels/website/aws/en_US/training/approved/pdfs/ramp-up-guides/Ramp-Up_Guide_Cloud_Essentials.pdf" rel="noopener">Ramp-Up_Guide_Cloud_Essentials.pdf</a>（<b>零基础第一份</b>）<br>
+        <a href="https://d1.awsstatic.com/onedam/marketing-channels/website/aws/en_US/training/approved/pdfs/ramp-up-guides/Ramp-Up_Guide_DevOps.pdf" rel="noopener">Ramp-Up_Guide_DevOps.pdf</a> ·
+        <a href="https://d1.awsstatic.com/onedam/marketing-channels/website/aws/en_US/training/approved/pdfs/ramp-up-guides/Ramp-Up_Guide_Architect.pdf" rel="noopener">Ramp-Up_Guide_Architect.pdf</a> ·
+        <a href="https://d1.awsstatic.com/onedam/marketing-channels/website/aws/en_US/training/approved/pdfs/ramp-up-guides/Ramp-Up_Guide_Developer.pdf" rel="noopener">Ramp-Up_Guide_Developer.pdf</a> ·
+        <a href="https://d1.awsstatic.com/onedam/marketing-channels/website/aws/en_US/training/approved/pdfs/ramp-up-guides/Ramp-Up_Guide_Compute.pdf" rel="noopener">Ramp-Up_Guide_Compute.pdf</a> ·
+        <a href="https://d1.awsstatic.com/onedam/marketing-channels/website/aws/en_US/training/approved/pdfs/ramp-up-guides/Ramp-Up_Guide_Containers.pdf" rel="noopener">Ramp-Up_Guide_Containers.pdf</a></p>
+      </div>
+      <p class="small" style="margin-top:8px">总目录：<a href="https://aws.amazon.com/training/ramp-up-guides/" rel="noopener">aws.amazon.com/training/ramp-up-guides</a>。<b>这批 PDF 是本平台最值得整包离线化的资源</b>——官方、结构化、无需登录、免费下载。</p>
+    </div>
+
+
+    <h3 style="font-size:17px;margin:18px 0 8px;color:var(--red-dk);font-family:var(--serif)">B. Well-Architected Framework（架构观的底座，官方免费）</h3>
+    <div class="card">
+      <p>官方定位：「通过回答一组基本问题，了解你的架构与云端最佳实践的符合程度。」<b>六大支柱</b>（官方原文口径）：</p>
+      <ul class="list">
+        <li><span class="t"><b>卓越运营 Operational Excellence</b> —— 运行与监测系统、持续改进流程与程序。关键主题：<b>自动化变更、响应事件、定义标准来管理日常运营</b></span><span class="n">支柱1</span></li>
+        <li><span class="t"><b>安全性 Security</b> —— 保护信息与系统。关键主题：<b>数据机密性与完整性、管理用户权限、建立检测安全事件的控制</b></span><span class="n">支柱2</span></li>
+        <li><span class="t"><b>可靠性 Reliability</b> —— 工作负载执行预期职能、故障后快速恢复以满足需求。关键主题：<b>分布式系统设计、恢复计划、适应需求变化</b></span><span class="n">支柱3</span></li>
+        <li><span class="t"><b>性能效率 Performance Efficiency</b> —— 有序流畅地分配 IT 与计算资源。关键主题：<b>选择适配工作负载的资源类型与规模、监测性能、随业务演进维持效率</b></span><span class="n">支柱4</span></li>
+        <li><span class="t"><b>成本优化 Cost Optimization</b> —— 避免不必要的成本。关键主题：<b>了解支出趋势并管控资金分配、选择合适类型与数量的资源、不超支地扩展</b></span><span class="n">支柱5</span></li>
+        <li><span class="t"><b>可持续性 Sustainability</b> —— 减少云工作负载的环境影响。关键主题：<b>可持续性责任共担模式、了解影响、最大化资源利用率以减少所需资源</b></span><span class="n">支柱6</span></li>
+      </ul>
+      <p><b>六大支柱之外，还有三样东西很多人不知道：</b></p>
+      <ul class="list">
+        <li><span class="t"><b>Well-Architected Lenses（详解/聚焦）</b> —— 把框架落到具体领域：机器学习、数据分析、Serverless、高性能计算、IoT、SAP、流媒体、游戏、<b>混合网络</b>、金融服务、数字主权、生命科学、Telco、Microsoft 工作负载、<b>Agentic AI</b> 等。多个 Lenses 可叠加使用</span><span class="n">Lenses</span></li>
+        <li><span class="t"><b>Well-Architected Tool</b> —— <b>在 AWS 管理控制台内免费获取</b>，定期评估工作负载、识别高风险项、记录改进</span><span class="n">免费工具</span></li>
+        <li><span class="t">⚠️ <b>Well-Architected Labs 要小心</b>：站点 <code>wellarchitectedlabs.com</code> 仍在线，但侧栏那个「100 Labs」索引页<b>实际只剩 1 个实验</b>（Automating Serverless Best Practices with Dashbird）。<b>完整实验代码与内容以 GitHub <code>awslabs/aws-well-architected-labs</code> 为准</b>（2000+ star，2026-01 仍在更新）——想做的实验直接去 GitHub 找</span><span class="n">已缩水</span></li>
+      </ul>
+      <p><b>Guidance（专项指南）</b>：基于单元的架构缩小影响范围 · DevOps 指南 · 云端变更支持 · 运营就绪性审查（ORR）· 管理与监管云环境指南 · 云中的工作负载灾难恢复。这些是白皮书，<b>可离线</b>。</p>
+      <p class="small" style="margin-top:8px">入口：<a href="https://aws.amazon.com/cn/architecture/well-architected/" rel="noopener">Well-Architected 中文总览</a> · 框架文档 <a href="https://docs.aws.amazon.com/zh_tw/wellarchitected/latest/userguide/waf.html" rel="noopener">AWS 文档（繁中）</a>。官方说明：<b>不同支柱之间要按业务需求做取舍</b>——开发环境可以为省钱牺牲可靠性，关键任务系统可以为可靠性接受更高成本，但<b>安全性与运营绩效通常不会被牺牲</b>。这句话本身就是一道面试题。</p>
+    </div>
+
+    <h3 style="font-size:17px;margin:18px 0 8px;color:var(--red-dk);font-family:var(--serif)">C. Workshops（已迁到 Builder Center）· 实操沙箱规则</h3>
+    <div class="card">
+      <div class="check">
+        <p><b>⚠️ 链接已变更，别用老地址</b></p>
+        <ul>
+          <li><code>aws.amazon.com/workshops</code> —— <b>已 404</b></li>
+          <li><code>workshops.aws</code> —— 301 跳转到新址</li>
+          <li><b>新地址：<a href="https://builder.aws.com/build/workshops" rel="noopener">builder.aws.com/build/workshops</a></b>，当前 <b>203 个 workshop</b></li>
+        </ul>
+      </div>
+      <ul class="list">
+        <li><span class="t"><b>筛选维度</b>（官方原文）：level / language / categories / AWS service / duration / <b>access type</b></span><span class="n">筛选</span></li>
+        <li><span class="t"><b>四档难度分级</b>（AWS 官方定义）：<b>100</b> 入门（服务与功能概览）· <b>200</b> 中级（已懂入门，深入细节）· <b>300</b> 高级（熟悉主题但未必实现过）· <b>400</b> 专家（高级架构与实现）<br><b>零基础只挑 100 级</b>，别被 300/400 的标题骗进去</span><span class="n">难度</span></li>
+        <li><span class="t">🎓 <b>零基础推荐的 100 级 workshop</b>：<b>Research Computing Workshop</b>（6h，面向几乎没有云背景的研究人员：云计算基础/容器/HPC/AI-ML）· <b>AWS 101 - NoSQL Databases</b>（2h，DynamoDB/DocumentDB/ElastiCache 搭建与存储实践）</span><span class="n">入门</span></li>
+        <li><span class="t">🆓 <b>免费沙箱的真实规则</b>（AWS 官方博客原文）：<b>无需注册账号、无需支付信息</b>；环境 <b>15 分钟内</b>就绪，给 <b>8 小时</b>动手时间；<b>会话结束自动销毁全部资源，无需手动清理</b>；沙箱与生产环境完全隔离。<b>限制：同一时间只能开一个、每周可申请一个（每周日重置）</b>。<b>⚠️ 目前仅部分 workshop 有沙箱</b>（官方：select workshops，目录在持续扩充）</span><span class="n">沙箱</span></li>
+        <li><span class="t">🌏 <b>有中文的 workshop</b>：如 <b>Getting started with AgentCore</b>（3h）支持 <b>EN / 日语 / 简体中文 / 繁體中文</b>——按 language 筛中文能省不少事</span><span class="n">有中文</span></li>
+        <li><span class="t">📖 <b>免费阅读边界</b>：workshop 的<b>介绍页、简介、语言、时长、难度、涉及服务全部公开可读（无需登录）</b>，只有「动手做」那一步才需要 AWS 环境或申请沙箱</span><span class="n">可先白看</span></li>
+      </ul>
+    </div>
+
+    <h3 style="font-size:17px;margin:18px 0 8px;color:var(--red-dk);font-family:var(--serif)">C. 文档与白皮书（最被低估的一层）</h3>
+    <div class="card"><ul class="list">
+      <li><span class="t"><a href="https://docs.aws.amazon.com/" rel="noopener">AWS 官方文档</a> —— 每个服务文档结构固定：<b>概念 / 入门 / 操作指南 / API 参考 / 故障排除 / 最佳实践</b>。官方提供 <b>PDF 下载</b>，可整本离线</span><span class="n">离线</span></li>
+      <li><span class="t">📄 <b>官方考试指南（Exam Guide）</b> —— 考试蓝图/权重表，免费，<b>完全可离线</b>。地址规律：<code>docs.aws.amazon.com/aws-certification/latest/examguides/</code></span><span class="n">离线</span></li>
+      <li><span class="t">📄 <b>官方样题 PDF（Sample Questions）</b> —— <code>d1.awsstatic.com/training-and-certification/</code> 下的 PDF，免费可离线</span><span class="n">离线</span></li>
+      <li><span class="t">📄 <b>各服务 FAQ 集</b> —— 在每个认证页面的 FAQs 区块，官方均标 free。IAM、S3、VPC 的 FAQ 是面试与排错的富矿</span><span class="n">离线</span></li>
+      <li><span class="t">📚 <b>Ramp-Up Guides（38 份官方 PDF）</b> —— 本节 A2 已单列，<b>最推荐整包离线</b>。按角色 4 份 / 按方案 24 份 / 按行业 10 份</span><span class="n">离线</span></li>
+      <li><span class="t">🇨🇳 <b>Amazon 文档中国区</b>（<a href="https://docs.amazonaws.cn/" rel="noopener">docs.amazonaws.cn</a>）—— 简体中文，<b>无需登录即可访问</b></span><span class="n">中文</span></li>
+      <li><span class="t">💬 <b>AWS re:Post</b>（repost.aws）—— 官方社区问答，免费（需登录）</span><span class="n">社区</span></li>
+    </ul>
+    <p class="small" style="margin-top:8px"><b>读法建议</b>：别当教材从第一页顺读（会劝退）。<b>当字典用</b>——卡在哪一项就精准去读那一项的文档。</p>
+    </div>
+
+    <h3 style="font-size:17px;margin:18px 0 8px;color:var(--red-dk);font-family:var(--serif)">D. 视频与直播</h3>
+    <div class="card"><ul class="list">
+      <li><span class="t"><a href="https://www.youtube.com/@AmazonWebServices" rel="noopener">AWS 官方 YouTube</a> —— 免费公开</span><span class="n">需国际网</span></li>
+      <li><span class="t"><b>AWS Events YouTube</b> —— <b>re:Invent 主题演讲、创新讲座、分论坛全部录像免费公开</b>（大会 FAQ 确认）</span><span class="n">免费</span></li>
+      <li><span class="t">⚠️ <b>re:Invent 2026 现场不提供认证考试</b>（2026 年起变更）；线下注册参会者可领 <b>50% 考试折扣券</b></span><span class="n">注意</span></li>
+      <li><span class="t">🔴 <b>re:Invent / Best of re:Invent 回放不要试图离线</b>——托管在 AWS 自有 CDN，带登录态与校验，离线保存会失败</span><span class="n">别存</span></li>
+      <li><span class="t">🎓 <b>AWS Training and Certification on Twitch</b> —— 直播 + 点播，官方备考页列为 complimentary 免费</span><span class="n">免费</span></li>
+    </ul>
+    <p class="small" style="margin-top:8px"><b>国内网络环境下</b>，优先用本站 <a href="cloud-videos.html">云计算视频库</a>里的 B 站镜像课（已逐条实测存活）。</p>
+    </div>
+
+    <h3 style="font-size:17px;margin:18px 0 8px;color:var(--red-dk);font-family:var(--serif)">E. AWS Educate、Academy 与中文入口</h3>
+    <div class="card"><ul class="list">
+      <li><span class="t"><a href="https://www.awseducate.com/" rel="noopener">AWS Educate</a> —— <b>仍在运营</b>，免费、<b>无需信用卡</b>、13 岁以上凭邮箱注册，提供免费自学课程与实操实验室</span><span class="n">免费</span></li>
+      <li><span class="t">⚠️ <b>Educate 抵扣金已全部取消</b>：历史上 $35–$100 的学生抵扣金没有了，现在只剩课程与实验。<b>任何说「注册 AWS Educate 送 $100」的页面都已过时</b></span><span class="n">别信</span></li>
+      <li><span class="t"><b>本站已离线化其中一门课</b>：<a href="aws-educate.html">AWS 管理控制台入门（繁中）</a> 官方课件全文，5 节 53 张幻灯片、屏幕文字与旁白逐条对齐 + 实操速查 + 28 条中英术语对照；另有 <a href="aws-educate-catalog.html">71 门课程库总目录</a></span><span class="n">已离线</span></li>
+      <li><span class="t"><b>AWS Academy</b> —— 面向教师与机构的免费课程体系，<b>Foundational 6 门</b>：<b>Cloud Foundations</b>（云概念总览：核心服务/安全/架构/定价/支持）、<b>Generative AI Foundations</b>、<b>Machine Learning Foundations</b>（约 20 小时）、Data Center Technician、Engineering Operations Technicians、<b>Cloud Security Foundations</b>；<b>Associate 5 门</b>：Cloud Architecting、Cloud Developing 等；另有 <b>Learner Lab ad hoc 沙箱</b>（需教师资格审批）</span><span class="n">需申请</span></li>
+      <li><span class="t">⚠️ <b>Academy 需通过学校/机构申请</b>，个人一般申请不到；AWS 另有面向中国学生的专门入口，但申请条件需向所在机构确认</span><span class="n">门槛</span></li>
+      <li><span class="t">🇨🇳 <b>中文官方入口</b>：<a href="https://aws.amazon.com/cn/" rel="noopener">AWS 中国官网（简体）</a> · <a href="https://aws.amazon.com/cn/training/faqs/" rel="noopener">中文培训 FAQ</a>（明确列出简中/繁中为免费课程语言）· <a href="https://docs.amazonaws.cn/" rel="noopener">Amazon 文档（中国区，无需登录）</a> · Well-Architected 繁中文档</span><span class="n">中文</span></li>
+    </ul></div>
+  </section>
+
+  <section>
+    <h2 class="sec">④ 免费额度实况 + 防超费红线</h2>
+    <div class="card">
+      <p><b>AWS Free Tier 官方现状（2026-10 核实）</b>：</p>
+      <ul class="list">
+        <li><span class="t">「<b>30+ AWS services are always free within monthly usage limits</b>」——<b>30+ 服务在月度用量限额内永久免费</b>（Free 计划与 Paid 计划均适用）</span><span class="n">永久</span></li>
+        <li><span class="t">新账户：<b>立即到账 $100 抵扣金</b>，探索过程中<b>最多可再赚 $100</b> —— <b>6 个月内共 $200</b>，可覆盖 90+ 服务随便折腾</span><span class="n">$200</span></li>
+        <li><span class="t"><b>「账户在开启 6 个月后、或抵扣金用尽时（以先到者为准）自动关闭」</b>；<b>除非你主动转成 Paid 计划，否则不会被扣费</b></span><span class="n">安全</span></li>
+      </ul>
+      <div class="check">
+        <p><b>🚨 真正会扣钱的三件事（新手 100% 中招）</b></p>
+        <ul>
+          <li><b>转成 Paid 计划</b> —— 上面那句「不会扣费」的前提是<b>你一直待在 Free 计划</b>。为了「以后方便」点一下升级，是账单爆掉最常见的原因。</li>
+          <li><b>NAT Gateway</b> —— VPC 本身免费，但<b>每个 NAT 网关按小时收费</b>。EC2 装完 apt 走 NAT 出去下东西，一晚上几毛钱；放着不管一个月就是几十块。不用就删。</li>
+          <li><b>Elastic IP（弹性公网 IP）</b> —— 未关联、或关联在已停止实例上，<b>同样按小时计费</b>。做完实验记得释放。</li>
+        </ul>
+        <p style="margin-top:6px">另外：<b>RDS 的免费实例有规格与时长限制</b>，超出即按正常单价（比 EC2 贵一个量级）；<b>EC2 的免费额度是「每月若干小时 × 若干个月」</b>，用完按 On-Demand 单价走。AWS 的实例类型/规格定价页很复杂，<b>开非 t2/t3.micro/small 之前先看价格</b>。</p>
+      </div>
+      <p><b>三道保险（做完第一件事就设）</b></p>
+      <ul class="list">
+        <li><span class="t">① <b>AWS Budget 预算告警</b> —— 控制台 Billing → Budgets，新建 $1 或 $5 预算并开启邮件告警，阈值一到立刻收到通知</span><span class="n">必设</span></li>
+        <li><span class="t">② <b>Cost Anomaly Detection</b> —— 异常消费自动检测告警，比预算告警更早发现问题</span><span class="n">强烈</span></li>
+        <li><span class="t">③ <b>养成「用完就删」的习惯</b> —— NAT GW、弹性 IP、临时 RDS 实例、快照，都是「忘了删就持续计费」的重灾区。<b>建议每周末花 5 分钟看一次 Cost Explorer</b></span><span class="n">习惯</span></li>
+      </ul>
+      <p class="small" style="margin-top:8px">入口：<a href="https://aws.amazon.com/free/" rel="noopener">aws.amazon.com/free</a> · 预算与告警在 <a href="https://console.aws.amazon.com/billing/home" rel="noopener">Billing 控制台</a>。<b>本页不推销任何付费服务，30+ 永久免费服务请以官方定价页当日额度为准</b>——额度可能调整，开资源前建议再核一次。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">⑤ 六大主力服务 · 五分钟最小实验</h2>
+    <div class="card">
+      <p class="small">每个都给「最小可跑通实验 + 验证方式 + 学到什么」。全部在 Free Tier 额度内。</p>
+      <ul class="list">
+        <li><span class="t"><b>① EC2（计算）</b> —— 起一台 t3.micro Ubuntu，<b>用密钥对登录（不要用密码）</b>；装 Nginx；浏览器访问公网 IP。<br><b>验证</b>：页面能打开。<b>学到</b>：实例/AMI/安全组/User Data/区域与 AZ 的区别</span><span class="n">必做</span></li>
+        <li><span class="t"><b>② S3（对象存储）</b> —— 建桶 → 上传一个文件 → 开启静态网站托管 → 访问对象端点 → <b>再试一次：不开公共读，访问会 403</b>。<br><b>验证</b>：403 那一刻你就懂 S3 权限了。<b>学到</b>：桶策略/ACL/公共访问阻断/生命周期，与 EBS 的本质区别</span><span class="n">必做</span></li>
+        <li><span class="t"><b>③ VPC + 安全组（网络地基，最重要）</b> —— 建 VPC → 两个子网（公网/私网）→ 路由表 + IGW → 安全组开 22/80 → EC2 放进去。<br><b>验证</b>：画出这张图给同学看。<b>学到</b>：子网/路由/安全组有状态与 NACL 无状态/为什么公私子网要分</span><span class="n">最重</span></li>
+        <li><span class="t"><b>④ Lambda（无服务器）</b> —— 建函数，把 S3 上传事件当触发器，上传文件看函数日志。<br><b>验证</b>：控制台实时打印文件名。<b>学到</b>：事件驱动/免运维/并发与限额/与 EC2 的取舍</span><span class="n">易上手</span></li>
+        <li><span class="t"><b>⑤ RDS（托管数据库）</b> —— 建最小规格实例，连上去建库建表插数据。<br><b>验证</b>：<b>务必做完就删实例</b>。<b>学到</b>：与自建 MySQL 的差异、备份快照、为什么它比 EC2 贵</span><span class="n">小心计费</span></li>
+        <li><span class="t"><b>⑥ ELB 负载均衡 + ASG 自动伸缩</b> —— 两台 EC2 挂到 ALB 后面；再挂 ASG，设目标追踪。<br><b>验证</b>：访问 ALB 地址来回几次，看后端轮换；手动扩一台看是否被自动缩掉。<b>学到</b>：健康检查/会话/弹性/可用区分布——<b>世赛可靠性 15% 权重考的就是这套</b></span><span class="n">高分项</span></li>
+      </ul>
+      <p class="small" style="margin-top:8px">配套中文图文：<a href="../study.html#d=tutorial_12-AWS云平台实战-保姆级_md">第 12 章 · AWS 云平台实战（保姆级）</a>。离线动手（无云账户也行）：<a href="cloudlab.html">实战训练场 L1–L4</a>，带自动评分脚本与故障注入。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">⑥ 没有 AWS 账户 / 网络受限怎么办</h2>
+    <div class="card">
+      <p>学云不一定要有云账户。这几条替代路线<b>完全离线</b>，概念一点不打折：</p>
+      <ul class="list">
+        <li><span class="t"><b>本地虚拟机</b> —— VirtualBox / VMware Workstation Pro（<b>个人免费</b>）装 Rocky 9 或 Ubuntu 24.04，把「服务器」跑在自己电脑上。站点 <a href="cloudlab.html">实训场</a>的三套环境方案就是这么设计的</span><span class="n">首选</span></li>
+        <li><span class="t"><b>LocalStack</b> —— 在 Docker 里跑一套 AWS API 兼容的本地云，S3/SQS/Lambda/DynamoDB 都能调，<b>断网可用</b>，最适合练「API 调用」而不是「控制台点点」</span><span class="n">API</span></li>
+        <li><span class="t"><b>MinIO</b> —— S3 兼容的对象存储，一条命令本地跑起来，练习桶/权限/生命周期几乎等价</span><span class="n">替代S3</span></li>
+        <li><span class="t"><b>DynamoDB Local</b> —— 官方提供的本地版，Java 一跑就有，NoSQL 建模不用花钱</span><span class="n">替代DDB</span></li>
+        <li><span class="t"><b>minikube / kind / k3s</b> —— 本地 K8s 集群，一条命令起来，<b>断网也能练 K8s</b>；离线装镜像需要提前拉包</span><span class="n">替代K8s</span></li>
+        <li><span class="t"><b>OpenStack（社区版）</b> —— 国内国赛私有云路线就是这个；<b>但要注意与 AWS 公有云路线是两回事</b>，别混着学</span><span class="n">私有云</span></li>
+        <li><span class="t"><b>eNSP</b> —— 华为官方免费网络仿真工具，<b>完全离线可用</b>，练网络最省心</span><span class="n">离线</span></li>
+      </ul>
+      <p class="small" style="margin-top:8px">国内网络环境下的免费云主机还有：<b>阿里云免费试用</b>（⚠️ <b>每个账号只有一次试用权益、时间无法延长</b>，需实名）· <b>华为云免费试用</b> · <b>腾讯云免费试用</b> · <b>云起实验室 developer.aliyun.com/adc</b>（免费沙箱，⚠️ 注意正确入口是 <code>/adc/</code>，老的 <code>lab.aliyun.com</code> 已失效）。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">⑦ 站内配套内容地图（这一页是导航，不是替代）</h2>
+    <div class="card"><ul class="list">
+      <li><span class="t"><a href="aws-educate.html"><b>AWS 管理控制台入门 · 官方课件全文</b></a>　5 节 53 张幻灯片，屏幕文字与旁白逐条对齐 + 实操速查 + 28 条中英术语对照，<b>简体中文 · 全离线</b></span><span class="n">英文补丁</span></li>
+      <li><span class="t"><a href="cloudlab.html"><b>实战训练场 L1–L4</b></a>　任务书 + 自动评分脚本（做对得分、改对即得分）+ L1 故障注入，兼容 Rocky 9 / Ubuntu 24.04</span><span class="n">动手</span></li>
+      <li><span class="t"><a href="../study.html#d=tutorial_01-Linux零基础-保姆级_md">20 章保姆级教程</a>　00 开始之前 → 20 锐捷云平台真题，<b>全中文全离线</b>，零基础主线</span><span class="n">主线</span></li>
+      <li><span class="t"><a href="../study.html#d=knowledge_01-基础-Linux与操作系统_md"><b>知识地图 12 章</b></a>　Linux → 网络 → 企业服务 → 私有云 → <b>公有云 AWS</b> → 容器 → IaC → 可观测 → 安全 → 前沿 → 竞赛 → 认证</span><span class="n">体系</span></li>
+      <li><span class="t"><a href="../study.html#d=mastery_00-总纲-像说话一样掌握云计算_md"><b>精通体系 8 篇</b></a>　疆域全景图 / 精通阶梯自测 / 架构模式手册 / 全平台地图 / 365 天训练系统</span><span class="n">进阶</span></li>
+      <li><span class="t"><a href="cloud-videos.html"><b>云计算视频库</b></a>　世赛评分标准精读 / 国赛私有云竞赛频道 / 阿里云·华为云·AWS 官方课 / Docker·K8s，<b>逐条实测存活</b></span><span class="n">视频</span></li>
+      <li><span class="t"><a href="cloud-cert.html"><b>云认证总库</b></a>　AWS 在售认证全清单 / 阿里云 2026 下线 28 门 / 华为三体系 / 13 条避坑</span><span class="n">考证</span></li>
+      <li><span class="t"><a href="cloud-race.html"><b>赛情总台</b></a>　倒计时 / 赛历 / 考纲 / 官方报名入口</span><span class="n">比赛</span></li>
+      <li><span class="t"><a href="sleep.html"><b>睡前故事考场</b></a>　十四夜云上之城故事 + 次日清晨随机考场，适合通勤与睡前</span><span class="n">碎片</span></li>
+    </ul></div>
+  </section>
+
+  <p class="note">本页 AWS 官方信息核实日期 <b>2026-10-16</b>：Free Tier 额度、Skill Builder 免费/订阅边界、Well-Architected 六支柱与 Lenses/Guidance 构成均取自官方页面原文。⚠️ <b>免费额度与定价可能调整</b>，不同区域规则也可能不同，<b>开通任何计费资源前请以官方定价页当日口径为准</b>。本页只做学习路径整理与资源索引，不售卖、不代理任何 AWS 服务或课程；各资源版权归 AWS 及其合作方所有。</p>
+  <p><a href="cloud.html">← 回云计算备战中心</a> · <a href="cloudlab.html">实战训练场</a> · <a href="aws-educate.html">AWS 官方课件全文</a> · <a href="archive.html">资料总目</a></p>
+</div>
+</body>
+</html>

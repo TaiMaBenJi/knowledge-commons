@@ -1,0 +1,3721 @@
+{
+ "generated": "2026-10-16",
+ "source": "study-data/c/examcn.f57bcd.js",
+ "disclaimer": "技术栈命中＝全文出现该关键词的篇数，不代表该考点分值；国赛真题无世赛里昂那样的官方 task_XXX_XX 评分编号体系，本数据不编造权重。",
+ "total": 154,
+ "stack_hits": {
+  "OpenStack 私有云": 118,
+  "Docker 容器": 85,
+  "Kubernetes 编排": 100,
+  "Ansible 自动化": 96,
+  "Nginx / Web 服务": 62,
+  "MySQL / 数据库": 116,
+  "负载均衡 / HA": 80,
+  "Python 脚本": 96,
+  "网络基础": 103,
+  "云平台运维": 144,
+  "监控 / 日志": 71,
+  "综合布线": 2,
+  "存储": 103,
+  "备份 / 容灾": 61,
+  "GIT / 版本管理": 75,
+  "Windows Server / AD": 1,
+  "Linux 基础": 109
+ },
+ "struct_hits": {
+  "模块+权重分布": 2,
+  "评分标准/评分细则": 3,
+  "任务书": 112,
+  "环境/拓扑说明": 4,
+  "解题步骤": 1
+ },
+ "skill_dist": {
+  "网络应用": 3,
+  "云计算": 54,
+  "云计算应用": 91,
+  "其他/未判定": 6
+ },
+ "year_dist": {
+  "2018": 1,
+  "2019": 2,
+  "2020": 1,
+  "2021": 3,
+  "2022": 14,
+  "2023": 51,
+  "2024": 31,
+  "2025": 8,
+  "2026": 2,
+  "未标年份": 41
+ },
+ "duration_dist": {
+  "2.0": 2,
+  "3.0": 1,
+  "4.0": 3,
+  "6.0": 1
+ },
+ "with_module_weights": [
+  {
+   "title": "· 约 5 分钟",
+   "year": "2018",
+   "modules": [
+    {
+     "id": "一",
+     "t": "无线网络规划与实施",
+     "w": 10.0
+    },
+    {
+     "id": "二",
+     "t": "设备基础信息配置",
+     "w": 5.0
+    },
+    {
+     "id": "三",
+     "t": "网络搭建与网络冗余备份方案部署",
+     "w": 20.0
+    },
+    {
+     "id": "四",
+     "t": "移动互联网搭建与网优",
+     "w": 15.0
+    },
+    {
+     "id": "五",
+     "t": "出口安全防护与远程接入",
+     "w": 10.0
+    },
+    {
+     "id": "六",
+     "t": "云计算服务搭建与企业应用",
+     "w": 20.0
+    },
+    {
+     "id": "七",
+     "t": "综合布线规划与设计",
+     "w": 15.0
+    },
+    {
+     "id": "八",
+     "t": "赛场规范和文档规范",
+     "w": 5.0
+    }
+   ]
+  },
+  {
+   "title": "· 约 64 分钟",
+   "year": "2019",
+   "modules": [
+    {
+     "id": "一",
+     "t": "无线网络规划与实施",
+     "w": 10.0
+    },
+    {
+     "id": "二",
+     "t": "设备基础信息配置",
+     "w": 5.0
+    },
+    {
+     "id": "三",
+     "t": "网络搭建与网络冗余备份方案部署",
+     "w": 20.0
+    },
+    {
+     "id": "四",
+     "t": "移动互联网搭建与网优",
+     "w": 20.0
+    },
+    {
+     "id": "五",
+     "t": "出口安全防护与远程接入",
+     "w": 20.0
+    },
+    {
+     "id": "六",
+     "t": "云计算服务搭建与企业应用",
+     "w": 20.0
+    }
+   ]
+  }
+ ],
+ "docs": [
+  {
+   "id": "test-projects_cn-domestic_2018年全国计算机网络大赛_2018年全国职业技能大赛高职组计算机网络应用赛项真题_I卷_docx_md",
+   "title": "· 约 5 分钟",
+   "year": "2018",
+   "skill": "网络应用",
+   "duration_h": 4.0,
+   "chars": 2139,
+   "stack": [
+    "网络基础",
+    "云平台运维",
+    "综合布线",
+    "存储",
+    "备份 / 容灾",
+    "Windows Server / AD",
+    "Linux 基础"
+   ],
+   "struct": [
+    "模块+权重分布"
+   ],
+   "modules": [
+    {
+     "id": "一",
+     "t": "无线网络规划与实施",
+     "w": 10.0
+    },
+    {
+     "id": "二",
+     "t": "设备基础信息配置",
+     "w": 5.0
+    },
+    {
+     "id": "三",
+     "t": "网络搭建与网络冗余备份方案部署",
+     "w": 20.0
+    },
+    {
+     "id": "四",
+     "t": "移动互联网搭建与网优",
+     "w": 15.0
+    },
+    {
+     "id": "五",
+     "t": "出口安全防护与远程接入",
+     "w": 10.0
+    },
+    {
+     "id": "六",
+     "t": "云计算服务搭建与企业应用",
+     "w": 20.0
+    },
+    {
+     "id": "七",
+     "t": "综合布线规划与设计",
+     "w": 15.0
+    },
+    {
+     "id": "八",
+     "t": "赛场规范和文档规范",
+     "w": 5.0
+    }
+   ]
+  },
+  {
+   "id": "test-projects_cn-domestic_2019年全国职业院校技能大赛高职组云计算技术与应用赛项试题样卷_提升云计算技能的不二选择_md",
+   "title": "· 约 4 分钟",
+   "year": "2019",
+   "skill": "云计算",
+   "duration_h": 4.0,
+   "chars": 1800,
+   "stack": [
+    "云平台运维",
+    "监控 / 日志",
+    "存储"
+   ],
+   "struct": [],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2020年全国职业院校技能大赛改革试点赛高职组_云计算_竞赛赛卷第三场次题目_公有云部署与运维_md",
+   "title": "· 约 3 分钟",
+   "year": "2020",
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 449,
+   "stack": [
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "网络基础",
+    "云平台运维",
+    "存储"
+   ],
+   "struct": [],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2021云计算技能竞赛真题_md",
+   "title": "· 约 5 分钟",
+   "year": "2021",
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 1816,
+   "stack": [
+    "OpenStack 私有云",
+    "云平台运维",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2021云计算技能竞赛真题卷_附标准答案_md",
+   "title": "· 约 41 分钟",
+   "year": "2021",
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 14023,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "MySQL / 数据库",
+    "网络基础",
+    "云平台运维",
+    "Linux 基础"
+   ],
+   "struct": [],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2021年江西省职业院校技能大赛_高职组_云计算应用_赛项样题_md",
+   "title": "· 约 22 分钟",
+   "year": "2021",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 8917,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "存储",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2022_年全国职业院校技能大赛高职组云计算赛项试卷部分解析_md",
+   "title": "· 约 8 分钟",
+   "year": "2022",
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 3094,
+   "stack": [
+    "OpenStack 私有云",
+    "MySQL / 数据库",
+    "网络基础",
+    "云平台运维",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2022_年全国职业院校技能大赛高职组云计算赛项赛题解析_公有云_华为云_md",
+   "title": "· 约 3 分钟",
+   "year": "2022",
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 500,
+   "stack": [
+    "负载均衡 / HA",
+    "云平台运维",
+    "存储",
+    "备份 / 容灾"
+   ],
+   "struct": [],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2022_年全国职业院校技能大赛高职组云计算赛项赛题解析_公有云_华为云_之_公有云服务运维_超详细_md",
+   "title": "· 约 3 分钟",
+   "year": "2022",
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 667,
+   "stack": [
+    "Kubernetes 编排",
+    "MySQL / 数据库",
+    "云平台运维",
+    "存储"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2022_年全国职业院校技能大赛高职组云计算赛项赛题解析_容器云_md",
+   "title": "· 约 4 分钟",
+   "year": "2022",
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 1576,
+   "stack": [
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Nginx / Web 服务",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2022_年全国职业院校技能大赛高职组云计算赛项赛题解析_私有云_赛项_之_私有云运维开发_超详细_md",
+   "title": "· 约 3 分钟",
+   "year": "2022",
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 893,
+   "stack": [
+    "OpenStack 私有云",
+    "Ansible 自动化",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "云平台运维",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2022全国职业技能大赛_云计算竞赛真题附标准答案_md",
+   "title": "· 约 3 分钟",
+   "year": "2022",
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 808,
+   "stack": [
+    "网络基础",
+    "云平台运维"
+   ],
+   "struct": [],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2022年云计算全国职业技能大赛资源下载_md",
+   "title": "· 约 3 分钟",
+   "year": "2022",
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 1101,
+   "stack": [],
+   "struct": [
+    "评分标准/评分细则"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2022年全国职业院校技能大赛_高职组_云计算_赛项赛卷①第一场次_私有云_md",
+   "title": "· 约 11 分钟",
+   "year": "2022",
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 4202,
+   "stack": [
+    "OpenStack 私有云",
+    "Ansible 自动化",
+    "MySQL / 数据库",
+    "Python 脚本",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2022年全国职业院校技能大赛_高职组_云计算_赛项赛卷①第二场次_容器云_md",
+   "title": "· 约 11 分钟",
+   "year": "2022",
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 4498,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Nginx / Web 服务",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2022年全国职业院校技能大赛_高职组_云计算_赛项赛卷②公有云_md",
+   "title": "· 约 7 分钟",
+   "year": "2022",
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 2679,
+   "stack": [
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理"
+   ],
+   "struct": [
+    "环境/拓扑说明"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2022年全国职业院校技能大赛_高职组_云计算_赛项赛卷②容器云_md",
+   "title": "· 约 11 分钟",
+   "year": "2022",
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 4378,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2022年全国职业院校技能大赛_高职组_云计算_赛项赛卷②私有云_md",
+   "title": "· 约 9 分钟",
+   "year": "2022",
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 3724,
+   "stack": [
+    "OpenStack 私有云",
+    "Ansible 自动化",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "云平台运维",
+    "存储",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2022年全国职业院校技能大赛高职组云计算赛项赛题解析_公有云_华为云_公有云服务运维解析_md",
+   "title": "· 约 3 分钟",
+   "year": "2022",
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 933,
+   "stack": [
+    "Kubernetes 编排",
+    "MySQL / 数据库",
+    "网络基础",
+    "云平台运维",
+    "存储"
+   ],
+   "struct": [],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2022年河南省高等职业教育技能大赛云计算赛项竞赛赛卷_样卷_md",
+   "title": "· 约 4 分钟",
+   "year": "2022",
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 1732,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "云平台运维",
+    "监控 / 日志",
+    "存储"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023_年东北三省一区职业院校技能大赛_云计算应用_高职组_赛项样题_md",
+   "title": "· 约 7 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 2584,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "云平台运维",
+    "存储"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023_年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷_md",
+   "title": "· 约 69 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 27455,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023_年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷_B_md",
+   "title": "· 约 10 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 4103,
+   "stack": [
+    "OpenStack 私有云",
+    "Kubernetes 编排",
+    "MySQL / 数据库",
+    "网络基础",
+    "云平台运维",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023_年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷_B_公有云_md",
+   "title": "· 约 3 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 761,
+   "stack": [
+    "OpenStack 私有云",
+    "Kubernetes 编排",
+    "云平台运维"
+   ],
+   "struct": [],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023_年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷_B_正式赛卷_md",
+   "title": "· 约 80 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 31902,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023_年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷_B_私有云_md",
+   "title": "· 约 29 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 11417,
+   "stack": [
+    "OpenStack 私有云",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "MySQL / 数据库",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "存储",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023_年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷_B_私有云服务搭建解析笔记_md",
+   "title": "· 约 3 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 766,
+   "stack": [
+    "OpenStack 私有云",
+    "网络基础",
+    "云平台运维",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书",
+    "解题步骤"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023_年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷_B部分解析_md",
+   "title": "· 约 10 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 3967,
+   "stack": [
+    "OpenStack 私有云",
+    "Kubernetes 编排",
+    "MySQL / 数据库",
+    "网络基础",
+    "云平台运维",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023_年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷_B部分解析_云计算应用_赛项_md",
+   "title": "· 约 3 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 740,
+   "stack": [
+    "OpenStack 私有云",
+    "Kubernetes 编排",
+    "MySQL / 数据库",
+    "网络基础",
+    "云平台运维"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023_年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷评分文件_md",
+   "title": "· 约 79 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 31550,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023_年安徽省职业院校技能大赛_高职组_云计算应用_赛项样题_md",
+   "title": "· 约 5 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 2078,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "云平台运维",
+    "存储"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023全国职业技能大赛云计算_高职组赛题卷①_私有云_md",
+   "title": "· 约 8 分钟",
+   "year": "2023",
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 3141,
+   "stack": [
+    "OpenStack 私有云",
+    "Ansible 自动化",
+    "MySQL / 数据库",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023全国职业技能大赛云计算_高职组赛题卷②_私有云_md",
+   "title": "· 约 9 分钟",
+   "year": "2023",
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 3535,
+   "stack": [
+    "OpenStack 私有云",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "存储",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023全国职业技能大赛云计算_高职组赛题卷③_私有云_md",
+   "title": "· 约 8 分钟",
+   "year": "2023",
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 3189,
+   "stack": [
+    "OpenStack 私有云",
+    "Ansible 自动化",
+    "MySQL / 数据库",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023全国职业技能大赛云计算_高职组赛题卷④_私有云_md",
+   "title": "· 约 8 分钟",
+   "year": "2023",
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 3271,
+   "stack": [
+    "OpenStack 私有云",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "存储",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023全国职业技能大赛云计算_高职组赛题卷⑤_私有云_md",
+   "title": "· 约 8 分钟",
+   "year": "2023",
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 3314,
+   "stack": [
+    "OpenStack 私有云",
+    "Ansible 自动化",
+    "MySQL / 数据库",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023年_中银杯_四川省职业院校技能大赛_云计算应用_赛项_高职组_样题_第1套_md",
+   "title": "· 约 16 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 6198,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷1_md",
+   "title": "· 约 15 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 6014,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷10_容器云_md",
+   "title": "· 约 3 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 494,
+   "stack": [
+    "OpenStack 私有云",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "云平台运维"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷1_容器云_md",
+   "title": "· 约 4 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 1792,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Python 脚本",
+    "云平台运维",
+    "监控 / 日志",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷2_md",
+   "title": "· 约 15 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 6132,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷3_md",
+   "title": "· 约 3 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 388,
+   "stack": [
+    "OpenStack 私有云",
+    "Kubernetes 编排",
+    "云平台运维"
+   ],
+   "struct": [],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷4_md",
+   "title": "· 约 16 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 6269,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷4_私有云_md",
+   "title": "· 约 8 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 2940,
+   "stack": [
+    "OpenStack 私有云",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "MySQL / 数据库",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷5_md",
+   "title": "· 约 15 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 6129,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷6_md",
+   "title": "· 约 16 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 6258,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷7_md",
+   "title": "· 约 16 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 6206,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷9_md",
+   "title": "· 约 15 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 5992,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷9_公有云_md",
+   "title": "· 约 5 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 1945,
+   "stack": [
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷9_私有云_md",
+   "title": "· 约 7 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 2830,
+   "stack": [
+    "OpenStack 私有云",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "MySQL / 数据库",
+    "网络基础",
+    "云平台运维",
+    "存储",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷①_md",
+   "title": "· 约 16 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 6281,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷②_md",
+   "title": "· 约 15 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 6157,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷④_md",
+   "title": "· 约 16 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 6294,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷⑤_md",
+   "title": "· 约 15 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 6154,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷⑥_md",
+   "title": "· 约 16 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 6283,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷⑧_md",
+   "title": "· 约 16 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 6293,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷⑨_md",
+   "title": "· 约 15 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 6015,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷⑩_md",
+   "title": "· 约 15 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 6120,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷一_md",
+   "title": "· 约 15 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 6041,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷七_md",
+   "title": "· 约 15 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 6015,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷三_md",
+   "title": "· 约 15 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 5968,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷九_md",
+   "title": "· 约 15 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 5984,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷二_md",
+   "title": "· 约 15 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 5883,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷五_md",
+   "title": "· 约 15 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 5949,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷八_md",
+   "title": "· 约 15 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 6056,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷六_md",
+   "title": "· 约 15 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 6041,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷十_md",
+   "title": "· 约 15 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 6091,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷四_md",
+   "title": "· 约 15 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 6069,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023年全国职业院校技能大赛云计算应用_私有云运维开发解析答案教程_md",
+   "title": "· 约 3 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 978,
+   "stack": [
+    "OpenStack 私有云",
+    "Ansible 自动化",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "云平台运维",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023年安徽省职业院校技能大赛_高职组_云计算应用_赛项任务书样题_md",
+   "title": "· 约 5 分钟",
+   "year": "2023",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 2007,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "云平台运维",
+    "存储"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2023年河北省职业院校技能大赛_高职组_云计算_赛项任务书_md",
+   "title": "· 约 5 分钟",
+   "year": "2023",
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 1825,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "云平台运维",
+    "监控 / 日志",
+    "存储"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2024_年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷_B部分解析_云计算应用_赛项_md",
+   "title": "· 约 3 分钟",
+   "year": "2024",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 1081,
+   "stack": [
+    "OpenStack 私有云",
+    "网络基础",
+    "云平台运维",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2024_年广东省职业院校技能大赛_高职组_云计算应用_赛项样题_1_md",
+   "title": "· 约 12 分钟",
+   "year": "2024",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 4565,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "存储",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2024_年广东省职业院校技能大赛_高职组_云计算应用_赛项样题_2_md",
+   "title": "· 约 12 分钟",
+   "year": "2024",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 4704,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "MySQL / 数据库",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2024_年广东省职业院校技能大赛_高职组_云计算应用_赛项样题_3_md",
+   "title": "· 约 12 分钟",
+   "year": "2024",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 4673,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2024_年广东省职业院校技能大赛_高职组_云计算应用_赛项样题①_职业院校技能大赛云计算项目_md",
+   "title": "· 约 3 分钟",
+   "year": "2024",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 468,
+   "stack": [
+    "OpenStack 私有云",
+    "云平台运维"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2024_年广东省职业院校技能大赛_高职组_云计算应用_赛项样题②_md",
+   "title": "· 约 3 分钟",
+   "year": "2024",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 789,
+   "stack": [
+    "OpenStack 私有云",
+    "Ansible 自动化",
+    "云平台运维",
+    "存储"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2024_年广东省职业院校技能大赛_高职组_云计算应用_赛项样题④_md",
+   "title": "· 约 11 分钟",
+   "year": "2024",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 4497,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "Python 脚本",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2024_年广东省职业院校技能大赛_高职组_云计算应用_赛项样题④_高职组技能大赛云计算赛项训练计划_md",
+   "title": "· 约 3 分钟",
+   "year": "2024",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 1009,
+   "stack": [
+    "OpenStack 私有云",
+    "Ansible 自动化",
+    "MySQL / 数据库",
+    "云平台运维",
+    "存储"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2024_年广东省职业院校技能大赛_高职组_云计算应用_赛项样题⑤_技能大赛云计算_1_md",
+   "title": "· 约 10 分钟",
+   "year": "2024",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 3979,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2024_年广东省职业院校技能大赛_高职组_云计算应用_赛项样题⑤_技能大赛云计算_3_md",
+   "title": "· 约 3 分钟",
+   "year": "2024",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 466,
+   "stack": [
+    "OpenStack 私有云",
+    "云平台运维"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2024_年广东省职业院校技能大赛_高职组_云计算应用_赛项样题⑤_技能大赛云计算_5_md",
+   "title": "· 约 8 分钟",
+   "year": "2024",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 3233,
+   "stack": [
+    "OpenStack 私有云",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "MySQL / 数据库",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2024_年广西职业院校技能大赛高职组_云计算应用_赛项赛题①_md",
+   "title": "· 约 14 分钟",
+   "year": "2024",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 5740,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2024_年广西职业院校技能大赛高职组_云计算应用_赛项赛题③_md",
+   "title": "· 约 14 分钟",
+   "year": "2024",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 5607,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2024_年广西职业院校技能大赛高职组_云计算应用_赛项赛题④_md",
+   "title": "· 约 14 分钟",
+   "year": "2024",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 5669,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2024_年广西职业院校技能大赛高职组_云计算应用_赛项赛题⑤_md",
+   "title": "· 约 14 分钟",
+   "year": "2024",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 5620,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2024_年广西职业院校技能大赛高职组_云计算应用_赛项赛题第2套_md",
+   "title": "· 约 14 分钟",
+   "year": "2024",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 5775,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2024_年广西职业院校技能大赛高职组_云计算应用_赛项赛题第①套_md",
+   "title": "· 约 14 分钟",
+   "year": "2024",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 5678,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2024_年广西职业院校技能大赛高职组_云计算应用_赛项赛题第②套_md",
+   "title": "· 约 14 分钟",
+   "year": "2024",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 5683,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2024_年广西职业院校技能大赛高职组_云计算应用_赛项赛题第③套_md",
+   "title": "· 约 14 分钟",
+   "year": "2024",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 5528,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2024_年广西职业院校技能大赛高职组_云计算应用_赛项赛题第④套_md",
+   "title": "· 约 13 分钟",
+   "year": "2024",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 5112,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2024_年广西职业院校技能大赛高职组_云计算应用_赛项赛题第④套_1_md",
+   "title": "· 约 3 分钟",
+   "year": "2024",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 734,
+   "stack": [
+    "OpenStack 私有云",
+    "Kubernetes 编排",
+    "云平台运维"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2024_年广西职业院校技能大赛高职组_云计算应用_赛项赛题第⑤套_md",
+   "title": "· 约 14 分钟",
+   "year": "2024",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 5569,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2024年云南省职业院校技能大赛_高职组_云计算应用_赛项样题_md",
+   "title": "· 约 5 分钟",
+   "year": "2024",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 1796,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "云平台运维",
+    "存储"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2024年河北省职业院校_鲲鹏云技术开发与应用_高职组_技能大赛样题_md",
+   "title": "· 约 7 分钟",
+   "year": "2024",
+   "skill": "其他/未判定",
+   "duration_h": 6.0,
+   "chars": 2885,
+   "stack": [
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书",
+    "环境/拓扑说明"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2024年河北省职业院校技能大赛云计算应用赛项赛题第4套_md",
+   "title": "· 约 9 分钟",
+   "year": "2024",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 3601,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "MySQL / 数据库",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2024年河北省职业院校技能大赛云计算应用赛项赛题第4套_容器云_md",
+   "title": "· 约 3 分钟",
+   "year": "2024",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 488,
+   "stack": [
+    "OpenStack 私有云",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "云平台运维"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2024年贵州省职业院校技能大赛云计算应用赛项赛题③_md",
+   "title": "· 约 12 分钟",
+   "year": "2024",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 4821,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "存储",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2024年贵州省职业院校技能大赛云计算应用赛项赛题④_md",
+   "title": "· 约 12 分钟",
+   "year": "2024",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 4882,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2024年贵州省职业院校技能大赛云计算应用赛项赛题⑥_md",
+   "title": "· 约 13 分钟",
+   "year": "2024",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 4972,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "存储",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2024广东省职业技能大赛云计算_OpenStack镜像_脚本详解_md",
+   "title": "· 约 141 分钟",
+   "year": "2024",
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 55119,
+   "stack": [
+    "OpenStack 私有云",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "Linux 基础"
+   ],
+   "struct": [],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2025_年世界职业院校技能大赛新一代信息技术赛道备赛方案_md",
+   "title": "· 约 13 分钟",
+   "year": "2025",
+   "skill": "云计算",
+   "duration_h": 3.0,
+   "chars": 5081,
+   "stack": [
+    "Python 脚本",
+    "网络基础",
+    "存储",
+    "备份 / 容灾"
+   ],
+   "struct": [
+    "评分标准/评分细则"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2025_年广东省职业院校技能大赛_云计算应用_技能测试样题_二_md",
+   "title": "· 约 15 分钟",
+   "year": "2025",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 5892,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "存储",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2025_年广东省职业院校技能大赛_云计算应用_技能测试样题_五_md",
+   "title": "· 约 15 分钟",
+   "year": "2025",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 6051,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "存储",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2025年山东省职业院校技能大赛_高职组_云计算应用_赛项赛卷1_md",
+   "title": "· 约 18 分钟",
+   "year": "2025",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 7177,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2025年山东省职业院校技能大赛_高职组_云计算应用_赛项赛卷2_md",
+   "title": "· 约 14 分钟",
+   "year": "2025",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 5769,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2025年山东省职业院校技能大赛_高职组_云计算应用_赛项赛卷3_md",
+   "title": "· 约 15 分钟",
+   "year": "2025",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 5964,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2025年广东省职业院校技能大赛高职组_云计算应用_技能测试样题_一_md",
+   "title": "· 约 15 分钟",
+   "year": "2025",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 5981,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "存储",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_2025年福建省职业院校技能大赛_高职组_云计算应用_赛项样题_md",
+   "title": "· 约 19 分钟",
+   "year": "2025",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 7473,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_21年广东省云计算技能大赛样卷_OpenStack搭建任务_md",
+   "title": "· 约 16 分钟",
+   "year": null,
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 6596,
+   "stack": [
+    "OpenStack 私有云",
+    "MySQL / 数据库",
+    "网络基础",
+    "云平台运维"
+   ],
+   "struct": [],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_21年广东省云计算技能大赛样卷_OpenStack运维_md",
+   "title": "· 约 3 分钟",
+   "year": null,
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 703,
+   "stack": [
+    "OpenStack 私有云",
+    "云平台运维"
+   ],
+   "struct": [],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_ie网络集合代理无法启动_长风爆款_世赛必备_货运代理知识测评系统_md",
+   "title": "· 约 3 分钟",
+   "year": null,
+   "skill": "其他/未判定",
+   "duration_h": null,
+   "chars": 1413,
+   "stack": [],
+   "struct": [
+    "评分标准/评分细则"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_python认证考试培训_md",
+   "title": "· 约 5 分钟",
+   "year": null,
+   "skill": "其他/未判定",
+   "duration_h": null,
+   "chars": 1908,
+   "stack": [
+    "Python 脚本",
+    "存储"
+   ],
+   "struct": [],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_中专生计算机考证指南_2026高含金量证书与备考策略_md",
+   "title": "· 约 7 分钟",
+   "year": "2026",
+   "skill": "其他/未判定",
+   "duration_h": 2.0,
+   "chars": 2834,
+   "stack": [
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "云平台运维",
+    "存储",
+    "Linux 基础"
+   ],
+   "struct": [],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_云创大数据助力全国技能大赛河北省选拔赛云计算赛项_md",
+   "title": "· 约 3 分钟",
+   "year": null,
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 1213,
+   "stack": [
+    "云平台运维"
+   ],
+   "struct": [],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_云创大数据助力全国技能大赛甘肃选拔赛云计算项目_md",
+   "title": "· 约 3 分钟",
+   "year": null,
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 1239,
+   "stack": [
+    "云平台运维"
+   ],
+   "struct": [],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_云创大数据助力石景山区第三届职业技能大赛_云计算比赛_md",
+   "title": "· 约 5 分钟",
+   "year": null,
+   "skill": "云计算",
+   "duration_h": 2.0,
+   "chars": 2170,
+   "stack": [
+    "云平台运维"
+   ],
+   "struct": [],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_云创大数据平台助力六大省级大赛_md",
+   "title": "· 约 3 分钟",
+   "year": null,
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 1410,
+   "stack": [
+    "Docker 容器",
+    "云平台运维"
+   ],
+   "struct": [],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_云创大数据平台助力四大省级大赛_md",
+   "title": "· 约 3 分钟",
+   "year": null,
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 1017,
+   "stack": [
+    "Docker 容器",
+    "云平台运维"
+   ],
+   "struct": [],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_云计算应用_湖南省职业院校技能大赛云计算应用赛项样题一_md",
+   "title": "· 约 4 分钟",
+   "year": null,
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 1183,
+   "stack": [
+    "OpenStack 私有云",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "网络基础",
+    "云平台运维",
+    "存储"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_云计算应用_湖南省职业院校技能大赛云计算应用赛项样题七_md",
+   "title": "· 约 18 分钟",
+   "year": null,
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 5916,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_云计算应用_湖南省职业院校技能大赛云计算应用赛项样题三_md",
+   "title": "· 约 18 分钟",
+   "year": null,
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 5873,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_云计算应用_湖南省职业院校技能大赛云计算应用赛项样题九_md",
+   "title": "· 约 18 分钟",
+   "year": null,
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 5899,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_云计算应用_湖南省职业院校技能大赛云计算应用赛项样题二_md",
+   "title": "· 约 18 分钟",
+   "year": null,
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 5860,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_云计算应用_湖南省职业院校技能大赛云计算应用赛项样题五_md",
+   "title": "· 约 18 分钟",
+   "year": null,
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 5865,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_云计算应用_湖南省职业院校技能大赛云计算应用赛项样题六_md",
+   "title": "· 约 18 分钟",
+   "year": null,
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 5970,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_云计算应用_湖南省职业院校技能大赛云计算应用赛项样题十_md",
+   "title": "· 约 18 分钟",
+   "year": null,
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 6002,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_云计算应用_湖南省职业院校技能大赛云计算应用赛项样题四_md",
+   "title": "· 约 18 分钟",
+   "year": null,
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 5981,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_云计算技术应用专业介绍_md",
+   "title": "· 约 5 分钟",
+   "year": null,
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 2092,
+   "stack": [
+    "MySQL / 数据库",
+    "云平台运维",
+    "存储",
+    "Linux 基础"
+   ],
+   "struct": [],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_云计算技能大赛_openstack私有云环境_第一部分_md",
+   "title": "· 约 85 分钟",
+   "year": null,
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 31942,
+   "stack": [
+    "OpenStack 私有云",
+    "MySQL / 数据库",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "存储",
+    "备份 / 容灾",
+    "Linux 基础"
+   ],
+   "struct": [],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_云计算技能大赛_openstack私有云环境_第二部分_md",
+   "title": "· 约 7 分钟",
+   "year": null,
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 2356,
+   "stack": [
+    "OpenStack 私有云",
+    "网络基础",
+    "云平台运维",
+    "Linux 基础"
+   ],
+   "struct": [],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_云计算职业技能大赛私有云运维_OpenStack开放Flavor权限_md",
+   "title": "· 约 4 分钟",
+   "year": null,
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 1691,
+   "stack": [
+    "OpenStack 私有云",
+    "云平台运维"
+   ],
+   "struct": [],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_云计算职业技能大赛组件介绍_一_md",
+   "title": "· 约 6 分钟",
+   "year": null,
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 2595,
+   "stack": [
+    "OpenStack 私有云",
+    "MySQL / 数据库",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储"
+   ],
+   "struct": [],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_全国职业技能大赛云计算_高职组赛题卷①_容器云_md",
+   "title": "· 约 7 分钟",
+   "year": null,
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 2857,
+   "stack": [
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "云平台运维",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_全国职业技能大赛云计算_高职组赛题卷①_私有云_md",
+   "title": "· 约 8 分钟",
+   "year": null,
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 3163,
+   "stack": [
+    "OpenStack 私有云",
+    "Ansible 自动化",
+    "MySQL / 数据库",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_全国职业技能大赛云计算_高职组赛题卷②_容器云_md",
+   "title": "· 约 7 分钟",
+   "year": null,
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 2946,
+   "stack": [
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "云平台运维",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_全国职业技能大赛云计算_高职组赛题卷②_私有云_md",
+   "title": "· 约 9 分钟",
+   "year": null,
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 3557,
+   "stack": [
+    "OpenStack 私有云",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "存储",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_全国职业技能大赛云计算_高职组赛题卷③_容器云_md",
+   "title": "· 约 7 分钟",
+   "year": null,
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 2731,
+   "stack": [
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "云平台运维",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_全国职业技能大赛云计算_高职组赛题卷③_私有云_md",
+   "title": "· 约 8 分钟",
+   "year": null,
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 3220,
+   "stack": [
+    "OpenStack 私有云",
+    "Ansible 自动化",
+    "MySQL / 数据库",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_全国职业技能大赛云计算_高职组赛题卷④_容器云__全国大赛云计算高职题目_1_md",
+   "title": "· 约 8 分钟",
+   "year": null,
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 3146,
+   "stack": [
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "Nginx / Web 服务",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "云平台运维",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_全国职业技能大赛云计算_高职组赛题卷⑤_容器云_md",
+   "title": "· 约 7 分钟",
+   "year": null,
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 2713,
+   "stack": [
+    "Docker 容器",
+    "Kubernetes 编排",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "云平台运维",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_全国职业技能大赛云计算_高职组赛题卷⑤_私有云_md",
+   "title": "· 约 8 分钟",
+   "year": null,
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 3352,
+   "stack": [
+    "OpenStack 私有云",
+    "Ansible 自动化",
+    "MySQL / 数据库",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_全国职业院校_计算机网络应用_赛项_2019_年广西高职组_样题分析_md",
+   "title": "· 约 64 分钟",
+   "year": "2019",
+   "skill": "网络应用",
+   "duration_h": 4.0,
+   "chars": 25325,
+   "stack": [
+    "Nginx / Web 服务",
+    "负载均衡 / HA",
+    "网络基础",
+    "云平台运维",
+    "综合布线",
+    "存储",
+    "备份 / 容灾",
+    "Linux 基础"
+   ],
+   "struct": [
+    "模块+权重分布",
+    "环境/拓扑说明"
+   ],
+   "modules": [
+    {
+     "id": "一",
+     "t": "无线网络规划与实施",
+     "w": 10.0
+    },
+    {
+     "id": "二",
+     "t": "设备基础信息配置",
+     "w": 5.0
+    },
+    {
+     "id": "三",
+     "t": "网络搭建与网络冗余备份方案部署",
+     "w": 20.0
+    },
+    {
+     "id": "四",
+     "t": "移动互联网搭建与网优",
+     "w": 20.0
+    },
+    {
+     "id": "五",
+     "t": "出口安全防护与远程接入",
+     "w": 20.0
+    },
+    {
+     "id": "六",
+     "t": "云计算服务搭建与企业应用",
+     "w": 20.0
+    }
+   ]
+  },
+  {
+   "id": "test-projects_cn-domestic_全国职业院校技能大赛云计算技术与应用大赛国赛题库答案_1_md",
+   "title": "· 约 74 分钟",
+   "year": null,
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 28798,
+   "stack": [
+    "OpenStack 私有云",
+    "MySQL / 数据库",
+    "Python 脚本",
+    "网络基础",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "备份 / 容灾",
+    "Linux 基础"
+   ],
+   "struct": [],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_全国职业院校技能大赛云计算赛项赛题答案_md",
+   "title": "· 约 11 分钟",
+   "year": null,
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 4419,
+   "stack": [
+    "OpenStack 私有云",
+    "Docker 容器",
+    "Kubernetes 编排",
+    "Ansible 自动化",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Python 脚本",
+    "云平台运维",
+    "监控 / 日志",
+    "存储",
+    "GIT / 版本管理",
+    "Linux 基础"
+   ],
+   "struct": [
+    "环境/拓扑说明"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_刘鹏教授圆满执裁世界技能大赛云计算全国选拔赛_md",
+   "title": "· 约 3 分钟",
+   "year": null,
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 897,
+   "stack": [],
+   "struct": [],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_刘鹏教授担任第46届世界技能大赛安徽赛区选拔赛云计算裁判长_md",
+   "title": "· 约 3 分钟",
+   "year": null,
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 922,
+   "stack": [],
+   "struct": [],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_刘鹏教授担任第46届世赛浙江省选拔赛云计算项目裁判长_md",
+   "title": "· 约 3 分钟",
+   "year": null,
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 1364,
+   "stack": [
+    "云平台运维"
+   ],
+   "struct": [],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_容器云职业技能大赛_不一样的比赛_md",
+   "title": "· 约 6 分钟",
+   "year": null,
+   "skill": "其他/未判定",
+   "duration_h": null,
+   "chars": 2451,
+   "stack": [
+    "Docker 容器",
+    "Kubernetes 编排",
+    "云平台运维"
+   ],
+   "struct": [],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_权威_工信部教育与考试中心证书_终身有效_含金量高_md",
+   "title": "· 约 5 分钟",
+   "year": null,
+   "skill": "其他/未判定",
+   "duration_h": null,
+   "chars": 1985,
+   "stack": [
+    "MySQL / 数据库"
+   ],
+   "struct": [],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_蓝盾计算机学校_蓝盾杯_计算机网络技术竞赛创新突破_md",
+   "title": "· 约 4 分钟",
+   "year": null,
+   "skill": "网络应用",
+   "duration_h": null,
+   "chars": 1707,
+   "stack": [
+    "网络基础",
+    "云平台运维",
+    "Linux 基础"
+   ],
+   "struct": [],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_赛题解析_命令脚本配置_2024年第十七届山东省职业院校技能大赛高职组_云计算应用_赛项B卷_任务二_私有云服务运维_md",
+   "title": "· 约 4 分钟",
+   "year": "2024",
+   "skill": "云计算应用",
+   "duration_h": null,
+   "chars": 1646,
+   "stack": [
+    "OpenStack 私有云",
+    "Kubernetes 编排",
+    "网络基础",
+    "云平台运维",
+    "存储",
+    "Linux 基础"
+   ],
+   "struct": [],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_运维最全全国职业技能大赛云计算_高职组赛题卷⑤_容器云_Linux运维岗_md",
+   "title": "· 约 3 分钟",
+   "year": null,
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 916,
+   "stack": [
+    "Docker 容器",
+    "Kubernetes 编排",
+    "MySQL / 数据库",
+    "负载均衡 / HA",
+    "Linux 基础"
+   ],
+   "struct": [
+    "任务书"
+   ],
+   "modules": []
+  },
+  {
+   "id": "test-projects_cn-domestic_高职计算机专业证书规划指南_2026版_md",
+   "title": "· 约 3 分钟",
+   "year": "2026",
+   "skill": "云计算",
+   "duration_h": null,
+   "chars": 1011,
+   "stack": [
+    "MySQL / 数据库",
+    "Python 脚本",
+    "网络基础"
+   ],
+   "struct": [],
+   "modules": []
+  }
+ ]
+}

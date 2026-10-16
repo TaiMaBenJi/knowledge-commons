@@ -299,6 +299,7 @@ function openScenario(id,examMode){
   S.vm=s.vm; S.scn=s.scn; S.tail=s.tail; S.hIdx=-1; S.hist=[]; S.wasAll=false; S.lastGrade=null;
   S.fromExam=!!examMode;
   $('termView').classList.add('on');
+  syncTermClock();
   $('tvTitle').textContent=S.scn.title;
   renderChips(); renderTerm(); hidePanel();
   if(S.editing) closeEditor();
@@ -328,6 +329,27 @@ function startExam(pid){
     toast('⏱ 模拟赛开始——祝顺利');
   });
 }
+/* 考试进行中时，把倒计时同步到终端标题栏（人在任务里也要看得见剩余时间） */
+function syncTermClock(){
+  var head=document.getElementById('tvScore');
+  var ex=S.exam||LS('wg.exam',null);
+  if(!ex) return;
+  var c=document.getElementById('tvExamClock');
+  if(!c){
+    if(!head||!head.parentNode) return;
+    c=document.createElement('div');
+    c.id='tvExamClock';
+    c.style.cssText='font:700 12.5px ui-monospace,Menlo,Consolas,monospace;color:#c99700;'+
+                    'background:#fff6dd;border:1px solid #e0b64a;border-radius:4px;padding:1px 7px;'+
+                    'font-variant-numeric:tabular-nums;white-space:nowrap';
+    head.parentNode.insertBefore(c, head.nextSibling);
+  }
+  var left=Math.max(0,ex.left|0);
+  c.textContent='⏱ '+fmtT(left);
+  c.style.color = left<300 ? '#c0392b' : (left<900 ? '#c99700' : '#4c6b4f');
+  c.style.background = left<300 ? '#ffe9e6' : '#fff6dd';
+  c.style.borderColor = left<300 ? '#e0a49c' : '#e0b64a';
+}
 function startTimer(){
   if(S.timer) return;
   S.timer=setInterval(function(){
@@ -336,6 +358,7 @@ function startTimer(){
     if(S.exam.left<=0){ S.exam.left=0; LSset('wg.exam',S.exam); clearInterval(S.timer); S.timer=null; finishExam(true); return; }
     if(S.exam.left%5===0) LSset('wg.exam',S.exam);
     var el=$('examClock'); if(el) el.textContent=fmtT(S.exam.left);
+    syncTermClock();
   },1000);
 }
 function updateClockUI(){ var el=$('examClock'); if(el&&S.exam) el.textContent=fmtT(S.exam.left); }

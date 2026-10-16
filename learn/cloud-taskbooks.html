@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>国赛 / 省赛真题任务书 · 数据地图 - 知识公社</title>
+<link rel="stylesheet" href="style.css">
+<!-- kc-pwa -->
+<meta name="theme-color" content="#9e2b25">
+<meta name="color-scheme" content="light">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
+<script defer src="../sw-reg.js"></script>
+<!-- /kc-pwa -->
+<style>
+.bar{height:9px;background:#eceff3;border-radius:5px;overflow:hidden;min-width:60px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,#9e2b25,#c9973f);border-radius:5px}
+.br{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--line2);font-size:13.5px}
+.br .lb{flex:none;width:230px;font-size:13.5px}
+.br .bb{flex:1}
+.br .lv{flex:none;color:var(--dim);font-size:12.5px;min-width:118px;text-align:right;font-variant-numeric:tabular-nums}
+@media(max-width:620px){.br .lb{width:110px;font-size:12px}}
+.fix{position:sticky;top:56px;z-index:5;background:#fbf5ea;border:1px solid var(--gold);border-radius:6px;padding:10px 13px;font-size:13px;margin:12px 0}
+</style>
+</head>
+<body>
+<div class="topbar"><span class="dot"></span><span>国赛 / 省赛真题任务书 · 数据地图 | 79 篇真卷的模块与分值统计，不是推测</span></div>
+<header class="hero">
+  <div class="kicker">EXAM TASKBOOKS · DATA-DRIVEN</div>
+  <h1>真题任务书 · 数据地图</h1>
+  <p>从 <b>154 篇国赛真题</b>里抽出 <b>79 篇带完整「模块 + 任务 + 分值」结构</b>的任务书，统计成一张表。下面的分值<b>全部来自真题原文的括号值</b>，没有一处是推测。</p>
+  <div class="badges"><span>79 篇任务书</span><span>19 种模块</span><span>23 种任务</span><span>原文分值</span><span>可复算</span></div>
+</header>
+<nav class="tabs">
+  <a href="index.html">首页</a>
+  <a href="arena.html">作战台</a>
+  <a href="beginner.html">学堂</a>
+  <a href="calendar.html">日历</a>
+  <a href="archive.html">总目</a>
+  <a href="courses.html">课程</a>
+  <a href="contest.html">竞赛</a>
+  <a href="exams.html">升学</a>
+  <a href="gongkao.html">公考</a>
+  <a href="skills.html">世赛</a>
+  <a href="red.html">红色</a>
+  <a href="socialism.html">实践</a>
+  <a href="ecommerce.html">创业</a>
+  <a href="cloud.html">云赛</a>
+  <a href="cloud-race.html">赛情</a>
+  <a href="cloud-basics.html">基础</a>
+  <a href="cloud-cert.html">认证</a>
+  <a class="on" href="cloud-taskbooks.html">真卷</a>
+  <a href="cloudlab.html">实训</a>
+  <a href="comp-series.html">课程</a>
+  <a href="sleep.html">睡前</a>
+  <a href="cloud-videos.html">视频</a>
+  <a href="wsvideos.html">视频</a>
+  <a href="paths.html">路线</a>
+  <a href="../library.html">资源</a>
+  <a href="../download.html">下载</a>
+  <a href="about.html">简章</a>
+</nav>
+
+<div class="wrap">
+
+  <div class="fix">
+    <b>⚠️ 先说口径，别误读：</b>「出现 70 卷」= 这个模块在 70 篇真题里出现过，<b>不是</b>它占 70% 的分。
+    <b>分值一栏才是原文里的分值</b>。两者不要混用。国赛真题绝大多数是「题面 + 技术栈」，
+    <b>没有</b>世赛里昂那种官方 <code>task_XXX_XX</code> 评分编号体系——全库 154 篇里只有 2 篇写了「模块 + 权重」分布。
+  </div>
+
+  <section>
+    <h2 class="sec">① 三大模块 · 出场卷数与分值</h2>
+    <div class="card">
+      <div class="br"><span class="lb"><b>模块一 私有云</b></span><span class="bb"><i style="width:100%"></i></span><span class="lv">70 / 79 卷　25 ~ 50 分</span></div>
+      <div class="br"><span class="lb"><b>模块二 容器云</b></span><span class="bb"><i style="width:100%"></i></span><span class="lv">70 / 79 卷　25 ~ 50 分</span></div>
+      <div class="br"><span class="lb"><b>模块三 公有云</b></span><span class="bb"><i style="width:74%"></i></span><span class="lv">52 / 79 卷　<b>固定 40 分</b></span></div>
+      <div class="br"><span class="lb">模块三 边缘计算</span><span class="bb"><i style="width:4%"></i></span><span class="lv">3 / 79 卷　20 分</span></div>
+      <div class="br"><span class="lb">模块四 智能计算</span><span class="bb"><i style="width:4%"></i></span><span class="lv">3 / 79 卷　20 分</span></div>
+      <div class="goal"><b>最值得记的一条：公有云模块在 52 篇真题里<b>分值恒定为 40 分</b>，没有一篇不同。</b>相比之下私有云和容器云的分值在 25 到 50 之间浮动——说明这两个模块的分值随年份/省份变化，<b>而公有云是稳定的必考项</b>。如果你时间有限，<b>公有云是确定性最高的一块</b>。</div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">② 高频任务 · 练什么最值</h2>
+    <div class="card">
+      <p class="small">下表是跨 79 篇真题的同名任务出现次数与原文分值范围。出现次数越高，说明这个动作在真题里被反复考。</p>
+      <div class="br"><span class="lb">私有云服务搭建</span><span class="bb"><i style="width:100%"></i></span><span class="lv">63 卷　5 ~ 10 分</span></div>
+      <div class="br"><span class="lb">私有云服务运维</span><span class="bb"><i style="width:100%"></i></span><span class="lv">63 卷　10 ~ 25 分</span></div>
+      <div class="br"><span class="lb">容器云服务搭建</span><span class="bb"><i style="width:98%"></i></span><span class="lv">62 卷　5 ~ 10 分</span></div>
+      <div class="br"><span class="lb">私有云运维开发</span><span class="bb"><i style="width:95%"></i></span><span class="lv">60 卷　10 ~ 15 分</span></div>
+      <div class="br"><span class="lb">容器云服务运维</span><span class="bb"><i style="width:95%"></i></span><span class="lv">60 卷　10 ~ 30 分</span></div>
+      <div class="br"><span class="lb">容器云运维开发</span><span class="bb"><i style="width:92%"></i></span><span class="lv">58 卷　10 ~ 15 分</span></div>
+      <div class="br"><span class="lb">公有云运维开发</span><span class="bb"><i style="width:76%"></i></span><span class="lv">48 卷　10 分</span></div>
+      <div class="br"><span class="lb">边缘计算云应用开发</span><span class="bb"><i style="width:75%"></i></span><span class="lv">47 卷　5 分</span></div>
+      <div class="br"><span class="lb">边缘计算系统运维</span><span class="bb"><i style="width:73%"></i></span><span class="lv">46 卷　10 分</span></div>
+      <div class="br"><span class="lb">公有云服务搭建</span><span class="bb"><i style="width:70%"></i></span><span class="lv">44 卷　5 分</span></div>
+      <div class="br"><span class="lb">公有云服务运维</span><span class="bb"><i style="width:65%"></i></span><span class="lv">41 卷　10 分</span></div>
+      <p class="small" style="margin-top:10px"><b>怎么用这张表</b>：<b>搭建类</b>任务分值低（5–10 分）但几乎必考，是保底分；<b>运维开发类</b>任务分值高（10–30 分）但要求会写脚本、会自动化。<b>先拿稳所有搭建类保底分，再攻运维开发类</b>——这是从 79 篇真题里读出来的性价比排序。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">③ 技术栈在 154 篇真题里的出现频次</h2>
+    <div class="card">
+      <p class="small">覆盖全部 154 篇国赛真题（关键词全文命中，<b>不代表分值</b>）。</p>
+      <div class="br"><span class="lb">云平台运维（公有/私有/混合）</span><span class="bb"><i style="width:100%"></i></span><span class="lv">144 篇 · 94%</span></div>
+      <div class="br"><span class="lb">OpenStack 私有云</span><span class="bb"><i style="width:82%"></i></span><span class="lv">118 篇 · 77%</span></div>
+      <div class="br"><span class="lb">MySQL / 数据库</span><span class="bb"><i style="width:81%"></i></span><span class="lv">116 篇 · 75%</span></div>
+      <div class="br"><span class="lb">Linux 基础</span><span class="bb"><i style="width:76%"></i></span><span class="lv">109 篇 · 71%</span></div>
+      <div class="br"><span class="lb">网络基础（VLAN/路由/防火墙）</span><span class="bb"><i style="width:73%"></i></span><span class="lv">103 篇 · 67%</span></div>
+      <div class="br"><span class="lb">存储</span><span class="bb"><i style="width:73%"></i></span><span class="lv">103 篇 · 67%</span></div>
+      <div class="br"><span class="lb">Kubernetes 编排</span><span class="bb"><i style="width:69%"></i></span><span class="lv">100 篇 · 65%</span></div>
+      <div class="br"><span class="lb">Ansible 自动化</span><span class="bb"><i style="width:67%"></i></span><span class="lv">96 篇 · 62%</span></div>
+      <div class="br"><span class="lb">Python 脚本</span><span class="bb"><i style="width:67%"></i></span><span class="lv">96 篇 · 62%</span></div>
+      <div class="br"><span class="lb">Docker 容器</span><span class="bb"><i style="width:59%"></i></span><span class="lv">85 篇 · 55%</span></div>
+      <div class="br"><span class="lb">综合布线</span><span class="bb"><i style="width:12%"></i></span><span class="lv">— · 少数网络类赛项</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">④ 国赛 / 省赛 / 世赛三条路线的区别</h2>
+    <div class="card">
+      <p class="small">这三类卷子长得完全不一样，<b>不要拿错资料去练</b>。</p>
+      <ul class="list">
+        <li><span class="t"><b>世赛云计算（Skill 39/53）</b> —— 公有云（AWS）+ 排障。四天赛程，<b>有官方 task 编号评分体系</b>，排错占约四分之三。练法：<a href="arena.html">作战台 · 里昂 2024 仿真场</a></span><span class="n">世界赛</span></li>
+        <li><span class="t"><b>国赛 / 省赛 云计算应用</b> —— <b>私有云 + 容器云 + 公有云</b>三模块，按「模块 / 任务 / 分值」给分。练法：本页的模块与任务清单 + <a href="cloudlab.html">实训场</a> L1–L4</span><span class="n">国赛</span></li>
+        <li><span class="t"><b>金砖云计算</b> —— OpenStack 部署运维 / 容器云 / 自动化部署运维三模块，2 人/队实操。练法：同国赛，但更偏 OpenStack 手搓</span><span class="n">国际</span></li>
+      </ul>
+      <p class="small" style="margin-top:8px"><b>判断自己在哪个赛道</b>：看卷子是「任务书 + 分值」形式（国赛/省赛），还是「拓扑 + 工单 + 评分脚本」形式（世赛）。前者比模块分，后者比排障。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">⑤ 原始数据与复算</h2>
+    <div class="card">
+      <ul class="list">
+        <li><span class="t"><b>任务书汇总（人读版）</b> —— 79 篇逐篇的模块与任务分值表</span><span class="n"><a href="../docs/cloud/race-2026/taskbooks.md">taskbooks.md</a></span></li>
+        <li><span class="t"><b>任务书结构化数据</b> —— 含模块/任务/分值/年份，可自行做统计</span><span class="n"><a href="../docs/cloud/race-2026/taskbooks.json">taskbooks.json</a></span></li>
+        <li><span class="t"><b>154 篇语料分析</b> —— 技术栈命中、赛项分布、年份分布、时长分布</span><span class="n"><a href="../docs/cloud/race-2026/cn-corpus.md">cn-corpus.md</a></span></li>
+        <li><span class="t"><b>复算脚本</b> —— 数据全部由脚本从真题原文抽出，可随时重跑核对</span><span class="n"><code>tools/extract_taskbooks.py</code> · <code>tools/extract_cn_corpus.py</code></span></li>
+        <li><span class="t"><b>原始真题</b> —— 154 篇原文在资料中心，搜 <code>cn-domestic</code> 逐篇读</span><span class="n"><a href="search.html">全站检索</a></span></li>
+      </ul>
+    </div>
+  </section>
+
+  <p class="note">本页数据由 <code>tools/extract_taskbooks.py</code> 与 <code>tools/extract_cn_corpus.py</code> 于 <b>2026-10-16</b> 从 <code>study-data/c/examcn.f57bcd.js</code>（154 篇国赛真题）原文抽取生成。分值均为原文括号值，<b>未归一化、未补全</b>；部分卷子为节选，模块分值之和可能不足 100，属原文如此。技术栈频次为关键词全文命中，<b>不等于分值</b>。如需把某篇真题纳入仿真场，请以其原文为准逐条核对。</p>
+  <p><a href="arena.html">作战台</a> · <a href="cloud-race.html">赛情总台</a> · <a href="cloudlab.html">实战训练场</a> · <a href="comp-series.html">备赛课程</a></p>
+</div>
+</body>
+</html>
