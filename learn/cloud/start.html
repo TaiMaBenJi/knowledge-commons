@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>首赛倒计时 · 30 天作战板 - 知识公社</title>
+<link rel="stylesheet" href="../style.css">
+<!-- kc-pwa -->
+<meta name="theme-color" content="#9e2b25">
+<meta name="color-scheme" content="light">
+<link rel="manifest" href="../../manifest.json">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192px" href="../../icons/icon-192.png">
+<script defer src="../../sw-reg.js"></script>
+<script defer src="../../install-tip.js"></script>
+<!-- /kc-pwa -->
+<style>
+.cdwrap{background:linear-gradient(135deg,#1d2b4f,#2b5cd9);border-radius:14px;color:#fff;padding:20px 18px;margin:0 0 12px}
+.cdwrap h2{margin:0 0 4px;font-size:17px;color:#fff}
+.cdwrap p{margin:2px 0;font-size:13px;color:rgba(255,255,255,.85)}
+.cdwrap .big{font-size:44px;font-weight:800;line-height:1.1;margin:8px 0 2px}
+.cdwrap input[type=date]{border:none;border-radius:9px;padding:9px 12px;font-size:15px;background:rgba(255,255,255,.95);color:#182338}
+.cdwrap .btn2{background:#fff;color:#2450c0;border:none;border-radius:9px;font-weight:800;padding:10px 16px;font-size:14px;cursor:pointer;margin-left:8px}
+.today{background:#fff;border:2px solid #2b5cd9;border-radius:12px;padding:14px 16px;margin:12px 0}
+.today b{color:#2b5cd9}
+.prog{height:10px;background:#e9eef6;border-radius:5px;overflow:hidden;margin:10px 0 4px}
+.prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,#2b5cd9,#0f9d6c);transition:width .3s}
+.day{background:#fff;border:1px solid #dfe6f0;border-radius:12px;padding:12px 14px;margin:8px 0}
+.day.hl{border-color:#2b5cd9;box-shadow:0 0 0 3px rgba(43,92,217,.12)}
+.day .dh{display:flex;align-items:baseline;gap:8px;font-weight:800;font-size:14.5px}
+.day .dh .dn{color:#2b5cd9;white-space:nowrap}
+.day .dh .badge{font-size:11px;background:#fff4e0;color:#b26a00;border-radius:6px;padding:1px 7px;font-weight:700}
+.day .dh .dd{margin-left:auto;font-size:12px;color:#8a97ad;font-weight:400;white-space:nowrap}
+.day .tx{display:flex;gap:8px;align-items:flex-start;font-size:13.5px;margin:7px 0 0;color:#33456b}
+.day .tx input{margin-top:3px;accent-color:#0f9d6c;flex:0 0 auto;width:15px;height:15px}
+.day .tx label{flex:1;cursor:pointer}
+.day .tx a{color:#2450c0}
+.qa{font-size:13.5px;color:#33456b;margin:6px 0}
+.qa b{color:#182338}
+.foot{margin-top:18px}
+</style>
+</head>
+<body>
+<div class="topbar"><span class="dot"></span><span>云计算 · 首赛倒计时 | 第一次参赛？填个日期，照表开跑</span></div>
+<header class="hero">
+  <div class="kicker">FIRST COMPETITION · 30-DAY COUNTDOWN</div>
+  <h1>首赛倒计时 · 30 天作战板</h1>
+  <p>给<b>第一次参赛</b>的你：不用知道比赛的全部，只需要知道<b>今天做什么</b>。填上比赛日期，下面 30 天表每天给你 2-3 件事；打勾存档，进度自动记。</p>
+  <div class="badges"><span>零基础可入</span><span>每天 2-4 小时</span><span>照表执行</span><span>进度存本机</span></div>
+</header>
+<nav class="tabs">
+  <a href="../index.html">首页</a>
+  <a href="../beginner.html">学堂</a>
+  <a href="../skills.html">世赛</a>
+  <a href="index.html">云赛</a>
+  <a class="on" href="start.html">首赛</a>
+  <a href="week1.html">开蒙卡</a>
+  <a href="sprint.html">冲刺30天</a>
+  <a href="contest/index.html">模拟中心</a>
+  <a href="lab.html">实训</a>
+  <a href="../media/course-videos.html">视频课</a>
+  <a href="../about.html">简章</a>
+</nav>
+
+<div class="wrap">
+  <div class="cdwrap">
+    <h2>① 先填你的比赛日期</h2>
+    <p>不确定具体日期？挑最接近的填，之后随时改。未填也能往下看。</p>
+    <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:8px;align-items:center">
+      <input type="date" id="examDate">
+      <button class="btn2" id="btnSet">保存日期</button>
+    </div>
+    <div class="big" id="cdBig">—</div>
+    <p id="cdMsg">填上日期后，这里显示距比赛还有几天。</p>
+  </div>
+
+  <div class="card">
+    <p>👶 <b>今天先做这 3 件事（10 分钟）</b>：① 填上方日期；② 做 <a href="week1.html">七天开蒙卡</a>第 1 天（装一台 Linux）；③ 把本页「添加到主屏幕」，每天来看一次。</p>
+  </div>
+
+  <div id="todayBox"></div>
+
+  <section>
+    <h2 class="sec">② 30 秒搞懂：你比的是什么</h2>
+    <div class="card">
+      <p><b>不管哪个级别的云计算比赛，骨架都是三个模块</b>（省赛/国赛同源，世赛线是公有云为主）：</p>
+      <ul class="list">
+        <li><span class="t"><b>模块一 · 私有云（30-50 分）</b><br><span class="small">用开源 OpenStack 搭一套"内部云"：安装 MariaDB/Keystone/Glance/Nova/Neutron/Dashboard/Swift/Cinder 等组件 → 运维（Heat 编排/KVM 调优/Ceph 存储/Redis/排错）→ 写脚本自动化。考试形式：按任务书一步步做，脚本逐项验收，做对得分。</span></span><span class="n">OpenStack</span></li>
+        <li><span class="t"><b>模块二 · 容器云（30-50 分）</b><br><span class="small">用 kubeadm 搭 Kubernetes 集群 → 把数据库/网站/应用"容器化"部署 → GitLab + CI/CD 流水线 → 服务网格/虚拟机化加分面 → 排错。</span></span><span class="n">K8s</span></li>
+        <li><span class="t"><b>模块三 · 公有云（40 分，国赛）/ 省赛常为前两块</b><br><span class="small">云控制台上按题配置：VPC/云主机/数据库/安全组/负载均衡/弹性伸缩 → 容器引擎 → 边缘计算（KubeEdge）。世赛线则是 AWS 全线（EC2/S3/RDS/ECS/DynamoDB…）。</span></span><span class="n">云平台</span></li>
+      </ul>
+      <p class="qa" style="margin-top:10px"><b>第一次参赛 Q&A</b></p>
+      <p class="qa"><b>要背很多命令吗？</b>——搭建链（固定流程）必须背到闭卷 90 分钟出活；运维题记住"模板 + 排错思路"两套。</p>
+      <p class="qa"><b>两个人怎么分工？</b>——双人赛惯例：一人主攻私有云，一人主攻容器云 + 公有云，每天交叉考核。</p>
+      <p class="qa"><b>比赛给什么环境？</b>——通常双机 CentOS/openEuler + K8s；自练环境三方案见 <a href="contest/env/README.md">真机考场指南</a>。</p>
+      <p class="qa"><b>我很慌怎么办？</b>——慌是因为"没开卷"。做完下面第 1 天，慌就少一半。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">③ 30 天作战表 · 照做就行</h2>
+    <div class="card" style="margin-bottom:10px">
+      <p class="small" id="progText">总进度：0 / 0 项完成</p>
+      <div class="prog"><i id="progBar"></i></div>
+      <p class="small">⭐ = 核心天（时间不够时优先保这些天）；其余天可压缩。不足 30 天？先刷 ⭐。多于 30 天？多出的天在第 29-30 天循环加练（多打一套卷/多补一个弱项）。<button class="btn2" id="btnReset" style="background:#f2f4f8;color:#5b6b85;margin-left:6px;padding:6px 12px;font-size:12.5px">清空全部进度</button></p>
+    </div>
+    <div id="plan"></div>
+  </section>
+
+  <section>
+    <h2 class="sec">④ 保命三原则</h2>
+    <div class="card">
+      <p>1️⃣ <b>搭建链先背熟</b>——搭建题是"送分链"，每年只换参数。闭卷 90 分钟出活集群+云平台，是底线。</p>
+      <p>2️⃣ <b>每道题都要"验"</b>——比赛 90% 的分是脚本验收的，做出来不算数、验证通过才算。平时做题强制自己写"验证命令"。</p>
+      <p>3️⃣ <b>每天必须上机 2 小时</b>——云计算是手感项目，看视频≠会。看一节视频，必须配 30 分钟上机。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">⑤ 弹药直链</h2>
+    <div class="card">
+      <ul class="list">
+        <li><span class="t"><a href="week1.html">七天开蒙卡</a>（今天从这里开始）</span><span class="n">D1 起点</span></li>
+        <li><span class="t"><a href="sprint.html">30 天夺金冲刺手册</a>（本表背后的完整版）</span><span class="n">计划</span></li>
+        <li><span class="t"><a href="../../docs/tutorial/README-教程总览.md">20 章保姆级教程</a> · <a href="../media/course-videos.html">18 集视频课（带字幕）</a></span><span class="n">学习</span></li>
+        <li><span class="t"><a href="lab.html">浏览器实训场</a> · <a href="../../docs/cloudlab/README.md">四层真机通关</a></span><span class="n">练习</span></li>
+        <li><span class="t"><a href="contest/index.html">全赛模拟中心</a>（7 套真题卷 + 计时执行器）</span><span class="n">模考</span></li>
+        <li><span class="t"><a href="contest/env/README.md">真机考场三方案</a>（纯云 / 虚拟机 / 一键脚本）</span><span class="n">环境</span></li>
+        <li><span class="t"><a href="../../docs/contest/真题题库-21套.md">21 套公开真题题库</a></span><span class="n">真题</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <p class="small">赛前必做三确认：① 向老师核实比赛<b>全名与日期</b>（如"第三届山东省职业技能大赛 xx 选拔赛"）② 要到<b>竞赛规程/任务书样卷</b> ③ 确认<b>比赛环境</b>（系统版本/软件清单）——这三样比任何攻略都重要。</p>
+    <p class="small"><a href="../index.html">返回首页</a> · <a href="index.html">云赛备战中心</a></p>
+  </footer>
+</div>
+<script>
+'use strict';
+var PLAN=[
+{d:1,core:1,t:'装好你的 Linux 战场',tasks:[{x:'完成「七天开蒙卡」第 1 天：装一台 Linux（虚拟机或云主机）',u:'week1.html'},{x:'通读教程《01-Linux零基础》前两节',u:'../../docs/tutorial/01-Linux零基础-保姆级.md'},{x:'填好本页比赛日期 ✓'}]},
+{d:2,t:'命令行生存技能',tasks:[{x:'七天开蒙卡第 2 天 + 练 40 个常用命令',u:'week1.html'},{x:'实训场 L1 Linux 前 3 关',u:'lab.html'}]},
+{d:3,core:1,t:'用户、权限、装软件',tasks:[{x:'七天开蒙卡第 3 天（用户权限是比赛必考）',u:'week1.html'},{x:'实训场 L1 全部通关',u:'lab.html'}]},
+{d:4,t:'部署第一个网站（Nginx）',tasks:[{x:'七天开蒙卡第 4 天：Nginx 虚拟主机',u:'week1.html'},{x:'实训场 L2「部署 Nginx」「虚拟主机」',u:'lab.html'}]},
+{d:5,t:'服务与日志（排错的地基）',tasks:[{x:'七天开蒙卡第 5 天',u:'week1.html'},{x:'教程 03-服务器实战（服务管理与日志）',u:'../../docs/tutorial/03-服务器实战-保姆级.md'}]},
+{d:6,t:'网络基础 + 排障五命令',tasks:[{x:'七天开蒙卡第 6 天',u:'week1.html'},{x:'教程 02-网络零基础（IP/DNS/排查）',u:'../../docs/tutorial/02-网络零基础-保姆级.md'}]},
+{d:7,core:1,t:'第 1 周复盘：闭卷搭「静态站+数据库」',tasks:[{x:'七天开蒙卡第 7 天复盘',u:'week1.html'},{x:'限时 60 分钟：不查资料搭好 Nginx+MySQL',u:''}]},
+{d:8,t:'数据库入门（比赛高频）',tasks:[{x:'教程 03 章数据库部分 + 实训场 db 关',u:'../../docs/tutorial/03-服务器实战-保姆级.md'},{x:'练：建库建用户 / 备份恢复各一遍',u:''}]},
+{d:9,t:'DNS 与域名体系',tasks:[{x:'教程 05-DNS 实战（亲手搭通讯录服务器）',u:'../../docs/tutorial/05-DNS实战-保姆级.md'}]},
+{d:10,t:'HTTPS 与证书',tasks:[{x:'教程 04-HTTPS 与证书',u:'../../docs/tutorial/04-HTTPS与证书-保姆级.md'},{x:'给自己网站配一次"小绿锁"',u:''}]},
+{d:11,core:1,t:'负载均衡与高可用',tasks:[{x:'教程 06-负载均衡与高可用（HAProxy/keepalived）',u:'../../docs/tutorial/06-负载均衡与高可用-保姆级.md'},{x:'实训场 ha 两关',u:'lab.html'}]},
+{d:12,t:'安全加固与 SSH',tasks:[{x:'教程 15-安全加固（比赛拿分点）',u:'../../docs/tutorial/15-安全加固-保姆级.md'}]},
+{d:13,t:'Shell 脚本进阶',tasks:[{x:'教程 09-Shell 脚本进阶',u:'../../docs/tutorial/09-Shell脚本进阶-保姆级.md'},{x:'写一个"一键建站"脚本练手',u:''}]},
+{d:14,core:1,t:'第 2 周复盘：一条龙闭卷跑通',tasks:[{x:'限时 90 分钟：全新机器 → 网站+数据库+HTTPS 全链',u:''},{x:'把踩的坑记进错题本',u:''}]},
+{d:15,core:1,t:'OpenStack 搭建链①：基础环境 → MariaDB → Keystone',tasks:[{x:'冲刺手册 W2 私有云周开始',u:'sprint.html'},{x:'教程 13 章环境部分 + 按手册装基础组件',u:'../../docs/tutorial/13-自动化运维-保姆级.md'}]},
+{d:16,core:1,t:'搭建链②：Glance → Nova',tasks:[{x:'装镜像服务与计算服务，双端配置',u:'sprint.html'}]},
+{d:17,core:1,t:'搭建链③：Neutron → Dashboard → Swift/Cinder',tasks:[{x:'装网络/面板/对象存储/块存储',u:''},{x:'创建一台云主机并访问（全链验证）',u:''}]},
+{d:18,core:1,t:'搭建链闭卷提速',tasks:[{x:'闭卷目标：90 分钟内全链出活（搭建题是送分链）',u:''}]},
+{d:19,t:'私有云运维：Heat + KVM + Redis',tasks:[{x:'Heat 模板创建资源（省赛卷任务 2 预演）',u:'contest/sim.html?paper=guangdong'},{x:'Redis 主从配置一遍',u:''}]},
+{d:20,t:'私有云运维：存储对接与调优排错',tasks:[{x:'NFS/Ceph 对接 + 系统调优参数',u:'contest/sim.html?paper=guangdong'},{x:'故意弄坏一个服务，限时修好（排错练手）',u:''}]},
+{d:21,core:1,t:'省赛卷 · 私有云模块 限时模拟',tasks:[{x:'打开执行器：广东省赛卷，只打模块一（限时）',u:'contest/sim.html?paper=guangdong'},{x:'交卷看成绩单，弱项回炉',u:''}]},
+{d:22,t:'Docker + 私有仓库',tasks:[{x:'教程 10-Docker 容器入门 + 实训场 L3',u:'../../docs/tutorial/10-Docker容器入门-保姆级.md'},{x:'Dockerfile 做一个业务镜像',u:''}]},
+{d:23,core:1,t:'K8s 集群搭建（闭卷 40 分钟目标）',tasks:[{x:'教程 11-Kubernetes 入门 + 实训场 L4',u:'../../docs/tutorial/11-Kubernetes入门-保姆级.md'},{x:'kubeadm 全流程闭卷打三遍',u:''}]},
+{d:24,core:1,t:'K8s 部署运维三件套',tasks:[{x:'Deployment/Service/PVC 默写 + 部署数据库/网站',u:'contest/sim.html?paper=guangdong'},{x:'练滚动更新与回滚',u:''}]},
+{d:25,t:'GitLab + CI/CD 流水线',tasks:[{x:'教程 13 章自动化部分',u:'../../docs/tutorial/13-自动化运维-保姆级.md'},{x:'跑通一次 build→部署 流水线',u:''}]},
+{d:26,t:'容器排错 + 监控',tasks:[{x:'教程 14-监控与日志 + 实训场 fix 系列',u:'../../docs/tutorial/14-监控与日志-保姆级.md'},{x:'describe/logs 排错套路默写',u:''}]},
+{d:27,core:1,t:'省赛卷 · 容器云模块 限时模拟',tasks:[{x:'执行器：广东省赛卷，只打模块二（限时）',u:'contest/sim.html?paper=guangdong'}]},
+{d:28,t:'公有云模块（控制台路径题）',tasks:[{x:'教程 12-AWS 云平台实战（或对应云厂商免费额度）',u:'../../docs/tutorial/12-AWS云平台实战-保姆级.md'},{x:'VPC/云主机/数据库/安全组各过一遍',u:''}]},
+{d:29,core:1,t:'全真模拟①：省赛卷整卷',tasks:[{x:'执行器：广东省赛卷全卷，真实计时+逐项评分',u:'contest/sim.html?paper=guangdong'},{x:'成绩单截图存档，制定补漏清单',u:''}]},
+{d:30,core:1,t:'全真模拟② + 考场彩排',tasks:[{x:'执行器：2023 国赛真题卷（冲金卷）',u:'contest/sim.html?paper=nation2023'},{x:'环境快照 + 交付流程清单 + 早睡',u:''}]}
+];
+function $(id){return document.getElementById(id);}
+function lsGet(k){try{return localStorage.getItem(k)}catch(e){return null}}
+function lsSet(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+/* -- 日期与倒计时 -- */
+var dstr=lsGet('kcstart.date')||'';
+if(dstr)$('examDate').value=dstr;
+function calc(){
+  if(!dstr){$('cdBig').textContent='—';$('cdMsg').textContent='填上日期后，这里显示距比赛还有几天。';$('todayBox').innerHTML='';return;}
+  var t=new Date();t.setHours(0,0,0,0);
+  var e=new Date(dstr+'T00:00:00');e.setHours(0,0,0,0);
+  var days=Math.round((e-t)/86400000);
+  if(days>1){$('cdBig').textContent='还有 '+days+' 天';}
+  else if(days===1){$('cdBig').textContent='就是明天！';}
+  else if(days===0){$('cdBig').textContent='比赛日！';}
+  else{$('cdBig').textContent='已过 '+(-days)+' 天';}
+  var idx=31-Math.max(1,days);
+  var msg='';
+  if(days>30){idx=1;msg='还有 '+days+' 天：先按 D1 开跑，多出的天在第 29-30 天循环加练。';}
+  else if(days>=1){msg='按 30 天表的第 '+Math.min(30,idx)+' 天推进（今天该做的已高亮）。';}
+  else{msg='比赛结束啦——如还在下一场备赛，更新日期继续。';idx=0;}
+  $('cdMsg').textContent=msg;
+  renderToday(idx>0?Math.min(30,idx):0);
+}
+/* -- 计划渲染 -- */
+function doneMap(){try{return JSON.parse(lsGet('kcstart.done')||'{}')}catch(e){return{}}}
+function saveDone(m){lsSet('kcstart.done',JSON.stringify(m));}
+function renderPlan(hlIdx){
+  var done=doneMap(),h='',total=0,got=0;
+  PLAN.forEach(function(p){
+    p.tasks.forEach(function(t,i){total++;if(done[p.d+'-'+i])got++;});
+    var hl=(p.d===hlIdx)?' hl':'';
+    h+='<div class="day'+hl+'" id="day'+p.d+'"><div class="dh"><span class="dn">Day '+p.d+'</span><span>'+esc(p.t)+'</span>'+(p.core?'<span class="badge">⭐ 核心</span>':'')+'<span class="dd">'+(p.d<=7?'W1 地基':p.d<=14?'W2 服务':p.d<=21?'W3 私有云':p.d<=27?'W4 容器云':'W5 冲线')+'</span></div>';
+    p.tasks.forEach(function(t,i){
+      var on=done[p.d+'-'+i]?' checked':'';
+      var tx=t.x+(t.u?('　<a href="'+t.u+'">直达 →</a>'):'');
+      h+='<div class="tx"><input type="checkbox" data-k="'+p.d+'-'+i+'" id="ck'+p.d+'-'+i+'"'+on+'><label for="ck'+p.d+'-'+i+'">'+tx+'</label></div>';
+    });
+    h+='</div>';
+  });
+  $('plan').innerHTML=h;
+  $('progText').textContent='总进度：'+got+' / '+total+' 项完成'+(total?('（'+Math.round(got/total*100)+'%）'):'');
+  $('progBar').style.width=(total?(got/total*100):0)+'%';
+  document.querySelectorAll('#plan input[type=checkbox]').forEach(function(c){
+    c.onchange=function(){var m=doneMap();if(c.checked)m[c.getAttribute('data-k')]=1;else delete m[c.getAttribute('data-k')];saveDone(m);renderPlan(lastHl);};
+  });
+}
+var lastHl=0;
+function renderToday(idx){
+  lastHl=idx;
+  if(!idx){$('todayBox').innerHTML='';renderPlan(0);return;}
+  var p=PLAN[idx-1];
+  $('todayBox').innerHTML='<div class="today"><b>📍 今天（Day '+idx+'）：'+esc(p.t)+'</b><p class="small" style="margin:6px 0 0">'+p.tasks.map(function(t){return '· '+esc(t.x);}).join('<br>')+'</p><p class="small" style="margin:6px 0 0"><a href="#day'+idx+'">跳到今天这一格 ↓</a></p></div>';
+  renderPlan(idx);
+}
+$('btnSet').onclick=function(){
+  dstr=$('examDate').value;if(!dstr){alert('请先选一个日期');return;}
+  lsSet('kcstart.date',dstr);calc();
+};
+$('btnReset').onclick=function(){
+  if(!confirm('清空所有打勾进度？（比赛日期保留）'))return;
+  lsSet('kcstart.done','{}');renderPlan(lastHl);
+};
+calc();renderPlan(lastHl);
+</script>
+</body>
+</html>
