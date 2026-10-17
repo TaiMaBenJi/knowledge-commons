@@ -19,7 +19,6 @@
   <url><loc>https://taimabenji.github.io/knowledge-commons/learn/media/pdfview.html</loc><priority>0.5</priority></url>
   <url><loc>https://taimabenji.github.io/knowledge-commons/learn/sleep.html</loc><priority>0.6</priority></url>
   <url><loc>https://taimabenji.github.io/knowledge-commons/learn/ecommerce.html</loc><priority>0.6</priority></url>
-  <url><loc>https://taimabenji.github.io/knowledge-commons/learn/aws-educate.html</loc><priority>0.5</priority></url>
   <url><loc>https://taimabenji.github.io/knowledge-commons/library.html</loc><priority>0.8</priority></url>
   <url><loc>https://taimabenji.github.io/knowledge-commons/study.html</loc><priority>0.8</priority></url>
   <url><loc>https://taimabenji.github.io/knowledge-commons/learn/media/bilibili.html</loc><priority>0.6</priority></url>
@@ -27,4 +26,10 @@
   <url><loc>https://taimabenji.github.io/knowledge-commons/install.html</loc><priority>0.5</priority></url>
   <url><loc>https://taimabenji.github.io/knowledge-commons/viewer.html</loc><priority>0.4</priority></url>
   <url><loc>https://taimabenji.github.io/knowledge-commons/learn/exam/guofang.html</loc><priority>0.5</priority></url>
+  <url><loc>https://taimabenji.github.io/knowledge-commons/learn/cloud/start.html</loc><priority>0.8</priority></url>
+  <url><loc>https://taimabenji.github.io/knowledge-commons/learn/cloud/contest/</loc><priority>0.7</priority></url>
+  <url><loc>https://taimabenji.github.io/knowledge-commons/learn/cloud/contest/sim.html</loc><priority>0.6</priority></url>
+  <url><loc>https://taimabenji.github.io/knowledge-commons/learn/media/videos-cloud.html</loc><priority>0.6</priority></url>
+  <url><loc>https://taimabenji.github.io/knowledge-commons/learn/media/course-videos.html</loc><priority>0.6</priority></url>
+  <url><loc>https://taimabenji.github.io/knowledge-commons/learn/courses/aws-educate-catalog.html</loc><priority>0.5</priority></url>
 </urlset>
