@@ -105,3 +105,27 @@ padding:3px 10px;font-size:11.5px;cursor:pointer;font-family:inherit;white-space
 .bar-row .bv{flex:none;color:#8b949e;font-size:11.5px;white-space:nowrap;font-variant-numeric:tabular-nums}
 .lost{display:flex;align-items:flex-start;gap:8px;padding:6px 0;border-bottom:1px solid rgba(0,0,0,.06);font-size:12.5px}
 .lost:last-child{border-bottom:none}
+
+
+/* ================= 移动端适配（刘海屏 / 长按 / 键盘） ================= */
+/* 刘海屏与底部手势条：终端输入区要避开，否则键盘一弹就被遮 */
+#termView{padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}
+.tv-pad{padding-bottom:calc(10px + env(safe-area-inset-bottom))}
+/* 终端正文不该被长按选中：否则手机上会弹「复制/全选」菜单挡住命令输入 */
+#tvScr,.tv-chips,.tv-head,.tv-panel{
+  -webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;
+  -webkit-touch-callout:none;
+}
+/* 命令输入框必须可以选中和粘贴，只它例外 */
+#tvIn,#tvEditArea{-webkit-user-select:text;-moz-user-select:text;user-select:text;-webkit-touch-callout:default}
+#tvIn{font-size:16px}  /* iOS 上小于 16px 会触发自动放大页面 */
+.tv-inrow{position:relative}
+@media(max-width:420px){
+  .tv-btn{padding:7px 10px;font-size:13px}
+  .tv-mini{padding:7px 11px;font-size:13px}
+  #termView .tv-inrow{gap:6px}
+}
+@media(max-height:560px){
+  .tv-scr{font-size:12px;line-height:1.55}
+  .tv-pad{padding:6px 8px}
+}
