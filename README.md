@@ -62,7 +62,7 @@ knowledge-commons/
 ├── learn/                # 学习门户：只放页面
 │   ├── index.html archive.html search.html courses.html skills.html
 │   ├── contest.html paths.html beginner.html about.html sleep.html ecommerce.html
-│   ├── cloud/            # 云计算：备战中心 / 实训场 / 一周·四周 / 网络资源 / 备赛书单
+│   ├── cloud/            # 云计算：备战中心 / 实训场 / 一周·四周 / 网络资源 / 备赛书单 / 认证地图
 │   ├── courses/          # 原创课程：算法 / Python / 行测 / AWS Educate
 │   ├── exam/             # 考试：题库自测 / 考试日历 / 公考 / 国防教育刷题 / 真题导航
 │   ├── media/            # 视频馆 / B 站精选视频库 / 文档阅读器
@@ -119,6 +119,7 @@ knowledge-commons/
 
 ## 最近更新
 
+- **2026-10-19**：新增「**云计算认证地图**」（learn/cloud/certs.html，导航「云赛→认证」）——10 大云与运维认证（AWS / 阿里云云计算 / 华为云 HCIA·HCIP / 红帽 RHCE / 微软 Azure / 工信部云计算工程师 / Google Cloud / 腾讯云 TCA·TCE / 阿里云云安全 / Oracle OCI·OCP），每项含官方报名/考试入口（curl 逐条实测状态码，Google Cloud 等标注需国际网络）+ 免费备考资源（官方文档/免费课/免费实验）+ 对应站内教程与实训联动；强调「证书是门槛不是天花板，先实训再考证」；仅收官方与免费公开资源，不代报名、不引盗版题库；检索索引 +12；PWA 预缓存升 kc-v1.9.4
 - **2026-10-19**：新增「**云计算备赛书单**」（learn/cloud/books.html，导航「云赛→书单」）——零基础备赛选书一站解决：9 本书按「入门 / 实操 / 冲刺 / 理论」分类，逐本核对 ISBN 与页数（人邮导论、华为ICT真题解析、OpenStack 实践（openEuler）、阿里云公有云、云网络教程、清华《云计算实战》AWS 体系、《云计算》第4版、Erl《云计算：概念、技术、安全与架构》第2版），给出按赛项（华为ICT / 世赛 / 高职职业院校 / 阿里云）的选书矩阵、每本书配套的免费官方文档（OpenStack 官方安装指南中文版 / openEuler 文档 / Kubernetes 中文文档 / 华为云·阿里云开发者中心 / AWS 免费套餐与中文文档 / VMware 免费版），并与实训场、七天开蒙卡、30 天冲刺手册、全赛模拟中心打通；仅收录官方与正版入口，不链盗版；检索索引 +12；PWA 预缓存升 kc-v1.9.3
 - **2026-10-17（午）**：**全站体检 0 问题**——新增 tools/internal_qa.py 体检工具（内链/预缓存/索引/sitemap/JSON/JS 语法全查），修复 8 处重构残留与目录 404 链接、sitemap 补 5 个新页面并修 1 条失效条目、新建 docs/knowledge/README.md 知识地图索引；资源总库 962 条外链复检，确认死链仅 1 条已改为常青入口。
 - **2026-10-17**：新增「**首赛倒计时 · 30 天作战板**」（learn/cloud/start.html，导航「云赛→首赛」）——给第一次参赛的新手照着跑：填比赛日期 → 自动倒计时 + 「今天该做」高亮 + 30 天逐日任务表（⭐核心天优先、打勾进度存本机、全程直达链接），从装机到全真模拟一条线。

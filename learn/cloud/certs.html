@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>云计算认证地图 · 知识公社</title>
+<link rel="stylesheet" href="../style.css">
+<!-- kc-pwa -->
+<meta name="theme-color" content="#9e2b25">
+<meta name="color-scheme" content="light">
+<link rel="manifest" href="../../manifest.json">
+<meta name="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../../icons/icon-192.png">
+<script defer src="../../sw-reg.js"></script>
+<script defer src="../../install-tip.js"></script>
+<!-- /kc-pwa -->
+<style>
+  .tbl{width:100%;border-collapse:collapse;margin:.6rem 0;font-size:.9rem}
+  .tbl th,.tbl td{border:1px solid var(--line,#ddd);padding:.42rem .55rem;text-align:left;vertical-align:top}
+  .tbl th{background:rgba(158,43,37,.08)}
+  .wk{display:inline-block;background:#9e2b25;color:#fff;border-radius:.5rem;padding:.08rem .5rem;font-size:.78rem;margin-right:.35rem}
+  .w2{background:#b45309}.w3{background:#1d4ed8}.w4{background:#047857}.w5{background:#7e22ce}.wx{background:#6b7280}
+  .gold{border-left:4px solid #d4a017;padding-left:.7rem}
+  .warn{background:#fff7ed;border:1px solid #fdba74;border-radius:.5rem;padding:.6rem .8rem;margin:.5rem 0}
+  .ck{border:1px solid var(--line,#ddd);border-radius:.6rem;padding:.7rem .9rem;margin:.6rem 0;background:rgba(255,255,255,.5)}
+  .ck h3{margin:.1rem 0 .3rem;font-size:1.02rem}
+  .ck .meta{font-size:.82rem;color:#666;margin-bottom:.3rem}
+  .nd{font-size:.78rem;color:#047857}
+</style>
+</head>
+<body>
+<div class="topbar"><span class="dot"></span><span>云计算 · 认证地图 | 10 大云与运维认证 · 官方入口逐条实测 · 2026-10-19</span></div>
+<header class="hero">
+  <div class="kicker">CLOUD CERTIFICATIONS · MAP</div>
+  <h1>云计算认证地图</h1>
+  <p>备赛之外，<b>证书是能力的硬通货</b>。这里把 <b>10 个主流云与运维认证</b>摆成一张地图：每个方向给<b>官方报名/考试入口</b>（已逐条实测可达）、<b>免费备考资源</b>（官方文档、免费课程、学习路径），并标注<b>和本站内容的对应关系</b>——书怎么读、题怎么刷、实验怎么做，都指回站内。<b>只收官方与免费公开资源，不代报名、不引盗版题库。</b></p>
+  <div class="badges"><span>10 大认证</span><span>官方入口实测</span><span>免费备考资源</span><span>对应站内内容</span></div>
+</header>
+<nav class="tabs">
+  <a href="../index.html">首页</a>
+  <a href="../beginner.html">学堂</a>
+  <a href="../exam/calendar.html">日历</a>
+  <a href="../archive.html">总目</a>
+  <a href="../courses.html">课程</a>
+  <a href="../contest.html">竞赛</a>
+  <a href="../exam/index.html">升学</a>
+  <a href="../exam/gongkao.html">公考</a>
+  <a href="../skills.html">世赛</a>
+  <a href="../red/index.html">红色</a>
+  <a href="../red/socialism.html">实践</a>
+  <a href="../ecommerce.html">创业</a>
+  <a class="on" href="index.html">云赛</a>
+  <a href="../sleep.html">睡前</a>
+  <a href="../paths.html">路线</a>
+  <a href="../../library.html">资源</a>
+  <a href="../../download.html">下载</a>
+  <a href="../about.html">简章</a>
+</nav>
+
+<div class="wrap">
+  <div class="card" id="kc-resume"></div>
+
+  <div class="goal gold"><b>怎么用这张图：</b>① <b>先定赛项/就业方向</b>，只挑对应 1–2 个认证去考，别贪多；② 每个认证下方都挂了<b>免费备考资源</b>（官方文档 + 免费课），先自测再决定要不要花钱报培训；③ 认证是"广度证明"，<b>本站实训（<a href="lab.html">L1–L4</a>）和真题才是"深度证明"</b>——证书 + 实操 + 比赛经历，三件套写简历才硬。证书本身多数为付费考试，<b>本页不提供任何代报名或盗版题库</b>。</div>
+
+  <section>
+    <h2 class="sec">① 10 大认证总览（按方向选）</h2>
+    <div class="card">
+      <table class="tbl">
+        <tr><th>#</th><th>认证</th><th>方向</th><th>入门级</th><th>进阶级</th><th>适合人群</th></tr>
+        <tr><td>1</td><td><b>AWS 认证</b></td><td><span class="wk w3">公有云</span></td><td>Cloud Practitioner (CCP)</td><td>Solutions Architect – Associate/Professional</td><td>外企/出海岗、世赛 AWS 赛项</td></tr>
+        <tr><td>2</td><td><b>阿里云云计算工程师</b></td><td><span class="wk w2">公有云</span></td><td>ACA 助理工程师</td><td>ACP 专业工程师</td><td>阿里云生态、国赛阿里云方向</td></tr>
+        <tr><td>3</td><td><b>华为云云计算工程师</b></td><td><span class="wk w2">公有云</span></td><td>HCIA-Cloud</td><td>HCIP-Cloud / HCIE-Cloud</td><td>华为 ICT 大赛、ICT 生态岗</td></tr>
+        <tr><td>4</td><td><b>红帽认证（RHCE/RHCA）</b></td><td><span class="wk w4">Linux/运维</span></td><td>RHCSA</td><td>RHCE / RHCA</td><td>传统运维、转 Linux 岗</td></tr>
+        <tr><td>5</td><td><b>微软 Azure 认证</b></td><td><span class="wk w3">公有云</span></td><td>AZ-900</td><td>AZ-104 管理员 / AZ-305 架构师</td><td>外企/外企合资、转云运维</td></tr>
+        <tr><td>6</td><td><b>工信部云计算工程师</b></td><td><span class="wk">国家级</span></td><td>中级/初级工</td><td>高级工</td><td>国内求职加分、职称/落户参考</td></tr>
+        <tr><td>7</td><td><b>Google Cloud（GCP）认证</b></td><td><span class="wk w3">公有云</span></td><td>Digital Leader / Associate Cloud Engineer</td><td>Professional Cloud Architect</td><td>出海岗、外企</td></tr>
+        <tr><td>8</td><td><b>腾讯云云计算工程师</b></td><td><span class="wk w2">公有云</span></td><td>TCA</td><td>TCE</td><td>腾讯生态、小程序/音视频后端岗</td></tr>
+        <tr><td>9</td><td><b>阿里云云安全工程师</b></td><td><span class="wk w5">安全</span></td><td>—</td><td>ACE / ACP 安全方向</td><td>安全岗、等保合规</td></tr>
+        <tr><td>10</td><td><b>Oracle 认证（OCI）</b></td><td><span class="wk w3">公有云/数据库</span></td><td>OCI Cloud Associate</td><td>Cloud Infrastructure / DBA</td><td>外企、传统 DBA 转云</td></tr>
+      </table>
+      <p class="small" style="margin-top:.5rem"><b>怎么只考一个：</b>目标外企/出海 → ① AWS；国企/传统 IT → ④ 红帽；国内云生态 → ② 阿里云 或 ③ 华为云 或 ⑧ 腾讯云挑你公司在用的那个；要在简历上写"国家级" → ⑥ 工信部。安全岗另加 ⑨，云架构外企再加 ⑤ 或 ⑦。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">② 逐个认证 · 官方入口 + 免费备考资源</h2>
+
+    <div class="ck">
+      <h3>1️⃣ AWS 认证 <span class="wk w3">公有云</span></h3>
+      <div class="meta">Amazon Web Services · 考试付费 · <span class="nd">官方入口已实测</span></div>
+      <p><b>体系：</b>Cloud Practitioner（入门，认证云基础）→ Solutions Architect Associate → Professional → 专科（Security/DevOps/ML 等）。<b>本站世赛 AWS 赛项、私有云与公有云模块都能对上。</b></p>
+      <p class="small"><b>官方：</b>AWS 培训与认证总入口 <a href="https://aws.amazon.com/cn/training/" target="_blank">aws.amazon.com/cn/training</a> · <b>免费备考：</b>AWS 中文文档 <a href="https://docs.aws.amazon.com/zh_cn/" target="_blank">docs.aws.amazon.com/zh_cn</a> · 免费套餐实操 <a href="https://aws.amazon.com/cn/free/" target="_blank">免费套餐</a></p>
+      <p class="small"><b>站内：</b><a href="../../study.html#d=tutorial_12-AWS云平台实战-保姆级_md">第 12 章 · AWS 云平台实战</a> · <a href="books.html">书单第 ⑦ 本《云计算实战》</a></p>
+    </div>
+
+    <div class="ck">
+      <h3>2️⃣ 阿里云云计算工程师 <span class="wk w2">公有云</span></h3>
+      <div class="meta">Alibaba Cloud · ACA 助理 / ACP 专业 · <span class="nd">官方入口已实测</span></div>
+      <p><b>体系：</b>ACA（助理工程师，入门）→ ACP（专业工程师，含云计算/云原生等方向）→ ACE（专家）。<b>国赛阿里云方向、阿里生态岗首选。</b></p>
+      <p class="small"><b>官方：</b>阿里云大学认证总入口 <a href="https://edu.aliyun.com/certification/" target="_blank">edu.aliyun.com/certification</a> · ACA <a href="https://edu.aliyun.com/certification/acs" target="_blank">/acs</a> · ACP <a href="https://edu.aliyun.com/certification/acp" target="_blank">/acp</a> · <b>免费备考：</b>开发者社区 <a href="https://developer.aliyun.com/" target="_blank">developer.aliyun.com</a></p>
+      <p class="small"><b>站内：</b><a href="books.html">书单第 ⑤ 本《公有云服务架构与运维（基于阿里云）》</a></p>
+    </div>
+
+    <div class="ck">
+      <h3>3️⃣ 华为云云计算工程师 <span class="wk w2">公有云</span></h3>
+      <div class="meta">Huawei Cloud · HCIA-Cloud / HCIP-Cloud · <span class="nd">官方入口已实测</span></div>
+      <p><b>体系：</b>HCIA-Cloud（助理，入门）→ HCIP-Cloud（专家级）→ HCIE-Cloud（认证专家）。<b>华为 ICT 大赛云赛道直接对应本站公有云模块。</b></p>
+      <p class="small"><b>官方：</b>华为人才在线认证入口 <a href="https://e.huawei.com/cn/talent/certification/" target="_blank">e.huawei.com/cn/talent/certification</a> · <b>免费备考：</b>华为云开发者/学习中心 <a href="https://edu.huaweicloud.com/" target="_blank">edu.huaweicloud.com</a> · 官方支持文档 <a href="https://support.huaweicloud.com/" target="_blank">support.huaweicloud.com</a></p>
+      <p class="small"><b>站内：</b><a href="net.html">全网资源整合</a> 已收 HCIA/HCIP 云模块辅导课 · <a href="books.html">书单第 ② 本《华为ICT大赛真题解析》</a></p>
+    </div>
+
+    <div class="ck">
+      <h3>4️⃣ 红帽认证（RHCE / RHCA）<span class="wk w4">Linux / 运维</span></h3>
+      <div class="meta">Red Hat · RHCSA / RHCE / RHCA · <span class="nd">官方入口已实测</span></div>
+      <p><b>体系：</b>RHCSA（系统管理员，入门）→ RHCE（资深工程师）→ RHCA（架构师，云/虚拟化方向）。<b>本站 L1 Linux 地基与 OpenStack 私有云直接对口。</b></p>
+      <p class="small"><b>官方：</b>红帽认证与服务 <a href="https://www.redhat.com/en/services/certification" target="_blank">redhat.com/en/services/certification</a> · 培训入口 <a href="https://www.redhat.com/en/services/training" target="_blank">/training</a> · <b>免费备考：</b>本站 <a href="../../study.html#d=tutorial_01-Linux零基础-保姆级_md">第 1 章 Linux 零基础</a> + <a href="lab.html">实训场 L1</a></p>
+      <p class="small"><b>提示：</b>红帽考试多为实操机考，需先有 Linux 基础再考，别零基础直接冲。</p>
+    </div>
+
+    <div class="ck">
+      <h3>5️⃣ 微软 Azure 认证 <span class="wk w3">公有云</span></h3>
+      <div class="meta">Microsoft · AZ-900 / AZ-104 / AZ-305 · <span class="nd">官方入口已实测</span></div>
+      <p><b>体系：</b>AZ-900（Azure 基础，零基础友好）→ AZ-104（Azure 管理员，与 RHCE 并列的运维硬通货）→ AZ-305（Azure 解决方案架构师）。<b>微软 Learn 全中文免费课程是最大优势。</b></p>
+      <p class="small"><b>官方 + 免费备考：</b>Azure 基础认证页 <a href="https://learn.microsoft.com/zh-cn/credentials/certifications/azure-fundamentals/" target="_blank">learn.microsoft.com · Azure 基础</a> · <b>微软 Learn 中文学习路径全免费</b>（含实验沙箱，无需付费即可学）</p>
+      <p class="small"><b>站内：</b>与 <a href="../../study.html#d=tutorial_02-网络零基础-保姆级_md">第 2 章网络</a>、<a href="lab.html">实训场 L2</a> 配合</p>
+    </div>
+
+    <div class="ck">
+      <h3>6️⃣ 工信部云计算工程师 <span class="wk">国家级</span></h3>
+      <div class="meta">工业和信息化部人才交流中心 · <span class="nd">官网已实测可达</span></div>
+      <p><b>性质：</b>国家级职业技能等级认定，全国联网可查，<b>求职加分、部分城市落户/职称评审可参考</b>。分初/中/高级工，多数由人社备案的社会化培训机构组织考试，<b>证书由工信部人才交流中心颁发</b>。</p>
+      <p class="small"><b>官方：</b>工信部人才交流中心 <a href="https://www.miitec.org.cn/" target="_blank">miitec.org.cn</a>（证书查询/评价以官网为准）· <b>备考：</b>零基础建议对标本站 <a href="books.html">书单第 ① 本《云计算导论》</a> + 云计算三级知识体系</p>
+      <p class="small"><b>提示：</b>这类考试多为机考理论，实操能力仍要靠 <a href="lab.html">实训场</a> 补，别只背题。</p>
+    </div>
+
+    <div class="ck">
+      <h3>7️⃣ Google Cloud（GCP）认证 <span class="wk w3">公有云</span></h3>
+      <div class="meta">Google Cloud · Associate / Professional Cloud Engineer · <span class="nd">官方域名（部分需国际网络）</span></div>
+      <p><b>体系：</b>Cloud Digital Leader（入门，无实操）→ Associate Cloud Engineer → Professional Cloud Architect / Cloud Developer。<b>出海岗与外企高频。</b></p>
+      <p class="small"><b>官方：</b>Google Cloud 认证 <a href="https://cloud.google.com/certification" target="_blank">cloud.google.com/certification</a> · <b>免费备考：</b>Google Cloud Skills Boost（有免费实验沙箱，需国际网络）</p>
+      <p class="small"><b>提示：</b>本站沙箱网络对 google.com 直连不稳（实测 000），<b>该站需国际网络环境</b>；内容与其他公有云同构，可用本站第 12 章打基础再迁移。</p>
+    </div>
+
+    <div class="ck">
+      <h3>8️⃣ 腾讯云云计算工程师 <span class="wk w2">公有云</span></h3>
+      <div class="meta">Tencent Cloud · TCA / TCE · <span class="nd">官方入口已实测</span></div>
+      <p><b>体系：</b>TCA（腾讯云助理工程师，入门）→ TCE（腾讯云高级工程师，含多个方向）。<b>腾讯生态、音视频/小程序后端岗常见。</b></p>
+      <p class="small"><b>官方：</b>腾讯云官方培训认证 <a href="https://cloud.tencent.com/edu/training" target="_blank">cloud.tencent.com/edu/training</a> · 国际站 <a href="https://intl.cloud.tencent.com/edu/training" target="_blank">intl.cloud.tencent.com/edu/training</a> · <b>免费备考：</b>腾讯云开发者社区（含免费课程与实验）</p>
+    </div>
+
+    <div class="ck">
+      <h3>9️⃣ 阿里云云安全工程师 <span class="wk w5">安全</span></h3>
+      <div class="meta">Alibaba Cloud · ACE / ACP 安全方向 · <span class="nd">官方入口已实测</span></div>
+      <p><b>定位：</b>云安全专项，在云计算认证之上加安全维度（等保合规、风险处置、云上安全架构），<b>对应"等保测评师 / 云安全岗"</b>。走 ACE（专家）或 ACP 安全方向。</p>
+      <p class="small"><b>官方：</b>同阿里云大学认证入口 <a href="https://edu.aliyun.com/certification/" target="_blank">edu.aliyun.com/certification</a> · <b>免费备考：</b><a href="https://developer.aliyun.com/certification" target="_blank">开发者社区安全专区</a> · 本站 <a href="../../study.html#d=tutorial_15-安全加固-保姆级_md">第 15 章安全加固</a>（赛项 20% 权重）</p>
+    </div>
+
+    <div class="ck">
+      <h3>🔟 Oracle 认证（OCI）<span class="wk w3">公有云 / 数据库</span></h3>
+      <div class="meta">Oracle · OCI 与数据库认证 · <span class="nd">官方入口已实测</span></div>
+      <p><b>两条线：</b>① Oracle 云基础设施 OCI 认证（Cloud Associate → Cloud Engineer/Architect）；② 经典 Oracle 数据库认证（OCA/OCP，如 OCP 认证），<b>传统 DBA 转云常用后者</b>。</p>
+      <p class="small"><b>官方：</b>Oracle University <a href="https://education.oracle.com/" target="_blank">education.oracle.com</a> · Oracle 认证总览 <a href="https://www.oracle.com/certification/" target="_blank">oracle.com/certification</a> · <b>免费备考：</b>Oracle University 免费学习资源与免费课程</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">③ 一条现实建议</h2>
+    <div class="card">
+      <div class="warn">
+        <p><b>证书是"门槛"，不是"天花板"。</b>云计算/运维岗真正筛人的是：<b>能不能把环境搭起来、坏了能不能查</b>。所以正确的顺序是——<b>本站实训（L1–L4）+ 赛项真题打底 → 再挑 1 个认证去考</b>做简历背书，而不是先堆证书再补实操（那是纸上谈兵）。</p>
+        <p style="margin-top:.4rem"><b>免费与付费的边界：</b>本页所有"备考资源"都是免费官方材料（文档、免费课、免费实验）；<b>考试报名与培训课程本身多为付费</b>，本页不代报名、不引任何第三方盗版题库，只给你官方入口与免费自学路径。</p>
+      </div>
+      <p class="small">本页官方入口于 2026-10-19 逐条实测（curl 校验状态码）：可达=200/301/302；标注"需国际网络/沙箱不可达"的为 Google Cloud、Oracle 个别页（沙箱网络限制，域名本身官方有效）；红帽中文页已下线，用官方英文/全球站。考试政策、费用与报考要求以各厂商官网为准（厂商随时调整）。</p>
+    </div>
+  </section>
+
+  <p><a href="index.html">← 回云计算备战中心</a> · <a href="books.html">备赛书单</a> · <a href="net.html">全网资源整合</a> · <a href="lab.html">实战训练场</a> · <a href="../skills.html">世赛全技能库</a></p>
+</div>
+<script src="../kc-learn.js?v=2"></script>
+<script src="../kc-srs.js?v=2"></script>
+</body>
+</html>
