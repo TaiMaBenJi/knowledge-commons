@@ -41,7 +41,7 @@ learn/
 ├── beginner.html       零基础学堂（15 集视频课）
 ├── sleep.html          睡前故事考场  ecommerce.html 电商实战中心
 ├── about.html          关于
-├── cloud/              云计算：index(备战中心) lab(实训) week1 4weeks net sprint
+├── cloud/              云计算：index(备战中心) lab(实训) week1 4weeks net sprint books(备赛书单)
 ├── courses/            原创课程：algo algo2 python gongkao aws-educate aws-educate-catalog
 ├── exam/               考试：index 导航 / quiz 自测 / gongkao 公考 / calendar 考试日历 / guofang 国防教育刷题
 ├── media/              视频馆 wsvideos / B 站精选视频库 bilibili / 文档阅读 pdfview
