@@ -26,6 +26,9 @@
   .bk h3{margin:.1rem 0 .35rem;font-size:1.02rem}
   .bk .meta{font-size:.82rem;color:#666;margin-bottom:.35rem}
   .ok{color:#047857;font-weight:600}
+  /* 宽表在窄屏可横向滚动，避免撑破布局 */
+  .tbl{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:normal}
+  @media (min-width:640px){.tbl{display:table;white-space:normal}}
 </style>
 </head>
 <body>
