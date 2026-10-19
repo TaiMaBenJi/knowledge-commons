@@ -51,6 +51,10 @@ window.LIB_DATA = {
   {t:'Linux 基金会免费课程库',u:'https://training.linuxfoundation.org/resources/',d:'官方免费课程筛选页（LFS101《Introduction to Linux》等经典课）',g:0,s:'认证自学',ty:'课程',f:'免费(注册)',o:'在线'},
   {t:'Linux 基金会开源软件学园（中文）',u:'https://training.linuxfoundation.cn',d:'Linux 基金会中文站，精选中文免费课程与认证路径',g:0,s:'认证自学',ty:'课程',f:'部分免费',o:'在线'},
   {t:'LPI 官方备考资料',u:'https://learning.lpi.org',d:'Linux Professional Institute 官方备考库：LPIC-1/2/3 免费学习目标与样题',g:0,s:'认证自学',ty:'题库·文档',f:'完全免费',o:'可下载'},
+  {t:'CNCF Kubernetes 认证（CKA / CKAD）',u:'https://www.cncf.io/training/certification/',d:'云原生领域最硬的云认证：CKA 管理员实操机考 / CKAD 开发者，云原生岗与赛项容器云对口',g:0,s:'认证自学',ty:'官网',f:'完全免费',o:'可下载'},
+  {t:'微软 Azure 认证（AZ-900 基础）',u:'https://learn.microsoft.com/zh-cn/credentials/certifications/azure-fundamentals/',d:'微软 Azure 基础官方认证页，含全中文免费 Learn 学习路径',g:0,s:'认证自学',ty:'官网',f:'完全免费',o:'可下载'},
+  {t:'Google Cloud 认证',u:'https://cloud.google.com/certification',d:'GCP 官方认证（需国际网络），配 Skills Boost 免费实验',g:0,s:'认证自学',ty:'官网',f:'完全免费',o:'可下载',w:1},
+  {t:'工信部人才交流中心',u:'https://www.miitec.org.cn/',d:'工业和信息化部人才交流中心，证书查询与评价入口',g:0,s:'认证自学',ty:'官网',f:'完全免费',o:'可下载'},
   {t:'Red Hat Developer 学习',u:'https://developers.redhat.com/learn',d:'红帽免费学习路径 + RHEL 开发者订阅（可本地装 RHEL 练 RHCSA）',g:0,s:'认证自学',ty:'课程·软件',f:'免费(注册)',o:'可下载'},
   {t:'蓝桥云课（原实验楼）',u:'https://www.lanqiao.cn/courses/',d:'浏览器内在线 Linux / Docker / 云计算实验环境，大量免费课程可筛选',g:0,s:'实验平台与靶场',ty:'实验平台',f:'部分免费',o:'在线'},
   {t:'华为云沙箱实验室 KooLabs',u:'https://lab.connect.huaweicloud.com',d:'华为云官方免费实操平台：ECS/OBS/云网络等真实云环境一键开实验',g:0,s:'实验平台与靶场',ty:'实验平台',f:'免费(注册)',o:'在线'},
@@ -70,6 +74,9 @@ window.LIB_DATA = {
 
 
   /* ============ 0b 云计算与运维专项（2026-10-05 扩充） ============ */
+  {t:'openEuler 官方文档',u:'https://docs.openeuler.org/',d:'国产 Linux 发行版官方文档，云计算赛项私有云基座',g:0,s:'云计算与运维专项',ty:'官网',f:'完全免费',o:'可下载'},
+  {t:'Kubernetes 中文官方文档',u:'https://kubernetes.io/zh-cn/docs/home/',d:'K8s 官方中文文档，容器云模块权威对照',g:0,s:'云计算与运维专项',ty:'官网',f:'完全免费',o:'可下载'},
+  {t:'AWS 中文文档',u:'https://docs.aws.amazon.com/zh_cn/',d:'AWS 官方中文文档，世赛 AWS 赛项与外企岗',g:0,s:'云计算与运维专项',ty:'官网',f:'完全免费',o:'可下载'},
   {t:'OpenStack 官方中文文档',u:'https://docs.openstack.org/zh_CN/',d:'中国国赛云计算赛项核心栈：私有云部署与组件官方中文文档',g:0,s:'云计算与运维专项',ty:'官方文档',f:'完全免费',o:'可下载'},
   {t:'Debian 中文文档',u:'https://www.debian.org/index.zh-cn.html',d:'世赛环境常用系统发行版官方中文文档与手册',g:0,s:'云计算与运维专项',ty:'官方文档',f:'完全免费',o:'可下载'},
   {t:'Ubuntu Server 官方文档',u:'https://documentation.ubuntu.com/server/',d:'服务器版官方文档：网络、存储、容器、远端接入全覆盖',g:0,s:'云计算与运维专项',ty:'官方文档',f:'完全免费',o:'可下载'},
@@ -82,6 +89,19 @@ window.LIB_DATA = {
   {t:'Terraform 官方教程',u:'https://developer.hashicorp.com/terraform/tutorials',d:'基础设施即代码（IaC）官方教程：韩国赛核心工具',g:0,s:'云计算与运维专项',ty:'官方教程',f:'完全免费',o:'可下载',w:1},
   {t:'WireGuard 官网',u:'https://www.wireguard.com/quickstart/',d:'现代组网工具官方快开始：世赛模块常考点（境外站较慢）',g:0,s:'云计算与运维专项',ty:'官方文档',f:'完全免费',o:'可下载',w:1},
   {t:'Samba 官方 Wiki',u:'https://wiki.samba.org/index.php/Main_Page',d:'文件共享与域成员配置权威文档（403 为反爬，浏览器正常）',g:0,s:'云计算与运维专项',ty:'官方文档',f:'完全免费',o:'可下载'},
+  {t:'《云计算导论（微课版）》荆于勤·石慧霞',u:'https://book.douban.com/subject/37080700/',d:'人邮 2024-09 · ISBN 9787115647535 · 216页 · 零基础入门首选，VMware+OpenStack 概念破冰',g:0,s:'云计算备赛书单',ty:'图书',f:'需购书',o:'不可离线'},
+  {t:'《OpenStack云计算平台实践（微课版）》苏翔宇·魏亮',u:'https://book.douban.com/subject/37301670/',d:'人邮 2025-01 · ISBN 9787115663351 · 214页 · 世赛指导专家编写，9模块 Keystone/Glance/Nova/Neutron 实操',g:0,s:'云计算备赛书单',ty:'图书',f:'需购书',o:'不可离线'},
+  {t:'《OpenStack云计算平台搭建与管理（openEuler）（微课版）》',u:'https://book.douban.com/subject/37128840/',d:'人邮 · ISBN 9787115651860 · 260页 · 十四五国家规划教材，openEuler 基座',g:0,s:'云计算备赛书单',ty:'图书',f:'需购书',o:'不可离线'},
+  {t:'《华为ICT大赛实践赛云赛道真题解析》',u:'https://book.douban.com/subject/37098651/',d:'人邮 2024-11 · ISBN 9787115654571 · 358页 · 官方组编，冲刺真题',g:0,s:'云计算备赛书单',ty:'图书',f:'需购书',o:'不可离线'},
+  {t:'《公有云服务架构与运维（基于阿里云）（微课版）》',u:'https://book.douban.com/subject/37513429/',d:'人邮 2025-08 · ISBN 9787115675514 · 阿里云方向赛证融通教材',g:0,s:'云计算备赛书单',ty:'图书',f:'需购书',o:'不可离线'},
+  {t:'《云计算网络技术教程（项目式微课版）》',u:'https://book.douban.com/subject/37003464/',d:'人邮 · ISBN 9787115646682 · 248页 · 补云网络短板，赛项丢分重灾区',g:0,s:'云计算备赛书单',ty:'图书',f:'需购书',o:'不可离线'},
+  {t:'《云计算实战》（刘鹏等，清华）',u:'https://book.douban.com/subject/35612479/',d:'清华社 2021-09 · ISBN 9787302572879 · 467页 · AWS 体系，世赛/AWS口径',g:0,s:'云计算备赛书单',ty:'图书',f:'需购书',o:'不可离线'},
+  {t:'《云计算（第4版）》刘鹏',u:'https://book.douban.com/subject/36795130/',d:'ISBN 9787121471605 · 295页 · 经典理论打底，含 Hadoop3.0/容器/云原生',g:0,s:'云计算备赛书单',ty:'图书',f:'需购书',o:'不可离线'},
+  {t:'《云计算：概念、技术、安全与架构（原书第2版）》Erl',u:'https://book.douban.com/subject/37503600/',d:'机械工业出版社 · ISBN 9787111784975 · 332页 · 国际经典云架构通识，当词典用',g:0,s:'云计算备赛书单',ty:'图书',f:'需购书',o:'不可离线'},
+  {t:'人民邮电出版社·官方检索',u:'https://www.ryjiaoyu.com/book',d:'人邮官方图书频道，按书名/ISBN 查目录与正版',g:0,s:'云计算备赛书单',ty:'官网',f:'完全免费',o:'可下载'},
+  {t:'清华大学出版社·官方检索',u:'https://www.ituring.com.cn/',d:'清华社官方站（云计算实战等）',g:0,s:'云计算备赛书单',ty:'官网',f:'完全免费',o:'可下载'},
+  {t:'机械工业出版社·官方检索',u:'https://www.cmpbook.com/',d:'机工官方站（Erl 原书等）',g:0,s:'云计算备赛书单',ty:'官网',f:'完全免费',o:'可下载'},
+
   /* ============ 1 算法竞赛 ============ */
   {t:'OI Wiki',u:'https://oi-wiki.org',d:'中文算法竞赛知识库最大的开源 Wiki，竞赛知识点全覆盖，可下载离线版',g:1,s:'知识库 Wiki',ty:'Wiki·开源',f:'完全免费',o:'可下载'},
   {t:'Hello 算法',u:'https://www.hello-algo.com',d:'动画图解数据结构与算法的开源书（12 种语言代码），可免费下载 PDF',g:1,s:'知识库 Wiki',ty:'开源书',f:'完全免费',o:'可下载'},
