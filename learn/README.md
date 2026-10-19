@@ -37,6 +37,7 @@
 | `red/index.html` | 红色经典入口 |
 | `red/maoxuan.html` | 《毛泽东选集》1–5 卷全文 229 篇 + 诗词 |
 | `red/socialism.html` | 社会主义实践 · 研究生研究中心 |
+| `dev/index.html` | 开发者免费服务总表（整合 ripienaar/free-for-dev：57 类 1229 项，数据 `dev/ffd-data.js`） |
 | `files/` | 课程与题库原始资料（730 份：ICPC / 蓝桥杯 / 图论 / 题解 …），被页面与资料中心按需引用 |
 | `data/` | 学习引擎数据 |
 

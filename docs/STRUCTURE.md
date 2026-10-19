@@ -46,6 +46,7 @@ learn/
 ├── exam/               考试：index 导航 / quiz 自测 / gongkao 公考 / calendar 考试日历 / guofang 国防教育刷题
 ├── media/              视频馆 wsvideos / B 站精选视频库 bilibili / 文档阅读 pdfview
 ├── red/                红色经典：index(入口) maoxuan(毛选全文) socialism(社会主义实践研究)
+├── dev/                开发者免费服务总表（整合 ripienaar/free-for-dev；页面 index.html + 数据 ffd-data.js）
 ├── files/              课程与题库原始资料（730 份，仅被页面按需引用）
 ├── data/               学习引擎数据
 └── style.css  kc-learn.js  kc-srs.js  searchidx.js

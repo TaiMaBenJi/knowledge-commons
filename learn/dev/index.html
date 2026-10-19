@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>开发者免费服务总表 · free-for-dev 整合版 - 知识公社</title>
+<link rel="stylesheet" href="../style.css">
+<!-- kc-pwa -->
+<meta name="theme-color" content="#9e2b25">
+<meta name="color-scheme" content="light">
+<link rel="manifest" href="../../manifest.json">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../../icons/icon-192.png">
+<script defer src="../../sw-reg.js"></script>
+<script defer src="../../install-tip.js"></script>
+<!-- /kc-pwa -->
+<style>
+  .ffd-bar{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin:.7rem 0 .4rem}
+  .ffd-bar input{flex:1;min-width:220px;padding:.5rem .7rem;border:1px solid var(--line,#d8dfe9);border-radius:.4rem;font-size:.95rem}
+  .chips{display:flex;flex-wrap:wrap;gap:.4rem;margin:.5rem 0 .8rem}
+  .chip{font-size:.78rem;border:1px solid #d8dfe9;background:#fff;color:#455066;border-radius:1rem;padding:.2rem .7rem;cursor:pointer;transition:.15s}
+  .chip:hover{border-color:#9db8d8}
+  .chip.on{background:#1f4e8c;border-color:#1f4e8c;color:#fff}
+  .chip .c{opacity:.65;margin-left:.25rem;font-size:.72rem}
+  .ffd-count{font-size:.85rem;color:#6b7280;margin:.2rem 0 .6rem}
+  .ffd-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:.7rem}
+  .ffd-item{border:1px solid #d8dfe9;background:#fff;padding:.75rem .8rem;border-radius:.35rem;transition:.15s}
+  .ffd-item:hover{border-color:#1f4e8c;box-shadow:0 3px 12px rgba(31,78,140,.1)}
+  .ffd-item .nm{font-size:.95rem;font-weight:600;color:#1a4d8f;line-height:1.45;word-break:break-word}
+  .ffd-item .nm a{color:inherit}
+  .ffd-item .nm a:hover{text-decoration:underline}
+  .ffd-item .zh{font-size:.85rem;color:#4b5563;line-height:1.65;margin-top:.3rem}
+  .ffd-item .cat{display:inline-block;font-size:.7rem;color:#5b6b84;background:#eef3fa;border-radius:.25rem;padding:.08rem .45rem;margin-top:.45rem}
+  .ffd-item .subs{margin:.45rem 0 0;padding:.4rem .6rem;background:#f8fafc;border-left:3px solid #9db8d8;font-size:.78rem;color:#556;color;line-height:1.7}
+  .ffd-item .subs .sl{display:block}
+  .ffd-item .subs .sl a{color:#1f4e8c}
+  .ffd-empty{padding:2.2rem;text-align:center;color:#9ca3af;grid-column:1/-1}
+  .src-note{font-size:.85rem;line-height:1.9;color:#6b7280}
+  .src-note a{color:#1f4e8c}
+  .load-more{display:block;margin:1rem auto;padding:.5rem 1.4rem;border:1px solid #1f4e8c;background:#fff;color:#1f4e8c;border-radius:.35rem;cursor:pointer;font-size:.9rem}
+  .load-more:hover{background:#1f4e8c;color:#fff}
+  @media(max-width:720px){.ffd-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="topbar"><span class="dot"></span><span>开发者免费服务总表 · 整合自 ripienaar/free-for-dev · 57 类中文化</span></div>
+<header class="hero">
+  <div class="kicker">FREE FOR DEV · 1229 SERVICES</div>
+  <h1>开发者免费服务总表</h1>
+  <p>把全球开发者最常用的 <b>免费 SaaS / PaaS / IaaS 服务</b>（云主机、数据库、CI/CD、监控、邮件、AI……57 大类 1229 项）整合成一页可离线搜索的总表——数据整理自开源清单 <a href="https://github.com/ripienaar/free-for-dev" target="_blank" rel="noopener">ripienaar/free-for-dev</a>（140k+ Star），全部转写为中文简述，保留各服务免费额度原始数字。<b>选服务、比额度、找平替，打开这一页就够。</b></p>
+  <div class="badges"><span>57 大类</span><span>1229 项</span><span>中文简述</span><span>离线可搜</span></div>
+</header>
+<nav class="tabs">
+  <a href="../index.html">首页</a>
+  <a href="../beginner.html">学堂</a>
+  <a href="../exam/calendar.html">日历</a>
+  <a href="../archive.html">总目</a>
+  <a href="../courses.html">课程</a>
+  <a href="../contest.html">竞赛</a>
+  <a href="../exam/index.html">升学</a>
+  <a href="../exam/gongkao.html">公考</a>
+  <a href="../skills.html">世赛</a>
+  <a href="../red/index.html">红色</a>
+  <a href="../red/socialism.html">实践</a>
+  <a href="../ecommerce.html">创业</a>
+  <a href="../cloud/index.html">云赛</a>
+  <a href="../sleep.html">睡前</a>
+  <a href="../paths.html">路线</a>
+  <a href="../../library.html">资源</a>
+  <a href="../../download.html">下载</a>
+  <a href="../about.html">简章</a>
+</nav>
+
+<div class="wrap">
+  <div class="card">
+    <div class="ffd-bar">
+      <input id="q" placeholder="搜索服务名 / 中文简述 / 分类（如 CI、对象存储、免费额度）" autocomplete="off">
+    </div>
+    <div class="chips" id="chips"></div>
+    <div class="ffd-count" id="count"></div>
+    <div class="ffd-grid" id="grid"></div>
+    <button class="load-more" id="more" style="display:none">显示更多…</button>
+  </div>
+
+  <div class="card src-note">
+    <b>数据来源与声明</b>：条目整理自 <a href="https://github.com/ripienaar/free-for-dev" target="_blank" rel="noopener">github.com/ripienaar/free-for-dev</a>（在线版 <a href="https://free-for.dev/" target="_blank" rel="noopener">free-for.dev</a>，1600+ 贡献者维护），中文简述为本站改写；该上游仓库未附 LICENSE 文件，各服务名称与商标归其各自权利人所有，免费额度以官方页面为准（随时可能调整），本站仅供学习参考、不构成推荐背书。<b>提示</b>：列表中多数为境外服务，需国际网络访问；标注"免费（注册）"的请自行阅读条款，注意信用卡验证与自动续费陷阱。
+    <br>更新日期：2026-10-19 · 上游快照：README 2026-10 版 · 意见反馈欢迎开 <a href="https://github.com/TaiMaBenJi/knowledge-commons/issues" target="_blank" rel="noopener">Issue</a>
+  </div>
+
+  <p><a href="../archive.html">← 返回总目</a> · <a href="../../library.html">资源总库</a></p>
+</div>
+
+<script src="ffd-data.js"></script>
+<script>
+(function () {
+  var DATA = window.FFD_DATA || { cats: [] };
+  var PAGE = 300, shown = PAGE, activeCat = -1, keyword = '';
+  var $q = document.getElementById('q'), $chips = document.getElementById('chips'),
+      $grid = document.getElementById('grid'), $count = document.getElementById('count'),
+      $more = document.getElementById('more');
+
+  var cats = DATA.cats || [];
+  // flat index
+  var all = [];
+  cats.forEach(function (c, ci) {
+    (c.items || []).forEach(function (it) { all.push({ c: ci, it: it }); });
+  });
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"]/g, function (m) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[m];
+    });
+  }
+
+  function match(e) {
+    if (activeCat >= 0 && e.c !== activeCat) return false;
+    if (!keyword) return true;
+    var k = keyword;
+    var c = cats[e.c];
+    var hay = (e.it.n + ' ' + (e.it.z || '') + ' ' + c.c + ' ' + (c.en || '')).toLowerCase();
+    return hay.indexOf(k) >= 0;
+  }
+
+  function renderChips() {
+    var html = '<span class="chip' + (activeCat < 0 ? ' on' : '') + '" data-i="-1">全部<span class="c">' + all.length + '</span></span>';
+    cats.forEach(function (c, i) {
+      var n = (c.items || []).length;
+      if (!n) return;
+      html += '<span class="chip' + (activeCat === i ? ' on' : '') + '" data-i="' + i + '" title="' + esc(c.en || '') + '">' + esc(c.c) + '<span class="c">' + n + '</span></span>';
+    });
+    $chips.innerHTML = html;
+  }
+
+  function itemHtml(e) {
+    var it = e.it, c = cats[e.c], h = '';
+    h += '<div class="ffd-item">';
+    h += '<div class="nm">' + (it.u ? '<a href="' + esc(it.u) + '" target="_blank" rel="noopener">' + esc(it.n) + '</a>' : esc(it.n)) + '</div>';
+    if (it.z) h += '<div class="zh">' + esc(it.z) + '</div>';
+    if (it.sub && it.sub.length) {
+      h += '<div class="subs">';
+      it.sub.forEach(function (s) {
+        var t = esc(s.z || s.zt || s.t || '');
+        if (s.u) t = '<a href="' + esc(s.u) + '" target="_blank" rel="noopener">' + t + '</a>';
+        h += '<span class="sl">' + t + '</span>';
+      });
+      h += '</div>';
+    }
+    h += '<span class="cat">' + esc(c.c) + '</span>';
+    h += '</div>';
+    return h;
+  }
+
+  function render() {
+    var list = all.filter(match);
+    var slice = list.slice(0, shown);
+    var html = slice.map(itemHtml).join('');
+    if (!list.length) html = '<div class="ffd-empty">没有匹配的服务，换个关键词试试</div>';
+    $grid.innerHTML = html;
+    $count.textContent = '共 ' + list.length + ' 项' + (list.length > slice.length ? '（已显示 ' + slice.length + ' 项，缩小范围或点下方按钮继续）' : '');
+    $more.style.display = list.length > slice.length ? 'block' : 'none';
+  }
+
+  $chips.addEventListener('click', function (e) {
+    var chip = e.target.closest('.chip');
+    if (!chip) return;
+    activeCat = parseInt(chip.getAttribute('data-i'), 10);
+    shown = PAGE;
+    renderChips(); render();
+  });
+  $q.addEventListener('input', function () {
+    keyword = $q.value.trim().toLowerCase();
+    shown = PAGE;
+    render();
+  });
+  $more.addEventListener('click', function () { shown += PAGE; render(); });
+
+  renderChips(); render();
+})();
+</script>
+</body>
+</html>
