@@ -41,4 +41,4 @@ sudo bash grade_l1.sh -v     # 复盘模式：显示每项的检查逻辑
 
 - 每完成一项**立刻按验收方式自验**——这正是评分表思维
 - 卡住先看状态：`systemctl status` → `journalctl -xe` → 日志
-- 全部 PASS 后：**拍快照**，然后跑 `fault/make_fault_l1.sh` 进入排错训练
+- 全部 PASS 后：**拍快照**，然后跑 `docs/cloudlab/fault/make_fault_l1.sh` 进入排错训练

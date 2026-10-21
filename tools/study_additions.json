@@ -1,0 +1,28 @@
+{
+  "_comment": "往资料中心增量插入新文档的清单。由 tools/add_study_docs.py 消费。rel 相对仓库根；文档 id 由 rel 机械推导（rel 里的 / 和 . 换成 _），所以同一文件永远得到同一个 id。groups 里的 section 指定新分组插到哪个侧栏分区；不存在的分区会自动新建。",
+
+  "groups": {
+    "glossary": {
+      "title": "术语对照",
+      "color": "#0891b2",
+      "new_section": "deepx",
+      "section_title": "进阶 · 深度 · 术语",
+      "section_sub": "专家级教材 · 自动评分实训 · 中英术语对照"
+    }
+  },
+
+  "docs": [
+    {
+      "rel": "docs/glossary/README.md",
+      "title": "术语层总目录（为什么必须有它）",
+      "group": "glossary",
+      "sub": "收录标准与用法"
+    },
+    {
+      "rel": "docs/glossary/01-中英术语对照.md",
+      "title": "中英术语对照表（读英文一手资料的钥匙）",
+      "group": "glossary",
+      "sub": "T1–T10 全层 + 缩写速查"
+    }
+  ]
+}

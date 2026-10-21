@@ -73,12 +73,16 @@ knowledge-commons/
 ├── multiskill/           # 世界技能大赛 50 赛项学习包（总纲 / 总纲课 / 模拟训练 / 图解）
 ├── videos/               # 62 集视频课与图解（布局是构建契约，见 videos/README.md）
 ├── docs/                 # 课程文档、官方资料、研究文档、结构契约、截图
-├── study-data/           # 资料中心数据分块（manifest + 58 个内容块）
+│   └── glossary/        #   术语对照（中英术语 + 缩写速查，已并入资料中心）
+├── study-data/           # 资料中心数据分块（manifest + 59 个内容块）
 ├── exam/ aws-educate/    # 题库与课程源数据
 ├── lab/ video-ext/       # 云计算实训沙箱（引擎+场景） / 逐集图解读物
 ├── app/ assets/ icons/   # 站点资源（门户数据 / 截图 / PWA 图标）
 ├── clients/              # 六端客户端工程（android / ios / windows / macos / linux）
 ├── tools/                # 构建与质检脚本（见 tools/README.md）
+│   ├── verify_all.py        #   全仓库质量门禁（14 项，一键跑完）
+│   ├── add_study_docs.py    #   增量往资料中心插新文档
+│   └── study_additions.json #   增量内容清单
 ├── video-factory/        # 视频课生成流水线（脚本 + 课件源）
 └── .github/workflows/    # CI：六端构建 / iOS 签名 / 链接体检
 ```
@@ -94,12 +98,26 @@ knowledge-commons/
 - **链接体检**：`python tools/linkcheck.py` 并发检测资源总库全部外链（反爬识别为 blocked，多轮重试后才判死链）
 - **资源名说明**：部分 Android WebView 无法访问含非 ASCII 字符的资源路径，构建流程中的 `tools/android_namefix.py` 会把中文资源名转义为 `_uXXXX` 并同步改写引用（详见脚本注释）
 
+**全仓库质量门禁（改动后先跑这个）**：
+
+```bash
+python tools/verify_all.py          # 14 项：行尾 / bash / js / tools 语法 / 站内体检 /
+                                     # md 路径引用 / 章节结构 / 代码块语法与实跑 / yaml /
+                                     # manifest 结构 / 增量同步 / 数字一致性 / PWA 预缓存
+python tools/verify_all.py --fast   # 跳过耗时项（代码块实跑）
+python tools/verify_all.py --list   # 列出所有检查项
+```
+
+> **新增内容进资料中心走增量通道**，不要跑全量重建：
+> `python tools/add_study_docs.py --spec tools/study_additions.json`
+> 原因见 [docs/STRUCTURE.md](docs/STRUCTURE.md) 硬约束 3 —— 全量重建会静默删掉两千多篇。
+
 ## study.html 秒开架构（2026-10）
 
 资料中心 `study.html`（3161 篇 · 59 组）不再内联 14MB 全量数据，首屏体积 **14.8MB → ~757KB（-95%）**：
 
 - `study-data/manifest.<gen8>.js` — 全量元数据（标题/分组/时长/主题色，3161 篇）+ 首页全文，~731KB
-- `study-data/c/<组slug>.<hash6>.js` — 58 个按组内容块，打开该组文档时按需加载，后台自动预取全部
+- `study-data/c/<组slug>.<hash6>.js` — 59 个按组内容块，打开该组文档时按需加载，后台自动预取全部
 - 搜索：标题即时全库命中；全文匹配随内容块加载而就绪（预取完成后全库可搜）
 - Service Worker：`study-data/*` 走运行时缓存，首次在线访问后全站离线可用
 

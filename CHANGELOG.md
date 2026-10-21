@@ -1,4 +1,6 @@
 # 更新日志 · CHANGELOG
+- **2026-10-21**：新增**术语层**（`docs/glossary/`，T1–T10 中英术语对照 + 缩写速查，已并入资料中心「进阶 · 深度 · 术语」分区）—— 体检发现正文里 `zero trust` / `well-architected` 等英文原形近乎为零，而**认不出英文原词就等于在英文世界搜不到**，顶层能力只能靠一手英文资料喂养；新增 `tools/add_study_docs.py`（增量往资料中心插文档）与 `tools/verify_all.py`（14 项全仓库门禁，含 md 路径引用 / 数字一致性 / 章节结构 / manifest 结构 / 代码块实跑）；修复 `docs/cloudlab/tasks/L1-Linux.md`、`docs/knowledge/11-竞赛实战指南.md`、`docs/STRUCTURE.md` 三处路径写法不可从仓库根解析；PWA 预缓存升 kc-v1.9.6
+
 
 知识公社按日推进，完整历史见本文件；最新的三条同步展示在 [README](README.md#最近更新)。
 

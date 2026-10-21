@@ -18,6 +18,7 @@
 | `multiskill/` | 世赛 50 赛项学习包（总纲 / 总纲课 / 模拟训练 / 图解） | |
 | `videos/` | 视频课与封面（见 `videos/README.md`，**布局是构建契约**） | |
 | `docs/` | 文档资料（课程文档 / 官方资料 / 研究文档 / 截图） | 不放页面入口 |
+| `docs/glossary/` | **术语对照**（中英术语 + 缩写速查，已并入资料中心） | 不放页面入口 |
 | `study-data/` | 资料中心的数据分块（生成物） | 手改 |
 | `learn/files/` `learn/data/` `exam/` `aws-educate/` | 原始资料与源数据 | |
 | `lab/` | 云计算实训沙箱（引擎 + 场景 + `standalone.html`），被 `learn/cloud/lab.html` 与门户数据引用 | 不放别的实验 |
@@ -25,6 +26,7 @@
 | `app/` `assets/` `icons/` | 站点资源（门户数据 / 截图 / PWA 图标） | |
 | `clients/` | 六端客户端工程（android / ios / windows / macos / linux） | 不放内容 |
 | `tools/` | 构建与质检脚本（见 `tools/README.md`） | |
+| `tools/study_additions.json` | **增量内容清单**（要进资料中心的新文档写在这里） | 不手改 manifest |
 | `video-factory/` | 视频课生成流水线（脚本 + 课件源） | |
 | `.github/workflows/` | CI（六端构建 / iOS 签名 / 链接体检 / 视频落位） | |
 
@@ -53,7 +55,7 @@ learn/
 ```
 
 导航栏在所有页面里是**复制的同一段**（无构建步骤，纯静态）。改导航 = 批量改 `learn/*.html` 与子目录页面，
-注意相对路径：根页用 `cloud/index.html`，子目录页用 `../cloud/index.html`。
+注意相对路径：根页用 `learn/cloud/index.html`，子目录页用 `../cloud/index.html`。
 
 ## 三、硬约束（动目录前必读）
 
@@ -65,7 +67,12 @@ learn/
 2. **`multiskill/**/{总纲课.mp4,模拟训练.html,项目总纲.md}` 三件套命名**
    由 `learn/media/wsvideos.html`、`learn/skills.html`、`app/portal-trades.js` 以 URL 编码路径引用，改名要三处同改。
 3. **`study-data/` 是生成物**：由 `tools/build_liquid.py` + `tools/split_study.py` 产出。
-   改完内容数据要同步 bump `sw.js` 的 `VERSION`。
+   改完内容数据要同步 bump `sw.js` 的 `VERSION`
+   ⚠️ **全量重建目前复现不出全部 3161 篇**：其中约 2900 篇来自
+   `github-repos/` 与 `test-projects/` 两个目录，而它们在 2026-10-16 的
+   `learn/` 目录整理中已不再随仓库分发，正文只剩 `study-data/c/*.js` 里的成品。
+   **所以新增内容一律走增量通道 `tools/add_study_docs.py`，不要跑全量重建** ——
+   跑一次就会静默删掉两千多篇。。
 4. **PWA 预缓存清单在 `sw.js`**：新增/移动页面后必须更新，否则离线用户拿不到新页。
 5. **旧路径兼容**：2026-10-16 的 `learn/` 目录整理使用 `404.html` 内的映射表做跳转，
    新增映射时把 `旧路径 → 新路径` 追加进 `404.html` 的 `MAP`。
@@ -75,4 +82,7 @@ learn/
 1. 页面落到对应子目录（见上面地图），别堆在 `learn/` 根。
 2. 页面导航片段复制同目录邻居的写法，改相对路径。
 3. 把 URL 加进 `sitemap.xml` 与 `sw.js` 的预缓存清单；检索内容加进 `learn/searchidx.js`。
+4. **要进资料中心的文档**（`docs/**` 下的）另加一步：写进 `tools/study_additions.json`，
+   然后 `python tools/add_study_docs.py --spec tools/study_additions.json`。
+   **不要跑 `tools/build_liquid.py` 做全量重建** —— 见上面硬约束 3。
 4. 若有新目录，同步更新本文件与 `README.md` 的仓库地图。

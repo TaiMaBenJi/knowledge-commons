@@ -1,4 +1,6 @@
-window.SEARCH_IDX=[{"t": "开发者免费服务总表 · 57 类 1229 项", "u": "dev/index.html", "g": "工具", "k": "free-for-dev 免费服务 SaaS PaaS IaaS 云主机 免费额度 开发者工具 总表"},
+window.SEARCH_IDX=[{"t": "中英术语对照表（读英文一手资料的钥匙）", "u": "../docs/glossary/01-中英术语对照.md", "g": "术语", "k": "中英术语 英文原词 throttling idempotent least privilege zero trust well-architected SLO MTTR RTO RPO postmortem blameless service mesh 缩写速查 读英文一手资料 术语对照"},
+{"t": "术语层总目录（为什么必须有它）", "u": "../docs/glossary/README.md", "g": "术语", "k": "术语层 收录标准 英文原词 缺口 一手资料 glossary"},
+{"t": "开发者免费服务总表 · 57 类 1229 项", "u": "dev/index.html", "g": "工具", "k": "free-for-dev 免费服务 SaaS PaaS IaaS 云主机 免费额度 开发者工具 总表"},
 {"t": "免费云主机与大厂免费额度（GCP / AWS / Azure / Oracle）", "u": "dev/index.html", "g": "工具", "k": "免费云服务器 永久免费 e2-micro Lambda Cloud Run Always Free Oracle 云主机"},
 {"t": "免费 CI/CD 与静态托管", "u": "dev/index.html", "g": "工具", "k": "CI CD GitHub Actions 持续集成 Vercel Netlify Cloudflare Pages 免费部署"},
 {"t": "免费数据库与对象存储", "u": "dev/index.html", "g": "工具", "k": "Postgres MySQL Redis Supabase Firestore R2 S3 免费数据库 对象存储"},

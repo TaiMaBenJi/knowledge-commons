@@ -18,3 +18,7 @@ clients/windows/out/
 *.cer
 *.pem
 .zsign_cache/
+
+# Python 字节码
+__pycache__/
+*.py[cod]
