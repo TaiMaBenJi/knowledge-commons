@@ -22,3 +22,6 @@ clients/windows/out/
 # Python 字节码
 __pycache__/
 *.py[cod]
+
+# 临时探针目录（代码块提取 / 调试用）
+.probe_tmp/

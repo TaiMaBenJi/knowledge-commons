@@ -1,5 +1,7 @@
 # 更新日志 · CHANGELOG
 - **2026-10-21**：新增**术语层**（`docs/glossary/`，T1–T10 中英术语对照 + 缩写速查，已并入资料中心「进阶 · 深度 · 术语」分区）—— 体检发现正文里 `zero trust` / `well-architected` 等英文原形近乎为零，而**认不出英文原词就等于在英文世界搜不到**，顶层能力只能靠一手英文资料喂养；新增 `tools/add_study_docs.py`（增量往资料中心插文档）与 `tools/verify_all.py`（14 项全仓库门禁，含 md 路径引用 / 数字一致性 / 章节结构 / manifest 结构 / 代码块实跑）；修复 `docs/cloudlab/tasks/L1-Linux.md`、`docs/knowledge/11-竞赛实战指南.md`、`docs/STRUCTURE.md` 三处路径写法不可从仓库根解析；PWA 预缓存升 kc-v1.9.6
+- **2026-10-21（修）**：修掉**资料中心深链大面积失效** —— 全站 156 条 `#d=` 深链里**29 条是死链**，其中 28 条集中在 `learn/cloud/4weeks.html`（4 周作战计划页，正是最该点的页面）：链接文字完好、只有 href 里的中文文档 id 被批量替换成了 `???`，页面照常显示、点了才跳不过去。已按链接文字逐条重建 id（`《第12章 · AWS实战》` → `tutorial_12-AWS云平台实战-保姆级_md`），另 1 条是 `工业4.0` 与 id 规则 `工业4_0` 的差异。**新增第 15 项门禁「资料中心深链」**逐条核对 `#d=` 的 id 是否真实存在（站内链接检查只验文件路径，扫不到片段）；把 `tools/shell_compat.py` 接进门禁并入库（shell 语法检查改走 bash -n / PowerShell 解析器 / 纯 Python 结构自检三条通道，能力验真 —— WindowsApps 下的 `bash.exe` 只是 WSL 空壳）；清理 `.probe_tmp/` 335 个临时文件并加入 .gitignore；新增 `.github/workflows/verify.yml` 把门禁接进 CI；PWA 预缓存升 kc-v1.9.6
+
 
 
 知识公社按日推进，完整历史见本文件；最新的三条同步展示在 [README](README.md#最近更新)。

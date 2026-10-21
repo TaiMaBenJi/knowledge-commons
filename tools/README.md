@@ -19,6 +19,7 @@
 | 脚本 | 作用 |
 |---|---|
 | `verify_all.py` | **全仓库质量门禁（一键跑完 14 项）**：脚本行尾 / bash 语法 / js 语法 / tools 语法 / 站内体检 / md 路径引用 / md 章节结构 / md 代码块语法 / md yaml / md 代码块实跑 / manifest 一致性 / 增量文档 / 数字一致性 / PWA 预缓存 |
+| `shell_compat.py` | **shell 语法检查的跨平台适配层**：bash -n / PowerShell 解析器 / 纯 Python 结构自检 三条通道。能力要验真 —— WindowsApps 下的 `bash.exe` 往往只是 WSL 启动器空壳，找到它 ≠ 能跑 |
 | `internal_qa.py` | 单项全站内部体检（HTML/MD 内链 · 预缓存 · 检索索引 · sitemap · JSON · JS） |
 | `add_study_docs.py` | **增量往资料中心插新文档**（不动既有 3161 篇）。清单见 `study_additions.json` |
 | `linkcheck.py` | 资源总库全部外链并发体检（403/412/429/999 判为 blocked，不算死链） |

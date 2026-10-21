@@ -46,6 +46,7 @@ import subprocess
 import sys
 import tempfile
 import time
+import urllib.parse
 
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
 
@@ -101,33 +102,115 @@ def all_files(exts: tuple[str, ...], sub: str = "") -> list[pathlib.Path]:
 
 # ------------------------------------------------------------------ 检查项
 
+def _git_show(rel_path: str) -> str | None:
+    """从 git 对象库里取文件内容（sparse-checkout 没落地时用）。"""
+    try:
+        r = subprocess.run(["git", "show", f"HEAD:{rel_path}"],
+                           capture_output=True, **RUN, cwd=ROOT, timeout=60)
+    except Exception:
+        return None
+    if r.returncode != 0:
+        return None
+    return (r.stdout or "")
+
+
+def _shell_files(exts: tuple[str, ...]) -> list[tuple[str, str]]:
+    """(相对路径, 内容) —— 工作区里的 + git 里有但没落地的。
+
+    sparse-checkout 让工作区只落地一部分目录：磁盘上看不到 ≠ 仓库里没有。
+    客户端脚本（clients/）、视频流水线（video-factory/）多半就属于后者，
+    不看 git 就等于漏检。内容统一按 UTF-8 读、换行归一（CRLF 由行尾检查单独管）。
+    """
+    out: dict[str, str] = {}
+    for p in all_files(exts):
+        try:
+            out[rel(p)] = p.read_text(encoding="utf-8", errors="replace")
+        except OSError:
+            continue
+    for r in sorted(git_tracked()):
+        if not r.endswith(exts) or r in out:
+            continue
+        txt = _git_show(r)
+        if txt is not None:
+            out[r] = txt
+    return sorted(out.items())
+
+
 def chk_sh_syntax(_fast: bool):
-    """全部 .sh 过 bash -n"""
-    if shutil.which("bash") is None:
-        return "bash 语法", True, "跳过：环境无 bash"
-    shs = all_files((".sh",))
+    """全部 .sh / .ps1 过语法检查（Windows / PowerShell 上也能跑）
+
+    走 tools/shell_compat.py 的三条通道，而不是「有 bash 就 bash -n、没有就放过」：
+      A  bash -n            .sh 的真语法检查（最准）
+      B  PowerShell 解析器  .ps1 的真语法检查（Windows 必选，零外部依赖）
+      C  纯 Python 结构自检  没 bash 时对 .sh 的降级检查
+    能力要**验真**：WindowsApps 下那个 bash.exe 往往只是 WSL 启动器空壳，
+    找到它不等于能跑 —— shell_compat.bash_exe() 会真跑一次 bash -c "exit 0"。
+    通道本身出毛病（读不到 payload、处理数对不上）一律判失败：
+    静悄悄放过一批文件，比报错更坏。
+    """
+    try:
+        sys.path.insert(0, str(TOOLS))
+        import shell_compat as sc
+    except Exception:
+        return "shell 语法", True, "跳过：shell_compat 不可用"
+
+    shs = _shell_files((".sh",))
+    pss = _shell_files((".ps1",))
     bad = []
-    for p in shs:
-        # 必须用【相对仓库根的 posix 路径】+ cwd=ROOT：
-        #   · Windows 反斜杠会被 bash 当转义符吃掉（D:\a\b -> D:ab）
-        #   · Git-Bash 也认不了 D:/... 这种盘符路径（认的是 /d/...）
-        # 相对路径 + cwd 是唯一跨平台都成立的写法。
-        r = subprocess.run(["bash", "-n", rel(p)], capture_output=True, **RUN, cwd=ROOT)
-        if r.returncode != 0:
-            err = (r.stderr or "").strip().splitlines()
-            bad.append(f"{rel(p)}: {err[-1] if err else '?'}")
-    return "bash 语法", not bad, (f"{len(shs)}/{len(shs)} 通过" if not bad
-                                 else f"{len(bad)} 个出错：{bad[0]}")
+    how = []
+
+    if shs:
+        if sc.bash_available():
+            errs = sc.bash_syntax(shs)
+            if "__driver__" in errs:
+                bad.append(str(errs["__driver__"])[:90])
+                how.append("bash 通道异常")
+            else:
+                for k, v in list(errs.items())[:3]:
+                    bad.append(f"{k}: {str(v)[:70]}")
+                how.append(f"bash -n（{len(shs)} 个 .sh）")
+        else:
+            # 没有 bash：降级成纯 Python 结构自检（只报高置信度问题）
+            for label, code in shs:
+                for prob in sc.posix_shell_lint(code):
+                    bad.append(f"{label}: {prob[:70]}")
+            how.append(f"结构自检（{len(shs)} 个 .sh，无 bash）")
+    else:
+        how.append("无 .sh")
+
+    if pss:
+        if sc.powershell_available():
+            perrs = sc.ps_parse(pss)
+            if "__driver__" in perrs:
+                bad.append(str(perrs["__driver__"][0])[:90])
+                how.append("PowerShell 通道异常")
+            else:
+                for k, v in list(perrs.items())[:3]:
+                    if v:
+                        bad.append(f"{k}: {str(v[0])[:70]}")
+                how.append(f"PowerShell 解析（{len(pss)} 个 .ps1）")
+        else:
+            how.append(f"{len(pss)} 个 .ps1 未校验（无 PowerShell）")
+
+    n = len(shs) + len(pss)
+    return "shell 语法", not bad, (
+        f"{n} 个脚本 · {' · '.join(how)} · 全部通过" if not bad
+        else f"{n} 个脚本 · {len(bad)} 个出错｜{bad[0]}")
 
 
 def chk_sh_eol(_fast: bool):
-    """.sh 必须是 LF —— CRLF 会让 heredoc 吞掉整个文件"""
+    """.sh / .ps1 必须是 LF —— CRLF 会让 heredoc 吞掉整个文件"""
     bad = []
-    shs = all_files((".sh",))
-    for p in shs:
-        b = p.read_bytes()
-        if b"\r\n" in b:
-            bad.append(rel(p))
+    n = 0
+    for ext in (".sh", ".ps1"):
+        for p in all_files((ext,)):
+            n += 1
+            try:
+                b = p.read_bytes()
+            except OSError:
+                continue
+            if b"\r\n" in b:
+                bad.append(rel(p))
     return "脚本行尾 LF", not bad, ("全部 LF" if not bad
                                    else f"{len(bad)} 个是 CRLF：{bad[:2]}")
 
@@ -319,19 +402,98 @@ def _yaml_is_fragment(code: str) -> bool:
 
 
 
+# md 里的 shell 块有两类**根本不是脚本**，硬判语法错误就是误报：
+#   · 占位符：`kubectl logs <你的Pod名>` —— 尖括号里是中文/带空格，是给人看的，
+#     不是重定向（真重定向是 `cat < in.txt`，尖括号里没有空格和中文）
+#   · 终端会话记录：`mysql> USE db;` —— REPL 提示符，不是脚本
+# 判成「未校验」并报出数量，而不是静悄悄放过或误报成语法错误。
+_PLACEHOLDER_RE = re.compile(r"<[^<>\n]*(?:[^\x00-\x7f]|[ \t])[^<>\n]*>")
+_PLACEHOLDER_WORD_RE = re.compile(
+    r"<(?:your|my|the|some|a|any|todo|xxx|placeholder|name|pod|ip|id|path)[-_a-z0-9]*>",
+    re.I)
+_REPL_RE = re.compile(r"^\s*(?:mysql>|psql>|postgres=|sqlite>|mariadb>)", re.M | re.I)
+
+
+def _shell_block_skip_reason(code: str) -> str:
+    """返回跳过原因；空串 = 这块该真检。"""
+    if _PLACEHOLDER_RE.search(code) or _PLACEHOLDER_WORD_RE.search(code):
+        return "含占位符"
+    if _REPL_RE.search(code):
+        return "终端会话记录"
+    return ""
+
+
 def chk_md_python(_fast: bool):
-    """md 里的 python 块语法"""
+    """md 里的代码块语法（按语言分派：python / powershell / bash）
+
+    为什么扩到 shell：仓库里 300+ 个 ```bash 块、10 来个 ```powershell 块，
+    以前只有 python 块被查 —— bash 块写错（引号不配对、heredoc 少 fi）根本没人拦。
+    分派方式跟 tools/shell_compat.py 一致：
+      python     → ast.parse
+      powershell → PowerShell 自带 AST 解析器（Windows 必选）
+      bash       → bash -n（一次进程批量跑完）
+    """
+    try:
+        sys.path.insert(0, str(TOOLS))
+        import shell_compat as sc
+    except Exception:
+        return "md 代码块语法", True, "跳过：shell_compat 不可用"
+
     bad = []
-    n = 0
+    n_py = n_ps = n_sh = 0
+    skipped = []
+    ps_items: list[tuple[str, str]] = []
+    sh_items: list[tuple[str, str]] = []
+
     for p in all_files((".md",)):
         for i, code in enumerate(_md_blocks(p, "python"), 1):
-            n += 1
+            n_py += 1
             try:
                 ast.parse(code)
             except SyntaxError as e:
                 bad.append(f"{rel(p)} 块{i}: 第 {e.lineno} 行 {e.msg}")
-    return "md 代码块语法", not bad, (f"{n} 个代码块 · 0 个有语法错误" if not bad
-                                     else f"{len(bad)} 个出错：{bad[0]}")
+        for i, code in enumerate(_md_blocks(p, "powershell"), 1):
+            n_ps += 1
+            ps_items.append((f"{rel(p)} 块{i}", code))
+        for i, code in enumerate(_md_blocks(p, "bash"), 1):
+            n_sh += 1
+            why = _shell_block_skip_reason(code)
+            if why:
+                skipped.append(f"{rel(p)} 块{i}（{why}）")
+                continue
+            sh_items.append((f"{rel(p)} 块{i}", code))
+
+    # PowerShell 块：解析器是真语法检查（不实跑 —— 那些块是 New-ADUser /
+    # Install-WindowsFeature，真跑会去改这台机器的域与角色）
+    if ps_items:
+        if sc.powershell_available():
+            perrs = sc.ps_parse(ps_items)
+            if "__driver__" in perrs:
+                bad.append(str(perrs["__driver__"][0])[:90])
+            else:
+                for k, v in list(perrs.items())[:5]:
+                    if v:
+                        bad.append(f"{k}: {str(v[0])[:70]}")
+        else:
+            skipped.append(f"{len(ps_items)} 个 powershell 块（无 PowerShell）")
+
+    # bash 块：一次 bash 进程批量 bash -n
+    if sh_items:
+        if sc.bash_available():
+            errs = sc.bash_syntax(sh_items)
+            if "__driver__" in errs:
+                bad.append(str(errs["__driver__"])[:90])
+            else:
+                for k, v in list(errs.items())[:5]:
+                    bad.append(f"{k}: {str(v)[:80]}")
+        else:
+            skipped.append(f"{len(sh_items)} 个 bash 块（无 bash）")
+
+    msg = f"python {n_py} · powershell {n_ps} · bash {n_sh}"
+    if skipped:
+        msg += f"（{len(skipped)} 个未校验：占位符/会话记录/环境缺失）"
+    msg += " · 0 个有语法错误" if not bad else f" · {len(bad)} 个出错｜{bad[0]}"
+    return "md 代码块语法", not bad, msg
 
 
 def chk_md_yaml(_fast: bool):
@@ -399,7 +561,13 @@ KNOWN_OPTIONAL_DEPS = {
 
 
 def chk_md_run(_fast: bool):
-    """md 里的 python 块【实跑】—— 只做语法检查是自欺欺人"""
+    """md 里的 python 块【实跑】—— 只做语法检查是自欺欺人
+
+    只实跑 python：powershell 块是 New-ADUser / Install-WindowsFeature 这类
+    会**改机器**的运维命令，bash 块大半是 kubectl / aws 客户端调用 ——
+    跑它们不是「验证示例」，是「在跑门禁的机器上搞破坏」。
+    这两类块只过语法检查（见 chk_md_python）。
+    """
     if _fast:
         return "md 代码块实跑", True, "跳过（--fast）"
     bad, ok, skip = [], 0, []
@@ -435,6 +603,7 @@ def chk_md_run(_fast: bool):
             tail = [l for l in err.strip().splitlines() if l.strip()][-1:]
             bad.append(f"{rel(p)} 块{i}: {tail[0][:80] if tail else '失败'}")
     msg = f"合计 {ok + len(skip) + len(bad)} 块，实跑通过 {ok}" + (f"，跳过 {len(skip)}" if skip else "")
+    msg += "（仅 python；powershell/bash 块只做语法检查）"
     if bad:
         msg += f"，失败 {len(bad)}｜{bad[0]}"
     return "md 代码块实跑", not bad, msg
@@ -576,6 +745,44 @@ def chk_sw_version(_fast: bool):
          else f"{ver} · {len(missing)} 条失效：{missing[0]}")
 
 
+
+def chk_deeplinks(_fast: bool):
+    """全站 #d= 深链的 id 是否真实存在于 manifest
+
+    站内链接检查（internal_qa）只验**文件路径**存不存在，
+    但资料中心的深链是 `study.html#d=<文档id>` —— 片段部分它扫不到。
+    而这正是最容易坏的地方：文档 id 里带中文，任何一次批量替换、
+    编码转换、跨 shell 传参都可能把 id 打烂成 `???`，页面照常显示、
+    只有点了才发现跳不过去。
+    实测就抓到过 28 条这样的死链（4 周作战计划页上）。
+    """
+    mps = sorted(STUDY.glob("manifest.*.js"), key=lambda x: x.stat().st_mtime)
+    if not mps:
+        return "资料中心深链", False, "找不到 manifest"
+    t = mps[-1].read_text(encoding="utf-8")
+    k = "var M=window.__KC_MANIFEST="
+    try:
+        M, _ = json.JSONDecoder().raw_decode(t[t.index(k) + len(k):])
+    except Exception as ex:
+        return "资料中心深链", False, f"manifest 解析失败：{ex}"
+    ids = set(M["docs"])
+    total, bad = 0, []
+    for p in all_files((".html",)):
+        txt = p.read_text(encoding="utf-8", errors="replace")
+        for no, line in enumerate(txt.splitlines(), 1):
+            for m in re.finditer(r'href="([^"]*#d=([^"&]+))"', line):
+                total += 1
+                did = urllib.parse.unquote(m.group(2))
+                if did not in ids:
+                    bad.append(f"{rel(p)}:{no} {did[:40]}")
+    msg = f"全站 {total} 条深链"
+    if bad:
+        msg += f"，失效 {len(bad)}｜{bad[0]}"
+    else:
+        msg += "，全部有效"
+    return "资料中心深链", not bad, msg
+
+
 CHECKS = [
     ("bash", chk_sh_syntax),
     ("eol", chk_sh_eol),
@@ -591,6 +798,7 @@ CHECKS = [
     ("additions", chk_additions),
     ("counts", chk_counts),
     ("swver", chk_sw_version),
+    ("deeplink", chk_deeplinks),
 ]
 
 
