@@ -7,7 +7,7 @@
 ```
 videos/
 ├── ep01.mp4 … ep15.mp4    # 「机房/使用指南」系列 15 集（历史落位，保持在根目录）
-├── course/                # 教程 18 集 + course/covers/ 18 张封面
+├── course/                # 教程 19 集 + course/covers/ 19 张封面
 ├── ext/                   # 进阶 29 集 + ext/covers/ 29 张封面
 ├── beginner/              # 零基础学堂 13 集（epb1.mp4 …，learn/beginner.html 引用）
 ├── gallery/               # 逐集图解截图（90 张，video-ext/01-图解册.md 配图）
@@ -15,7 +15,7 @@ videos/
 └── README.md              # 本文件
 ```
 
-合计 62 集视频课（机房 15 + 教程 18 + 进阶 29）＋ 零基础学堂 13 集 ＋ 世赛总纲课（在 `multiskill/` 各赛项目录下）。
+合计 63 集视频课（机房 15 + 教程 19 + 进阶 29）＋ 零基础学堂 13 集 ＋ 世赛总纲课（在 `multiskill/` 各赛项目录下）。
 
 ## 谁在引用（改名前必查）
 

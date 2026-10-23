@@ -16,7 +16,7 @@ var CORE = [
   './learn/index.html', './learn/archive.html', './learn/courses.html',
   './learn/contest.html', 'learn/exam/index.html', 'learn/exam/gongkao.html',
   './learn/skills.html', 'learn/red/index.html', 'learn/red/socialism.html', './learn/ecommerce.html', 'learn/cloud/index.html', 'learn/cloud/lab.html', 'learn/cloud/week1.html', 'learn/cloud/books.html', 'learn/cloud/certs.html', './learn/dev/index.html', './learn/dev/ffd-data.js', 'learn/media/wsvideos.html', './learn/sleep.html', './learn/paths.html','./learn/cloud/contest/index.html', './learn/cloud/contest/sim.html','./learn/cloud/start.html','./learn/cloud/contest/data/wsc2026.js', './learn/cloud/contest/data/korea2025.js','./learn/cloud/contest/data/nation.js', './learn/cloud/contest/data/guangdong.js','./learn/cloud/contest/data/brics.js', './learn/cloud/contest/data/wsjobs.js','./learn/media/videos-cloud.html', './learn/media/course-videos.html', './learn/media/data/course-scripts.js',
-  './learn/about.html', './learn/beginner.html', './learn/win.html', 'learn/exam/calendar.html', 'learn/exam/quiz.html', './learn/search.html', 'learn/media/pdfview.html',
+  './learn/about.html', './learn/beginner.html', 'learn/exam/calendar.html', 'learn/exam/quiz.html', './learn/search.html', 'learn/media/pdfview.html',
   'learn/media/bilibili.html', 'learn/exam/guofang.html',
   'learn/courses/algo.html', 'learn/courses/algo2.html',
   'learn/courses/python.html', 'learn/courses/gongkao.html',
