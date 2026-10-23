@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>七日夺冠方法论 · 通用赛事作战手册 · 知识公社</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.dcard{background:#fff;border:1px solid #e3e9f2;border-radius:12px;margin:14px 0;overflow:hidden}
+.dhd{display:flex;align-items:center;gap:14px;padding:14px 18px;cursor:pointer}
+.dhd .day{width:58px;height:58px;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;flex:none;font-weight:800}
+.dhd .day small{font-size:10px;font-weight:400;opacity:.85}
+.dhd .day b{font-size:22px;line-height:1}
+.dhd .tt b{font-size:16.5px;color:#173a5e;display:block}
+.dhd .tt span{font-size:12.5px;color:#64748b}
+.dhd .arr{margin-left:auto;color:#94a3b8;font-size:13px}
+.dbd{display:none;border-top:1px solid #edf1f7;padding:14px 18px 18px}
+.dcard.open .dbd{display:block}
+.dcard.open .dhd .arr{transform:rotate(90deg)}
+.ck{list-style:none;margin:10px 0 0;padding:0}
+.ck li{position:relative;padding:7px 0 7px 30px;font-size:14px;line-height:1.75;color:#334155;border-bottom:1px dashed #eef2f8}
+.ck li:before{content:'☐';position:absolute;left:2px;top:5px;font-size:16px;color:#38bdf8}
+.goal2{background:#122c42;color:#dbe7f5;border-radius:10px;padding:10px 14px;font-size:13px;margin:12px 0 4px;line-height:1.8}
+.goal2 b{color:#7dd3fc}
+.chk{background:#ecfdf5;border-left:4px solid #34d399;padding:9px 13px;border-radius:6px;font-size:13px;margin-top:12px;line-height:1.8;color:#065f46}
+.pr{background:#fef9ec;border-left:4px solid #f2b632;padding:12px 15px;border-radius:8px;font-size:13.5px;line-height:2;color:#6b5410;margin:16px 0}
+@media print{.dhd .arr,.tabs,.topbar,.hero .badges{display:none}.dbd{display:block!important}.dcard{break-inside:avoid;border:1px solid #ccc}}
+</style>
+<!-- kc-pwa -->
+<meta name="theme-color" content="#9e2b25">
+<meta name="color-scheme" content="light">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
+<script defer src="../sw-reg.js"></script>
+<script defer src="../install-tip.js"></script>
+<!-- /kc-pwa -->
+</head>
+<body>
+<div class="topbar"><span class="dot"></span><span>知识公社 · 七日夺冠方法论 —— 任何赛事通用</span></div>
+<header class="hero">
+  <div class="kicker">WIN IN 7 DAYS · 通用作战手册</div>
+  <h1>七日夺冠方法论</h1>
+  <p>不管什么比赛——技能赛、学科竞赛、算法赛、考试、文体赛——只要「有规则、有评分、有排名」，这一套就通用。</p>
+  <p>七天学会<b>方法</b>；之后每参加一个比赛，就把这七天对着那个比赛跑一遍。</p>
+  <div class="badges"><span>7 天 · 每天 2-3 小时</span><span>带打印版检查清单</span><span>适用于一切赛事</span></div>
+</header>
+<nav class="tabs">
+  <a href="index.html">首页</a>
+  <a href="beginner.html">学堂</a>
+  <a class="on" href="win.html">夺冠</a>
+  <a href="archive.html">总目</a>
+  <a href="courses.html">课程</a>
+  <a href="contest.html">竞赛</a>
+  <a href="exam/index.html">升学</a>
+  <a href="exam/gongkao.html">公考</a>
+  <a href="exam/quiz.html">自测</a>
+  <a href="exam/calendar.html">日历</a>
+  <a href="skills.html">世赛</a>
+  <a href="cloud/index.html">云赛</a>
+  <a href="../library.html">资源</a>
+  <a href="paths.html">路线</a>
+</nav>
+
+<div class="wrap">
+  <div class="goal">所有比赛的胜负结构是一样的：<b>规则 → 评分 → 排名</b>。所以夺冠的方法也通用——<b>把比赛的评分规则逆向拆解成清单，用最短时间把高分项练到稳定，再用临场纪律把训练水平全部兑现</b>。这套方法本身七天就能学会；学会之后，你参加任何比赛，都用它。</div>
+
+  <section>
+    <h2 class="sec">它对什么比赛有效？</h2>
+    <div class="card"><ul class="list">
+      <li><span class="t"><b>完全适用</b><br><span class="small">技能大赛（世赛/国赛/省赛）· 算法与学科竞赛 · 应试（高考/专升本/考研/公考/考证——考试就是纸面赛事）· 有评分表的文体与创新创业赛</span></span><span class="n">✓</span></li>
+      <li><span class="t"><b>部分适用（方法通用，训练量另计）</b><br><span class="small">格斗/电竞等强对抗项（增加对手分析）· 团体赛（增加分工与磨合）——心法与临场 SOP 照用</span></span><span class="n">◐</span></li>
+    </ul></div>
+    <div class="pr"><b>先说实话，再教你赢：</b>七天学到的是<b>方法</b>——它立刻让你超过 80% 凭感觉备赛的人。名次 = 方法 × 训练量。<b>信息差大的赛事（校赛、市赛、省赛初级组、新设赛项），认真跑完 D1-D3 就足以冲名次</b>；高级别赛事（省一线/国赛/世赛）请把七天循环跑 3-4 轮，每轮都踩着上一轮的复盘。方法不会辜负执行它的人。</div>
+  </section>
+
+  <section>
+    <h2 class="sec">七天总览</h2>
+    <div class="card"><ul class="list">
+      <li><span class="t"><b>D1 情报日</b> · 拿齐五件套——信息战定生死</span><span class="n">一</span></li>
+      <li><span class="t"><b>D2 解构日</b> · 把评分规则逆向成清单</span><span class="n">二</span></li>
+      <li><span class="t"><b>D3 基准日</b> · 裸测一次，看清自己</span><span class="n">三</span></li>
+      <li><span class="t"><b>D4 靶向日</b> · 只练值钱的失分点</span><span class="n">四</span></li>
+      <li><span class="t"><b>D5 彩排日</b> · 全流程模拟 + 临场 SOP</span><span class="n">五</span></li>
+      <li><span class="t"><b>D6 收尾日</b> · 弱项清尾 + 状态与装备</span><span class="n">六</span></li>
+      <li><span class="t"><b>D7 静修日</b> · 轻复习 + A/B 预案</span><span class="n">日</span></li>
+    </ul></div>
+  </section>
+
+  <section>
+    <h2 class="sec">七天作战详情（点开每一天）</h2>
+
+    <div class="dcard open">
+      <div class="dhd"><span class="day" style="background:#122c42"><small>DAY</small><b>1</b></span><span class="tt"><b>情报日 · 信息战定生死</b><span>今天的目标：拿到别人懒得找的东西</span></span><span class="arr">▶</span></div>
+      <div class="dbd">
+        <div class="goal2">比赛的分水岭在开赛之前。绝大多数参赛者只看过「报名通知」就来比了——你今天要做的是拿齐<b>五件套</b>，这一件事就赢过一半对手。</div>
+        <ul class="ck">
+          <li>① <b>规程 / 规则原文</b>：官方发布的完整版，逐字读一遍，重点划「评分」「否决项」「时间」</li>
+          <li>② <b>评分标准 / 细则</b>：有评分表拿评分表；没公开就找考点大纲、给分说明</li>
+          <li>③ <b>近三年真题 / 赛题</b>：官方渠道优先；资源总库、往届选手、指导老师都是来源</li>
+          <li>④ <b>往届获奖者经验</b>：复盘帖、采访、B站vlog——重点记录「他们说后悔没早点做的事」</li>
+          <li>⑤ <b>装备 / 环境 / 软件清单</b>：比赛用什么工具、什么版本、能不能自带，全部确认</li>
+          <li>整理成一页<b>「赛事情报卡」</b>：比赛时间 / 形式 / 评分构成 / 高频考点 / 我的疑问</li>
+        </ul>
+        <div class="chk"><b>今日检查点：</b>能用三句话向外行说清楚——这场比赛<b>怎么评分、怎么拿名次、最容易死在哪</b>。说不出 = 情报没拿齐。</div>
+      </div>
+    </div>
+
+    <div class="dcard">
+      <div class="dhd"><span class="day" style="background:#1f4e8c"><small>DAY</small><b>2</b></span><span class="tt"><b>解构日 · 评分点逆向工程</b><span>把「怎么评分」翻译成「我要做到什么」</span></span><span class="arr">▶</span></div>
+      <div class="dbd">
+        <div class="goal2">规则是抽象的，评分点是具体的。今天把 D1 拿到的评分标准<b>逐条翻译成可验证的待办清单</b>，并标出性价比。</div>
+        <ul class="ck">
+          <li>把每一条评分标准改写成<b>动词开头的动作</b>：「界面美观」→「配色统一 + 对齐 + 无错别字（3 项检查）」</li>
+          <li>对照三年真题统计<b>出现频率</b>：每年都考的标 ★★★，偶尔考的 ★，从没考的删掉</li>
+          <li>给每个评分点标<b>分值权重 × 练习成本</b>，算出「性价比」排序</li>
+          <li>标出<b>否决项 / 一票否决红线</b>（安全违规、超时、格式错误等）——这些是命，优先级最高</li>
+          <li>产出：<b>评分点清单</b>（按性价比排序，频率打星，红线置顶）</li>
+        </ul>
+        <div class="chk"><b>今日检查点：</b>你知道「前 20% 的评分点」是哪些——它们通常占 60% 以上的分。整场比赛，你其实就是围绕这张清单作战。</div>
+      </div>
+    </div>
+
+    <div class="dcard">
+      <div class="dhd"><span class="day" style="background:#0e7a5f"><small>DAY</small><b>3</b></span><span class="tt"><b>基准日 · 裸测建基线</b><span>先看清自己站在哪，才知道往哪打</span></span><span class="arr">▶</span></div>
+      <div class="dbd">
+        <div class="goal2">今天不限时到「难受」，但<b>必须完整裸做</b>一套历年题 / 官方模拟——不许查资料。目的不是分数，是画出你自己的失分地图。</div>
+        <ul class="ck">
+          <li>完整做一套真题 / 官方样题（尽量还原比赛形式：纸面就纸面，上机就上机）</li>
+          <li>对照 D2 的评分点清单<b>逐项自评</b>：满 / 半 / 无</li>
+          <li>算出<b>基准分</b>，画出失分点分布：哪些是「不会」、哪些是「会但不熟」、哪些是「粗心」</li>
+          <li>「会但不熟」的标 ⚡——这是七天内提升最快的一类，优先处理</li>
+          <li>产出：<b>个人基准报告</b>（基准分 + 三类失分清单）</li>
+        </ul>
+        <div class="chk"><b>今日检查点：</b>能回答：「我现在去比赛大概什么名次段？」「离上一个名次段差多少分？」「差分主要来自哪三个评分点？」</div>
+      </div>
+    </div>
+
+    <div class="dcard">
+      <div class="dhd"><span class="day" style="background:#b45309"><small>DAY</small><b>4</b></span><span class="tt"><b>靶向日 · 只练值钱的</b><span>拒绝题海：练高频点 + 灭失分点</span></span><span class="arr">▶</span></div>
+      <div class="dbd">
+        <div class="goal2">今天起进入练习，但<b>只练两样东西</b>：D2 排出的高性价比评分点 + D3 找出的失分点。其他一律不碰——时间花在刀刃上。</div>
+        <ul class="ck">
+          <li>每个失分点走<b>四步</b>：看示范 → 跟着做 → 独立做 → <b>计时做</b></li>
+          <li>⚡「会但不熟」的点：重复到<b>不假思索</b>（这类点一天能消灭好几个）</li>
+          <li>「不会」的点：按性价比取舍——高分的学，低分的战略性放弃并写进 B 计划</li>
+          <li>每消灭一个点，在评分点清单上<b>打勾</b>——进度可视化，士气来源</li>
+          <li>产出：失分点消灭记录（今天灭了几个、还剩几个）</li>
+        </ul>
+        <div class="chk"><b>今日检查点：</b>单独把 ★★★ 高频评分点重测一遍，正确率 ≥ 80%。达不到就说明今天的练习还没落在点上。</div>
+      </div>
+    </div>
+
+    <div class="dcard">
+      <div class="dhd"><span class="day" style="background:#7c3aed"><small>DAY</small><b>5</b></span><span class="tt"><b>彩排日 · 全流程实战</b><span>把「会做」变成「赛场上能拿到」</span></span><span class="arr">▶</span></div>
+      <div class="dbd">
+        <div class="goal2">今天做一次<b>完整模拟赛</b>：同时长、同规则、同环境、不中断。彩排的目的不只是测水平，更是<b>测试你的临场流程</b>。</div>
+        <ul class="ck">
+          <li>按比赛真实时长完整打一场（中途不查资料、不暂停）</li>
+          <li>演练<b>开场 5 分钟</b>：通读全部题目/任务 → 按分值耗时比排序 → 写下做题顺序</li>
+          <li>演练<b>时间盒</b>：每题/每模块设截止点，到点没完成 → 标记 → 跳下一个</li>
+          <li>演练<b>卡壳 90 秒法则</b>：90 秒没思路 → 立刻标记跳过（回头的代价远小于死磕）</li>
+          <li>模拟赛后照评分点自评，对比 D3 基准——<b>提升幅度就是你这四天的成果</b></li>
+          <li>根据暴露的问题，修订你的<b>临场 SOP</b>（下面有模板）</li>
+        </ul>
+        <div class="chk"><b>今日检查点：</b>① 比基准分明显提升；② 时间没有用爆（留出了检查时间）；③ SOP 至少修订过一版。</div>
+      </div>
+    </div>
+
+    <div class="dcard">
+      <div class="dhd"><span class="day" style="background:#dc2626"><small>DAY</small><b>6</b></span><span class="tt"><b>收尾日 · 弱项清尾 + 状态管理</b><span>练到这里，拼的是「不出意外」</span></span><span class="arr">▶</span></div>
+      <div class="dbd">
+        <div class="goal2">最后的技术收尾 + 赛前状态管理。今天的原则：<b>可以练得少，不能睡得少</b>。</div>
+        <ul class="ck">
+          <li>上午：失分清单里剩余的 ⚡ 点最后一轮（只做熟的，不开新的）</li>
+          <li>下午：<b>赛前检查单</b>逐项过——证件/准考证、装备工具、软件版本、路线时间、饮食禁忌</li>
+          <li>线上赛：测网络、测账号、测设备电量与散热；线下赛：确认考场/工位/交通</li>
+          <li>把明天的起床、出发、进场时间写死，倒推今晚睡觉时间</li>
+          <li>产出：赛前检查单全部打勾</li>
+        </ul>
+        <div class="chk"><b>今日检查点：</b>检查单全绿；今晚比平时早睡。状态是 Day7 和比赛日的第一生产力。</div>
+      </div>
+    </div>
+
+    <div class="dcard">
+      <div class="dhd"><span class="day" style="background:#475569"><small>DAY</small><b>7</b></span><span class="tt"><b>静修日 · 轻复习 + A/B 预案</b><span>不做新题。让前六天沉淀成底气</span></span><span class="arr">▶</span></div>
+      <div class="dbd">
+        <div class="goal2">今天<b>不学任何新东西</b>。新内容只会制造慌乱。今天只做三件轻的事：翻清单、定预案、早点睡。</div>
+        <ul class="ck">
+          <li>只翻三样：失分清单（⚡ 项）、评分点卡（★★★ + 红线）、临场 SOP</li>
+          <li>写下<b>A 计划</b>：一切正常时，我的做题顺序和时间盒安排</li>
+          <li>写下<b>B 计划</b>：开局就翻车 / 某模块炸了 / 时间不够时，我保哪些分、弃哪些分</li>
+          <li>B 计划的核心提前想好一句话：「如果 ___ 发生，我立刻 ___，保住 ___」</li>
+          <li>晚上正常时间睡。明天你只需要执行，不需要发挥。</li>
+        </ul>
+        <div class="chk"><b>今日检查点：</b>A/B 计划各一行能背出来；清单翻完心里有底；早睡。</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">临场 SOP（比赛当天照此执行）</h2>
+    <div class="card"><ul class="list">
+      <li><span class="t"><b>开场 5 分钟</b><br><span class="small">通读全部题目/任务 → 按分值耗时比排序 → 在纸上写下做题顺序。这 5 分钟是全场性价比最高的时间。</span></span><span class="n">①</span></li>
+      <li><span class="t"><b>时间盒</b><br><span class="small">每题/每模块预设截止点（写在手边）。到点没完成 → 标记 → 立刻走人。回头再战的代价，永远小于死磕。</span></span><span class="n">②</span></li>
+      <li><span class="t"><b>卡壳 90 秒法则</b><br><span class="small">90 秒没有任何思路 → 标记跳过。思路卡住时，换题反而会激活大脑。</span></span><span class="n">③</span></li>
+      <li><span class="t"><b>崩了怎么办</b><br><span class="small">呼吸 4-4-6（吸4秒-停4秒-呼6秒，三轮）→ 默念「下一个评分点」→ 回到清单。比赛打的是整场，不是这一下。</span></span><span class="n">④</span></li>
+      <li><span class="t"><b>最后 10% 时间</b><br><span class="small">停下手上的活，照评分点清单自检——检查出来的分，往往比新做的多。</span></span><span class="n">⑤</span></li>
+      <li><span class="t"><b>一票否决红线</b><br><span class="small">安全、违规、超时、格式——这些在清单最上面，交卷前最后一个看的也是它们。</span></span><span class="n">⑥</span></li>
+    </ul></div>
+  </section>
+
+  <section>
+    <h2 class="sec">不同赛事的落地差异</h2>
+    <div class="card"><ul class="list">
+      <li><span class="t"><b>技能大赛（世赛/国赛/省赛）</b><br><span class="small">D3 基准 = 按真题环境限时搭一套；D4 用本站模拟训练 + 真机；评分点即手册——模块化评分最适合这套方法。</span></span><span class="n">技</span></li>
+      <li><span class="t"><b>算法 / 学科竞赛</b><br><span class="small">D3 基准 = 一场 virtual contest；D4 按标签刷高频考点；赛后补题 = 免费的 D5 彩排。</span></span><span class="n">算</span></li>
+      <li><span class="t"><b>应试（高考/考研/公考/考证）</b><br><span class="small">评分点 = 考纲章节 × 题型分值表；D3 = 裸做真题；这就是本站「真题四步法」的赛事版。</span></span><span class="n">考</span></li>
+      <li><span class="t"><b>文体 / 创新创业赛</b><br><span class="small">D2 增加一条：研究评委与往届获奖作品的「口味」；D5 彩排 = 完整走台/路演并录像回看。</span></span><span class="n">文</span></li>
+      <li><span class="t"><b>团体赛</b><br><span class="small">增加两件事：按模块分工对应评分点；D5 彩排必须全队合练，重点练「交接与补位」。</span></span><span class="n">团</span></li>
+    </ul></div>
+  </section>
+
+  <section>
+    <h2 class="sec">赛后：复盘模板（拿到名次也做）</h2>
+    <div class="card"><ul class="list">
+      <li><span class="t">① 目标 vs 实际<br><span class="small">赛前定的名次/分数目标，实际结果——差距或超出，各写一行原因</span></span></li>
+      <li><span class="t">② 三个做对的<br><span class="small">哪些动作直接换来了分——下次继续（比总结错误更容易被忽略）</span></span></li>
+      <li><span class="t">③ 三个失分的<br><span class="small">各写一句归因：不会 / 不熟 / 粗心 / 意外</span></span></li>
+      <li><span class="t">④ 立刻改的一件事<br><span class="small">下一个赛事的 D1 就执行它——<b>复盘，就是下一场比赛的 D2</b></span></span></li>
+    </ul></div>
+  </section>
+
+  <section>
+    <h2 class="sec">五条通用心法（全手册压缩版）</h2>
+    <div class="card">
+      <div class="quote">一、比赛的分水岭在开赛前——情报拿得全的人赢一半。<span class="src">D1</span></div>
+      <div class="quote">二、能被验证的行为才是分数；把规则翻译成清单，就是你的作战地图。<span class="src">D2</span></div>
+      <div class="quote">三、先裸测看清自己，再只练值钱的——题海是勤奋的懒惰。<span class="src">D3-D4</span></div>
+      <div class="quote">四、彩排什么，赛场上就自动发生什么；预案写得越具体，越不会慌。<span class="src">D5-D7</span></div>
+      <div class="quote">五、复盘是下一场的起点——冠军是循环出来的，不是爆发出来的。<span class="src">赛后</span></div>
+    </div>
+  </section>
+
+  <div class="actionbar">
+    <a class="actbtn" href="beginner.html">回学堂 · 看 16 节配套视频课</a>
+    <a class="actbtn ghost" href="../library.html">资源总库 · 找你赛事的情报</a>
+  </div>
+
+  <footer class="note">
+    方法给你了，剩下的交给执行——<b>今天是你的 D1</b>。
+    <br><a href="index.html">← 返回首页</a> · <a href="beginner.html">零基础学堂</a> · <a href="exam/calendar.html">考试日历</a> · <button onclick="window.print()" style="border:none;background:none;color:inherit;text-decoration:underline;cursor:pointer;font:inherit">打印全部检查清单</button>
+  </footer>
+</div>
+</body>
+</html>
