@@ -58,7 +58,7 @@ jobs:
           e=$(ls videos/ext/*.mp4 | wc -l)
           p=$(find videos -name '*.png' | wc -l)
           echo "videos=$((r+c+e)) covers=$p"
-          [ "$r" -eq 15 ] && [ "$c" -eq 18 ] && [ "$e" -eq 29 ] && [ "$p" -eq 62 ]
+          [ "$r" -eq 15 ] && [ "$c" -eq 19 ] && [ "$e" -eq 29 ] && [ "$p" -eq 63 ]
           [ ! -d docs/room/videos ] && [ ! -d docs/tutorial/videos ] && [ ! -d video-ext/videos ]
           echo "residual dirs check OK"
 
@@ -69,6 +69,10 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
           git add -A
           git diff --cached --stat | tail -5
+          if git diff --cached --quiet; then
+            echo "迁移已是终态（源目录不存在），无内容可提交 — 跳过提交步骤"
+            exit 0
+          fi
           git commit -m "视频课内置 v3：落位调整为仓库根 videos/（与阅读器 videos/ 前缀解析及既有素材结构一致）"
           git pull --rebase origin main || true
           git push origin main || { git pull --rebase origin main; git push origin main; }
