@@ -1,14 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """关键帧 → I2V 素材：上传首帧 + 提交 H3 任务 + 轮询 + 下载（可并行、可断点续跑）"""
-import json, os, subprocess, sys, time, urllib.request, shutil
+import json, os, subprocess, sys, time, urllib.request, urllib.parse, ipaddress, socket
+from pathlib import Path
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from vf_safe import sh, under
 
 BUILD = '/workspace/build'
-KF = f'{BUILD}/kf'
+KF = under(BUILD, 'kf')
 MODEL = os.environ.get('VID_MODEL', 'MiniMax-H3-Max')
 RES = os.environ.get('VID_RES', '768P')
 DUR = int(os.environ.get('VID_DUR', '13'))
-DEST = f'{BUILD}/clips/{MODEL}_{RES}'
+DEST = under(BUILD, 'clips', f'{MODEL}_{RES}')
 os.makedirs(DEST, exist_ok=True)
 
 MOTION = {
@@ -25,15 +28,53 @@ MOTION = {
 AUDIO = " Ambient room tone only, subtle machinery hum, no speech, no voice, no human sound, no music, no lyrics."
 
 
-def sh(cmd, timeout=300):
-    r = subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=timeout)
-    if r.returncode != 0:
-        raise RuntimeError(f'CMD FAIL: {cmd[:140]}\n{r.stderr[-800:]}')
-    return r.stdout
+class _NoRedirect(urllib.request.HTTPRedirectHandler):
+    """禁止跟随重定向——防服务端 30x 跳到内网/云元数据地址。"""
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        return None
+
+
+_OPENER = urllib.request.build_opener(_NoRedirect)
+
+
+_BLOCKED_NETS = tuple(
+    ipaddress.ip_network(n) for n in (
+        '0.0.0.0/8', '10.0.0.0/8', '100.64.0.0/10', '127.0.0.0/8',
+        '169.254.0.0/16', '172.16.0.0/12', '192.168.0.0/16', '224.0.0.0/4',
+        '::/128', '::1/128', 'fc00::/7', 'fe80::/10', 'ff00::/8'))
+
+
+def _is_blocked_ip(hip):
+    """显式私网/环回/链路本地/CGNAT/组播黑名单——不用 is_private，
+    因为它把 198.18.0.0/15（RFC2544 基准段，代理 fake-IP 常用）也当内网，会误杀正常下载。"""
+    nets = [n for n in _BLOCKED_NETS if n.version == hip.version]
+    return any(hip in n for n in nets)
+
+
+def _safe_url(url):
+    """SSRF 三重校验：https 协议 + 主机黑名单 + 解析后 IP 私网/环回/链路本地边界。"""
+    u = urllib.parse.urlparse(str(url))
+    if u.scheme != 'https':
+        raise ValueError('只允许 https 下载：%s' % url)
+    host = (u.hostname or '').lower()
+    if not host or host == 'localhost' or host.endswith(('.local', '.internal')):
+        raise ValueError('禁止环回/内网主机：%s' % host)
+    try:
+        literal = ipaddress.ip_address(host)
+    except ValueError:
+        literal = None
+        # 域名：解析出的每个地址都要过黑名单校验（防 DNS 指向内网）
+        for info in socket.getaddrinfo(host, None):
+            hip = ipaddress.ip_address(info[4][0])
+            if _is_blocked_ip(hip):
+                raise ValueError('域名解析到内网地址：%s -> %s' % (host, hip))
+    if literal is not None and _is_blocked_ip(literal):
+        raise ValueError('禁止内网地址下载：%s' % host)
+    return url
 
 
 def upload(path):
-    out = sh(f'mcode-tools upload_temp_url "{path}"')
+    out = sh(['mcode-tools', 'upload_temp_url', path], timeout=300)
     d = json.loads(out)
     return d.get('temp_url') or d.get('url') or d.get('data', {}).get('temp_url')
 
@@ -41,22 +82,29 @@ def upload(path):
 def submit(name, url):
     args = {'model': MODEL, 'prompt': MOTION[name] + AUDIO, 'duration': DUR,
             'resolution': RES, 'reference_type': 'first_frame', 'input_image': {'url': url}}
-    out = sh(f'mcode-tools connector call connector__matrix__submit_video_generation --args {json.dumps(json.dumps(args, ensure_ascii=False))}')
+    out = sh(['mcode-tools', 'connector', 'call',
+              'connector__matrix__submit_video_generation',
+              '--args', json.dumps(args, ensure_ascii=False)], timeout=300)
     return json.loads(out)
 
 
 def query(task_id):
-    out = sh(f'mcode-tools connector call connector__matrix__query_video_generation --args {json.dumps(json.dumps({"task_id": task_id, "model": MODEL}))}')
+    out = sh(['mcode-tools', 'connector', 'call',
+              'connector__matrix__query_video_generation',
+              '--args', json.dumps({"task_id": task_id, "model": MODEL})], timeout=300)
     return json.loads(out)
 
 
 def download(url, dest):
+    """下载生成结果：_safe_url 三重校验 + 禁重定向，产物写入已收容的 dest。"""
+    safe = _safe_url(url)
     for a in range(4):
         try:
-            req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-            with urllib.request.urlopen(req, timeout=300) as r, open(dest, 'wb') as f:
-                shutil.copyfileobj(r, f, 1024*256)
-            return os.path.getsize(dest)
+            req = urllib.request.Request(safe, headers={'User-Agent': 'Mozilla/5.0'})
+            with _OPENER.open(req, timeout=300) as r:
+                data = r.read()
+            Path(dest).write_bytes(data)
+            return len(data)
         except Exception as e:
             print('   dl retry', a, e, flush=True); time.sleep(4)
     raise RuntimeError('download fail')
@@ -64,16 +112,20 @@ def download(url, dest):
 
 def main():
     names = sys.argv[1:] or list(MOTION.keys())
-    state_p = f'{BUILD}/vid_state_{MODEL}_{RES}.json'
-    state = json.load(open(state_p)) if os.path.exists(state_p) else {}
+    state_p = under(BUILD, f'vid_state_{MODEL}_{RES}.json')
+    state = json.loads(Path(state_p).read_text(encoding='utf-8')) if os.path.exists(state_p) else {}
+
+    def save_state():
+        Path(state_p).write_text(json.dumps(state, indent=1), encoding='utf-8')
+
     for name in names:
-        dest = f'{DEST}/{name}.mp4'
+        dest = under(DEST, f'{name}.mp4')
         if os.path.exists(dest) and os.path.getsize(dest) > 100000:
             print(f'[skip] {name}', flush=True); continue
         if name in state and state[name].get('done'):
             print(f'[done-state] {name}', flush=True); continue
         try:
-            url = upload(f'{KF}/{name}.png')
+            url = upload(under(KF, f'{name}.png'))
         except Exception as e:
             print(f'[upload-fail] {name}: {e}', flush=True); continue
         try:
@@ -85,7 +137,7 @@ def main():
         if not tid:
             print('   raw:', json.dumps(r, ensure_ascii=False)[:400], flush=True); continue
         state[name] = {'task_id': tid, 'model': MODEL, 'res': RES, 'dur': DUR, 'done': False}
-        json.dump(state, open(state_p, 'w'), indent=1)
+        save_state()
         for attempt in range(120):
             time.sleep(15)
             try:
@@ -98,7 +150,7 @@ def main():
                 if vu:
                     sz = download(vu, dest)
                     state[name]['done'] = True
-                    json.dump(state, open(state_p, 'w'), indent=1)
+                    save_state()
                     print(f'[done] {name} -> {dest} {sz//1024}KB', flush=True)
                 break
             elif st in ('failed', 'error', 'cancelled'):

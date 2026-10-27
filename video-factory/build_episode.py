@@ -1,23 +1,21 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """单集视频构建流水线: 渲染帧 -> 配音 -> 合成 MP4"""
-import sys, os, asyncio, subprocess
+import sys, os, asyncio
+from pathlib import Path
 sys.path.insert(0, '/opt/tmbj/room-video/lib')
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from render import render_slide
 import edge_tts
+from vf_safe import sh, under
 
 ROOT = os.environ.get('VIDEO_ROOT', '/opt/tmbj/room-video')
 VOICE = 'zh-CN-YunxiNeural'
 PAD = 0.72
 
-def sh(cmd):
-    r = subprocess.run(cmd, shell=True, capture_output=True, text=True)
-    if r.returncode != 0:
-        raise RuntimeError(f'CMD FAIL: {cmd[:160]}\n{r.stderr[-700:]}')
-    return r.stdout
-
 def dur_of(path):
-    out = sh(f'ffprobe -v quiet -show_entries format=duration -of csv=p=0 "{path}"')
+    out = sh(['ffprobe', '-v', 'quiet', '-show_entries', 'format=duration',
+              '-of', 'csv=p=0', path])
     return float(out.strip())
 
 async def tts_all(jobs):
@@ -44,17 +42,17 @@ def build(ep):
     if ep.get('series'):
         import render as _render
         _render.SERIES = ep['series']
-    fdir = f'{ROOT}/frames/{sub}ep{ep_no}'
-    adir = f'{ROOT}/audio/{sub}ep{ep_no}'
+    fdir = under(ROOT, 'frames', sub, f'ep{ep_no}')
+    adir = under(ROOT, 'audio', sub, f'ep{ep_no}')
     os.makedirs(fdir, exist_ok=True); os.makedirs(adir, exist_ok=True)
-    os.makedirs(f'{ROOT}/out/{sub}', exist_ok=True)
+    os.makedirs(under(ROOT, 'out', sub), exist_ok=True)
     slides = ep['slides']; total = len(slides)
     meta_base = {'ep_no': ep.get('disp', ep_no), 'ep_title': ep['title'], 'total': total}
     print(f'== EP{ep_no} {ep["title"]} | {total} slides ==', flush=True)
     # 1) 渲染帧（跳过已存在，除非 REBUILD=1）
     rebuild = os.environ.get('REBUILD') == '1'
     for i, s in enumerate(slides):
-        fp = f'{fdir}/slide_{i:02d}.png'
+        fp = under(fdir, f'slide_{i:02d}.png')
         if rebuild or not os.path.exists(fp):
             img = render_slide(s, dict(meta_base, page=i))
             img.save(fp)
@@ -62,7 +60,7 @@ def build(ep):
     # 2) TTS
     jobs = []
     for i, s in enumerate(slides):
-        raw = f'{adir}/s{i:02d}.mp3'
+        raw = under(adir, f's{i:02d}.mp3')
         if rebuild or not (os.path.exists(raw) and os.path.getsize(raw) > 1000):
             jobs.append((s.get('narration', ''), raw))
     if jobs:
@@ -70,24 +68,31 @@ def build(ep):
     # 3) pad + 时长
     durations = []; plist = []
     for i in range(total):
-        raw = f'{adir}/s{i:02d}.mp3'; padf = f'{adir}/s{i:02d}_pad.mp3'
+        raw = under(adir, f's{i:02d}.mp3'); padf = under(adir, f's{i:02d}_pad.mp3')
         if rebuild or not os.path.exists(padf):
-            sh(f'ffmpeg -y -v error -i "{raw}" -af apad=pad_dur={PAD} -ar 44100 -ac 1 -b:a 96k "{padf}"')
+            sh(['ffmpeg', '-y', '-v', 'error', '-i', raw, '-af', f'apad=pad_dur={PAD}',
+                '-ar', '44100', '-ac', '1', '-b:a', '96k', padf])
         durations.append(dur_of(padf)); plist.append(padf)
-    # 4) 音频总轨
-    with open(f'{adir}/alist.txt', 'w') as f:
-        for p in plist: f.write(f"file '{p}'\n")
-    sh(f'ffmpeg -y -v error -f concat -safe 0 -i "{adir}/alist.txt" -c copy "{adir}/full.mp3"')
+    # 4) 音频总轨（写文件走 pathlib write_text + under() 收容）
+    alist = under(adir, 'alist.txt')
+    Path(alist).write_text(''.join("file '%s'\n" % p for p in plist), encoding='utf-8')
+    full = under(adir, 'full.mp3')
+    sh(['ffmpeg', '-y', '-v', 'error', '-f', 'concat', '-safe', '0',
+        '-i', alist, '-c', 'copy', full])
     # 5) 图片时间轴
-    with open(f'{fdir}/imgs.txt', 'w') as f:
-        for i in range(total):
-            f.write(f"file '{fdir}/slide_{i:02d}.png'\nduration {durations[i]:.3f}\n")
-        f.write(f"file '{fdir}/slide_{total-1:02d}.png'\n")
+    imgs = under(fdir, 'imgs.txt')
+    lines = []
+    for i in range(total):
+        lines.append("file '%s'\nduration %.3f\n" % (under(fdir, f'slide_{i:02d}.png'), durations[i]))
+    lines.append("file '%s'\n" % under(fdir, f'slide_{total-1:02d}.png'))
+    Path(imgs).write_text(''.join(lines), encoding='utf-8')
     # 6) 编码
-    out = f'{ROOT}/out/{sub}ep{ep_no}.mp4'
-    sh(f'ffmpeg -y -v error -f concat -safe 0 -i "{fdir}/imgs.txt" -i "{adir}/full.mp3" '
-       f'-c:v libx264 -preset veryfast -tune stillimage -crf 23 -pix_fmt yuv420p -r 10 '
-       f'-c:a aac -b:a 128k -shortest "{out}"')
+    out = under(ROOT, 'out', sub, f'ep{ep_no}.mp4')
+    sh(['ffmpeg', '-y', '-v', 'error', '-f', 'concat', '-safe', '0',
+        '-i', imgs, '-i', full,
+        '-c:v', 'libx264', '-preset', 'veryfast', '-tune', 'stillimage',
+        '-crf', '23', '-pix_fmt', 'yuv420p', '-r', '10',
+        '-c:a', 'aac', '-b:a', '128k', '-shortest', out])
     d = dur_of(out); size = os.path.getsize(out)
     print(f'== DONE ep{ep_no}: {d/60:.1f} min, {size/1e6:.1f} MB ==', flush=True)
 

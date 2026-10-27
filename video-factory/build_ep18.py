@@ -6,6 +6,9 @@
       配乐/音效混合 → 字幕烧录 → 响度归一 → 成片
 """
 import os, sys, json, subprocess, importlib.util, math, shutil, time
+from pathlib import Path
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from vf_safe import sh, under
 
 BUILD = '/workspace/build'
 FR = f'{BUILD}/frames'
@@ -30,13 +33,6 @@ TOTAL = len(SLIDES)
 sys.path.insert(0, BUILD)
 import render as R
 import render_ext  # noqa: F401  注册 ladder / clip 版式
-
-
-def sh(cmd, timeout=1200):
-    r = subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=timeout)
-    if r.returncode != 0:
-        raise RuntimeError(f'CMD FAIL: {cmd[:200]}\n{r.stderr[-1500:]}')
-    return r.stdout
 
 
 def dur_of(p):
@@ -82,7 +78,8 @@ def compute_timeline():
         tl.append({'i': i, 'type': s['type'], 'clip': s.get('clip'), 'nar': nd,
                    'dur': round(d, 3), 'start': round(t, 3), 'text': s.get('narration', '')})
         t += d
-    json.dump(tl, open(f'{AU}/timeline.json', 'w'), ensure_ascii=False, indent=1)
+    Path(under(AU, 'timeline.json')).write_text(
+        json.dumps(tl, ensure_ascii=False, indent=1), encoding='utf-8')
     return tl
 
 
@@ -125,13 +122,13 @@ def build_segments(tl):
         outp = f'{SEG}/seg_{i:02d}.mp4'
         if os.path.exists(outp) and abs(dur_of(outp) - row['dur']) < 0.6:
             print(f'[seg skip] {i:02d}'); continue
-        src = f'{FR}/slide_{i:02d}.png'
+        src = under(FR, f'slide_{i:02d}.png')
         nframes = int(round(row['dur'] * FPS))
         vf = motion_for(i, SLIDES[i], nframes)
-        cmd = (f"ffmpeg -y -v error -loop 1 -framerate {FPS} -i \"{src}\" -frames:v {nframes} "
-               f"-vf \"{vf}\" -c:v libx264 -preset veryfast -tune stillimage -crf 20 "
-               f"-pix_fmt yuv420p -r {FPS} \"{outp}\"")
-        sh(cmd)
+        sh(['ffmpeg', '-y', '-v', 'error', '-loop', '1', '-framerate', str(FPS),
+            '-i', src, '-frames:v', str(nframes), '-vf', vf,
+            '-c:v', 'libx264', '-preset', 'veryfast', '-tune', 'stillimage',
+            '-crf', '20', '-pix_fmt', 'yuv420p', '-r', str(FPS), outp])
         print(f'[seg] {i:02d} {row["type"]:8s} {row["dur"]:6.2f}s -> {os.path.getsize(outp)//1024}KB', flush=True)
 
 
@@ -143,17 +140,16 @@ def build_narration(tl):
         seg = f"{AU}/nseg_{i:02d}.wav"
         if os.path.exists(seg) and abs(dur_of(seg) - row['dur']) < 0.15:
             continue
-        src = f"{AU}/s{i:02d}.mp3"
+        src = under(AU, 's%02d.mp3' % i)
         tgt = row['dur']
-        sh(f'ffmpeg -y -v error -i "{src}" -af "aresample=44100,apad=pad_dur=4" '
-           f'-t {tgt:.3f} -c:a pcm_s16le -ar 44100 -ac 1 "{seg}"')
-    lst = f'{AU}/nlist.txt'
-    with open(lst, 'w') as f:
-        for row in tl:
-            f.write(f"file '{AU}/nseg_{row['i']:02d}.wav'\n")
-    sh(f'ffmpeg -y -v error -f concat -safe 0 -i "{lst}" -c:a pcm_s16le '
-       f'-ar 44100 -ac 1 "{AU}/narr.wav"')
-    return dur_of(f'{AU}/narr.wav')
+        sh(['ffmpeg', '-y', '-v', 'error', '-i', src, '-af', 'aresample=44100,apad=pad_dur=4',
+            '-t', '%.3f' % tgt, '-c:a', 'pcm_s16le', '-ar', '44100', '-ac', '1', seg])
+    lst = under(AU, 'nlist.txt')
+    Path(lst).write_text(''.join(
+        "file '%s'\n" % under(AU, 'nseg_%02d.wav' % row['i']) for row in tl), encoding='utf-8')
+    sh(['ffmpeg', '-y', '-v', 'error', '-f', 'concat', '-safe', '0', '-i', lst,
+        '-c:a', 'pcm_s16le', '-ar', '44100', '-ac', '1', under(AU, 'narr.wav')])
+    return dur_of(under(AU, 'narr.wav'))
 
 
 # ---------------------------------------------------------------- 5. 字幕
@@ -211,8 +207,9 @@ def build_subs(tl):
             txt = s.replace('\n', ' ')
             lines.append(f'Dialogue: 0,{ts(st)},{ts(en)},{style},,0,0,0,,{txt}')
             t = en
-    open(f'{SU}/ep18.ass', 'w', encoding='utf-8').write('\n'.join(lines) + '\n')
-    return f'{SU}/ep18.ass'
+    ass_path = under(SU, 'ep18.ass')
+    Path(ass_path).write_text('\n'.join(lines) + '\n', encoding='utf-8')
+    return ass_path
 
 
 # ---------------------------------------------------------------- 6. 音效
@@ -273,35 +270,35 @@ import numpy as np  # noqa: E402
 
 # ---------------------------------------------------------------- 7. 总装
 def assemble(tl, narr_dur, ass_path, sfx_path):
-    seg_list = f'{SEG}/list.txt'
-    with open(seg_list, 'w') as f:
-        for row in tl:
-            f.write(f"file '{SEG}/seg_{row['i']:02d}.mp4'\n")
+    seg_list = under(SEG, 'list.txt')
+    Path(seg_list).write_text(''.join(
+        "file '%s'\n" % under(SEG, 'seg_%02d.mp4' % row['i']) for row in tl), encoding='utf-8')
     total = tl[-1]['start'] + tl[-1]['dur']
     # 旁白音量 + 配乐 + 音效
     bgm_gain = 0.16
-    cmd = (
-        f'ffmpeg -y -v error -f concat -safe 0 -i "{seg_list}" '
-        f'-i "{AU}/narr.wav" -i "{BUILD}/music/bgm.wav" -i "{sfx_path}" '
-        f'-filter_complex "'
-        f'[1:a]aformat=sample_fmts=fltp:sample_rates=44100:channel_layouts=mono,'
-        f'volume=1.0[n];'
-        f'[2:a]aformat=sample_fmts=fltp:sample_rates=44100:channel_layouts=mono,'
+    fc = (
+        '[1:a]aformat=sample_fmts=fltp:sample_rates=44100:channel_layouts=mono,'
+        'volume=1.0[n];'
+        '[2:a]aformat=sample_fmts=fltp:sample_rates=44100:channel_layouts=mono,'
         f'volume={bgm_gain},atrim=0:{total:.3f},afade=t=in:st=0:d=2.5,'
         f'afade=t=out:st={max(total-4.5,0):.3f}:d=4.5[b];'
-        f'[3:a]aformat=sample_fmts=fltp:sample_rates=44100:channel_layouts=mono[s];'
-        f'[n][b][s]amix=inputs=3:duration=first:normalize=0[mix];'
-        f'[mix]loudnorm=I=-15:TP=-4.5:LRA=11:print_format=summary[outa]" '
-        f'-map 0:v -map "[outa]" -c:v copy -c:a aac -b:a 192k -ar 44100 -ac 2 '
-        f'-shortest "{OUT}/ep18_silent.mp4"'
+        '[3:a]aformat=sample_fmts=fltp:sample_rates=44100:channel_layouts=mono[s];'
+        '[n][b][s]amix=inputs=3:duration=first:normalize=0[mix];'
+        '[mix]loudnorm=I=-15:TP=-4.5:LRA=11:print_format=summary[outa]'
     )
-    sh(cmd)
+    sh(['ffmpeg', '-y', '-v', 'error', '-f', 'concat', '-safe', '0', '-i', seg_list,
+        '-i', under(AU, 'narr.wav'), '-i', under(BUILD, 'music', 'bgm.wav'), '-i', sfx_path,
+        '-filter_complex', fc,
+        '-map', '0:v', '-map', '[outa]', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k',
+        '-ar', '44100', '-ac', '2', '-shortest', under(OUT, 'ep18_silent.mp4')])
     # 烧字幕
     crf = os.environ.get('FINAL_CRF', '24')
-    sh(f'ffmpeg -y -v error -i "{OUT}/ep18_silent.mp4" -vf "ass=\'{ass_path}\'" '
-       f'-c:v libx264 -preset veryfast -tune stillimage -crf {crf} -pix_fmt yuv420p -r {FPS} '
-       f'-c:a copy "{OUT}/ep18.mp4"')
-    return f'{OUT}/ep18.mp4'
+    sh(['ffmpeg', '-y', '-v', 'error', '-i', under(OUT, 'ep18_silent.mp4'),
+        '-vf', "ass='%s'" % ass_path,
+        '-c:v', 'libx264', '-preset', 'veryfast', '-tune', 'stillimage',
+        '-crf', crf, '-pix_fmt', 'yuv420p', '-r', str(FPS),
+        '-c:a', 'copy', under(OUT, 'ep18.mp4')])
+    return under(OUT, 'ep18.mp4')
 
 
 if __name__ == '__main__':

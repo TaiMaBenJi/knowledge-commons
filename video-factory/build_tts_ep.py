@@ -2,6 +2,9 @@
 # -*- coding: utf-8 -*-
 """全片旁白配音（edge-tts，音色与仓库既有 62 集一致）+ 时长测量"""
 import asyncio, os, sys, json, subprocess, importlib.util, time
+from pathlib import Path
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from vf_safe import under
 
 BUILD = '/workspace/build'
 ADIR = f'{BUILD}/audio'
@@ -69,7 +72,8 @@ async def main():
         rows.append({'i': i, 'type': s['type'], 'dur': round(d, 2),
                      'chars': len(s.get('narration', '')),
                      'title': s.get('title', s.get('kicker', ''))[:28]})
-    json.dump(rows, open(f'{BUILD}/audio/timing.json', 'w'), ensure_ascii=False, indent=1)
+    Path(under(ADIR, 'timing.json')).write_text(
+        json.dumps(rows, ensure_ascii=False, indent=1), encoding='utf-8')
     for r in rows:
         print(f"  {r['i']:02d} {r['type']:9s} {r['dur']:6.2f}s  {r['chars']:4d}字  {r['title']}")
     print(f'\nTOTAL 旁白 {total:.1f}s = {total/60:.2f} min |  字符 {chars} | 语速 {chars/total:.2f} 字/秒')

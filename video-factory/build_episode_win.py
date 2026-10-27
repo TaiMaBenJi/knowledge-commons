@@ -7,11 +7,13 @@ ffmpeg 用 imageio-ffmpeg 自带静态版（无 ffprobe，时长用 ffmpeg -i �
 用法：python build_episode_win.py scripts/beginner-b01.py [输出目录]
 """
 import sys, os, re, subprocess, asyncio
+from pathlib import Path
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import render  # noqa: E402
 import edge_tts  # noqa: E402
+from vf_safe import sh, sh_err, under  # noqa: E402
 
 from imageio_ffmpeg import get_ffmpeg_exe
 FF = get_ffmpeg_exe()
@@ -32,18 +34,10 @@ elif os.path.exists('C:/Windows/Fonts/msyh.ttc'):
 render._fonts = {}
 
 
-def sh(cmd):
-    r = subprocess.run(cmd, shell=True, capture_output=True, text=True)
-    if r.returncode != 0:
-        raise RuntimeError('CMD FAIL: %s\n%s' % (cmd[:200], r.stderr[-700:]))
-    return r.stdout
-
-
 def dur_of(path):
-    """无 ffprobe 时用 ffmpeg 解码解析总时长"""
-    r = subprocess.run('"%s" -i "%s" -f null -' % (FF, path),
-                       shell=True, capture_output=True, text=True)
-    m = re.findall(r'time=(\d+):(\d+):([\d.]+)', r.stderr)
+    """无 ffprobe 时用 ffmpeg 解析总时长（容忍非零退出，只解析输出）"""
+    r = sh_err([FF, '-i', path, '-f', 'null', '-'], check=False)
+    m = re.findall(r'time=(\d+):(\d+):([\d.]+)', r)
     if not m:
         raise RuntimeError('cannot parse duration: ' + path)
     h, mi, s = m[-1]
@@ -105,27 +99,28 @@ def build(ep):
         raw = os.path.join(adir, 's%02d.mp3' % i)
         padf = os.path.join(adir, 's%02d_pad.mp3' % i)
         if rebuild or not os.path.exists(padf):
-            sh('"%s" -y -v error -i "%s" -af apad=pad_dur=%s -ar 44100 -ac 1 -b:a 96k "%s"'
-               % (FF, raw, PAD, padf))
+            sh([FF, '-y', '-v', 'error', '-i', raw, '-af', 'apad=pad_dur=%s' % PAD,
+                '-ar', '44100', '-ac', '1', '-b:a', '96k', padf])
         durations.append(dur_of(padf)); plist.append(padf)
-    # 4) 音频总轨
-    alist = os.path.join(adir, 'alist.txt')
-    with open(alist, 'w', encoding='utf-8') as f:
-        for p in plist:
-            f.write("file '%s'\n" % p.replace('\\', '/'))
-    full = os.path.join(adir, 'full.mp3')
-    sh('"%s" -y -v error -f concat -safe 0 -i "%s" -c copy "%s"' % (FF, alist, full))
+    # 4) 音频总轨（写文件走 pathlib + 收容校验）
+    alist = under(adir, 'alist.txt')
+    Path(alist).write_text(''.join(
+        "file '%s'\n" % p.replace('\\', '/') for p in plist), encoding='utf-8')
+    full = under(adir, 'full.mp3')
+    sh([FF, '-y', '-v', 'error', '-f', 'concat', '-safe', '0', '-i', alist, '-c', 'copy', full])
     # 5) 图片时间轴
-    imgs = os.path.join(fdir, 'imgs.txt')
-    with open(imgs, 'w', encoding='utf-8') as f:
-        for i in range(total):
-            f.write("file '%s'\nduration %.3f\n" % (os.path.join(fdir, 'slide_%02d.png' % i).replace('\\', '/'), durations[i]))
-        f.write("file '%s'\n" % os.path.join(fdir, 'slide_%02d.png' % (total - 1)).replace('\\', '/'))
+    imgs = under(fdir, 'imgs.txt')
+    lines = []
+    for i in range(total):
+        lines.append("file '%s'\nduration %.3f\n" % (
+            os.path.join(fdir, 'slide_%02d.png' % i).replace('\\', '/'), durations[i]))
+    lines.append("file '%s'\n" % os.path.join(fdir, 'slide_%02d.png' % (total - 1)).replace('\\', '/'))
+    Path(imgs).write_text(''.join(lines), encoding='utf-8')
     # 6) 编码
-    out = os.path.join(outdir, 'ep%s.mp4' % ep_no)
-    sh('"%s" -y -v error -f concat -safe 0 -i "%s" -i "%s" '
-       '-c:v libx264 -preset veryfast -tune stillimage -crf 23 -pix_fmt yuv420p -r 10 '
-       '-c:a aac -b:a 128k -shortest "%s"' % (FF, imgs, full, out))
+    out = under(outdir, 'ep%s.mp4' % ep_no)
+    sh([FF, '-y', '-v', 'error', '-f', 'concat', '-safe', '0', '-i', imgs, '-i', full,
+        '-c:v', 'libx264', '-preset', 'veryfast', '-tune', 'stillimage', '-crf', '23',
+        '-pix_fmt', 'yuv420p', '-r', '10', '-c:a', 'aac', '-b:a', '128k', '-shortest', out])
     d = dur_of(out); size = os.path.getsize(out)
     print(f'== DONE ep{ep_no}: {d/60:.1f} min, {size/1e6:.1f} MB -> {out} ==', flush=True)
 

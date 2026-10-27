@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 """生成《机房视频课 · 全台词讲义》md —— 从 12 集脚本自动提取"""
 import importlib.util, os
+from pathlib import Path
 
 ROOT = '/opt/tmbj/room-video'
 OUT = '/opt/tmbj/worldskills-cloud/room/10-视频课全讲义.md'
@@ -88,6 +89,5 @@ lines.append('*讲义由「太马奔极」从视频分镜脚本自动生成 · �
 lines.append('')
 
 content = '\n'.join(lines)
-with open(OUT, 'w', encoding='utf-8') as f:
-    f.write(content)
+Path(OUT).write_text(content, encoding='utf-8')
 print(f'WROTE {OUT} ({len(content)} chars)')
