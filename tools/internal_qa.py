@@ -84,12 +84,17 @@ def main():
     # ---- 1) HTML ----
     js_str_re = re.compile(r'''['"]([A-Za-z0-9_\-./]+\.(?:html|js|md|css|json|mp4|png|svg|webp|ico))(?:[?#][^'"]*)?['"]''')
     script_re = re.compile(r'<script(?![^>]*\bsrc=)[^>]*>(.*?)</script>', re.S | re.I)
-    htmls = [f for f in walk(('.html',)) if f not in SKIP_PATHS]
+    htmls = [f for f in walk(('.html',))
+             if f.replace(os.sep, '/') not in SKIP_PATHS]   # walk 产出系统分隔符，SKIP_PATHS 统一用 /
     for f in htmls:
         s = open(os.path.join(ROOT, f), encoding='utf-8', errors='replace').read()
         links = set()
         for m in re.finditer(r'(?:href|src|poster)="([^"]+)"', s):
-            links.add(m.group(1))
+            v = m.group(1)
+            # JS 模板拼串（h+='<a href="'+L.u+'">…）里出现的引号/加号，不是静态引用
+            if any(ch in v for ch in ('+', "'", '"')):
+                continue
+            links.add(v)
         for sm in script_re.finditer(s):
             for jm in js_str_re.finditer(sm.group(1)):
                 jv = jm.group(1)

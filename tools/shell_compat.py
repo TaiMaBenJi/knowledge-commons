@@ -279,8 +279,10 @@ def ps_parse(items: list[tuple[str, str]], timeout: int = 300) -> dict[str, list
         names = []
         for i, (_, code) in enumerate(items):
             fn = base / f"s{i:04d}.ps1"
-            # 解析器按 UTF-8 读文件：带 BOM 更稳（PS 5.1 默认按 ANSI 读无 BOM 文件）
-            fn.write_bytes(code.encode("utf-8", "replace"))
+            # ParseFile 对无 BOM 文件按 ANSI 读（PS 5.1），中文尾字节会吞掉后面的
+            # 引号造成假「字符串缺少终止符」——必须写 BOM 让它按 UTF-8 解析；
+            # read_text(utf-8) 不剥原文件 BOM，先去掉再写，避免双 BOM 干扰解析
+            fn.write_bytes(b"\xef\xbb\xbf" + code.lstrip("\ufeff").encode("utf-8", "replace"))
             names.append(str(fn))
         (base / "list.txt").write_text("\n".join(names) + "\n", encoding="utf-8")
         (base / "driver.ps1").write_text(_PS_DRIVER, encoding="utf-8")

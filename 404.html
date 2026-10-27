@@ -5,7 +5,28 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>页面已迁移 · 知识公社</title>
 <meta name="robots" content="noindex">
-<link rel="stylesheet" href="/learn/style.css">
+<link rel="stylesheet" href="learn/style.css" id="basecss">
+<script>
+/* GitHub Pages 项目站点部署在 /knowledge-commons/ 子路径下，404 页会以任意深层路径呈现，
+   根绝对路径与朴素相对路径都会失效——按已知分区目录名推断站点前缀，回写样式与导航链接 */
+(function () {
+  var p = location.pathname;
+  var SECTS = ['learn', 'docs', 'app', 'assets', 'icons', 'videos', 'tools',
+               'clients', 'lab', 'multiskill', 'study-data', 'aws-educate'];
+  var b = -1;
+  for (var i = 0; i < SECTS.length; i++) {
+    var k = p.indexOf('/' + SECTS[i] + '/');
+    if (k >= 0 && (b < 0 || k < b)) b = k;
+  }
+  var BASE = b < 0 ? p.slice(0, p.lastIndexOf('/') + 1) : p.slice(0, b + 1);
+  var css = document.getElementById('basecss');
+  if (css) css.href = BASE + 'learn/style.css';
+  document.addEventListener('DOMContentLoaded', function () {
+    var as = document.querySelectorAll('a[data-nav]');
+    for (var j = 0; j < as.length; j++) as[j].href = BASE + as[j].getAttribute('href');
+  });
+})();
+</script>
 <style>body{font-family:system-ui,-apple-system,"Noto Sans SC",sans-serif;padding:2rem;line-height:1.9;max-width:44rem;margin:0 auto}
 h1{font-size:1.4rem}.mono{font-family:ui-monospace,monospace;font-size:.85rem;color:#666}
 ul{padding-left:1.2rem}</style>
@@ -14,11 +35,11 @@ ul{padding-left:1.2rem}</style>
 <h1>这一页搬家了</h1>
 <p>本站 2026-10-16 做过一次目录整理，旧链接会自动跳转到新位置；若没有跳转，请从下面的入口继续：</p>
 <ul>
-  <li><a href="/">知识公社首页</a></li>
-  <li><a href="/learn/">学习门户</a></li>
-  <li><a href="/learn/archive.html">总目 · 全站一页直达</a></li>
-  <li><a href="/learn/search.html">全站检索</a></li>
-  <li><a href="/library.html">资源总库</a></li>
+  <li><a href="index.html" data-nav>知识公社首页</a></li>
+  <li><a href="learn/" data-nav>学习门户</a></li>
+  <li><a href="learn/archive.html" data-nav>总目 · 全站一页直达</a></li>
+  <li><a href="learn/search.html" data-nav>全站检索</a></li>
+  <li><a href="library.html" data-nav>资源总库</a></li>
 </ul>
 <p class="mono" id="from"></p>
 <script>

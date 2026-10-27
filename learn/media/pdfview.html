@@ -44,6 +44,10 @@
   var pin=document.getElementById('pin');
   if(!f){d.textContent='缺少文件参数';return;}
   d.textContent=decodeURIComponent(f.split('/').pop());
+  /* 链接传入的是相对 learn/ 的路径（如 files/gaokao/x.pdf），
+     本页位于 learn/media/，直接交给 pdf.js 会解析成 learn/media/files/…（404），
+     故裸相对路径先归一到上级目录 */
+  if(!/^(https?:|blob:|data:|\/|\.\.?\/)/i.test(f)) f='../'+f;
   if(!window.pdfjsLib){msg.textContent='阅读器组件加载失败';return;}
   pdfjsLib.GlobalWorkerOptions.workerSrc='../files/zsb/pdf.worker.min.js';
   var pdf=null,page=1,scale=1.3,rendering=false;
