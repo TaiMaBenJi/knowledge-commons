@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 """bili_raw.json -> app/resource-data.js（含平台/开源/工具箱精选）"""
 import json, os
+from pathlib import Path
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 raw = json.load(open(BASE + "/tools/bili_raw.json", encoding="utf-8"))
@@ -106,6 +107,6 @@ EXTRA = {
 
 data = {"gen": "2026-10-04", "items": out, "extra": EXTRA}
 js = "window.RES_DATA = " + json.dumps(data, ensure_ascii=False, separators=(",", ":")) + ";\n"
-open(BASE + "/app/resource-data.js", "w", encoding="utf-8").write(js)
+Path(BASE + "/app/resource-data.js").write_text(js, encoding="utf-8")
 print("items:", len(out), "| groups:", {g: len([x for x in out if x['g'] == g]) for g in CAP})
 print("written:", BASE + "/app/resource-data.js", len(js), "chars")

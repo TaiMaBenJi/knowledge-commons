@@ -16,6 +16,7 @@
 用法：python3 tools/split_study.py study.html
 """
 import json, os, re, sys, hashlib
+from pathlib import Path
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
@@ -222,13 +223,10 @@ def split_study(html_path, write=True):
     if write:
         ddir = os.path.join(base, "study-data")
         os.makedirs(os.path.join(ddir, "c"), exist_ok=True)
-        with open(os.path.join(ddir, "manifest.%s.js" % mh8), "w", encoding="utf-8") as f:
-            f.write(manifest_js)
+        Path(os.path.join(ddir, "manifest.%s.js" % mh8)).write_text(manifest_js, encoding="utf-8")
         for fname, content in files.items():
-            with open(os.path.join(ddir, "c", fname), "w", encoding="utf-8") as f:
-                f.write(content)
-        with open(html_path, "w", encoding="utf-8") as f:
-            f.write(shell)
+            Path(os.path.join(ddir, "c", fname)).write_text(content, encoding="utf-8")
+        Path(html_path).write_text(shell, encoding="utf-8")
     return {"docs": len(docs), "chunks": len(chunks), "mh8": mh8,
             "shell_bytes": len(shell.encode("utf-8")),
             "manifest_bytes": len(manifest_js.encode("utf-8")),

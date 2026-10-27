@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 """生成《保姆级教程 · 全台词讲义》md"""
 import importlib.util, os, glob
+from pathlib import Path
 
 ROOT = '/opt/tmbj/course-video'
 OUT = '/opt/tmbj/worldskills-cloud/tutorial/97-视频课-全讲义.md'
@@ -53,6 +54,5 @@ lines.append('*讲义由「太马奔极」从视频分镜脚本自动生成 · �
 lines.append('')
 
 content = '\n'.join(lines)
-with open(OUT, 'w', encoding='utf-8') as f:
-    f.write(content)
+Path(OUT).write_text(content, encoding='utf-8')
 print(f'WROTE {OUT} ({len(content)} chars)')

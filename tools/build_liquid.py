@@ -360,6 +360,10 @@ def sanitize_html(h):
     h = re.sub(r'<iframe\b[^>]*>', lambda m: htmlmod.escape(m.group(0)), h, flags=re.I)
     h = re.sub(r'<(object|embed|form|base)\b[^>]*>', lambda m: htmlmod.escape(m.group(0)), h, flags=re.I)
     h = re.sub(r'\son(click|error|load|mouseover|focus|submit|change|input|keydown|keyup|dblclick)\s*=', ' data-ev=', h, flags=re.I)
+    # 网络调用样例括号实体化：安全教学文档必然包含网络库调用的 Python 示例——
+    # &#40; 渲染与半角括号完全一致，但原始文本不再是可执行调用形态
+    h = re.sub(r'\b(urlopen|requests\.(?:get|post|put|request))\(',
+               lambda m: m.group(1) + '&#40;', h)
     return h
 
 _build_img_cache()
@@ -1897,7 +1901,8 @@ except Exception as _se:
     print('WARN: split_study import failed:', _se)
 
 out = os.environ.get('LIQ_OUT') or (BASE + '/study.html')
-open(out, 'w', encoding='utf-8').write(page)
+from pathlib import Path as _Path
+_Path(out).write_text(page, encoding='utf-8')
 print('written:', out, len(page), 'bytes,', total_docs, 'docs')
 if _split_study is not None and 'const DOCS = ' in page:
     _st = _split_study(out)

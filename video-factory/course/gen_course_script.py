@@ -5,6 +5,7 @@
 策略：忠实提取原文要点+旁白，智能裁剪；页面形式按内容启发式选择。
 """
 import re, os, sys
+from pathlib import Path
 
 TUT = '/opt/tmbj/worldskills-cloud/tutorial'
 OUTDIR = '/opt/tmbj/course-video/scripts'
@@ -281,9 +282,8 @@ def gen_one(ch_no, md_name):
     ep = {'id': ch_no, 'sid': 'course', 'series': SERIES,
           'title': clean_title, 'slides': slides}
     out = os.path.join(OUTDIR, f't{ch_no}.py')
-    with open(out, 'w', encoding='utf-8') as f:
-        f.write('# -*- coding: utf-8 -*-\n')
-        f.write('EPISODE = ' + repr(ep) + '\n')
+    Path(out).write_text(
+        '# -*- coding: utf-8 -*-\nEPISODE = ' + repr(ep) + '\n', encoding='utf-8')
     print(f'T{ch_no}: {len(slides)} slides -> {out}')
 
 if __name__ == '__main__':

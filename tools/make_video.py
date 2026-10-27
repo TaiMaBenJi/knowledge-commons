@@ -2,6 +2,7 @@
 # make_video.py <md路径> <输出mp4路径>
 # 从赛项总纲生成带中文解说的总纲课视频：PIL 出片 + edge-tts 配音 + ffmpeg 合成
 import sys, os, re, glob, asyncio, subprocess, tempfile
+from pathlib import Path
 
 MD, OUT = sys.argv[1], sys.argv[2]
 FONT = '/mnt/sysfonts/NotoSansCJK-Regular.ttc'
@@ -139,11 +140,9 @@ def main():
     total = dur(mp3s[0]) + 1.2
     seg_d = total / len(pngs)
     lst = os.path.join(WORK, 'imglist.txt')
-    with open(lst, 'w') as f:
-        for p in pngs:
-            f.write("file '%s'\n" % p)
-            f.write("duration %.2f\n" % seg_d)
-        f.write("file '%s'\n" % pngs[-1])
+    Path(lst).write_text(''.join(
+        "file '%s'\nduration %.2f\n" % (p, seg_d) for p in pngs) + "file '%s'\n" % pngs[-1],
+        encoding='utf-8')
     subprocess.run(['ffmpeg', '-nostdin', '-y', '-v', 'error', '-f', 'concat', '-safe', '0', '-i', lst,
                     '-i', mp3s[0], '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-r', '24',
                     '-c:a', 'aac', '-b:a', '96k', '-t', str(total), '-movflags', '+faststart', OUT], check=True)

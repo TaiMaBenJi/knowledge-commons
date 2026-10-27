@@ -7,6 +7,7 @@
 用法: python3 bili_collect.py [每关键词页数，默认2]
 """
 import json, time, re, random, sys, os
+from pathlib import Path
 import requests
 
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "bili_raw.json")
@@ -87,8 +88,7 @@ def main():
                 time.sleep(random.uniform(1.2, 2.0))
             print("[OK] %s (%s): +%d, total=%d" % (kw, group, got, len(out)), flush=True)
     out.sort(key=lambda x: -x["play"])
-    with open(OUT, "w", encoding="utf-8") as f:
-        json.dump(out, f, ensure_ascii=False)
+    Path(OUT).write_text(json.dumps(out, ensure_ascii=False), encoding="utf-8")
     print("ALL DONE %d videos / %d requests -> %s" % (len(out), n_req, OUT), flush=True)
 
 

@@ -10,7 +10,12 @@ function xmlSafe(s){return String(s).replace(/&/g,'和').replace(/</g,'《').rep
 let made=0,skip=0;
 for(const f of walk(ROOT).sort()){
   const dir=path.dirname(f), skill=path.basename(f,'.md');
-  const outR=path.join(dir,skill+'-路线图.svg'), outC=path.join(dir,skill+'-能力域.svg');
+  const outR=path.resolve(dir, skill+'-路线图.svg'), outC=path.resolve(dir, skill+'-能力域.svg');
+  // 输出路径收容校验：resolve(root, name) 生成后必须仍在该目录之下（防 ../ 越界写）
+  const dirAbs=path.resolve(dir);
+  for(const op of [outR,outC]){
+    if(!(op===dirAbs||op.startsWith(dirAbs+path.sep)))throw new Error('输出路径越界: '+op);
+  }
   const text=fs.readFileSync(f,'utf8');
   const lines=text.split('\n').map(l=>l.trim());
   const title=(lines[0]||skill).split('·')[0].trim();

@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 """生成《教程·视频课》总览页 tutorial/98-视频课-总览.md"""
 import os, subprocess
+from pathlib import Path
 
 ROOT = '/opt/tmbj/course-video'
 OUT = '/opt/tmbj/worldskills-cloud/tutorial/98-视频课-总览.md'
@@ -88,6 +89,5 @@ lines.append('')
 
 content = '\n'.join(lines)
 os.makedirs(os.path.dirname(OUT), exist_ok=True)
-with open(OUT, 'w', encoding='utf-8') as f:
-    f.write(content)
+Path(OUT).write_text(content, encoding='utf-8')
 print(f'WROTE {OUT} ({len(content)} chars, total {total/60:.1f} min)')

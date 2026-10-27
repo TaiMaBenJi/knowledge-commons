@@ -5,6 +5,7 @@
 # ④ 其它文本条目（html/js/css/md/txt/json/svg）内按路径分段做同样改写；
 # ⑤ 跳过 META-INF。退出码：3=断言失败（防静默发坏包）
 import sys, zipfile, time, json
+from pathlib import Path
 
 src, dst = sys.argv[1], sys.argv[2]
 mapout = sys.argv[3] if len(sys.argv) > 3 else None
@@ -111,7 +112,9 @@ with zipfile.ZipFile(dst, 'w', allowZip64=True) as zo:
         zo.writestr(zi, data)
 
 if mapout:
-    json.dump({'pairs': pairs, 'seg_map': seg_map}, open(mapout, 'w'), ensure_ascii=False, indent=1)
+    Path(mapout).write_text(
+        json.dumps({'pairs': pairs, 'seg_map': seg_map}, ensure_ascii=False, indent=1),
+        encoding='utf-8')
 bad = [f for _, _, f in entries if any(ord(c) > 127 for c in f)]
 sys.stderr.write('namefix: done entries=%d nonascii-left=%d html_repl=%d other_repl=%d\n'
                  % (len(entries), len(bad), repl_html, repl_other))

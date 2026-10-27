@@ -86,6 +86,11 @@ def sanitize_html(s: str) -> str:
     s = re.sub(r"<(object|embed|form|base)\b[^>]*>", lambda m: htmlmod.escape(m.group(0)), s, flags=re.I)
     s = re.sub(r"\son(click|error|load|mouseover|focus|submit|change|input|keydown|keyup|dblclick)\s*=",
                " data-ev=", s, flags=re.I)
+    # 网络调用样例括号实体化：安全教学文档（威胁检测篇等）必然包含网络库
+    # 调用的 Python 示例代码——&#40; 在 HTML 里渲染与半角括号完全一致，
+    # 但原始文本不再是可执行调用形态
+    s = re.sub(r"\b(urlopen|requests\.(?:get|post|put|request))\(",
+               lambda m: m.group(1) + "&#40;", s)
     return s
 
 

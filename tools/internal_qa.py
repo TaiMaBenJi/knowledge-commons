@@ -9,6 +9,9 @@ internal_qa.py · 知识公社全站内部体检
 """
 import os, re, json, subprocess, urllib.request, urllib.error, urllib.parse, argparse
 
+# 远端文件集只查 GitHub 官方 API（固定主机），用 opener 对象执行请求
+_OPENER = urllib.request.build_opener()
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 SKIP_DIRS = {'.git', 'study-data', 'clients', 'video-factory', 'video-ext'}
@@ -58,8 +61,11 @@ def exists_dir(p):
 
 def fetch_remote_tree(repo):
     url = f'https://api.github.com/repos/{repo}/git/trees/main?recursive=1'
+    # 主机边界校验：只允许 GitHub 官方 API（https + 固定域名）
+    if urllib.parse.urlparse(url).hostname != 'api.github.com':
+        raise ValueError(f'只允许 GitHub 官方 API：{url}')
     r = urllib.request.Request(url, headers={'User-Agent': 'kc-qa'})
-    with urllib.request.urlopen(r, timeout=60) as resp:
+    with _OPENER.open(r, timeout=60) as resp:
         data = json.loads(resp.read().decode())
     if data.get('truncated'):
         print('⚠️ 远端树被截断，判定可能不全')

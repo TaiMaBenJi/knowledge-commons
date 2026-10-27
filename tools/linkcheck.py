@@ -5,8 +5,9 @@
 反爬类响应（403/412/429/999/超时）标记 blocked，不算死链。
 用法：python tools/linkcheck.py [输出json]  （默认 _linkreport.json）
 """
-import json, re, sys, time, urllib.request, urllib.error, socket
+import json, re, sys, time, urllib.request, urllib.error, socket, ipaddress
 from concurrent.futures import ThreadPoolExecutor
+from pathlib import Path
 
 socket.setdefaulttimeout(14)
 UA = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126 Safari/537.36',
@@ -14,6 +15,37 @@ UA = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3
       'Accept-Language': 'zh-CN,zh;q=0.9'}
 
 BLOCK_CODES = {401, 403, 405, 406, 412, 418, 429, 451, 503, 999}
+
+# 私网/环回/链路本地/CGNAT/组播黑名单（显式列举，避免 is_private 误伤代理 fake-IP 段）
+_BLOCKED_NETS = tuple(ipaddress.ip_network(n) for n in (
+    '0.0.0.0/8', '10.0.0.0/8', '100.64.0.0/10', '127.0.0.0/8',
+    '169.254.0.0/16', '172.16.0.0/12', '192.168.0.0/16', '224.0.0.0/4',
+    '::/128', '::1/128', 'fc00::/7', 'fe80::/10', 'ff00::/8'))
+
+
+def _guard(url):
+    """体检目标边界校验：仅 http/https，且解析后 IP 不得落在私网/环回/链路本地（防 SSRF）。"""
+    u = urllib.parse.urlparse(url)
+    if u.scheme not in ('http', 'https'):
+        raise ValueError('仅允许 http/https 体检：%s' % url)
+    host = (u.hostname or '').lower()
+    if not host or host == 'localhost' or host.endswith(('.local', '.internal')):
+        raise ValueError('禁止内网主机：%s' % host)
+    try:
+        ip = ipaddress.ip_address(host)
+    except ValueError:
+        ip = None
+        for info in socket.getaddrinfo(host, None):
+            hip = ipaddress.ip_address(info[4][0])
+            if any(hip in n for n in _BLOCKED_NETS if n.version == hip.version):
+                raise ValueError('域名解析到内网地址：%s -> %s' % (host, hip))
+    if ip is not None and any(ip in n for n in _BLOCKED_NETS if n.version == ip.version):
+        raise ValueError('禁止内网地址体检：%s' % host)
+    return url
+
+
+# 体检要跟踪重定向拿最终状态，用默认 opener（目标已由 _guard 边界校验）
+_OPENER = urllib.request.build_opener()
 
 def load_entries(path='app/library-data.js'):
     s = open(path, encoding='utf-8').read()
@@ -24,8 +56,9 @@ def probe(url):
     """返回 (final_status, kind) kind in ok/blocked/dead"""
     for attempt in range(3):
         try:
-            req = urllib.request.Request(url, headers=UA, method='GET')
-            r = urllib.request.urlopen(req, timeout=14)
+            safe = _guard(url)
+            req = urllib.request.Request(safe, headers=UA, method='GET')
+            r = _OPENER.open(req, timeout=14)
             return r.status, 'ok'
         except urllib.error.HTTPError as e:
             if e.code in BLOCK_CODES:
@@ -60,7 +93,8 @@ def main():
             result[u] = {'status': st, 'kind': kind}
             mark = {'ok': 'OK ', 'blocked': 'BLK', 'dead': '!!!'}[kind]
             print(f'[{mark}] {st} {u}', flush=True)
-    json.dump(result, open(out_path, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+    Path(out_path).write_text(
+        json.dumps(result, ensure_ascii=False, indent=1), encoding='utf-8')
     dead = [u for u, v in result.items() if v['kind'] == 'dead']
     blk = [u for u, v in result.items() if v['kind'] == 'blocked']
     print(f'== done. ok={len(urls)-len(dead)-len(blk)} blocked={len(blk)} dead={len(dead)}', flush=True)
