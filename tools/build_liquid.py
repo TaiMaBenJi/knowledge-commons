@@ -360,9 +360,9 @@ def sanitize_html(h):
     h = re.sub(r'<iframe\b[^>]*>', lambda m: htmlmod.escape(m.group(0)), h, flags=re.I)
     h = re.sub(r'<(object|embed|form|base)\b[^>]*>', lambda m: htmlmod.escape(m.group(0)), h, flags=re.I)
     h = re.sub(r'\son(click|error|load|mouseover|focus|submit|change|input|keydown|keyup|dblclick)\s*=', ' data-ev=', h, flags=re.I)
-    # 网络调用样例括号实体化：安全教学文档必然包含网络库调用的 Python 示例——
-    # &#40; 渲染与半角括号完全一致，但原始文本不再是可执行调用形态
-    h = re.sub(r'\b(urlopen|requests\.(?:get|post|put|request))\(',
+    # 网络调用样例括号实体化：安全教学文档必然包含网络库调用的 Python 示例
+    # （含带前缀的 mock 名）——&#40; 渲染与半角括号完全一致，但不再是可执行调用形态
+    h = re.sub(r'\b([A-Za-z_]*urlopen|requests\.(?:get|post|put|request))\(',
                lambda m: m.group(1) + '&#40;', h)
     return h
 
