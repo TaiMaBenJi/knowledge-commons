@@ -1904,7 +1904,9 @@ out = os.environ.get('LIQ_OUT') or (BASE + '/study.html')
 from pathlib import Path as _Path
 _Path(out).write_text(page, encoding='utf-8')
 print('written:', out, len(page), 'bytes,', total_docs, 'docs')
-if _split_study is not None and 'const DOCS = ' in page:
+# KC_NO_SPLIT=1 → 保持内联大文件（桌面客户端要把整份内容嵌进单文件 EXE/App）
+_keep_inline = os.environ.get('KC_NO_SPLIT') == '1'
+if _split_study is not None and 'const DOCS = ' in page and not _keep_inline:
     _st = _split_study(out)
     print('split → shell %d bytes, %d docs, %d chunks (gen %s)' % (_st['shell_bytes'], _st['docs'], _st['chunks'], _st['mh8']))
 else:

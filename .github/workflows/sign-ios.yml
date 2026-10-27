@@ -65,7 +65,7 @@ jobs:
           test -n "$APP"
           rm -rf ipa && mkdir -p ipa/Payload
           cp -R "$APP" ipa/Payload/
-          python3 pack_ipa.py ipa "zhishi-gongshe-v3.0-ios-full-unsigned.ipa"
+          python3 pack_ipa.py ipa "zhishi-gongshe-v3.1-ios-full-unsigned.ipa"
 
       - name: 安装 zsign
         run: |
@@ -90,8 +90,8 @@ jobs:
           BUNDLE_OPT=""
           if [ -n "${{ inputs.bundle_id }}" ]; then BUNDLE_OPT="-b ${{ inputs.bundle_id }}"; fi
           "$ZBIN" -k sign.p12 -p "$IOS_P12_PASS" -m sign.mobileprovision \
-            $BUNDLE_OPT -o "zhishi-gongshe-v3.0-ios-full-signed.ipa" \
-            "zhishi-gongshe-v3.0-ios-full-unsigned.ipa"
+            $BUNDLE_OPT -o "zhishi-gongshe-v3.1-ios-full-signed.ipa" \
+            "zhishi-gongshe-v3.1-ios-full-unsigned.ipa"
           ls -la *.ipa
 
       - name: 生成 OTA 安装清单（manifest.plist）
@@ -100,7 +100,7 @@ jobs:
           TAG="${{ inputs.upload_release }}"
           BID="${{ inputs.bundle_id }}"
           BID="${BID:-com.cloudstudy.app}"
-          IPA_URL="https://github.com/${GITHUB_REPOSITORY}/releases/download/${TAG}/zhishi-gongshe-v3.0-ios-full-signed.ipa"
+          IPA_URL="https://github.com/${GITHUB_REPOSITORY}/releases/download/${TAG}/zhishi-gongshe-v3.1-ios-full-signed.ipa"
           cat > clients/ios/manifest.plist <<EOF
           <?xml version="1.0" encoding="UTF-8"?>
           <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">

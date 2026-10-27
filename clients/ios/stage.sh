@@ -9,8 +9,8 @@ cd "$ROOT"
 rm -rf "$IOS/Resources"
 mkdir -p "$IOS/Resources/videos" "$IOS/Resources/multiskill"
 
-# 1) 单文件学习中心
-cp -f study.html "$IOS/Resources/study.html"
+# 1) 单文件学习中心（客户端用全量内联版：tools/bundle_full_study.py 重组，file:// 自包含）
+cp -f clients/_full/study.html "$IOS/Resources/study.html"
 cp -R learn "$IOS/Resources/learn"
 
 # 2) 内容资产：全量（视频课 + 全技能库视频与模拟训练 + 图解）

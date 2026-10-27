@@ -1,51 +1,39 @@
-/* CloudStudy Linux 启动器（便携单文件）
- * 职责：把内嵌的 study.html 释放到用户缓存目录，然后用 xdg-open 打开。
- * 构建：zig cc -target x86_64-linux-musl -O2 -s -o out/CloudStudy launcher.c blob.S
+/* CloudStudy Linux 启动器（便携文件夹版）
+ * 职责：打开与本可执行文件同目录的 study.html —— 内容完整版随包分发
+ * （study.html + study-data/ + learn/ 与启动器放在同一目录）。
+ * 构建：zig cc -target x86_64-linux-musl -O2 -s -o CloudStudy launcher.c
  */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-#include <sys/stat.h>
-#include <sys/types.h>
-
-extern const unsigned char STUDY_HTML[];
-extern const unsigned char STUDY_HTML_END[];
+#include <limits.h>
 
 int main(void) {
-    const char *home = getenv("HOME");
-    char dir[4096];
-    if (home && *home && strlen(home) < 3800) {
-        snprintf(dir, sizeof(dir), "%s/.cache", home);
-        mkdir(dir, 0755); /* ~/.cache 可能尚不存在 */
-        snprintf(dir, sizeof(dir), "%s/.cache/knowledge-commons", home);
-    } else {
-        snprintf(dir, sizeof(dir), "/tmp/knowledge-commons-%d", (int)getuid());
+    char exe[PATH_MAX];
+    ssize_t n = readlink("/proc/self/exe", exe, sizeof(exe) - 1);
+    if (n <= 0) {
+        fprintf(stderr, "无法定位自身路径\n");
+        return 1;
     }
-    mkdir(dir, 0700); /* 已存在则忽略 */
+    exe[n] = 0;
+    char *slash = strrchr(exe, '/');
+    if (!slash) return 1;
+    *(slash + 1) = 0;
 
-    char path[4400];
-    snprintf(path, sizeof(path), "%s/study.html", dir);
+    char page[PATH_MAX + 16];
+    snprintf(page, sizeof(page), "%sstudy.html", exe);
 
-    FILE *f = fopen(path, "wb");
-    if (!f) {
-        fprintf(stderr, "无法写入学习中心文件: %s\n", path);
+    if (access(page, R_OK) != 0) {
+        fprintf(stderr,
+            "未找到 %s\n请解压完整压缩包后再运行——启动器需与 study.html、study-data、learn 在同一目录。\n",
+            page);
         return 2;
     }
-    size_t size = (size_t)(STUDY_HTML_END - STUDY_HTML);
-    if (fwrite(STUDY_HTML, 1, size, f) != size) {
-        fclose(f);
-        fprintf(stderr, "写入失败: %s\n", path);
-        return 3;
-    }
-    fclose(f);
-    chmod(path, 0600);
-
-    printf("学习中心已释放: %s\n", path);
 
     pid_t pid = fork();
     if (pid == 0) {
-        execlp("xdg-open", "xdg-open", path, (char *)NULL);
+        execlp("xdg-open", "xdg-open", page, (char *)NULL);
         _exit(127); /* 没有 xdg-open */
     }
     if (pid < 0) {

@@ -4,9 +4,12 @@ on:
   workflow_dispatch:
     inputs:
       upload_release:
-        description: '上传到 Release tag（可留空，如 v3.0）'
+        description: '上传到 Release tag（可留空，如 v3.1）'
         type: string
         default: ''
+  push:
+    tags:
+      - 'v*'
 
 permissions:
   contents: write
@@ -18,6 +21,9 @@ jobs:
     steps:
       - name: 检出
         uses: actions/checkout@v4
+
+      - name: 准备全量单文件 study.html（客户端自包含：内联 3162 篇）
+        run: python tools/bundle_full_study.py clients/_full/study.html
 
       - name: 构建 APK
         env:
@@ -35,11 +41,11 @@ jobs:
           compression-level: 0
 
       - name: 上传到 Release
-        if: inputs.upload_release != ''
+        if: github.event_name == 'push' || inputs.upload_release != ''
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          TAG="${{ inputs.upload_release }}"
+          TAG="${{ inputs.upload_release || github.ref_name }}"
           gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 \
-            || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --title "知识公社 $TAG · 多端统一版" --notes "多端统一发布（Android / iOS / Windows / Web）" || true
+            || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --title "知识公社 $TAG · 多端统一版" --notes "多端统一发布（Android / iOS / Windows / macOS / Linux / Web）" || true
           gh release upload "$TAG" dist/*.apk --clobber -R "$GITHUB_REPOSITORY"

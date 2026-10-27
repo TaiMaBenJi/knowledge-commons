@@ -4,7 +4,7 @@
 
 ## 云端构建（推荐）
 
-Actions → **build-android** → Run workflow，`upload_release` 填 `v3.0` 等 tag 则自动传 Releases（构建完整版）。
+Actions → **build-android** → Run workflow，`upload_release` 填 `v3.1` 等 tag 则自动传 Releases（构建完整版；推 `v*` tag 也会自动触发）。
 
 构建细节（`build_ci.sh`，全部在 ubuntu 运行器完成）：
 

@@ -14,7 +14,7 @@ _OPENER = urllib.request.build_opener()
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
-SKIP_DIRS = {'.git', 'study-data', 'clients', 'video-factory', 'video-ext'}
+SKIP_DIRS = {'.git', 'study-data', 'clients', 'video-factory', 'video-ext', 'dist'}
 # 动态构链页面（链接在 JS 里生成/404 跳转页），整页跳过扫描：
 SKIP_PATHS = {
     '404.html', 'study.html', 'viewer.html',

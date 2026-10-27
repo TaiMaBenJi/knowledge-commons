@@ -5,6 +5,7 @@
 
 # 各端构建输出
 clients/**/study.html
+clients/_full/
 clients/ios/Resources/
 clients/ios/ipa/
 clients/ios/build/

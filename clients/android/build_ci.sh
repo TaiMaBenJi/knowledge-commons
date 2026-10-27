@@ -28,7 +28,8 @@ build_one() {
   cp tools/apk-template/AndroidManifest.xml build/ci/
   cp -r tools/apk-template/smali build/ci/smali
   cp -r tools/apk-template/res/. build/ci/res/
-  cp study.html build/ci/assets/study.html
+  # 客户端用全量内联单文件（tools/bundle_full_study.py 重组；file:// 下自包含）
+  cp clients/_full/study.html build/ci/assets/study.html
 
   mkdir -p build/ci/assets/videos
   cp -R videos/. build/ci/assets/videos/
@@ -58,9 +59,9 @@ build_one() {
   "$APKSIGNER" sign --ks build/ks.jks \
     --ks-pass "pass:$ANDROID_KS_PASS" --key-pass "pass:$ANDROID_KS_PASS" \
     --ks-key-alias cloudstudy \
-    --out "dist/zhishi-gongshe-v3.0-android-$V.apk" build/ci/aligned.apk
-  "$APKSIGNER" verify "dist/zhishi-gongshe-v3.0-android-$V.apk"
-  ls -la "dist/zhishi-gongshe-v3.0-android-$V.apk"
+    --out "dist/zhishi-gongshe-v3.1-android-$V.apk" build/ci/aligned.apk
+  "$APKSIGNER" verify "dist/zhishi-gongshe-v3.1-android-$V.apk"
+  ls -la "dist/zhishi-gongshe-v3.1-android-$V.apk"
 }
 
 build_one "$VARIANT"
