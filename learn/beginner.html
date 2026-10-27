@@ -189,7 +189,7 @@ var LESSONS=[
  pts:[['四步转换','大纲拆考点清单 → 按考试日倒排周数 → 重难点占双倍 → 每周样题自测。'],
        ['官方资源就是最好教材','大纲定范围；样题/机考模拟定题型；历年真题定难度。'],
        ['三个保命习惯','日历挂显眼处周日核对；错题只归因不抄写；报名日前先模考一轮。'],
-       ['今天就能做','下载官方大纲；数章节倒排周历；做一次官方样题体验难度。']]}
+       ['今天就能做','下载官方大纲；数章节倒排周历；做一次官方样题体验难度。']]},
 {sec:'adv',n:'16',g:'特训篇',t:'七日夺冠方法论——任何比赛都通用',u:'win.html',
  d:'D1-D7 作战清单 + 临场 SOP，学会了参加什么比赛都用它。',
  pts:[['为什么通用','一切比赛都是「规则→评分→排名」；分水岭在开赛前——情报就是第一道分。'],
@@ -215,10 +215,27 @@ LESSONS.forEach(function(L){
     '<div class="lesson-bd">'+
     '<div class="vwrap"><video controls preload="none" src="../videos/beginner/epb'+L.n+'.mp4" onerror="this.parentNode.querySelector(\'.vmiss\').style.display=\'block\';this.style.display=\'none\'"></video><div class="vmiss">本集视频尚未生成——用仓库里的 video-factory 流水线一键生成：<br>python3 video-factory/build_episode.py video-factory/scripts/beginner-b'+L.n+'.py</div></div>'+
     '<ul class="klist">'+pts+'</ul>'+
-    '<div class="lkbar"><a href="'+L.u+'">直达板块 →</a><a href="exam/quiz.html#'+L.n+'">测一测 →</a><a href="../videos/beginner/epb'+L.n+'.mp4">本集视频（新窗口播放）</a><a href="archive.html">总目</a></div>'+
+    '<div class="lkbar"><a href="'+L.u+'">直达板块 →</a><a href="exam/quiz.html#'+L.n+'">测一测 →</a><a class="vlink" href="../videos/beginner/epb'+L.n+'.mp4">本集视频（新窗口播放）</a><a href="archive.html">总目</a></div>'+
     '</div>';
   el.querySelector('.lesson-hd').onclick=function(){el.classList.toggle('open');};
   box.appendChild(el);
+});
+/* 视频链接防 404：部分集尚未生成（如 epb10-12），点击先 HEAD 探测——
+   缺集就地展开「尚未生成」提示，有集才新窗口打开 */
+document.getElementById('lessons').addEventListener('click', function (e) {
+  var a = e.target && e.target.closest && e.target.closest('a.vlink');
+  if (!a) return;
+  e.preventDefault();
+  fetch(a.href, { method: 'HEAD' }).then(function (r) {
+    if (r.ok) { window.open(a.href, '_blank'); }
+    else {
+      var bd = a.closest('.lesson-bd');
+      if (bd) {
+        var v = bd.querySelector('video'); if (v) v.style.display = 'none';
+        var m = bd.querySelector('.vmiss'); if (m) m.style.display = 'block';
+      }
+    }
+  }).catch(function () { window.open(a.href, '_blank'); });
 });
 </script>
 </body>

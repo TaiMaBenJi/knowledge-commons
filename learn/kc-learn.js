@@ -193,7 +193,7 @@
       var nx = nextLesson();
       idx[fname] = {
         title: title, done: count(), total: lessons.length, ts: Date.now(),
-        url: fname, nextId: nx ? nx.id : null
+        url: location.pathname, nextId: nx ? nx.id : null
       };
       save(INDEX_KEY, idx);
     }
@@ -210,10 +210,22 @@
       .filter(function (v) { return v && v.url && v.total; });
     arr.sort(function (a, b) { return (b.ts || 0) - (a.ts || 0); });
     if (!arr.length) {
-      resume.innerHTML = '<div class="kc-resume-empty">还没有学习记录 —— <a href="courses/algo.html">从第一课开始：算法竞赛 · 第 1 讲 →</a></div>';
+      var kcBase = (function () {
+        var s = document.currentScript;
+        if (!s) { var a = document.getElementsByTagName('script'); s = a[a.length - 1]; }
+        try { return new URL('./', s.src).href; } catch (e) { return location.href; }
+      })();
+      resume.innerHTML = '<div class="kc-resume-empty">还没有学习记录 —— <a href="' + kcBase + 'courses/algo.html">从第一课开始：算法竞赛 · 第 1 讲 →</a></div>';
     } else {
       var it = arr[0];
-      var link = it.url + (it.nextId ? '#' + it.nextId : '');
+      /* 老版本记录的是裸文件名（都在 learn/courses/ 下），统一归一到绝对路径 */
+      var u = it.url || '';
+      if (!/^([a-z]+:)?\//i.test(u)) {
+        var bs = document.currentScript;
+        if (!bs) { var as = document.getElementsByTagName('script'); bs = as[as.length - 1]; }
+        try { u = new URL('courses/' + u, bs.src).href; } catch (e) {}
+      }
+      var link = u + (it.nextId ? '#' + it.nextId : '');
       var pct = Math.round(it.done / it.total * 100);
       resume.innerHTML =
         '<div class="kc-resume-card">' +

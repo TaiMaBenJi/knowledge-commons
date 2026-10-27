@@ -6,6 +6,7 @@
 <title>页面已迁移 · 知识公社</title>
 <meta name="robots" content="noindex">
 <link rel="stylesheet" href="learn/style.css" id="basecss">
+<link rel="icon" type="image/png" href="icons/icon-192.png" id="baseicon">
 <script>
 /* GitHub Pages 项目站点部署在 /knowledge-commons/ 子路径下，404 页会以任意深层路径呈现，
    根绝对路径与朴素相对路径都会失效——按已知分区目录名推断站点前缀，回写样式与导航链接 */
@@ -21,6 +22,8 @@
   var BASE = b < 0 ? p.slice(0, p.lastIndexOf('/') + 1) : p.slice(0, b + 1);
   var css = document.getElementById('basecss');
   if (css) css.href = BASE + 'learn/style.css';
+  var ico = document.getElementById('baseicon');
+  if (ico) ico.href = BASE + 'icons/icon-192.png';
   document.addEventListener('DOMContentLoaded', function () {
     var as = document.querySelectorAll('a[data-nav]');
     for (var j = 0; j < as.length; j++) as[j].href = BASE + as[j].getAttribute('href');
