@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>学习资源库 · 知识公社</title>
+<style>
+:root{--red:#9e2b25;--blue:#1f4e8c;--ink:#222;--gray:#6b7280;--line:#d8dfe9;--bg:#f3f4f6}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Source Han Sans SC","Noto Sans SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink)}
+a{text-decoration:none;color:inherit}
+.topbar{background:linear-gradient(135deg,#7e1620 0%,#a92e35 55%,#7e1620 100%);color:#fff}
+.topbar-in{max-width:1200px;margin:0 auto;padding:14px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.emblem{width:44px;height:44px;border-radius:50%;background:#fff;color:var(--red);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;flex:none}
+.site-name{font-size:20px;font-weight:700;letter-spacing:1px}
+.btn{border:1px solid rgba(255,255,255,.55);background:transparent;color:#fff;border-radius:4px;padding:7px 14px;font-size:14px;cursor:pointer}
+.btn:hover{background:rgba(255,255,255,.15)}
+.spacer{flex:1}
+.main{max-width:1200px;margin:18px auto;padding:0 14px}
+.panel{background:#fff;border:1px solid var(--line);border-top:3px solid var(--blue);margin-bottom:18px}
+.p-hd{display:flex;align-items:center;flex-wrap:wrap;gap:10px;padding:14px 18px;border-bottom:1px solid var(--line)}
+.p-hd h2{font-size:18px;color:var(--blue);flex:1}
+.searchbar{display:flex;background:#f4f6f9;border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.searchbar input{border:none;outline:none;background:transparent;padding:8px 12px;font-size:14px;width:220px}
+.groups{display:flex;flex-wrap:wrap;gap:8px;padding:12px 18px;border-bottom:1px solid var(--line);background:#fbfcfe}
+.gchip{font-size:13px;border:1px solid var(--line);padding:5px 13px;border-radius:14px;cursor:pointer;color:#455066;background:#fff}
+.gchip.on{background:var(--blue);color:#fff;border-color:var(--blue)}
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:12px;padding:16px 18px 20px}
+.item{border:1px solid var(--line);padding:13px 14px;display:block;transition:.15s}
+.item:hover{border-color:var(--blue);box-shadow:0 4px 14px rgba(31,78,140,.12)}
+.item .t{font-size:14.5px;font-weight:600;color:#1a4d8f;line-height:1.55;margin-bottom:6px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.item .a{font-size:12.5px;color:var(--gray);margin-bottom:8px}
+.item .m{display:flex;gap:6px;flex-wrap:wrap}
+.item .m span{font-size:11px;color:#5b6b84;background:#eef3fa;border-radius:3px;padding:2px 7px}
+.item .m span.g{color:#8a5b12;background:#faf3df}
+.empty{padding:40px;text-align:center;color:#999}
+footer{background:#27344e;color:#aab4c8;margin-top:26px}
+.foot-in{max-width:1200px;margin:0 auto;padding:20px 16px 28px;font-size:13px;line-height:2;text-align:center}
+@media(max-width:720px){.list{grid-template-columns:1fr}.searchbar input{width:150px}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="topbar-in">
+  <div class="emblem">知</div>
+  <div><div class="site-name">学习资源库 · B 站精选</div><div style="font-size:12px;opacity:.85;margin-top:2px">装机 / 计算机科学 / 编译原理 / 云计算进阶</div></div>
+  <div class="spacer"></div>
+  <button class="btn" onclick="location.href='portal.html'">返回门户</button>
+  <button class="btn" onclick="location.href='index.html'">公社首页</button>
+</div></div>
+
+<div class="main">
+  <div class="panel">
+    <div class="p-hd">
+      <h2>精选资源 <span id="cnt" style="font-size:13px;color:#8a94a6;font-weight:400"></span></h2>
+      <div class="searchbar"><input id="q" placeholder="搜索标题 / UP 主…" autocomplete="off"></div>
+    </div>
+    <div class="groups" id="groups"></div>
+    <div class="list" id="list"></div>
+    <div class="empty" id="empty" style="display:none">没有匹配的资源</div>
+  </div>
+</div>
+
+<footer><div class="foot-in">条目信息收集自哔哩哔哩公开页面，仅供学习交流 · 视频版权归原作者与 UP 主所有 · <a style="color:#d7deea" href="https://github.com/TaiMaBenJi/knowledge-commons" target="_blank" rel="noopener">GitHub</a></div></footer>
+
+<script src="app/resource-data.js"></script>
+<script>
+var ITEMS=(window.RES_DATA&&window.RES_DATA.items)||[];
+var curG='全部',q='';
+function fmtP(p){return p>=1e8?(p/1e8).toFixed(1)+'亿':p>=1e4?(p/1e4).toFixed(1)+'万':p;}
+function groups(){
+  var gs={'全部':ITEMS.length};
+  ITEMS.forEach(function(x){gs[x.g]=(gs[x.g]||0)+1;});
+  document.getElementById('groups').innerHTML=Object.keys(gs).map(function(g){
+    return '<span class="gchip'+(g===curG?' on':'')+'" data-g="'+g+'">'+g+'（'+gs[g]+'）</span>';
+  }).join('');
+  var chips=document.querySelectorAll('.gchip');
+  for(var i=0;i<chips.length;i++){
+    (function(c){c.onclick=function(){curG=c.getAttribute('data-g');groups();render();};})(chips[i]);
+  }
+}
+function render(){
+  var hits=ITEMS.filter(function(x){
+    if(curG!=='全部'&&x.g!==curG)return false;
+    if(q&&(x.t+' '+x.a).toLowerCase().indexOf(q)<0)return false;
+    return true;
+  });
+  document.getElementById('cnt').textContent='共 '+hits.length+' 条';
+  document.getElementById('empty').style.display=hits.length?'none':'block';
+  var out='';
+  for(var i=0;i<hits.length;i++){
+    var x=hits[i];
+    out+='<a class="item" href="https://www.bilibili.com/video/'+x.b+'" target="_blank" rel="noopener">'+
+      '<div class="t">'+x.t+'</div><div class="a">'+x.a+'</div>'+
+      '<div class="m"><span class="g">'+x.g+'</span><span>▶ '+fmtP(x.p)+'</span><span>⏱ '+x.d+'</span></div></a>';
+  }
+  document.getElementById('list').innerHTML=out;
+}
+document.getElementById('q').addEventListener('input',function(){q=this.value.trim().toLowerCase();render();});
+groups();render();
+</script>
+</body>
+</html>

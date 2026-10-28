@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>知识公社 · 归类式学习门户</title>
+<style>
+:root{--red:#9e2b25;--red2:#b23a30;--blue:#1f4e8c;--ink:#222;--gray:#6b7280;--line:#d8dfe9;--bg:#f3f4f6}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Source Han Sans SC","Noto Sans SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink)}
+a{text-decoration:none;color:inherit}
+.masthead{background:linear-gradient(135deg,#7e1620 0%,#a92e35 55%,#7e1620 100%);color:#fff}
+.mast-in{max-width:1200px;margin:0 auto;padding:20px 16px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.emblem{width:64px;height:64px;border-radius:50%;background:#fff;color:var(--red);display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:800;flex:none;border:3px solid #f3d9a4}
+.mast-title{font-size:27px;font-weight:800;letter-spacing:2px}
+.mast-sub{font-size:13px;opacity:.9;margin-top:4px;letter-spacing:1px}
+.mast-right{margin-left:auto;text-align:right}
+.searchbar{display:flex;background:#fff;border-radius:4px;overflow:hidden;width:300px;max-width:70vw}
+.searchbar input{flex:1;border:none;outline:none;padding:9px 12px;font-size:14px;color:#333}
+.searchbar button{border:none;background:var(--blue);color:#fff;padding:0 18px;font-size:14px;cursor:pointer}
+.sr-wrap{position:relative}
+.sr-panel{position:absolute;right:0;top:44px;width:360px;max-width:86vw;max-height:420px;overflow:auto;background:#fff;border:1px solid var(--line);border-radius:6px;box-shadow:0 10px 30px rgba(0,0,0,.18);display:none;z-index:50}
+.sr-item{display:block;padding:9px 14px;border-bottom:1px solid #eef1f5;font-size:13.5px;color:#333}
+.sr-item:hover{background:#f4f7fb}
+.sr-item .sr-cat{color:#fff;background:var(--blue);font-size:11px;border-radius:3px;padding:1px 6px;margin-right:7px}
+.sr-empty{padding:16px;text-align:center;color:#999;font-size:13px}
+nav{background:var(--blue)}
+.nav-in{max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap}
+nav a{color:#fff;font-size:15px;padding:12px 18px}
+nav a:hover{background:#16386a}
+.main{max-width:1200px;margin:20px auto;padding:0 14px}
+.sect{background:#fff;border:1px solid var(--line);margin-bottom:20px}
+.sect-hd{display:flex;align-items:center;background:linear-gradient(#f8fafc,#eef2f7);border-bottom:2px solid var(--blue);padding:0 16px;height:46px}
+.sect-hd .bar{width:6px;height:22px;background:var(--red);margin-right:11px;border-radius:1px}
+.sect-hd h2{font-size:18px;color:var(--blue);letter-spacing:1px;flex:1}
+.sect-hd .cnt{font-size:12.5px;color:#8a94a6;margin-right:12px}
+.sect-hd .more{font-size:13px;color:#8a94a6}
+.sect-bd{padding:16px 20px 20px}
+.quick{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:14px}
+.qcard{border:1px solid var(--line);border-top:3px solid var(--red);padding:16px;display:block;transition:.15s}
+.qcard:hover{box-shadow:0 6px 18px rgba(31,78,140,.14);transform:translateY(-2px)}
+.qcard h3{font-size:16px;color:var(--blue);margin-bottom:7px}
+.qcard p{font-size:12.5px;color:var(--gray);line-height:1.7}
+.links{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:2px 34px}
+.links a{display:flex;align-items:center;gap:9px;font-size:14px;padding:7px 2px;border-bottom:1px dotted #e2e7ee;color:#333;line-height:1.5}
+.links a:hover{color:var(--red)}
+.links .dot{width:5px;height:5px;background:#b8c4d8;flex:none}
+.links .lt{flex:1;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.links .no{color:#9aa6ba;font-size:12.5px;flex:none;width:30px}
+.links .tag{font-size:11px;color:var(--blue);background:#eaf1fa;border-radius:3px;padding:1px 6px;flex:none}
+.links .tag.v{color:#0d7a3d;background:#e7f5ec}
+.dom-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.dom-tab{font-size:13.5px;border:1px solid var(--line);padding:6px 14px;border-radius:3px;cursor:pointer;background:#f8fafc;color:#455066}
+.dom-tab.on{background:var(--blue);color:#fff;border-color:var(--blue)}
+.trades{display:grid;grid-template-columns:repeat(auto-fill,minmax(212px,1fr));gap:10px}
+.trade{border:1px solid var(--line);padding:10px 12px}
+.trade:hover{border-color:var(--blue);background:#f7fafd}
+.trade .tn{font-size:14px;font-weight:600;color:var(--blue);margin-bottom:7px;line-height:1.4}
+.trade .ta{display:flex;gap:6px;flex-wrap:wrap}
+.trade .ta a{font-size:11.5px;padding:2px 8px;border-radius:3px;border:1px solid #cdd8e8;color:#31557f;background:#fff}
+.trade .ta a:hover{background:var(--blue);color:#fff}
+.vgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.vcard{border:1px solid var(--line);padding:15px}
+.vcard h3{font-size:15.5px;color:var(--blue);margin-bottom:6px}
+.vcard p{font-size:12.5px;color:var(--gray);line-height:1.7;margin-bottom:9px}
+.vcard .vbtn{display:inline-block;font-size:13px;color:#fff;background:var(--red);padding:6px 14px;border-radius:3px}
+.vcard .vbtn.alt{background:var(--blue)}
+.year-hd{font-size:14.5px;font-weight:700;color:var(--blue);margin:12px 0 4px;padding-left:9px;border-left:3px solid var(--red)}
+footer{background:#27344e;color:#aab4c8;margin-top:26px}
+.foot-in{max-width:1200px;margin:0 auto;padding:22px 16px 30px;font-size:13px;line-height:2;text-align:center}
+footer a{color:#d7deea}
+@media(max-width:720px){.mast-title{font-size:20px}.links{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="masthead"><div class="mast-in">
+  <div class="emblem">知</div>
+  <div>
+    <div class="mast-title">知识公社 · 归类式学习门户</div>
+    <div class="mast-sub">KNOWLEDGE COMMONS · 竞赛真题 / 升学考试 / 公务员 / 红色经典 / 世界技能大赛 50 赛项</div>
+  </div>
+  <div class="mast-right">
+    <div class="sr-wrap">
+      <div class="searchbar">
+        <input id="q" type="text" placeholder="搜索全站：教程 / 赛题 / 赛项 / 课程…" autocomplete="off">
+        <button onclick="doSearch()">搜索</button>
+      </div>
+      <div class="sr-panel" id="srp"></div>
+    </div>
+  </div>
+</div></div>
+
+<nav><div class="nav-in">
+  <a href="index.html">公社首页</a>
+  <a href="#sec-start">快速通道</a>
+  <a href="#sec-tutorial">保姆级教程</a>
+  <a href="#sec-video">视频课堂</a>
+  <a href="#sec-knowledge">知识体系</a>
+  <a href="#sec-room">机房管理</a>
+  <a href="#sec-mastery">精通之路</a>
+  <a href="#sec-sprint">冲刺备考</a>
+  <a href="#sec-exam">国际赛题</a>
+  <a href="#sec-multi">全技能库</a>
+  <a href="#sec-extra">竞赛与资源</a>
+  <a href="study.html">资料中心</a>
+</div></nav>
+
+<div class="main">
+
+  <div class="sect" id="sec-start">
+    <div class="sect-hd"><div class="bar"></div><h2>快速通道</h2></div>
+    <div class="sect-bd quick" id="quick"></div>
+  </div>
+
+  <div class="sect" id="sec-tutorial">
+    <div class="sect-hd"><div class="bar"></div><h2>保姆级教程</h2><span class="cnt" id="cnt-tutorial"></span><a class="more" href="viewer.html?doc=docs%2Ftutorial%2FREADME-%E6%95%99%E7%A8%8B%E6%80%BB%E8%A7%88.md">教程总览 ›</a></div>
+    <div class="sect-bd"><div class="links" id="list-tutorial"></div></div>
+  </div>
+
+  <div class="sect" id="sec-video">
+    <div class="sect-hd"><div class="bar"></div><h2>视频课堂</h2><span class="cnt">机房管理 15 集 · 教程 19 集 · 零基础 14 集 · 进阶 29 集 · 赛项总纲课 50 集</span></div>
+    <div class="sect-bd vgrid" id="vgrid"></div>
+  </div>
+
+  <div class="sect" id="sec-knowledge">
+    <div class="sect-hd"><div class="bar"></div><h2>知识体系</h2><span class="cnt" id="cnt-knowledge"></span></div>
+    <div class="sect-bd"><div class="links" id="list-knowledge"></div></div>
+  </div>
+
+  <div class="sect" id="sec-room">
+    <div class="sect-hd"><div class="bar"></div><h2>机房管理修炼体系</h2><span class="cnt" id="cnt-room"></span></div>
+    <div class="sect-bd"><div class="links" id="list-room"></div></div>
+  </div>
+
+  <div class="sect" id="sec-mastery">
+    <div class="sect-hd"><div class="bar"></div><h2>精通之路 · 计算机母语之路</h2></div>
+    <div class="sect-bd">
+      <div class="year-hd">精通之路（从级联话术到母语级能力）</div>
+      <div class="links" id="list-mastery" style="margin-bottom:14px"></div>
+      <div class="year-hd">计算机母语之路（五书共生 · 24 个月路线）</div>
+      <div class="links" id="list-csmastery"></div>
+    </div>
+  </div>
+
+  <div class="sect" id="sec-sprint">
+    <div class="sect-hd"><div class="bar"></div><h2>冲刺备考 · 官方标准</h2></div>
+    <div class="sect-bd">
+      <div class="year-hd">冲刺作战</div>
+      <div class="links" id="list-sprint" style="margin-bottom:14px"></div>
+      <div class="year-hd">WSOS 官方职业标准（2026 上海）</div>
+      <div class="links" id="list-official"></div>
+    </div>
+  </div>
+
+  <div class="sect" id="sec-exam">
+    <div class="sect-hd"><div class="bar"></div><h2>国际赛题 · 韩国技能竞赛真题中文库</h2><span class="cnt" id="cnt-exam"></span></div>
+    <div class="sect-bd" id="list-exam"></div>
+  </div>
+
+  <div class="sect" id="sec-multi">
+    <div class="sect-hd"><div class="bar"></div><h2>全技能精通库</h2><span class="cnt">六大领域 · 50 个赛项 · 总纲 + 图解 + 模拟训练 + 解说视频</span></div>
+    <div class="sect-bd">
+      <div class="dom-tabs" id="domTabs"></div>
+      <div class="trades" id="trades"></div>
+    </div>
+  </div>
+
+  <div class="sect" id="sec-extra">
+    <div class="sect-hd"><div class="bar"></div><h2>竞赛题库 · 资源与经典</h2></div>
+    <div class="sect-bd">
+      <div class="links">
+        <a href="learn/contest.html"><span class="dot"></span><span class="lt">竞赛题库（Codeforces + AtCoder 离线可搜）</span></a>
+        <a href="learn/courses.html"><span class="dot"></span><span class="lt">原创课程（算法 13 讲 / Python 8 讲 / 行测 6 讲）</span></a>
+        <a href="resources.html"><span class="dot"></span><span class="lt">B 站精选资源库（分组 + 搜索）</span></a>
+        <a href="library.html"><span class="dot"></span><span class="lt">资源总库（升学 / 公务员 / 官网大全）</span></a>
+        <a href="guoxue.html"><span class="dot"></span><span class="lt">国学馆 · 红色经典</span></a>
+        <a href="learn/red/maoxuan.html"><span class="dot"></span><span class="lt">毛泽东选集方法论模块</span></a>
+        <a href="learn/archive.html"><span class="dot"></span><span class="lt">资料归档</span></a>
+        <a href="download.html"><span class="dot"></span><span class="lt">客户端下载</span></a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer><div class="foot-in">
+  <div>
+    <a href="index.html">公社首页</a> | <a href="study.html">资料中心</a> | <a href="learn/">学习中心</a> | <a href="learn/search.html">搜索</a> | <a href="https://github.com/TaiMaBenJi/knowledge-commons" target="_blank" rel="noopener">GitHub</a>
+  </div>
+  <div>知识公社 · 归类式学习门户 · 由山东工业技师学院学生独立整理开发 · 资料仅供学习交流</div>
+  <div>代码与工具 MIT · 原创文档 CC BY-NC-SA 4.0 · 赛题来自公开渠道整理，版权归原出处所有</div>
+</div></footer>
+
+<script src="app/portal-data.js"></script>
+<script src="app/portal-trades.js"></script>
+<script>
+function V(p){return 'viewer.html?doc='+encodeURIComponent(p);}
+var D=window.PORTAL_DATA||[];
+function pick(pre){return D.filter(function(x){return x.p.indexOf(pre)===0;});}
+function byNo(arr){
+  return arr.map(function(x){
+    var m=x.p.match(/(\d+[a-z]?)-/);var no=m?m[1]:'--';
+    return {no:no,t:x.t,h:V(x.p)};
+  });
+}
+function fill(id,arr,cntId,label){
+  var el=document.getElementById(id);
+  if(!el)return;
+  el.innerHTML=arr.map(function(it){
+    if(typeof it==='string')return it;
+    var tags=(it.tags||[]).map(function(t){return '<span class="tag '+t[1]+'">'+t[0]+'</span>';}).join('');
+    var no=it.no?'<span class="no">'+it.no+'</span>':'<span class="dot"></span>';
+    return '<a href="'+it.h+'">'+no+'<span class="lt">'+it.t+'</span>'+tags+'</a>';
+  }).join('');
+  if(cntId)document.getElementById(cntId).textContent=label||arr.length+' 篇';
+}
+fill('quick',[
+ '<a class="qcard" href="'+V('docs/tutorial/00-开始之前-零基础先读我.md')+'"><h3>① 零基础从这里开始</h3><p>你不需要会电脑，就能学会云计算 —— 第 0 章先读我</p></a>',
+ '<a class="qcard" href="learn/"><h3>② 学习中心</h3><p>真题 / 题库 / 课程 / 搜索，知识公社主入口</p></a>',
+ '<a class="qcard" href="study.html"><h3>③ 资料中心 · 全技能库</h3><p>3200+ 篇资料全文检索，完全离线</p></a>',
+ '<a class="qcard" href="resources.html"><h3>④ B 站精选资源库</h3><p>装机 / 计算机 / 编译原理 / 进阶，分组浏览</p></a>'
+]);
+var tut=pick('docs/tutorial/').filter(function(x){return /\/\d/.test(x.p);});
+fill('list-tutorial',byNo(tut),'cnt-tutorial',tut.length+' 章');
+var kn=pick('docs/knowledge/');
+fill('list-knowledge',byNo(kn),'cnt-knowledge',kn.length+' 章');
+var rm=pick('docs/room/');
+fill('list-room',byNo(rm),'cnt-room',rm.length+' 篇');
+fill('list-mastery',byNo(pick('docs/mastery/')));
+fill('list-csmastery',byNo(pick('docs/cs-mastery/')));
+fill('list-sprint',byNo(pick('docs/sprint/')),'',null);
+var off=pick('docs/official/');
+fill('list-official',off.map(function(x){var zh=/zh/.test(x.p);return {t:'WSOS 2026 云计算职业标准'+(zh?'（中文版）':'（英文原文）'),h:V(x.p),tags:[[zh?'中文':'English','']]};}),'',null);
+fill('vgrid',[
+ '<div class="vcard"><h3>📹 机房管理视频课（15 集）</h3><p>供电 / 制冷 / PXE 装机 / 应急演练，约 98 分钟，图文配套。</p><a class="vbtn" href="'+V('docs/room/09-视频课总览.md')+'">课程表与正片 ›</a></div>',
+ '<div class="vcard"><h3>📹 保姆级教程视频课（19 集）</h3><p>与 20 章教程配套，命令演示 + 输出讲解。</p><a class="vbtn" href="'+V('docs/tutorial/98-视频课-总览.md')+'">课程表与正片 ›</a></div>',
+ '<div class="vcard"><h3>📹 零基础学堂（14 集）</h3><p>beginner 系列，从开机到上网，全流程跟练。</p><a class="vbtn" href="learn/beginner.html">去学堂 ›</a></div>',
+ '<div class="vcard"><h3>📹 进阶专题（29 集）</h3><p>AWS / 容器 / 自动化 / 安全，通往竞赛水平。</p><a class="vbtn" href="'+V('video-ext/00-总览.md')+'">总览 ›</a></div>',
+ '<div class="vcard"><h3>🎬 赛项总纲课（50 个赛项）</h3><p>六大领域 50 个赛项中文解说总纲课，库内直接播放。</p><a class="vbtn alt" href="#sec-multi">前往全技能库 ›</a></div>'
+]);
+var ex=pick('exam/');
+var years={};
+ex.forEach(function(x){var m=x.p.match(/(\d{4})/);(years[m?m[1]:'other']=years[m?m[1]:'other']||[]).push(x);});
+var examHtml='';
+Object.keys(years).sort().forEach(function(y){
+  examHtml+='<div class="year-hd">'+y+' 年（'+years[y].length+' 份）</div><div class="links">';
+  examHtml+=years[y].map(function(x){
+    var grad=/grad/.test(x.p);
+    var name=x.p.replace(/^.*\//,'').replace(/\.txt$/,'');
+    return '<a href="'+V(x.p)+'"><span class="dot"></span><span class="lt">'+name+'</span><span class="tag '+(grad?'v':'')+'">'+(grad?'评分标准':'题面')+'</span></a>';
+  }).join('');
+  examHtml+='</div>';
+});
+document.getElementById('list-exam').innerHTML=examHtml;
+document.getElementById('cnt-exam').textContent=ex.length+' 份';
+var T=window.PORTAL_TRADES||[];
+var doms=[];
+T.forEach(function(t){if(doms.indexOf(t.d)<0)doms.push(t.d);});
+var curDom=doms[0];
+function renderTrades(){
+  document.getElementById('domTabs').innerHTML=doms.map(function(d,i){
+    return '<span class="dom-tab'+(d===curDom?' on':'')+'" data-i="'+i+'">'+d.replace(/^\d+-/,'')+'（'+T.filter(function(t){return t.d===d;}).length+' 项）</span>';
+  }).join('');
+  document.getElementById('trades').innerHTML=T.filter(function(t){return t.d===curDom;}).map(function(t){
+    var sim='multiskill/'+t.d+'/'+t.n+'/模拟训练.html';
+    var guide='multiskill/'+t.d+'/'+t.n+'/项目总纲.md';
+    return '<div class="trade"><div class="tn">'+t.n+'</div><div class="ta">'+
+      '<a href="'+V(guide)+'">项目总纲</a>'+
+      '<a href="'+t.v+'">▶ 总纲课</a>'+
+      '<a href="'+sim+'">模拟训练</a></div></div>';
+  }).join('');
+  var tabs=document.querySelectorAll('.dom-tab');
+  for(var i=0;i<tabs.length;i++){
+    (function(el){el.onclick=function(){curDom=doms[+el.getAttribute('data-i')];renderTrades();};})(tabs[i]);
+  }
+}
+renderTrades();
+var SRCT=[];
+D.forEach(function(x){SRCT.push({t:x.t,cat:'文档',h:V(x.p)});});
+T.forEach(function(t){
+  SRCT.push({t:t.n+' · 项目总纲',cat:t.d.replace(/^\d+-/,''),h:V('multiskill/'+t.d+'/'+t.n+'/项目总纲.md')});
+  SRCT.push({t:t.n+' · 总纲课视频',cat:'视频',h:t.v});
+  SRCT.push({t:t.n+' · 模拟训练',cat:'实训',h:'multiskill/'+t.d+'/'+t.n+'/模拟训练.html'});
+});
+function doSearch(){
+  var q=document.getElementById('q').value.trim().toLowerCase();
+  var p=document.getElementById('srp');
+  if(!q){p.style.display='none';return;}
+  var hits=SRCT.filter(function(x){return x.t.toLowerCase().indexOf(q)>=0;}).slice(0,40);
+  p.innerHTML=hits.length?hits.map(function(x){
+    return '<a class="sr-item" href="'+x.h+'"><span class="sr-cat">'+x.cat+'</span>'+x.t+'</a>';
+  }).join(''):'<div class="sr-empty">未找到与「'+q+'」相关的内容</div>';
+  p.style.display='block';
+}
+document.getElementById('q').addEventListener('input',doSearch);
+document.addEventListener('click',function(e){
+  if(!e.target.closest||!e.target.closest('.sr-wrap'))document.getElementById('srp').style.display='none';
+});
+</script>
+</body>
+</html>
