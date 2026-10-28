@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>图文阅览 · 世界技能大赛云计算学习中心</title>
+<title>图文阅览 · 知识公社</title>
 <style>
 :root{--blue:#1f4e8c;--red:#c02c38;--ink:#222;--gray:#666;--line:#d8dfe9;--bg:#f5f6f8;}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -59,26 +59,11 @@ h1.doc-title{font-size:24px;color:var(--blue);border-bottom:2px solid var(--line
 .cross{color:var(--red);font-weight:600}
 @media print{.topbar,.toc{display:none}.doc{border:none}}
 </style>
-
-<!-- kc-seo (auto) -->
-<meta name="description" content="图文阅览 · 世界技能大赛云计算学习中心 · 知识公社 · 完全离线、完全开源的免费学习资源总站">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="知识公社 · Knowledge Commons">
-<meta property="og:title" content="图文阅览 · 世界技能大赛云计算学习中心">
-<meta property="og:description" content="图文阅览 · 世界技能大赛云计算学习中心 · 知识公社 · 完全离线、完全开源的免费学习资源总站">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:url" content="https://taimabenji.github.io/knowledge-commons/viewer.html">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="图文阅览 · 世界技能大赛云计算学习中心">
-<meta name="twitter:description" content="图文阅览 · 世界技能大赛云计算学习中心 · 知识公社 · 完全离线、完全开源的免费学习资源总站">
-<link rel="canonical" href="https://taimabenji.github.io/knowledge-commons/viewer.html">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"知识公社 · Knowledge Commons","url":"https://taimabenji.github.io/knowledge-commons/","potentialAction":{"@type":"SearchAction","target":"https://taimabenji.github.io/knowledge-commons/learn/search.html?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
-<!-- /kc-seo -->
 </head>
 <body>
 <div class="topbar"><div class="topbar-in">
   <div class="emblem">云</div>
-  <div><div class="site-name">世界技能大赛云计算学习中心</div><div class="site-sub">WorldSkills Skill 39 · Cloud Computing 中文资料库</div></div>
+  <div><div class="site-name">知识公社 · 图文阅览</div><div class="site-sub">竞赛真题 · 课程 · 红色经典 · 世界技能大赛 · 全技能库</div></div>
   <div class="spacer"></div>
   <button class="btn" onclick="location.href='index.html'">返回门户</button>
   <button class="btn" onclick="fontAdj(1)">A+</button>
@@ -185,7 +170,7 @@ function load(){
   var el=document.getElementById('doc');
   el.innerHTML='<div class="loading">正在加载…</div>';
   fetch(doc).then(function(r){if(!r.ok)throw 0;return r.text();}).then(function(txt){
-    document.title=doc.split('/').pop()+' · 云计算学习中心';
+    document.title=doc.split('/').pop()+' · 知识公社';
     var dir=doc.indexOf('/')>=0?doc.slice(0,doc.lastIndexOf('/')):'';
     if(/\.txt$/i.test(doc)){
       el.innerHTML='<h1 class="doc-title">'+doc.split('/').pop()+'</h1><div class="md"><pre style="white-space:pre-wrap">'+esc(txt)+'</pre></div>';
