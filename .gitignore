@@ -27,5 +27,8 @@ __pycache__/
 # 临时探针目录（代码块提取 / 调试用）
 .probe_tmp/
 
+# Trae HTML 分享缓存包（IDE 自动生成，不入库）
+.trae-html-share-packages/
+
 # 安全钩子状态目录（本机工具状态，不入库）
 .mimosa/
