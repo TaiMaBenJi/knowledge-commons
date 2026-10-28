@@ -7,7 +7,7 @@
    · 静态资源 stale-while-revalidate —— 秒开 + 后台静默更新；
    · Range 请求 / 非本站请求 —— 直接放行（视频流式播放不受影响）。
    ============================================================ */
-var VERSION = 'kc-v1.9.18';
+var VERSION = 'kc-v1.9.19';
 /* 预缓存：主站全部页面 + 样式 + 检索索引 + PWA 资产（≈300KB）
    注：study.html 已拆分（manifest + 59 个按组内容块），本体仅 ~757KB，
    study-data/* 走运行时缓存（首次在线访问后离线可用），不进预缓存清单 */
@@ -20,7 +20,7 @@ var CORE = [
   './learn/cloud/contest/data/hebei.js',
   './learn/cloud/contest/data/guangxi.js',
   './learn/cloud/contest/data/jiangxi.js',
-  './learn/cloud/contest/data/anhui.js','./learn/media/videos-cloud.html', './learn/media/course-videos.html', './learn/media/data/course-scripts.js',
+  './learn/cloud/contest/data/anhui.js','./learn/cloud/contest/data/guangxi2022.js','./learn/cloud/contest/data/henan.js','./learn/cloud/contest/data/guangdong2025.js','./learn/media/videos-cloud.html', './learn/media/course-videos.html', './learn/media/data/course-scripts.js',
   './learn/about.html', './learn/beginner.html', 'learn/exam/calendar.html', 'learn/exam/quiz.html', './learn/search.html', 'learn/media/pdfview.html',
   'learn/media/bilibili.html', 'learn/exam/guofang.html',
   'learn/courses/algo.html', 'learn/courses/algo2.html',
