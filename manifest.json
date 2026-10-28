@@ -1,4 +1,5 @@
 {
+  "id": "/knowledge-commons/",
   "name": "知识公社 · 从零到精通",
   "short_name": "知识公社",
   "description": "竞赛真题 · 升学考试 · 公务员 · 红色经典 · 社会主义实践研究 · 世界技能大赛 · 全网免费资源总库。知识共享，我为人人，人人为我。",
@@ -9,7 +10,7 @@
   "orientation": "any",
   "theme_color": "#9e2b25",
   "background_color": "#faf7f0",
-  "categories": ["education", "books"],
+  "categories": ["education", "books", "reference"],
   "icons": [
     {
       "src": "./icons/icon-192.png",
@@ -28,6 +29,36 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "学习门户",
+      "short_name": "门户",
+      "description": "进入知识公社学习门户首页",
+      "url": "./learn/index.html",
+      "icons": [{ "src": "./icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "资料中心",
+      "short_name": "资料",
+      "description": "全技能库 · 单文件应用",
+      "url": "./study.html",
+      "icons": [{ "src": "./icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "资源总库",
+      "short_name": "总库",
+      "description": "全网免费学习资源精选",
+      "url": "./library.html",
+      "icons": [{ "src": "./icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "竞赛真题",
+      "short_name": "竞赛",
+      "description": "Codeforces / AtCoder 离线可搜",
+      "url": "./learn/contest.html",
+      "icons": [{ "src": "./icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
     }
   ]
 }

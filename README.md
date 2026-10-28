@@ -1,5 +1,10 @@
 # 知识公社 · Knowledge Commons
 
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![PWA](https://img.shields.io/badge/PWA-离线可用-red.svg)](manifest.json)
+[![Deploy](https://img.shields.io/badge/deploy-GitHub%20Pages-blue.svg)](https://taimabenji.github.io/knowledge-commons/learn/)
+[![SEO](https://img.shields.io/badge/SEO-OG%2FTwitter%2FJSON--LD-orange.svg)](tools/seo_inject.py)
+
 > **让每一个人都能免费学习。**
 > 竞赛真题 · 升学考试 · 公务员 · 红色经典 · 世界技能大赛 · 全网资源总库 —— 完全离线、完全开源。
 

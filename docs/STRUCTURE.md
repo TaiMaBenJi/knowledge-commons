@@ -82,6 +82,7 @@ learn/
 1. 页面落到对应子目录（见上面地图），别堆在 `learn/` 根。
 2. 页面导航片段复制同目录邻居的写法，改相对路径。
 3. 把 URL 加进 `sitemap.xml` 与 `sw.js` 的预缓存清单；检索内容加进 `learn/searchidx.js`。
+   新增页面后跑一次 `python tools/seo_inject.py`，为新风页面补齐 SEO / 社交分享 / 结构化数据元信息（幂等，可反复运行；已存在 `description` 的页面自动跳过）。
 4. **要进资料中心的文档**（`docs/**` 下的）另加一步：写进 `tools/study_additions.json`，
    然后 `python tools/add_study_docs.py --spec tools/study_additions.json`。
    **不要跑 `tools/build_liquid.py` 做全量重建** —— 见上面硬约束 3。
