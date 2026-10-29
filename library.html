@@ -24,6 +24,8 @@ a{text-decoration:none;color:inherit}
 .searchbar input{border:none;outline:none;background:transparent;padding:8px 12px;font-size:14px;width:220px}
 .groups,.subgroups{display:flex;flex-wrap:wrap;gap:8px;padding:12px 18px;border-bottom:1px solid var(--line);background:#fbfcfe}
 .subgroups{background:#f6f8fb;padding-top:9px;padding-bottom:9px}
+.gnote{font-size:12.5px;color:#4a5a72;line-height:1.7;padding:9px 18px;background:#fbfcfe;border-bottom:1px solid var(--line)}
+.gnote b{color:#1f4e8c}
 .gchip{font-size:13px;border:1px solid var(--line);padding:5px 13px;border-radius:14px;cursor:pointer;color:#455066;background:#fff}
 .gchip.on{background:var(--blue);color:#fff;border-color:var(--blue)}
 .schip{font-size:12px;border:1px dashed var(--line);padding:3px 10px;border-radius:12px;cursor:pointer;color:#5b6b84;background:#fff}
@@ -78,6 +80,7 @@ footer{background:#27344e;color:#aab4c8;margin-top:26px}
       <div class="searchbar"><input id="q" placeholder="搜索名称 / 简介 / 子类…" autocomplete="off" aria-label="搜索资源"></div><button class="btn" id="rand" title="随机看一条" style="margin-left:8px;border-color:var(--line);color:var(--blue)">随机</button>
     </div>
     <div class="groups" id="groups"></div>
+    <div class="gnote" id="gnote"></div>
     <div class="subgroups" id="subgroups"></div>
     <div class="list" id="list" aria-live="polite"></div>
     <div class="empty" id="empty" style="display:none">没有匹配的资源</div>
@@ -110,6 +113,16 @@ function groups(){
     html+='<span class="gchip'+(curG===i?' on':'')+'" data-g="'+i+'">'+esc(GROUPS[i])+'（'+n+'）</span>';
   }
   document.getElementById('groups').innerHTML=html;
+  var NOTE=DATA.notes||[];
+  var gnote=document.getElementById('gnote');
+  if(gnote){
+    if(curG<0){
+      gnote.innerHTML='<b>'+GROUPS.length+' 个板块 · '+ITEMS.length+' 条</b>：从世赛技能到全球学术，官方、免费、可离线优先；点板块收窄范围，或直接搜关键词。';
+    }else{
+      var cnt=ITEMS.filter(function(x){return x.g===curG;}).length;
+      gnote.innerHTML='<b>'+esc(GROUPS[curG])+' · '+cnt+' 条</b>：'+esc(NOTE[curG]||'');
+    }
+  }
   document.querySelectorAll('.gchip').forEach(function(c){
     c.setAttribute('role','button'); c.setAttribute('tabindex','0');
     c.setAttribute('aria-pressed', c.classList.contains('on')?'true':'false');
