@@ -441,5 +441,7 @@ window.SEARCH_IDX=[{"t": "省赛真题全真卷 · 2024 贵州样题①", "u": "
 {"t": "先知社区（阿里云）", "u": "../library.html#先知社区（阿里云）", "g": "资源库·编程·IT·工具", "k": "先知社区（阿里云） 网络安全学习 阿里云安全社区：高质量白帽技术文章，Web 安全进阶为主 社区"},
 {"t": "TryHackMe 交互式攻防", "u": "../library.html#TryHackMe 交互式攻防", "g": "资源库·编程·IT·工具", "k": "TryHackMe 交互式攻防 网络安全学习 浏览器内完成的渗透学习路径：新手友好，房间制闯关，免费房间充足 平台"},
 {"t": "CryptoHack 密码学闯关", "u": "../library.html#CryptoHack 密码学闯关", "g": "资源库·编程·IT·工具", "k": "CryptoHack 密码学闯关 网络安全学习 把现代密码学讲成闯关游戏：对称 / 非对称 / 椭圆曲线逐级解锁 平台"},
-{"t": "OWASP 官方", "u": "../library.html#OWASP 官方", "g": "资源库·编程·IT·工具", "k": "OWASP 官方 网络安全学习 开放 Web 安全项目：Top 10 榜单、测试指南、Cheatsheet 系列是 Web 安全的圣经 文档"}
+{"t": "OWASP 官方", "u": "../library.html#OWASP 官方", "g": "资源库·编程·IT·工具", "k": "OWASP 官方 网络安全学习 开放 Web 安全项目：Top 10 榜单、测试指南、Cheatsheet 系列是 Web 安全的圣经 文档"},
+{"t": "台北故宫博物院 Open Data", "u": "../library.html#台北故宫博物院 Open Data", "g": "资源库·数字人文·视听", "k": "台北故宫博物院 Open Data 开放馆藏 故宫典藏开放数据平台：7 万+ 高清书画器物图档免费下载，古典艺术与设计的顶级素材库 平台"},
+{"t": "好和弦 NiceChord", "u": "../library.html#好和弦 NiceChord", "g": "资源库·语言·艺术·生活", "k": "好和弦 NiceChord 音乐理论 中文音乐理论第一站：乐理 / 编曲 / 键盘即兴系统课程，官网上百篇免费图文 课程"}
 ];
