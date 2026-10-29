@@ -74,12 +74,12 @@ footer{background:#27344e;color:#aab4c8;margin-top:26px}
 <div class="main">
   <div class="panel">
     <div class="p-hd">
-      <h2>精选资源 <span id="cnt" style="font-size:13px;color:#8a94a6;font-weight:400"></span></h2>
-      <div class="searchbar"><input id="q" placeholder="搜索名称 / 简介 / 子类…" autocomplete="off"></div>
+      <h2>精选资源 <span id="cnt" role="status" aria-live="polite" style="font-size:13px;color:#8a94a6;font-weight:400"></span></h2>
+      <div class="searchbar"><input id="q" placeholder="搜索名称 / 简介 / 子类…" autocomplete="off" aria-label="搜索资源"></div><button class="btn" id="rand" title="随机看一条" style="margin-left:8px;border-color:var(--line);color:var(--blue)">随机</button>
     </div>
     <div class="groups" id="groups"></div>
     <div class="subgroups" id="subgroups"></div>
-    <div class="list" id="list"></div>
+    <div class="list" id="list" aria-live="polite"></div>
     <div class="empty" id="empty" style="display:none">没有匹配的资源</div>
     <div class="legend" id="legend">
       标注说明：<b>免费程度</b>「完全免费」为主，另有「免费(注册) / 部分免费 / 需购书 / 免费额度 / 大部分免费」等细化说明；<b>可离线</b>「在线 / 可下载 / App缓存 / 本地部署」为主，另有「部分可下载 / 不可离线」；
@@ -110,7 +110,12 @@ function groups(){
     html+='<span class="gchip'+(curG===i?' on':'')+'" data-g="'+i+'">'+esc(GROUPS[i])+'（'+n+'）</span>';
   }
   document.getElementById('groups').innerHTML=html;
-  document.querySelectorAll('.gchip').forEach(function(c){c.onclick=function(){curG=+c.dataset.g;curS='';groups();subs();render();};});
+  document.querySelectorAll('.gchip').forEach(function(c){
+    c.setAttribute('role','button'); c.setAttribute('tabindex','0');
+    c.setAttribute('aria-pressed', c.classList.contains('on')?'true':'false');
+    c.onclick=function(){curG=+c.dataset.g;curS='';groups();subs();render();};
+    c.onkeydown=function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();c.onclick();}};
+  });
 }
 function subs(){
   var box=document.getElementById('subgroups'), seen={}, order=[];
@@ -123,7 +128,12 @@ function subs(){
     html+='<span class="schip'+(curS===s?' on':'')+'" data-s="'+esc(s)+'">'+esc(s)+'（'+n+'）</span>';
   });
   box.innerHTML=html;
-  document.querySelectorAll('.schip').forEach(function(c){c.onclick=function(){curS=c.dataset.s;subs();render();};});
+  document.querySelectorAll('.schip').forEach(function(c){
+    c.setAttribute('role','button'); c.setAttribute('tabindex','0');
+    c.setAttribute('aria-pressed', c.classList.contains('on')?'true':'false');
+    c.onclick=function(){curS=c.dataset.s;subs();render();};
+    c.onkeydown=function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();c.onclick();}};
+  });
 }
 function render(){
   var hits=ITEMS.filter(function(x){
@@ -143,6 +153,11 @@ function render(){
   }).join('');
 }
 var qEl=document.getElementById('q');
+document.getElementById('rand').addEventListener('click',function(){
+  var x=ITEMS[Math.floor(Math.random()*ITEMS.length)];
+  window.open(x.u,'_blank','noopener');
+  qEl.value='';curG=-1;curS='';q='';groups();subs();render();
+});
 qEl.addEventListener('input',function(){q=this.value.trim().toLowerCase();render();});
 /* 深链：library.html#g=N 定位板块；library.html#关键词 直接检索 */
 (function(){
