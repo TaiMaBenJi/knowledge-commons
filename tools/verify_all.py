@@ -717,6 +717,43 @@ def chk_counts(_fast: bool):
     return "数字一致性", not bad, msg
 
 
+
+def chk_library(_fast: bool):
+    """资源总库数据完整性：字段齐全 / 板块下标合法 / 检索索引全覆盖"""
+    import json as _json, collections as _c
+    lib = ROOT / "app" / "library-data.js"
+    if not lib.exists():
+        return "资源总库完整性", True, "跳过：无库文件"
+    s = lib.read_text(encoding="utf-8")
+    try:
+        g = re.search(r"groups: \[(.*?)\]", s, re.S).group(1)
+        groups = re.findall(r"'([^']*)'", g)
+        items = [dict(t=m.group(1), u=m.group(2), d=m.group(3), g=int(m.group(4)),
+                      s=m.group(5), ty=m.group(6), f=m.group(7), o=m.group(8))
+                 for m in re.finditer(r"\{t:'(.*?)',u:'(.*?)',d:'(.*?)',g:(\d+),s:'(.*?)',ty:'(.*?)',f:'(.*?)',o:'(.*?)'", s)]
+    except Exception as e:
+        return "资源总库完整性", False, "解析失败：%s" % e
+    bad = []
+    for x in items:
+        if not (x["t"] and x["u"].startswith("http") and x["d"] and x["s"] and x["ty"] and x["f"] and x["o"]):
+            bad.append("字段缺失: " + x["t"][:30])
+        if x["g"] < 0 or x["g"] >= len(groups):
+            bad.append("板块越界: " + x["t"][:30])
+    idxp = ROOT / "learn" / "searchidx.js"
+    if idxp.exists():
+        is_ = idxp.read_text(encoding="utf-8")
+        try:
+            arr = _json.loads(is_[is_.index("["):is_.rindex("]") + 1])
+            have = {x["t"] for x in arr}
+            miss = [x["t"] for x in items if x["t"] not in have]
+            if miss:
+                bad.append("检索索引缺 %d 条（例：%s）" % (len(miss), miss[0][:30]))
+        except Exception:
+            pass
+    if not bad:
+        return "资源总库完整性", True, "条目 %d · 板块 %d · 全量覆盖" % (len(items), len(groups))
+    return "资源总库完整性", False, "；".join(bad[:5])
+
 def chk_sw_version(_fast: bool):
     """sw.js 缓存版本与内容是否同步（内容变了要升 VERSION）"""
     sw = (ROOT / "sw.js").read_text(encoding="utf-8")
@@ -797,6 +834,7 @@ CHECKS = [
     ("manifest", chk_manifest),
     ("additions", chk_additions),
     ("counts", chk_counts),
+    ("library", chk_library),
     ("swver", chk_sw_version),
     ("deeplink", chk_deeplinks),
 ]

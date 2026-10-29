@@ -10,7 +10,7 @@
 | `index.html` | 门户首页：全部板块入口 |
 | `archive.html` | 总目：站内全库一页直达 |
 | `search.html` | 全站检索（索引在 `searchidx.js`，离线可用） |
-| `paths.html` | 四条「从零到精通」学习路线（算法竞赛 / 公务员 / 专升本 / 高考） |
+| `paths.html` | 七条「从零到精通」学习路线（云计算 / 算法竞赛 / 公务员 / 专升本 / 高考 / 全球学术 / 免费认证） |
 | `courses.html` | 课程总览 |
 | `skills.html` | 世界技能大赛总览（50 赛项三件套直达） |
 | `contest.html` | 竞赛题库（Codeforces / AtCoder / ICPC / 蓝桥杯 / 天梯赛） |
