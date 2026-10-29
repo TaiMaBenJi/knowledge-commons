@@ -6,8 +6,8 @@
    收录原则：免费、官方、无版权风险优先；中国大陆可直连优先。
    ============================================================ */
 window.LIB_DATA = {
-  gen: '2026-10-26',
-  groups: ['世赛·职业技能', '算法竞赛', '升学考试', '公务员·编制', '红色经典·人文古籍', '开放课程·电子书', '编程·IT·工具', '职业考证·语言', '数字人文·视听', '社会主义实践研究', '电商创业实战', '理工·基础学科', '语言·艺术·生活', '开发者免费服务', '健康·医学·心理', '农业·乡村·新农人', '财经·职场·就业'],
+  gen: '2026-10-29',
+  groups: ['世赛·职业技能', '算法竞赛', '升学考试', '公务员·编制', '红色经典·人文古籍', '开放课程·电子书', '编程·IT·工具', '职业考证·语言', '数字人文·视听', '社会主义实践研究', '电商创业实战', '理工·基础学科', '语言·艺术·生活', '开发者免费服务', '健康·医学·心理', '农业·乡村·新农人', '财经·职场·就业', 'AI·大模型·前沿'],
   items: [
 
 
@@ -1187,5 +1187,35 @@ window.LIB_DATA = {
   {t:'ExcelHome',u:'https://www.excelhome.net/',d:'全球极具影响力的Excel门户：视频教程、图文教程与论坛答疑，Office技能进阶首选中文社区',g:6,s:'学习平台',ty:'教程站',f:'完全免费',o:'在线'},
   {t:'医脉通',u:'https://www.medlive.cn/',d:'临床医生专业平台：指南库、医学资讯与药物查询，个人注册免费（部分内容限专业用户）',g:7,s:'医学·卫生',ty:'平台',f:'免费(注册)',o:'在线'},
   {t:'国家消防救援局',u:'https://www.119.gov.cn/',d:'国家消防救援局官网：消防科普、全民消防专栏与警示教育，家庭防火必读',g:14,s:'急救·安全',ty:'官网',f:'完全免费',o:'在线'},
+  {t:'吴恩达 DeepLearning.AI 课程库',u:'https://www.deeplearning.ai/courses/',d:'深度学习与生成式 AI 课始祖：Deep Learning Specialization、短课程系列（Prompt Engineering、RAG、Agent）常年免费更新',g:17,s:'名校公开课',ty:'课程',f:'部分免费',o:'在线',w:1},
+  {t:'李宏毅机器学习课程（台大·中文）',u:'https://speech.ee.ntu.edu.tw/~hylee/index.php',d:'中文世界最好的 ML/LLM 课程：2021 机器学习、生成式 AI 导论 2024，全部免费开放讲义与录像',g:17,s:'名校公开课',ty:'课程',f:'完全免费',o:'可下载',w:1},
+  {t:'Stanford CS336 从零构建语言模型',u:'https://stanford-cs336.github.io/spring2025/',d:'斯坦福 2025 新课：手写 Transformer、tokenizer、训练与推理全流程，讲义与作业全部公开',g:17,s:'名校公开课',ty:'课程',f:'完全免费',o:'可下载',w:1},
+  {t:'Stanford CS229 机器学习讲义',u:'https://cs229.stanford.edu/',d:'吴恩达经典机器学习课程：完整讲义、笔记与习题，打理论地基首选',g:17,s:'名校公开课',ty:'课程',f:'完全免费',o:'可下载',w:1},
+  {t:'Karpathy：Neural Networks Zero to Hero',u:'https://karpathy.ai/zero-to-hero.html',d:'OpenAI 创始成员 Andrej Karpathy：从 micrograd 到 GPT 手把手实现，视频 + 代码全开放',g:17,s:'名校公开课',ty:'课程',f:'完全免费',o:'可下载',w:1},
+  {t:'3Blue1Brown 神经网络系列',u:'https://www.3blue1brown.com/topics/neural-networks',d:'可视化讲解神经网络 / 梯度下降 / Transformer 的封神之作，直觉建立第一站',g:17,s:'名校公开课',ty:'视频',f:'完全免费',o:'可下载',w:1},
+  {t:'《动手学深度学习》李沐（中文在线书）',u:'https://zh.d2l.ai/',d:'PyTorch 版免费在线教材：理论 + 可运行代码 + B 站配套视频，中文深度学习第一书',g:17,s:'中文免费教材',ty:'书',f:'完全免费',o:'可下载'},
+  {t:'《大规模语言模型：从理论到实践》复旦',u:'https://intro-llm.github.io/',d:'复旦 NLP 团队开源教材：预训练 / 微调 / 对齐 / 评测全链路，随书代码开源，PDF 免费下载',g:17,s:'中文免费教材',ty:'书',f:'完全免费',o:'可下载'},
+  {t:'Datawhale 开源课程家族',u:'https://github.com/datawhalechina',d:'中文开源学习组织：prompt-engineering-for-developers、happy-llm、llm-cookbook、so-large-lm 等全套中文教程',g:17,s:'中文免费教材',ty:'课程',f:'完全免费',o:'可下载'},
+  {t:'微软 Generative AI for Beginners（中文）',u:'https://github.com/microsoft/generative-ai-for-beginners',d:'微软官方 18 课生成式 AI 入门：提示、RAG、Agent、微调，中文翻译齐全，代码即学即用',g:17,s:'中文免费教材',ty:'课程',f:'完全免费',o:'可下载'},
+  {t:'微软 AI For Beginners（中文）',u:'https://github.com/microsoft/AI-For-Beginners',d:'微软 12 周人工智能通识课程：神经网络 / CV / NLP / 伦理，带实验与测验，中文可用',g:17,s:'中文免费教材',ty:'课程',f:'完全免费',o:'可下载'},
+  {t:'魔搭 ModelScope（阿里）',u:'https://modelscope.cn/home',d:'国内最大开源模型社区：数千个模型免费下载与在线体验，Notebook 白嫖 GPU 算力',g:17,s:'实战平台与社区',ty:'平台',f:'完全免费',o:'在线'},
+  {t:'百度飞桨 AI Studio',u:'https://aistudio.baidu.com/',d:'飞桨官方学习与实训社区：免费算力卡、体系化 AI 课程、大模型开发套件',g:17,s:'实战平台与社区',ty:'平台',f:'完全免费',o:'在线'},
+  {t:'Kaggle Learn 微课程',u:'https://www.kaggle.com/learn',d:'机器学习 / 深度学习 / Pandas 短课：每门几小时上手，配套免费 GPU 竞赛环境',g:17,s:'实战平台与社区',ty:'课程',f:'完全免费',o:'在线',w:1},
+  {t:'Hugging Face 官方课程',u:'https://huggingface.co/learn',d:'LLM Course（NLP 全流程）、Agents Course、Diffusion Course，做 AI 应用的事实标准学习路径',g:17,s:'实战平台与社区',ty:'课程',f:'完全免费',o:'在线',w:1},
+  {t:'Hugging Face 国内镜像',u:'https://hf-mirror.com/',d:'国内直连的 HF 镜像：模型 / 数据集下载加速，配置一条环境变量即可替代官方源',g:17,s:'实战平台与社区',ty:'工具',f:'完全免费',o:'可下载'},
+  {t:'智源社区（BAAI）',u:'https://hub.baai.ac.cn/',d:'智源研究院社区：论文导读、开源项目、活动直播，中文 AI 前沿一线观察',g:17,s:'实战平台与社区',ty:'社区',f:'完全免费',o:'在线'},
+  {t:'DeepSeek API 文档（中文）',u:'https://api-docs.deepseek.com/zh-cn/',d:'DeepSeek 开放平台中文文档：以极低价格调用旗舰开源模型，含 reasoning 模型最佳实践',g:17,s:'开源模型与部署',ty:'文档',f:'部分免费',o:'在线'},
+  {t:'Qwen 通义千问开源文档',u:'https://qwen.readthedocs.io/zh-cn/latest/',d:'Qwen 系列开源模型官方中文文档：部署、微调、量化全流程，Apache 2.0 权重自由使用',g:17,s:'开源模型与部署',ty:'文档',f:'完全免费',o:'在线'},
+  {t:'OpenBMB 清津开放实验室',u:'https://www.openbmb.cn/',d:'清华系开源社区：MiniCPM 端侧大模型、AgentBench 等项目，把大模型跑进你的手机',g:17,s:'开源模型与部署',ty:'社区',f:'完全免费',o:'可下载'},
+  {t:'Ollama 本地大模型运行器',u:'https://ollama.com/',d:'一条命令在本机跑开源大模型：llama / qwen / deepseek 全支持，Windows / Mac / Linux 全平台',g:17,s:'开源模型与部署',ty:'工具',f:'完全免费',o:'可下载',w:1},
+  {t:'vLLM 高性能推理引擎',u:'https://docs.vllm.ai/en/latest/',d:'生产级 LLM 推理引擎：PagedAttention 带来数倍吞吐，自托管服务的事实标准',g:17,s:'开源模型与部署',ty:'工具',f:'完全免费',o:'在线',w:1},
+  {t:'Prompt Engineering Guide（中文）',u:'https://www.promptingguide.ai/zh',d:'提示工程权威开源指南：技巧、论文、实战案例全收录，中文版同步更新',g:17,s:'提示工程与应用',ty:'文档',f:'完全免费',o:'在线'},
+  {t:'OpenAI Cookbook',u:'https://cookbook.openai.com/',d:'OpenAI 官方示例库：embedding、RAG、function calling、evals 的可运行配方，思路通用于国产模型',g:17,s:'提示工程与应用',ty:'文档',f:'完全免费',o:'在线',w:1},
+  {t:'LLM Course（Maxime Labonne）',u:'https://github.com/mlabonne/llm-course',d:'GitHub 60k+ 星的 LLM 工程师路线：LLM 基础 / 微调 / 对齐 / 量化 / 部署九大阶段全地图',g:17,s:'提示工程与应用',ty:'课程',f:'完全免费',o:'可下载',w:1},
+  {t:'AI Engineer 路线图',u:'https://roadmap.sh/ai-engineer',d:'AI 工程师技能树：从数学基础到 LLM 应用与部署的可视化学习路径，逐年更新',g:17,s:'提示工程与应用',ty:'文档',f:'完全免费',o:'在线'},
+  {t:'机器之心',u:'https://www.jiqizhixin.com/',d:'中文 AI 垂直媒体首选：论文解读、行业动态、教程专栏，每天保持前沿嗅觉',g:17,s:'资讯与前沿',ty:'媒体',f:'完全免费',o:'在线'},
+  {t:'量子位',u:'https://www.qbitai.com/',d:'中文 AI 资讯第二极：大模型发布追踪、产业报道、趣味科普',g:17,s:'资讯与前沿',ty:'媒体',f:'完全免费',o:'在线'},
+  {t:'Papers with Code',u:'https://paperswithcode.com/',d:'论文 + 代码 + 榜单三合一：追 SOTA 必备，按任务浏览最新模型实现',g:17,s:'资讯与前沿',ty:'社区',f:'完全免费',o:'在线',w:1},
+  {t:'State of AI Report',u:'https://www.stateof.ai/',d:'年度 AI 全景报告：研究 / 产业 / 政策 / 安全，每年十月发布，免费 PDF 与网页版',g:17,s:'资讯与前沿',ty:'报告',f:'完全免费',o:'可下载',w:1},
   ]
 };
