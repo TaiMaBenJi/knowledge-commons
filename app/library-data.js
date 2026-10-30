@@ -6,7 +6,7 @@
    收录原则：免费、官方、无版权风险优先；中国大陆可直连优先。
    ============================================================ */
 window.LIB_DATA = {
-  gen: '2026-10-29-r5',
+  gen: '2026-10-29-r6',
   groups: ['世赛·职业技能', '算法竞赛', '升学考试', '公务员·编制', '红色经典·人文古籍', '开放课程·电子书', '编程·IT·工具', '职业考证·语言', '数字人文·视听', '社会主义实践研究', '电商创业实战', '理工·基础学科', '语言·艺术·生活', '开发者免费服务', '健康·医学·心理', '农业·乡村·新农人', '财经·职场·就业', 'AI·大模型·前沿'],
   items: [
 
@@ -1241,5 +1241,10 @@ window.LIB_DATA = {
   {t:'OWASP 官方',u:'https://owasp.org/',d:'开放 Web 安全项目：Top 10 榜单、测试指南、Cheatsheet 系列是 Web 安全的圣经',g:6,s:'网络安全学习',ty:'文档',f:'完全免费',o:'在线',w:1},
   {t:'台北故宫博物院 Open Data',u:'https://theme.npm.edu.tw/opendata',d:'故宫典藏开放数据平台：7 万+ 高清书画器物图档免费下载，古典艺术与设计的顶级素材库',g:8,s:'开放馆藏',ty:'平台',f:'完全免费',o:'可下载',w:1},
   {t:'好和弦 NiceChord',u:'https://nicechord.com/',d:'中文音乐理论第一站：乐理 / 编曲 / 键盘即兴系统课程，官网上百篇免费图文',g:12,s:'音乐理论',ty:'课程',f:'部分免费',o:'在线'},
+  {t:'Datawhale Agent-Learning-Hub',u:'https://github.com/datawhalechina/Agent-Learning-Hub',d:'中文 AI Agent 系统化学习路线：长期记忆、技能集、工具调用与多智能体实战，Datawhale 2026 新开源',g:17,s:'Agent 与应用开发',ty:'课程',f:'完全免费',o:'可下载'},
+  {t:'微软 AI Agents for Beginners',u:'https://github.com/microsoft/ai-agents-for-beginners',d:'微软官方 Agent 入门课（2 万+ 星）：Agentic 设计模式、工具使用、多 Agent 协作，中文翻译齐全',g:17,s:'Agent 与应用开发',ty:'课程',f:'完全免费',o:'可下载'},
+  {t:'Google ADK Agent 开发套件',u:'https://google.github.io/adk-docs/',d:'Google 开源 Agent Development Kit：Apache 2.0，模型无关，与 Gemini / Vertex AI 深度集成',g:17,s:'Agent 与应用开发',ty:'文档',f:'完全免费',o:'在线',w:1},
+  {t:'OpenAI Agents SDK',u:'https://openai.github.io/openai-agents-python/',d:'OpenAI 官方 Agent 框架（MIT）：Handoffs / Guardrails / Sessions 三大原语，生产级多 Agent 工作流',g:17,s:'Agent 与应用开发',ty:'文档',f:'完全免费',o:'在线',w:1},
+  {t:'Google × Kaggle 五日 Agent 实战营',u:'https://www.kaggle.com/learn-guide/5-day-agents',d:'五天硬核 Agent 集训：白皮书 + 视频 + 实操 Codelab，LangChain / ADK 双轨',g:17,s:'Agent 与应用开发',ty:'课程',f:'完全免费',o:'在线',w:1},
   ]
 };

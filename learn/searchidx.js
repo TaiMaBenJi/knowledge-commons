@@ -444,4 +444,10 @@ window.SEARCH_IDX=[{"t": "省赛真题全真卷 · 2024 贵州样题①", "u": "
 {"t": "OWASP 官方", "u": "../library.html#OWASP 官方", "g": "资源库·编程·IT·工具", "k": "OWASP 官方 网络安全学习 开放 Web 安全项目：Top 10 榜单、测试指南、Cheatsheet 系列是 Web 安全的圣经 文档"},
 {"t": "台北故宫博物院 Open Data", "u": "../library.html#台北故宫博物院 Open Data", "g": "资源库·数字人文·视听", "k": "台北故宫博物院 Open Data 开放馆藏 故宫典藏开放数据平台：7 万+ 高清书画器物图档免费下载，古典艺术与设计的顶级素材库 平台"},
 {"t": "好和弦 NiceChord", "u": "../library.html#好和弦 NiceChord", "g": "资源库·语言·艺术·生活", "k": "好和弦 NiceChord 音乐理论 中文音乐理论第一站：乐理 / 编曲 / 键盘即兴系统课程，官网上百篇免费图文 课程"}
+,
+{"t": "Datawhale Agent-Learning-Hub", "u": "../library.html#Datawhale Agent-Learning-Hub", "g": "资源库·AI·大模型·前沿", "k": "Datawhale Agent-Learning-Hub Agent 与应用开发 中文 AI Agent 系统化学习路线：长期记忆、技能集、工具调用与多智能体实战，Datawhale 2026 新开源 课程"},
+{"t": "微软 AI Agents for Beginners", "u": "../library.html#微软 AI Agents for Beginners", "g": "资源库·AI·大模型·前沿", "k": "微软 AI Agents for Beginners Agent 与应用开发 微软官方 Agent 入门课（2 万+ 星）：Agentic 设计模式、工具使用、多 Agent 协作，中文翻译齐全 课程"},
+{"t": "Google ADK Agent 开发套件", "u": "../library.html#Google ADK Agent 开发套件", "g": "资源库·AI·大模型·前沿", "k": "Google ADK Agent 开发套件 Agent 与应用开发 Google 开源 Agent Development Kit：Apache 2.0，模型无关，与 Gemini / Vertex AI 深度集成 文档"},
+{"t": "OpenAI Agents SDK", "u": "../library.html#OpenAI Agents SDK", "g": "资源库·AI·大模型·前沿", "k": "OpenAI Agents SDK Agent 与应用开发 OpenAI 官方 Agent 框架（MIT）：Handoffs / Guardrails / Sessions 三大原语，生产级多 Agent 工作流 文档"},
+{"t": "Google × Kaggle 五日 Agent 实战营", "u": "../library.html#Google × Kaggle 五日 Agent 实战营", "g": "资源库·AI·大模型·前沿", "k": "Google × Kaggle 五日 Agent 实战营 Agent 与应用开发 五天硬核 Agent 集训：白皮书 + 视频 + 实操 Codelab，LangChain / ADK 双轨 课程"}
 ];
