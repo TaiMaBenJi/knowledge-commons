@@ -465,5 +465,9 @@ window.SEARCH_IDX=[{"t": "省赛真题全真卷 · 2024 贵州样题①", "u": "
 {"t": "站酷 ZCOOL", "u": "../library.html#站酷 ZCOOL", "g": "资源库·语言·艺术·生活", "k": "站酷 ZCOOL 设计创意 中文设计师社区一哥：UI / 插画 / 海量作品集，设计学习与灵感库 社区"},
 {"t": "Behance 设计作品集", "u": "../library.html#Behance 设计作品集", "g": "资源库·语言·艺术·生活", "k": "Behance 设计作品集 设计创意 Adobe 官方设计社区：全球顶级视觉 / UI / 插画作品，打开审美天花板 社区"},
 {"t": "Dribbble 设计灵感", "u": "../library.html#Dribbble 设计灵感", "g": "资源库·语言·艺术·生活", "k": "Dribbble 设计灵感 设计创意 全球设计师作品快照社区：UI 动效 / 图标 / 品牌视觉的灵感瀑布流 社区"},
-{"t": "少数派 sspai", "u": "../library.html#少数派 sspai", "g": "资源库·语言·艺术·生活", "k": "少数派 sspai 数字生活 数字生活效率第一站：软件测评 / 效率工作流 / 数码指南，把工具用到位 媒体"}
+{"t": "少数派 sspai", "u": "../library.html#少数派 sspai", "g": "资源库·语言·艺术·生活", "k": "少数派 sspai 数字生活 数字生活效率第一站：软件测评 / 效率工作流 / 数码指南，把工具用到位 媒体"},
+{"t": "Go by Example（中文）", "u": "../library.html#Go by Example（中文）", "g": "资源库·编程·IT·工具", "k": "Go by Example（中文） 中文教程 Go 语言官方示例教程中文版：几十个可运行片段覆盖并发 / 通道 / 接口核心 教程"},
+{"t": "TypeScript Handbook（中文）", "u": "../library.html#TypeScript Handbook（中文）", "g": "资源库·编程·IT·工具", "k": "TypeScript Handbook（中文） 中文教程 TypeScript 官方手册中文版：从基础类型到高级泛型的系统路径 文档"},
+{"t": "Connected Papers 论文图谱", "u": "../library.html#Connected Papers 论文图谱", "g": "资源库·理工·基础学科", "k": "Connected Papers 论文图谱 学术文献 输入一篇论文生成相关领域可视化图谱：快速摸清研究方向与经典文献 工具"},
+{"t": "小宇宙播客", "u": "../library.html#小宇宙播客", "g": "资源库·语言·艺术·生活", "k": "小宇宙播客 数字生活 中文播客平台头牌：技术 / 科技 / 人文 / 学习方法类节目，通勤时间的信息升级 平台"}
 ];
