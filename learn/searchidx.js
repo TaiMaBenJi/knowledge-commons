@@ -469,5 +469,8 @@ window.SEARCH_IDX=[{"t": "省赛真题全真卷 · 2024 贵州样题①", "u": "
 {"t": "Go by Example（中文）", "u": "../library.html#Go by Example（中文）", "g": "资源库·编程·IT·工具", "k": "Go by Example（中文） 中文教程 Go 语言官方示例教程中文版：几十个可运行片段覆盖并发 / 通道 / 接口核心 教程"},
 {"t": "TypeScript Handbook（中文）", "u": "../library.html#TypeScript Handbook（中文）", "g": "资源库·编程·IT·工具", "k": "TypeScript Handbook（中文） 中文教程 TypeScript 官方手册中文版：从基础类型到高级泛型的系统路径 文档"},
 {"t": "Connected Papers 论文图谱", "u": "../library.html#Connected Papers 论文图谱", "g": "资源库·理工·基础学科", "k": "Connected Papers 论文图谱 学术文献 输入一篇论文生成相关领域可视化图谱：快速摸清研究方向与经典文献 工具"},
-{"t": "小宇宙播客", "u": "../library.html#小宇宙播客", "g": "资源库·语言·艺术·生活", "k": "小宇宙播客 数字生活 中文播客平台头牌：技术 / 科技 / 人文 / 学习方法类节目，通勤时间的信息升级 平台"}
+{"t": "小宇宙播客", "u": "../library.html#小宇宙播客", "g": "资源库·语言·艺术·生活", "k": "小宇宙播客 数字生活 中文播客平台头牌：技术 / 科技 / 人文 / 学习方法类节目，通勤时间的信息升级 平台"},
+{"t": "MySQL 官方参考手册", "u": "../library.html#MySQL 官方参考手册", "g": "资源库·编程·IT·工具", "k": "MySQL 官方参考手册 官方文档 全球最流行开源数据库的官方文档：安装 / SQL 语法 / 备份复制 / 性能优化全卷 文档"},
+{"t": "Go 官方文档（中文可选）", "u": "../library.html#Go 官方文档（中文可选）", "g": "资源库·编程·IT·工具", "k": "Go 官方文档（中文可选） 官方文档 Go 语言官方文档中心：官方教程 / 标准库 / Effective Go，云原生时代的必修语言 文档"},
+{"t": "Java 官方学习中心 dev.java", "u": "../library.html#Java 官方学习中心 dev.java", "g": "资源库·编程·IT·工具", "k": "Java 官方学习中心 dev.java 官方文档 Oracle 官方 Java 学习站：从语法基础到 JVM 深入的官方路径，替代旧版 docs.oracle 散页 文档"}
 ];
