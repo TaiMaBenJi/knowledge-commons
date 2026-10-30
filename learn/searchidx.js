@@ -449,5 +449,14 @@ window.SEARCH_IDX=[{"t": "省赛真题全真卷 · 2024 贵州样题①", "u": "
 {"t": "微软 AI Agents for Beginners", "u": "../library.html#微软 AI Agents for Beginners", "g": "资源库·AI·大模型·前沿", "k": "微软 AI Agents for Beginners Agent 与应用开发 微软官方 Agent 入门课（2 万+ 星）：Agentic 设计模式、工具使用、多 Agent 协作，中文翻译齐全 课程"},
 {"t": "Google ADK Agent 开发套件", "u": "../library.html#Google ADK Agent 开发套件", "g": "资源库·AI·大模型·前沿", "k": "Google ADK Agent 开发套件 Agent 与应用开发 Google 开源 Agent Development Kit：Apache 2.0，模型无关，与 Gemini / Vertex AI 深度集成 文档"},
 {"t": "OpenAI Agents SDK", "u": "../library.html#OpenAI Agents SDK", "g": "资源库·AI·大模型·前沿", "k": "OpenAI Agents SDK Agent 与应用开发 OpenAI 官方 Agent 框架（MIT）：Handoffs / Guardrails / Sessions 三大原语，生产级多 Agent 工作流 文档"},
-{"t": "Google × Kaggle 五日 Agent 实战营", "u": "../library.html#Google × Kaggle 五日 Agent 实战营", "g": "资源库·AI·大模型·前沿", "k": "Google × Kaggle 五日 Agent 实战营 Agent 与应用开发 五天硬核 Agent 集训：白皮书 + 视频 + 实操 Codelab，LangChain / ADK 双轨 课程"}
+{"t": "Google × Kaggle 五日 Agent 实战营", "u": "../library.html#Google × Kaggle 五日 Agent 实战营", "g": "资源库·AI·大模型·前沿", "k": "Google × Kaggle 五日 Agent 实战营 Agent 与应用开发 五天硬核 Agent 集训：白皮书 + 视频 + 实操 Codelab，LangChain / ADK 双轨 课程"},
+{"t": "哈佛 CS50 计算机导论", "u": "../library.html#哈佛 CS50 计算机导论", "g": "资源库·开放课程·电子书", "k": "哈佛 CS50 计算机导论 名校公开课 全球最著名的计算机科学入门课：C → Python → SQL → Web 全栈，作业自动评分，B 站有全套中文字幕 课程"},
+{"t": "伯克利 CS61A 结构化编程", "u": "../library.html#伯克利 CS61A 结构化编程", "g": "资源库·开放课程·电子书", "k": "伯克利 CS61A 结构化编程 名校公开课 UC Berkeley 旗舰入门课：Python + Scheme + SQL，讲义录像作业全公开，计算机思维训练范本 课程"},
+{"t": "OSTEP 操作系统导论（三易）", "u": "../library.html#OSTEP 操作系统导论（三易）", "g": "资源库·开放课程·电子书", "k": "OSTEP 操作系统导论（三易） 名校公开课 威斯康星大学经典操作系统教材：官方免费在线全文，中文版由社区翻译出版，内核学习首选 书"},
+{"t": "TeachYourselfCS 自学计算机指南", "u": "../library.html#TeachYourselfCS 自学计算机指南", "g": "资源库·开放课程·电子书", "k": "TeachYourselfCS 自学计算机指南 学习路线 公认的 CS 自学路线图：九大科目各推荐一本书一门课，附为何这样选的论证 文档"},
+{"t": "廖雪峰编程教程（中文）", "u": "../library.html#廖雪峰编程教程（中文）", "g": "资源库·编程·IT·工具", "k": "廖雪峰编程教程（中文） 中文教程 中文互联网最经典的编程入门教程：Python / Java / Git / SQL / JS 五大体系，零基础友好 教程"},
+{"t": "慕课网 IMOOC", "u": "../library.html#慕课网 IMOOC", "g": "资源库·编程·IT·工具", "k": "慕课网 IMOOC IT 学习平台 IT 技能免费实战课大本营：前端 / 后端 / 移动端体系课程，部分实战课付费 平台"},
+{"t": "掘金社区", "u": "../library.html#掘金社区", "g": "资源库·编程·IT·工具", "k": "掘金社区 技术社区 中文技术内容质量高地：前端 / AI / 后端深度文章与电子书，开发者每日社区 社区"},
+{"t": "51CTO 技术圈", "u": "../library.html#51CTO 技术圈", "g": "资源库·编程·IT·工具", "k": "51CTO 技术圈 IT 学习平台 运维 / 网络安全 / 信创方向的老牌技术门户：文章 + 题库 + 认证路径 平台"},
+{"t": "InfoQ 中文站", "u": "../library.html#InfoQ 中文站", "g": "资源库·编程·IT·工具", "k": "InfoQ 中文站 技术社区 面向一线架构师与工程师的技术媒体：大厂实践 / 架构演进 / AI 工程化深度内容 媒体"}
 ];

@@ -6,7 +6,7 @@
    收录原则：免费、官方、无版权风险优先；中国大陆可直连优先。
    ============================================================ */
 window.LIB_DATA = {
-  gen: '2026-10-29-r6',
+  gen: '2026-10-29-r7',
   groups: ['世赛·职业技能', '算法竞赛', '升学考试', '公务员·编制', '红色经典·人文古籍', '开放课程·电子书', '编程·IT·工具', '职业考证·语言', '数字人文·视听', '社会主义实践研究', '电商创业实战', '理工·基础学科', '语言·艺术·生活', '开发者免费服务', '健康·医学·心理', '农业·乡村·新农人', '财经·职场·就业', 'AI·大模型·前沿'],
   items: [
 
@@ -1246,5 +1246,14 @@ window.LIB_DATA = {
   {t:'Google ADK Agent 开发套件',u:'https://google.github.io/adk-docs/',d:'Google 开源 Agent Development Kit：Apache 2.0，模型无关，与 Gemini / Vertex AI 深度集成',g:17,s:'Agent 与应用开发',ty:'文档',f:'完全免费',o:'在线',w:1},
   {t:'OpenAI Agents SDK',u:'https://openai.github.io/openai-agents-python/',d:'OpenAI 官方 Agent 框架（MIT）：Handoffs / Guardrails / Sessions 三大原语，生产级多 Agent 工作流',g:17,s:'Agent 与应用开发',ty:'文档',f:'完全免费',o:'在线',w:1},
   {t:'Google × Kaggle 五日 Agent 实战营',u:'https://www.kaggle.com/learn-guide/5-day-agents',d:'五天硬核 Agent 集训：白皮书 + 视频 + 实操 Codelab，LangChain / ADK 双轨',g:17,s:'Agent 与应用开发',ty:'课程',f:'完全免费',o:'在线',w:1},
+  {t:'哈佛 CS50 计算机导论',u:'https://cs50.harvard.edu/x/',d:'全球最著名的计算机科学入门课：C → Python → SQL → Web 全栈，作业自动评分，B 站有全套中文字幕',g:5,s:'名校公开课',ty:'课程',f:'完全免费',o:'可下载',w:1},
+  {t:'伯克利 CS61A 结构化编程',u:'https://cs61a.org/',d:'UC Berkeley 旗舰入门课：Python + Scheme + SQL，讲义录像作业全公开，计算机思维训练范本',g:5,s:'名校公开课',ty:'课程',f:'完全免费',o:'可下载',w:1},
+  {t:'OSTEP 操作系统导论（三易）',u:'https://ostep.org/',d:'威斯康星大学经典操作系统教材：官方免费在线全文，中文版由社区翻译出版，内核学习首选',g:5,s:'名校公开课',ty:'书',f:'完全免费',o:'可下载',w:1},
+  {t:'TeachYourselfCS 自学计算机指南',u:'https://teachyourselfcs.com/',d:'公认的 CS 自学路线图：九大科目各推荐一本书一门课，附为何这样选的论证',g:5,s:'学习路线',ty:'文档',f:'完全免费',o:'在线',w:1},
+  {t:'廖雪峰编程教程（中文）',u:'https://www.liaoxuefeng.com/',d:'中文互联网最经典的编程入门教程：Python / Java / Git / SQL / JS 五大体系，零基础友好',g:6,s:'中文教程',ty:'教程',f:'完全免费',o:'在线'},
+  {t:'慕课网 IMOOC',u:'https://www.imooc.com/',d:'IT 技能免费实战课大本营：前端 / 后端 / 移动端体系课程，部分实战课付费',g:6,s:'IT 学习平台',ty:'平台',f:'部分免费',o:'在线'},
+  {t:'掘金社区',u:'https://juejin.cn/',d:'中文技术内容质量高地：前端 / AI / 后端深度文章与电子书，开发者每日社区',g:6,s:'技术社区',ty:'社区',f:'完全免费',o:'在线'},
+  {t:'51CTO 技术圈',u:'https://www.51cto.com/',d:'运维 / 网络安全 / 信创方向的老牌技术门户：文章 + 题库 + 认证路径',g:6,s:'IT 学习平台',ty:'平台',f:'部分免费',o:'在线'},
+  {t:'InfoQ 中文站',u:'https://www.infoq.cn/',d:'面向一线架构师与工程师的技术媒体：大厂实践 / 架构演进 / AI 工程化深度内容',g:6,s:'技术社区',ty:'媒体',f:'完全免费',o:'在线'},
   ]
 };
