@@ -588,6 +588,16 @@ def chk_md_run(_fast: bool):
                     else:
                         bad.append(f"{rel(p)} 块{i}: 超时且不像长驻示例 —— 疑似死循环")
                     continue
+                except (PermissionError, OSError) as ex:
+                    # Windows 上端口被 Hyper-V / WinNAT 保留，或防火墙拦截 bind：
+                    # 代码本身没问题，只是本机跑不起来。和超时一样归入「环境」。
+                    if "10013" in str(ex) or "access permission" in str(ex).lower() or                        "address in use" in str(ex).lower() or "address already in use" in str(ex).lower():
+                        if INTERACTIVE_RE.search(code):
+                            skip.append(f"{rel(p)} 块{i}: 长驻服务示例（端口被环境占用，跳过）")
+                        else:
+                            bad.append(f"{rel(p)} 块{i}: 端口绑定被环境拒绝 —— {ex}")
+                        continue
+                    raise
             if r.returncode == 0:
                 ok += 1
                 continue
