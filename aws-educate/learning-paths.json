@@ -1,0 +1,128 @@
+{
+  "_captured": "2026-10-15",
+  "_source": "https://www.awseducate.com/student/s/content （登录态下实测抓取）",
+  "_scope": "仅采集【元数据与结构】：学习路径、课程名、描述、级别、时长、分类、进度。不转载课程正文（版权属 Amazon）。",
+
+  "learning_paths": [
+    {
+      "en": "Getting Started",
+      "zh": "入门起步",
+      "count": 5,
+      "desc_en": "New to cloud computing? Start here.",
+      "desc_zh": "刚接触云？从这里开始。",
+      "featured": [
+        {"en": "Introduction to the AWS Management Console", "level": "Foundational", "hours": 1, "cat": "Cloud Computing"},
+        {"en": "Introduction to Cloud 101", "level": "Foundational", "hours": 3, "cat": "Cloud Computing"}
+      ],
+      "for_you": "零基础首选。这条路径的 5 门课就是整个平台的入口。"
+    },
+    {
+      "en": "Artificial Intelligence (AI) and Machine Learning",
+      "zh": "人工智能与机器学习",
+      "count": 5,
+      "desc_en": "Learn AI and machine learning skills to shape the future of technology.",
+      "desc_zh": "学习 AI 与机器学习技能。",
+      "featured": [
+        {"en": "Machine Learning Foundations", "level": "Foundational", "hours": 3, "cat": "Machine Learning & AI"},
+        {"en": "Introduction to Generative Artificial Intelligence", "level": "Intermediate", "hours": 0.75, "cat": "Machine Learning & AI"}
+      ],
+      "for_you": "与云计算赛项弱相关。零基础可跳过。"
+    },
+    {
+      "en": "Core Concepts",
+      "zh": "核心概念",
+      "count": 6,
+      "desc_en": "Dive deeper into specific fundamental cloud skills.",
+      "desc_zh": "深入具体的云基础技能。",
+      "featured": [
+        {"en": "Introduction to Generative Artificial Intelligence", "level": "Intermediate", "hours": 0.75, "cat": "Machine Learning & AI"},
+        {"en": "Cloud Support Associate Day in the Life", "level": "Foundational", "hours": 0.5, "cat": "Cloud Computing"}
+      ],
+      "for_you": "零基础先过「入门起步」，再进这里。"
+    },
+    {
+      "en": "Twitch Series on-demand",
+      "zh": "Twitch 系列点播",
+      "count": 3,
+      "desc_en": "Dive into learning with AWS expert instructors in this on-demand series.",
+      "desc_zh": "随 AWS 专家导师点播学习。",
+      "featured": [
+        {"en": "Twitch Episode 1: Get Confident in... Cloud Basics", "level": "Foundational", "hours": 1, "cat": "Cloud Computing"},
+        {"en": "Twitch Episode 2: Get Confident in... Storage", "level": "Foundational", "hours": 1, "cat": "Cloud Computing"}
+      ],
+      "for_you": "1 小时一集、边看边做，性价比最高的入门形式。"
+    },
+    {
+      "en": "Professional Skills",
+      "zh": "职业技能",
+      "count": 4,
+      "desc_en": "Enhance your career trajectory by mastering important skills essential for professional success.",
+      "desc_zh": "掌握职场关键技能，提升职业轨迹。",
+      "featured": [
+        {"en": "Introduction to Professional Skills", "level": "Foundational", "hours": 1, "cat": "Professional skills"},
+        {"en": "Resume Creation", "level": "Foundational", "hours": 1, "cat": "Professional skills"}
+      ],
+      "for_you": "★ 2026-10 更新：这 4 门课全部新增了 AI 模块（Professional Communication Skills、Problem-Solving Process、Goal Setting、Resume Creation）。其中「问题解决流程」与排错方法论同源，值得看。"
+    },
+    {
+      "en": "Exploring Cloud's Real-World Impact",
+      "zh": "云的真实影响",
+      "count": 3,
+      "desc_en": "Learn how cloud can fix problems and practice solving them in role-based examples.",
+      "desc_zh": "了解云如何解决问题，并按角色示例练习。",
+      "featured": [
+        {"en": "Introduction to the AWS Cloud and Sustainability", "level": "Foundational", "hours": 0.5, "cat": "Cloud Computing"},
+        {"en": "AWS Sustainability in the Cloud", "level": "Foundational", "hours": 1.5, "cat": "Network & Infrastructure"}
+      ],
+      "for_you": "Sustainability 占 WSOS 权重 10%，这两门直接相关。"
+    },
+    {
+      "en": "Cloud Challenges",
+      "zh": "云挑战",
+      "count": 15,
+      "desc_en": "Learn basic cloud concepts in short form scenarios.",
+      "desc_zh": "以短场景形式学习云基础概念。",
+      "featured": [
+        {"en": "Explore Cloud Computing", "level": "Foundational", "hours": 0.5, "cat": "Cloud Computing"},
+        {"en": "Explore Cloud Building", "level": "Foundational", "hours": 0.5, "cat": "Cloud Computing"}
+      ],
+      "for_you": "★ 15 门全是 0.5-2 小时的「Explore XX」短课，是 catalog 里 71 门的主体。碎片时间刷。"
+    }
+  ],
+
+  "filter_dimensions": ["Course Features", "Skills", "Level", "Duration", "Language"],
+
+  "my_progress": [
+    {"en": "Introduction to the AWS Management Console", "progress": 50},
+    {"en": "Introduction to Cloud 101", "progress": 0}
+  ],
+
+  "announcements": [
+    {
+      "zh": "4 门职业技能课新增 AI 模块",
+      "en": "Professional Communication Skills, Problem-Solving Process, Goal Setting, Resume Creation now include a dedicated AI module.",
+      "impact": "这 4 门课内容已变，之前的笔记可能需要重看。"
+    },
+    {
+      "zh": "AWS Skills Centers 免费直播培训",
+      "en": "AWS offers free, live instructor-led training - virtual & in-person.",
+      "impact": "想要真人带学可关注；对零基础自学者价值一般。"
+    },
+    {
+      "zh": "徽章与 Emerging Talent Community 绑定",
+      "en": "Complete a badge-eligible AWS Educate course to gain access to the AWS Emerging Talent Community.",
+      "impact": "与 Job Board 同属 2026 年退役范围，入口价值在下降。"
+    },
+    {
+      "zh": "面向 AWS Certified AI Practitioner 的备考引导",
+      "en": "Interested in building your AI skills to work towards the new AWS Certified AI Practitioner certification?",
+      "impact": "出现了新认证：AWS Certified AI Practitioner。"
+    }
+  ],
+
+  "notes": [
+    "门户首页只渲染 7 条路径、每条 2-3 门精选课（共 16 次课程提及）；完整的 71 门课程清单在筛选器/Aura 后台，未能通过 DOM 抓取取得。",
+    "71 门的完整元数据见 catalog.json（en/zh/level/hours/cat 五字段，来自上游收录）。",
+    "本文件是【登录态实测】结果，可按 _source 复核。"
+  ]
+}

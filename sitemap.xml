@@ -36,21 +36,5 @@
   <url><loc>https://taimabenji.github.io/knowledge-commons/learn/cloud/books.html</loc><priority>0.8</priority></url>
   <url><loc>https://taimabenji.github.io/knowledge-commons/learn/cloud/certs.html</loc><priority>0.8</priority></url>
   <url><loc>https://taimabenji.github.io/knowledge-commons/learn/win.html</loc><lastmod>2026-10-05</lastmod></url>
-  <url><loc>https://taimabenji.github.io/knowledge-commons/guoxue.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://taimabenji.github.io/knowledge-commons/learn/about.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://taimabenji.github.io/knowledge-commons/learn/cloud/4weeks.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://taimabenji.github.io/knowledge-commons/learn/cloud/lab.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://taimabenji.github.io/knowledge-commons/learn/cloud/net.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://taimabenji.github.io/knowledge-commons/learn/cloud/sprint.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://taimabenji.github.io/knowledge-commons/learn/cloud/week1.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://taimabenji.github.io/knowledge-commons/learn/courses/algo.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://taimabenji.github.io/knowledge-commons/learn/courses/algo2.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://taimabenji.github.io/knowledge-commons/learn/courses/aws-educate.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://taimabenji.github.io/knowledge-commons/learn/courses/gongkao.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://taimabenji.github.io/knowledge-commons/learn/courses/python.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://taimabenji.github.io/knowledge-commons/learn/exam/gongkao.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://taimabenji.github.io/knowledge-commons/learn/red/maoxuan.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://taimabenji.github.io/knowledge-commons/learn/red/poems.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://taimabenji.github.io/knowledge-commons/portal.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://taimabenji.github.io/knowledge-commons/resources.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://taimabenji.github.io/knowledge-commons/aws-educate/index.html</loc><priority>0.8</priority></url>
 </urlset>

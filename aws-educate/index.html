@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f4f6fa">
+<title>AWS 离线学习包 · 知识公社</title>
+<style>
+:root{--bg:#f4f6fa;--card:#fff;--ink:#1b1f2a;--dim:#6b7280;--line:#e5e8ef;--acc:#2563eb;--acc2:#7c3aed;--ok:#0f9d58;--warn:#b45309;--bad:#c2410c}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
+.wrap{max-width:1080px;margin:0 auto;padding:20px 16px 80px}
+h1{font-size:24px;margin:0 0 6px}
+.sub{color:var(--dim);font-size:13px;margin-bottom:14px}
+.banner{background:#fff;border:1px solid var(--line);border-left:4px solid var(--acc2);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px;color:#3f4657}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(104px,1fr));gap:10px;margin:14px 0}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:11px 12px}
+.stat b{display:block;font-size:20px;line-height:1.3}
+.stat span{font-size:11.5px;color:var(--dim)}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:16px 0 12px;position:sticky;top:0;background:var(--bg);padding:8px 0;z-index:5;border-bottom:1px solid var(--line)}
+.tab{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 14px;font-size:13.5px;cursor:pointer;color:var(--dim)}
+.tab.on{background:var(--acc);border-color:var(--acc);color:#fff;font-weight:600}
+.bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+input[type=search],select{border:1px solid var(--line);border-radius:8px;padding:8px 11px;font-size:14px;background:#fff;font-family:inherit;color:inherit}
+input[type=search]{flex:1;min-width:190px}
+.chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 11px;font-size:12.5px;cursor:pointer;color:var(--dim);user-select:none}
+.chip.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:10px}
+.card h3{margin:0 0 6px;font-size:16px}
+.card h4{margin:0 0 4px;font-size:14px}
+.meta{color:var(--dim);font-size:12.5px}
+.desc{color:#4b5563;font-size:13.5px;margin:8px 0}
+.advice{background:#f8fafc;border:1px dashed var(--line);border-radius:8px;padding:9px 11px;font-size:13px;margin-top:9px}
+.row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;cursor:pointer}
+.row .ttl{font-weight:600;font-size:14.5px}
+.zh{font-weight:600}
+.en{color:var(--dim);font-size:12.5px;font-weight:400;margin-top:2px}
+.tag{display:inline-block;border:1px solid var(--line);border-radius:6px;padding:1px 7px;font-size:11.5px;color:var(--dim);background:#fafbfd}
+.tag.lv1{border-color:#bfdbfe;color:#1d4ed8;background:#eff6ff}
+.tag.lv2{border-color:#fde68a;color:#b45309;background:#fffbeb}
+.tag.lv3{border-color:#fbcfe8;color:#be185d;background:#fdf2f8}
+.tag.ok{border-color:#bbf7d0;color:var(--ok);background:#f0fdf4}
+.tag.gd{border-color:#ddd6fe;color:var(--acc2);background:#f5f3ff}
+.det{margin-top:11px;padding-top:11px;border-top:1px solid var(--line);font-size:13px}
+.det .grp{margin:9px 0 5px;font-weight:600;color:var(--dim);font-size:12.5px}
+.lnk{display:inline-block;color:var(--acc);text-decoration:none;border-bottom:1px solid #bfdbfe;margin:0 8px 4px 0;font-size:12.5px;word-break:break-all}
+.lnk:hover{border-color:var(--acc)}
+code{background:#f1f5f9;border-radius:4px;padding:1px 5px;font-size:12.5px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.tbl{width:100%;border-collapse:collapse;font-size:13px}
+.tbl th,.tbl td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+.tbl th{background:#f8fafc;font-weight:600;font-size:12.5px;color:var(--dim)}
+.tbl td.num{text-align:right;white-space:nowrap}
+.hint{color:var(--dim);font-size:12.5px;margin:10px 0}
+.hide{display:none}
+.foot{color:var(--dim);font-size:12px;margin-top:28px;text-align:center;line-height:1.9}
+ul{padding-left:20px;margin:8px 0}
+li{margin:4px 0}
+b.hl{background:#fef08a;border-radius:3px;padding:0 2px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>AWS 离线学习包</h1>
+  <div class="sub" id="sub"></div>
+  <div class="banner" id="banner"></div>
+  <div class="stats" id="stats"></div>
+  <div class="tabs" id="tabs"></div>
+  <div id="view"></div>
+  <div class="foot" id="foot"></div>
+</div>
+
+<script>
+// 数据内联：不走 fetch，file:// 下也能用
+var PATHS = {"_captured":"2026-10-15","_source":"https://www.awseducate.com/student/s/content （登录态下实测抓取）","_scope":"仅采集【元数据与结构】：学习路径、课程名、描述、级别、时长、分类、进度。不转载课程正文（版权属 Amazon）。","learning_paths":[{"en":"Getting Started","zh":"入门起步","count":5,"desc_en":"New to cloud computing? Start here.","desc_zh":"刚接触云？从这里开始。","featured":[{"en":"Introduction to the AWS Management Console","level":"Foundational","hours":1,"cat":"Cloud Computing"},{"en":"Introduction to Cloud 101","level":"Foundational","hours":3,"cat":"Cloud Computing"}],"for_you":"零基础首选。这条路径的 5 门课就是整个平台的入口。"},{"en":"Artificial Intelligence (AI) and Machine Learning","zh":"人工智能与机器学习","count":5,"desc_en":"Learn AI and machine learning skills to shape the future of technology.","desc_zh":"学习 AI 与机器学习技能。","featured":[{"en":"Machine Learning Foundations","level":"Foundational","hours":3,"cat":"Machine Learning & AI"},{"en":"Introduction to Generative Artificial Intelligence","level":"Intermediate","hours":0.75,"cat":"Machine Learning & AI"}],"for_you":"与云计算赛项弱相关。零基础可跳过。"},{"en":"Core Concepts","zh":"核心概念","count":6,"desc_en":"Dive deeper into specific fundamental cloud skills.","desc_zh":"深入具体的云基础技能。","featured":[{"en":"Introduction to Generative Artificial Intelligence","level":"Intermediate","hours":0.75,"cat":"Machine Learning & AI"},{"en":"Cloud Support Associate Day in the Life","level":"Foundational","hours":0.5,"cat":"Cloud Computing"}],"for_you":"零基础先过「入门起步」，再进这里。"},{"en":"Twitch Series on-demand","zh":"Twitch 系列点播","count":3,"desc_en":"Dive into learning with AWS expert instructors in this on-demand series.","desc_zh":"随 AWS 专家导师点播学习。","featured":[{"en":"Twitch Episode 1: Get Confident in... Cloud Basics","level":"Foundational","hours":1,"cat":"Cloud Computing"},{"en":"Twitch Episode 2: Get Confident in... Storage","level":"Foundational","hours":1,"cat":"Cloud Computing"}],"for_you":"1 小时一集、边看边做，性价比最高的入门形式。"},{"en":"Professional Skills","zh":"职业技能","count":4,"desc_en":"Enhance your career trajectory by mastering important skills essential for professional success.","desc_zh":"掌握职场关键技能，提升职业轨迹。","featured":[{"en":"Introduction to Professional Skills","level":"Foundational","hours":1,"cat":"Professional skills"},{"en":"Resume Creation","level":"Foundational","hours":1,"cat":"Professional skills"}],"for_you":"★ 2026-10 更新：这 4 门课全部新增了 AI 模块（Professional Communication Skills、Problem-Solving Process、Goal Setting、Resume Creation）。其中「问题解决流程」与排错方法论同源，值得看。"},{"en":"Exploring Cloud's Real-World Impact","zh":"云的真实影响","count":3,"desc_en":"Learn how cloud can fix problems and practice solving them in role-based examples.","desc_zh":"了解云如何解决问题，并按角色示例练习。","featured":[{"en":"Introduction to the AWS Cloud and Sustainability","level":"Foundational","hours":0.5,"cat":"Cloud Computing"},{"en":"AWS Sustainability in the Cloud","level":"Foundational","hours":1.5,"cat":"Network & Infrastructure"}],"for_you":"Sustainability 占 WSOS 权重 10%，这两门直接相关。"},{"en":"Cloud Challenges","zh":"云挑战","count":15,"desc_en":"Learn basic cloud concepts in short form scenarios.","desc_zh":"以短场景形式学习云基础概念。","featured":[{"en":"Explore Cloud Computing","level":"Foundational","hours":0.5,"cat":"Cloud Computing"},{"en":"Explore Cloud Building","level":"Foundational","hours":0.5,"cat":"Cloud Computing"}],"for_you":"★ 15 门全是 0.5-2 小时的「Explore XX」短课，是 catalog 里 71 门的主体。碎片时间刷。"}],"filter_dimensions":["Course Features","Skills","Level","Duration","Language"],"my_progress":[{"en":"Introduction to the AWS Management Console","progress":50},{"en":"Introduction to Cloud 101","progress":0}],"announcements":[{"zh":"4 门职业技能课新增 AI 模块","en":"Professional Communication Skills, Problem-Solving Process, Goal Setting, Resume Creation now include a dedicated AI module.","impact":"这 4 门课内容已变，之前的笔记可能需要重看。"},{"zh":"AWS Skills Centers 免费直播培训","en":"AWS offers free, live instructor-led training - virtual & in-person.","impact":"想要真人带学可关注；对零基础自学者价值一般。"},{"zh":"徽章与 Emerging Talent Community 绑定","en":"Complete a badge-eligible AWS Educate course to gain access to the AWS Emerging Talent Community.","impact":"与 Job Board 同属 2026 年退役范围，入口价值在下降。"},{"zh":"面向 AWS Certified AI Practitioner 的备考引导","en":"Interested in building your AI skills to work towards the new AWS Certified AI Practitioner certification?","impact":"出现了新认证：AWS Certified AI Practitioner。"}],"notes":["门户首页只渲染 7 条路径、每条 2-3 门精选课（共 16 次课程提及）；完整的 71 门课程清单在筛选器/Aura 后台，未能通过 DOM 抓取取得。","71 门的完整元数据见 catalog.json（en/zh/level/hours/cat 五字段，来自上游收录）。","本文件是【登录态实测】结果，可按 _source 复核。"]};
+var CATALOG = [{"en":"Cloud Support Associate Day in the Life","zh":"云支持工程师的一天","level":"Foundational","hours":"0.5","cat":"Cloud Computing"},{"en":"Explore Cloud Building","zh":"探索云上构建","level":"Foundational","hours":"0.5","cat":"Cloud Computing"},{"en":"Explore Cloud Computing","zh":"探索云计算","level":"Foundational","hours":"0.5","cat":"Cloud Computing"},{"en":"Explore Cloud Storage","zh":"探索云存储","level":"Foundational","hours":"2","cat":"Cloud Computing"},{"en":"Explore Hardware & Software","zh":"探索硬件与软件","level":"Foundational","hours":"1","cat":"Cloud Computing"},{"en":"Explore Internet Basics","zh":"探索互联网基础","level":"Foundational","hours":"2","cat":"Cloud Computing"},{"en":"Explore Virtual Compute Power","zh":"探索虚拟算力","level":"Foundational","hours":"2","cat":"Cloud Computing"},{"en":"Explore Websites in the Cloud","zh":"探索云上网站","level":"Foundational","hours":"2","cat":"Cloud Computing"},{"en":"Explore using the Cloud","zh":"探索如何使用云","level":"Foundational","hours":"2","cat":"Cloud Computing"},{"en":"Getting Started with Cloud Operations","zh":"云运维入门","level":"Foundational","hours":"2","cat":"Cloud Computing"},{"en":"Getting Started with Compute","zh":"计算入门","level":"Foundational","hours":"2","cat":"Cloud Computing"},{"en":"Getting Started with Databases","zh":"数据库入门","level":"Foundational","hours":"2","cat":"Cloud Computing"},{"en":"Getting Started with Serverless","zh":"无服务器入门","level":"Foundational","hours":"2","cat":"Cloud Computing"},{"en":"Getting Started with Storage","zh":"存储入门","level":"Foundational","hours":"2","cat":"Cloud Computing"},{"en":"Introduction to Cloud 101","zh":"云计算入门 101","level":"Foundational","hours":"3","cat":"Cloud Computing"},{"en":"Introduction to the AWS Cloud and Sustainability","zh":"AWS 云与可持续发展入门","level":"Foundational","hours":"0.5","cat":"Cloud Computing"},{"en":"Introduction to the AWS Management Console","zh":"AWS 管理控制台入门","level":"Foundational","hours":"1","cat":"Cloud Computing"},{"en":"Twitch Episode 1: Get Confident in... Cloud Basics","zh":"Twitch 第 1 集：搞定云基础","level":"Foundational","hours":"1","cat":"Cloud Computing"},{"en":"Twitch Episode 2: Get Confident in... Storage","zh":"Twitch 第 2 集：搞定存储","level":"Foundational","hours":"1","cat":"Cloud Computing"},{"en":"Twitch Episode 3: Get Confident in... Compute","zh":"Twitch 第 3 集：搞定计算","level":"Foundational","hours":"1","cat":"Cloud Computing"},{"en":"Twitch Episode 5: Get Confident in... Databases","zh":"Twitch 第 5 集：搞定数据库","level":"Foundational","hours":"1","cat":"Cloud Computing"},{"en":"Logging into a Linux Instance Using Amazon EC2 Instance Connect","zh":"用 EC2 Instance Connect 登录 Linux 实例","level":"Intermediate","hours":"0.75","cat":"Cloud Computing"},{"en":"Working with Amazon EBS Snapshots","zh":"Amazon EBS 快照实战","level":"Intermediate","hours":"0.75","cat":"Cloud Computing"},{"en":"Working with User Data","zh":"用户数据处理实战","level":"Intermediate","hours":"0.75","cat":"Cloud Computing"},{"en":"AWS Sustainability in the Cloud","zh":"AWS 云的可持续性","level":"Foundational","hours":"1.5","cat":"Network & Infrastructure"},{"en":"Explore Cloud Connections","zh":"探索云上连接","level":"Foundational","hours":"1","cat":"Network & Infrastructure"},{"en":"Explore Cloud Redundancy","zh":"探索云端冗余","level":"Foundational","hours":"1","cat":"Network & Infrastructure"},{"en":"Explore Digital Divide","zh":"探索数字鸿沟","level":"Foundational","hours":"1","cat":"Network & Infrastructure"},{"en":"Explore Global Impact","zh":"探索全球影响","level":"Foundational","hours":"1","cat":"Network & Infrastructure"},{"en":"Explore Internet Routing","zh":"探索互联网路由","level":"Foundational","hours":"0.5","cat":"Network & Infrastructure"},{"en":"Getting Started with Networking","zh":"网络入门","level":"Foundational","hours":"2","cat":"Network & Infrastructure"},{"en":"Twitch Episode 4: Get Confident in... Networking","zh":"Twitch 第 4 集：搞定网络","level":"Foundational","hours":"1","cat":"Network & Infrastructure"},{"en":"Explore Cyber Security","zh":"探索网络安全基础","level":"Foundational","hours":"0.5","cat":"Security"},{"en":"Explore Cybersecurity","zh":"探索网络安全实践","level":"Foundational","hours":"2","cat":"Security"},{"en":"Explore Data Safety","zh":"探索数据安全","level":"Foundational","hours":"1","cat":"Security"},{"en":"Explore Online Privacy","zh":"探索在线隐私","level":"Foundational","hours":"0.5","cat":"Security"},{"en":"Explore Securing the Cloud","zh":"探索云安全防护","level":"Foundational","hours":"2","cat":"Security"},{"en":"Getting Started with Security","zh":"安全入门","level":"Foundational","hours":"2","cat":"Security"},{"en":"Explore Artificial Intelligence","zh":"探索人工智能","level":"Foundational","hours":"2","cat":"Machine Learning & AI"},{"en":"Explore Machine Learning","zh":"探索机器学习","level":"Foundational","hours":"2","cat":"Machine Learning & AI"},{"en":"Explore Virtual Reality","zh":"探索虚拟现实","level":"Foundational","hours":"2","cat":"Machine Learning & AI"},{"en":"Introduction to Amazon Bedrock","zh":"Amazon Bedrock 入门","level":"Foundational","hours":"0.75","cat":"Machine Learning & AI"},{"en":"Introduction to Amazon Q Developer","zh":"Amazon Q Developer 入门","level":"Foundational","hours":"0.75","cat":"Machine Learning & AI"},{"en":"Introduction to PartyRock","zh":"PartyRock 入门","level":"Foundational","hours":"0.75","cat":"Machine Learning & AI"},{"en":"Introduction to Responsible AI","zh":"负责任的人工智能入门","level":"Foundational","hours":"0.75","cat":"Machine Learning & AI"},{"en":"Machine Learning Foundations","zh":"机器学习基础","level":"Foundational","hours":"3","cat":"Machine Learning & AI"},{"en":"Twitch Episode 6: Get Confident in... Gen AI and Amazon Q","zh":"Twitch 第 6 集：搞定生成式 AI 与 Amazon Q","level":"Foundational","hours":"1","cat":"Machine Learning & AI"},{"en":"Using Amazon Q Developer","zh":"使用 Amazon Q Developer","level":"Foundational","hours":"0.75","cat":"Machine Learning & AI"},{"en":"Introduction to Generative Artificial Intelligence","zh":"生成式人工智能入门","level":"Intermediate","hours":"0.75","cat":"Machine Learning & AI"},{"en":"Cloud Rescue! Koalas","zh":"云端救援！考拉篇","level":"Foundational","hours":"1.5","cat":"Analytics"},{"en":"Explore Big Data","zh":"探索大数据","level":"Foundational","hours":"1","cat":"Analytics"},{"en":"Explore Data Analysis","zh":"探索数据分析","level":"Foundational","hours":"0.5","cat":"Analytics"},{"en":"Explore Data Models","zh":"探索数据模型","level":"Foundational","hours":"0.5","cat":"Analytics"},{"en":"Explore Data Transformation","zh":"探索数据转换","level":"Foundational","hours":"1","cat":"Analytics"},{"en":"Introduction to Amazon CloudWatch","zh":"Amazon CloudWatch 入门","level":"Foundational","hours":"0.75","cat":"Analytics"},{"en":"Sports Data Analytics","zh":"体育数据分析","level":"Foundational","hours":"1.5","cat":"Analytics"},{"en":"Cancer Hunters in the Cloud","zh":"云端的癌症猎手","level":"Intermediate","hours":"1.5","cat":"Analytics"},{"en":"Chatbots for Accessibility","zh":"无障碍聊天机器人","level":"Foundational","hours":"1.5","cat":"Development"},{"en":"Explore Algorithms","zh":"探索算法","level":"Foundational","hours":"0.5","cat":"Development"},{"en":"Explore Program Design","zh":"探索程序设计","level":"Foundational","hours":"0.5","cat":"Development"},{"en":"Explore Programming","zh":"探索编程","level":"Foundational","hours":"1","cat":"Development"},{"en":"Explore Troubleshooting","zh":"探索故障排查","level":"Foundational","hours":"3","cat":"Development"},{"en":"Explore Variables","zh":"探索变量","level":"Foundational","hours":"2","cat":"Development"},{"en":"AWS Startups","zh":"AWS 与初创企业","level":"Foundational","hours":"10","cat":"Professional skills"},{"en":"Amazon Innovation","zh":"亚马逊的创新方法","level":"Foundational","hours":"2","cat":"Professional skills"},{"en":"Communication","zh":"沟通表达","level":"Foundational","hours":"1","cat":"Professional skills"},{"en":"Goal Setting","zh":"目标设定","level":"Foundational","hours":"1","cat":"Professional skills"},{"en":"Introduction to Professional Skills","zh":"职业技能入门","level":"Foundational","hours":"1","cat":"Professional skills"},{"en":"Networking","zh":"人脉经营","level":"Foundational","hours":"1","cat":"Professional skills"},{"en":"Problem-Solving Process","zh":"问题解决流程","level":"Foundational","hours":"1","cat":"Professional skills"},{"en":"Resume Creation","zh":"简历撰写","level":"Foundational","hours":"1","cat":"Professional skills"}];
+var D = { paths: PATHS.learning_paths, filters: PATHS.filter_dimensions, announcements: PATHS.announcements, progress: PATHS.my_progress, notes: PATHS.notes, catalog: CATALOG };
+
+/* ---------- 小工具 ---------- */
+function esc(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+function lvTag(lv){ var c=lv==="Advanced"?"lv3":(lv==="Intermediate"?"lv2":"lv1"); return '<span class="tag '+c+'">'+esc(lv||"-")+'</span>'; }
+function hl(text, q){ if(!q) return esc(text); var i=text.toLowerCase().indexOf(q.toLowerCase()); if(i<0) return esc(text); return esc(text.slice(0,i))+'<b class="hl">'+esc(text.slice(i,i+q.length))+'</b>'+esc(text.slice(i+q.length)); }
+function lvTag(lv){ var c=lv==="Advanced"?"lv3":(lv==="Intermediate"?"lv2":"lv1"); return '<span class="tag '+c+'">'+esc(lv||"-")+'</span>'; }
+
+/* ---------- 顶部 ---------- */
+function renderHead(){
+  var t = D.catalog.length;
+  document.getElementById("sub").innerHTML = "AWS Educate 71 门官方课程 · 7 条官方学习路径（2026-10 登录态实测）· 数据内联，双击本文件即可离线使用";
+  document.getElementById("banner").innerHTML = "<b>为什么不放课程正文？</b> "+esc("AWS Educate 课程正文需登录且版权属 Amazon，无法下载。本文件不转载任何 AWS 课程内容，只给出这门课的主题与官方学习路径。");
+  var cells = [
+    [D.paths.length, "条官方学习路径"],
+    [D.catalog.length, "门 AWS Educate 课"],
+    [99.5, "学时"],
+    [D.paths.reduce(function(a,p){return a+p.count;},0), "门课挂在路径下"],
+    [3090, "篇站内可离线 AWS 文档"],
+  ];
+  document.getElementById("stats").innerHTML = cells.map(function(c){ return '<div class="stat"><b>'+c[0]+'</b><span>'+esc(c[1])+'</span></div>'; }).join("");
+  document.getElementById("foot").innerHTML = '这一页由 <code>aws-educate/learning-paths.json</code> + <code>catalog.json</code> 编译<br>配套文件：<a href="learning-paths.json">learning-paths.json</a> · <a href="catalog.json">catalog.json</a> · <a href="README.md">README.md</a> · <a href="../study.html">资料中心</a>';
+}
+
+/* ---------- 视图 1：学习路径 ---------- */
+function viewPaths(){
+  var h = '<div class="hint">路径是 AWS 官方推荐的<b>刷课顺序</b>，不是主题分类。catalog 里的 7 个分类是<b>主题标签</b>，两者交叉覆盖同一批课 —— <b>跟着路径刷</b>。</div>';
+  D.paths.forEach(function(p){
+    var f = (p.featured||[]).map(function(c){
+      var cat = D.catalog.filter(function(x){ return x.en===c.en; })[0];
+      return "<li><b>"+esc(c.zh||c.en)+"</b> <span class=\"meta\">"+esc(c.en)+"</span> "+
+             '<div class="meta">'+esc(c.level)+" · "+esc(c.hours)+" 小时 · "+esc(c.cat)+"</div></li>";
+    }).join("");
+    h += '<div class="card"><div class="row" style="cursor:default">'+
+         "<div><h3>"+esc(p.zh)+"</h3><div class=\"en\">"+esc(p.en)+"</div></div>"+
+         '<div style="white-space:nowrap"><span class="tag ok">'+p.count+' 门</span></div></div>'+
+         '<div class="desc">'+esc(p.desc_zh)+'<br><span class="meta">'+esc(p.desc_en)+"</span></div>"+
+         '<div class="advice"><b>对零基础的你：</b>'+esc(p.for_you)+"</div>"+
+         '<div class="det" style="display:block"><div class="grp">门户首页展示的精选课（路径内完整名单需在门户点开）</div><ul>'+f+"</ul></div></div>";
+  });
+  h += '<div class="card"><b>门户筛选维度</b> <div class="meta" style="margin-top:6px">'+
+       D.filters.map(esc).join(" · ")+'</div>'+
+       '<div class="hint" style="margin-bottom:0">其中 <code>Skills</code> 是门户里有、catalog.json 里没有的一层信息，说明 AWS 内部按技能域组织课程。</div></div>';
+  h += '<div class="card"><b>2026-10 门户公告</b><ul>';
+  D.announcements.forEach(function(a){
+    h += "<li><b>"+esc(a.zh)+"</b> — "+esc(a.en)+"<br><span class=\"meta\">影响："+esc(a.impact)+"</span></li>";
+  });
+  h += "</ul></div>";
+  if (D.progress && D.progress.length){
+    h += '<div class="card"><b>你的课程进度</b><ul>';
+    D.progress.forEach(function(p){
+      h += "<li>"+esc(p.en)+" — <b>"+p.progress+"%</b></li>";
+    });
+    h += "</ul></div>";
+  }
+  return h;
+}
+
+/* ---------- 视图 2：71 门课 ---------- */
+var q = "", fLevel = "", fCat = "", openSet = {};
+function viewCourses(){
+  var lvls = [], cats = [];
+  D.catalog.forEach(function(c){ if(c.level && lvls.indexOf(c.level)<0) lvls.push(c.level); if(c.cat && cats.indexOf(c.cat)<0) cats.push(c.cat); });
+  var toolsHtml = '<div class="bar"><input type="search" id="q" placeholder="搜课程名（中/英）或 AWS 服务" value="' + esc(q) + '"></div>';
+  toolsHtml += '<div class="bar"><span class="meta" style="align-self:center;min-width:38px">难度</span>';
+  toolsHtml += '<span class="chip' + (fLevel?"":" on") + '" data-f="level">全部</span>';
+  lvls.sort().forEach(function(x){ toolsHtml += '<span class="chip' + (fLevel===x?" on":"") + '" data-f="level" data-v="' + esc(x) + '">' + esc(x) + '</span>'; });
+  toolsHtml += '</div>';
+  toolsHtml += '<div class="bar"><span class="meta" style="align-self:center;min-width:38px">类别</span>';
+  toolsHtml += '<span class="chip' + (fCat?"":" on") + '" data-f="cat">全部</span>';
+  cats.sort().forEach(function(x){ toolsHtml += '<span class="chip' + (fCat===x?" on":"") + '" data-f="cat" data-v="' + esc(x) + '">' + esc(x) + '</span>'; });
+  toolsHtml += '</div>';
+  document.getElementById("tools").innerHTML = toolsHtml;
+  renderCourseList();
+}
+
+function renderCourseList(){
+  var list = D.catalog.filter(function(c){
+    if(fLevel && c.level!==fLevel) return false;
+    if(fCat && c.cat!==fCat) return false;
+    if(!q) return true;
+    var hay = (c.zh+" "+c.en+" "+c.cat+" "+(c.svcs||[]).join(" ")).toLowerCase();
+    return hay.indexOf(q.toLowerCase())>=0;
+  });
+  var h = '<div class="hint">共 <b>'+D.catalog.length+'</b> 门，当前显示 <b>'+list.length+'</b> 门。点任意一行展开。</div>';
+  if(!list.length) h += '<div class="card">没有匹配的课程，试试清空搜索词。</div>';
+  list.forEach(function(c){
+    var open = !!openSet[c.en];
+    var rowHtml = '<div class="card"><div class="row" data-course="' + esc(c.en) + '">';
+    rowHtml += '<div style="min-width:0"><div class="ttl">' + hl(c.zh, q) + '</div>';
+    rowHtml += '<div class="en">' + hl(c.en, q) + '</div></div>';
+    rowHtml += '<div style="text-align:right;white-space:nowrap">' + lvTag(c.level);
+    rowHtml += '<div class="meta" style="margin-top:4px">' + esc(c.hours) + ' 小时</div></div></div>';
+    rowHtml += '<div class="meta" style="margin-top:7px">' + esc(c.cat) + '</div>';
+    if(open) rowHtml += '<div class="det" style="display:block"><div class="grp">AWS Educate 官方课，需登录平台学习。AWS 服务：' + ((c.svcs && c.svcs.length) ? c.svcs.join(", ") : "无") + '</div></div>';
+    rowHtml += "</div>";
+    h += rowHtml;
+  });
+  document.getElementById("list").innerHTML = h;
+}
+
+/* ---------- 视图 3：说明 ---------- */
+function viewAbout(){
+  var h = '<div class="card"><b>抓取边界（说明白，别误会）</b>'+
+    '<table class="tbl" style="margin-top:9px"><thead><tr><th>拿到了</th><th>没拿到</th></tr></thead><tbody><tr>'+
+    "<td>7 条学习路径 + 描述 + 课数<br>16 次课程提及的级别/时长/分类<br>5 个筛选维度名<br>课程进度、公告</td>"+
+    "<td>完整 71 门的门户内清单（在 Aura 后台，DOM 抓不到）<br>课程正文（版权属 Amazon，且托管在 Canvas 后）<br>各筛选维度的完整可选项</td>"+
+    "</tr></tbody></table></div>";
+  h += '<div class="card"><b>怎么用（零基础）</b><ol>'+
+    "<li>先读 <a class=\"lnk\" href=\"README.md\">README.md</a> 的 §4，三套刷课路线按你现在的阶段选一条。</li>"+
+    "<li>本页面「学习路径」标签下，从 <b>Getting Started</b> 开始 —— 官方推荐的第一站就是它。</li>"+
+    "<li>每门课展开后的「站内离线教材」就是你的替代学习材料，点开即读，不联网也行。</li>"+
+    "<li>有「可自动评分的验证脚本」的课，学完直接跑一遍脚本验证，别只看不练。</li>"+
+    "<li>零基础第一门别碰 AI 路径。Professional skills 整类（8 门）与赛项无关，可以最后再说。</li>"+
+    "</ol></div>";
+  h += '<div class="card"><b>维护</b><div class="hint" style="margin-bottom:0">'+
+    "索引 JSON 由 <code>aws-educate/catalog.json</code> 提供，本页面数据内联。"+
+    "深链是否有效由 <code>tools/verify_all.py</code> 的站内链接检查把关。</div></div>";
+  return h;
+}
+
+/* ---------- 路由 ---------- */
+var TABS = [
+  {k:"paths",  t:"学习路径", f:viewPaths},
+  {k:"courses",t:"课程 "+D.catalog.length+" 门", f:viewCourses, split:true},
+  {k:"about", t:"说明与边界", f:viewAbout}
+];
+var cur = "paths";
+function drawTabs(){ document.getElementById("tabs").innerHTML = TABS.map(function(x){ return '<button class="tab'+(cur===x.k?" on":"")+'" data-tab="'+x.k+'">'+esc(x.t)+"</button>"; }).join(""); }
+function draw(){
+  var t = TABS.filter(function(x){ return x.k===cur; })[0] || TABS[0];
+  if(t.split){
+    document.getElementById("view").innerHTML = '<div id="tools"></div><div id="list"></div>';
+    t.f();
+  } else {
+    document.getElementById("view").innerHTML = t.f();
+  }
+  drawTabs();
+}
+document.addEventListener("click", function(e){
+  var tab = e.target.closest("[data-tab]"); if(tab){ cur=tab.dataset.tab; draw(); window.scrollTo({top:0,behavior:"smooth"}); return; }
+  var chip = e.target.closest(".chip"); if(chip){ var f=chip.dataset.f, v=chip.dataset.v||""; if(f==="level") fLevel=(fLevel===v?"":v); if(f==="cat") fCat=(fCat===v?"":v); viewCourses(); return; }
+  var row = e.target.closest("[data-course]"); if(row){ var k=row.dataset.course; openSet[k]=!openSet[k]; renderCourseList(); return; }
+});
+document.addEventListener("input", function(e){ if(e.target.id!=="q") return; q=e.target.value; renderCourseList(); });
+renderHead();
+draw();
+</script>
+</body>
+</html>

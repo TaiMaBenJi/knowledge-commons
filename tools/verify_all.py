@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
+r"""
 verify_all.py · 知识公社全仓库质量门禁（一键跑完所有检查）
 
     python tools/verify_all.py             # 全跑
